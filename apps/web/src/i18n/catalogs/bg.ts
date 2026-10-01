@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const bgCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Настройки на AI",
+    provider: "Доставчик на чата",
+    model: "Модел",
+    connect: "Свържи ChatGPT",
+    disconnect: "Прекъсни връзката",
+    notConnected: "Не е свързан",
+    notConfigured: "Връзката с ChatGPT е изключена на този сървър.",
+    supported: "Чат и инструменти за карти. Диктовката изисква API ключ.",
+    apiDescription: "Използването на API и изображенията се таксуват отделно.",
+    codeInstruction: "Отворете връзката за вход и въведете този код.",
+    copyCode: "Копирай кода",
+    copied: "Копирано",
+    copyFailed: "Копирайте кода ръчно.",
+    openSignIn: "Отвори входа в ChatGPT",
+    waiting: "Изчакване на разрешение...",
+    usingChatGPT: "Използва се абонамент за ChatGPT",
+  },
   accentColorSettings: {
     title: "Акцентен цвят",
     subtitle: "Изберете акцентния цвят на приложението.",

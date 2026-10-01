@@ -1,4 +1,22 @@
 const enCatalog = {
+  aiSettings: {
+    title: "AI settings",
+    provider: "Chat provider",
+    model: "Model",
+    connect: "Connect ChatGPT",
+    disconnect: "Disconnect",
+    notConnected: "Not connected",
+    notConfigured: "ChatGPT connection is disabled on this server.",
+    supported: "Chat and card tools. Dictation requires an API key.",
+    apiDescription: "API usage and images are billed separately.",
+    codeInstruction: "Open the sign-in link and enter this code.",
+    copyCode: "Copy code",
+    copied: "Copied",
+    copyFailed: "Copy the code manually.",
+    openSignIn: "Open ChatGPT sign-in",
+    waiting: "Waiting for authorization...",
+    usingChatGPT: "Using ChatGPT subscription",
+  },
   accentColorSettings: {
     title: "Accent color",
     subtitle: "Choose the app’s accent color.",

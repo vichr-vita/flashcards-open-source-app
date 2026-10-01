@@ -1184,6 +1184,8 @@ export function apiGateway(scope: Construct, props: ApiGatewayProps): ApiGateway
       forceDockerBundling: false,
     }),
   });
+  // Private AUTH_MODE=local routes /ai/settings and /chat/live are served by Node only.
+  // They are deliberately absent from the Cognito/AWS gateway.
   const chatLiveFunctionUrl = chatLiveFn.addFunctionUrl({
     authType: lambda.FunctionUrlAuthType.NONE,
     invokeMode: lambda.InvokeMode.RESPONSE_STREAM,

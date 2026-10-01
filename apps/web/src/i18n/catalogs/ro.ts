@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const roCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Setări AI",
+    provider: "Furnizor de chat",
+    model: "Model",
+    connect: "Conectează ChatGPT",
+    disconnect: "Deconectează",
+    notConnected: "Neconectat",
+    notConfigured: "Conexiunea ChatGPT este dezactivată pe acest server.",
+    supported: "Chat și instrumente pentru fișe. Dictarea necesită o cheie API.",
+    apiDescription: "Utilizarea API și imaginile sunt facturate separat.",
+    codeInstruction: "Deschide linkul de autentificare și introdu acest cod.",
+    copyCode: "Copiază codul",
+    copied: "Copiat",
+    copyFailed: "Copiază codul manual.",
+    openSignIn: "Deschide autentificarea ChatGPT",
+    waiting: "Se așteaptă autorizarea...",
+    usingChatGPT: "Se folosește abonamentul ChatGPT",
+  },
   accentColorSettings: {
     title: "Culoare de accent",
     subtitle: "Alege culoarea de accent a aplicației.",

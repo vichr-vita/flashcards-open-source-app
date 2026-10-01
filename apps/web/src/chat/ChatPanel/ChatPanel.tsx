@@ -1,3 +1,6 @@
+import { Link } from "react-router";
+import { buildWorkspaceRoute, settingsAIRoute } from "../../routes";
+import { useAISettings } from "../preferences/useAISettings";
 import { useEffect, useRef, type ReactElement } from "react";
 import { useAppData } from "../../appData";
 import {
@@ -45,6 +48,7 @@ type Props = Readonly<{
 export function ChatPanel(props: Props): ReactElement {
   const { mode } = props;
   const appData = useAppData();
+  const { settings: aiSettings } = useAISettings();
   const { indexedDbOpenRecoveryState, showCapturedTechnicalError, showTechnicalError } = useAppErrorDialog();
   const { t, formatCount, formatDate, formatNumber, messages: translationMessages } = useI18n();
   const { aiChatComposerSuggestionsEnabled } = useAIChatPreferences();
@@ -274,6 +278,7 @@ export function ChatPanel(props: Props): ReactElement {
   const remainingAiMessagesNotice = remainingAiMessages !== null
     && remainingAiMessages <= 3
     && isOwnOpenAIKeyActive === false
+    && aiSettings?.provider !== "chatgpt"
     ? remainingAiMessages
     : null;
   const microphoneAriaLabel = dictationState === "recording" ? t("chatPanel.dictation.stop") : t("chatPanel.dictation.start");
@@ -441,6 +446,12 @@ export function ChatPanel(props: Props): ReactElement {
         data-draft-state={hasDraftContent ? "filled" : "empty"}
         data-can-send={canSendPendingMessage ? "true" : "false"}
       >
+        {aiSettings?.provider === "chatgpt" && activeWorkspaceId !== null ? (
+          <p className="chat-provider-notice" data-testid="chat-provider-notice">
+            <span>{t("aiSettings.usingChatGPT")}</span>
+            <Link to={buildWorkspaceRoute(activeWorkspaceId, settingsAIRoute)}>{t("aiSettings.title")}</Link>
+          </p>
+        ) : null}
         {remainingAiMessagesNotice !== null ? (
           <p className="chat-ai-usage-notice" data-testid="chat-ai-usage-remaining">
             {t("chatPanel.aiUsage.remaining", {

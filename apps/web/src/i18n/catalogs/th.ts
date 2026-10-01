@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const thCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "การตั้งค่า AI",
+    provider: "ผู้ให้บริการแชต",
+    model: "โมเดล",
+    connect: "เชื่อมต่อ ChatGPT",
+    disconnect: "ตัดการเชื่อมต่อ",
+    notConnected: "ยังไม่ได้เชื่อมต่อ",
+    notConfigured: "การเชื่อมต่อ ChatGPT ถูกปิดใช้งานบนเซิร์ฟเวอร์นี้",
+    supported: "แชตและเครื่องมือบัตรคำ การป้อนด้วยเสียงต้องใช้คีย์ API",
+    apiDescription: "การใช้งาน API และรูปภาพคิดค่าบริการแยกต่างหาก",
+    codeInstruction: "เปิดลิงก์เข้าสู่ระบบและป้อนรหัสนี้",
+    copyCode: "คัดลอกรหัส",
+    copied: "คัดลอกแล้ว",
+    copyFailed: "คัดลอกรหัสด้วยตนเอง",
+    openSignIn: "เปิดการเข้าสู่ระบบ ChatGPT",
+    waiting: "กำลังรอการอนุญาต...",
+    usingChatGPT: "กำลังใช้การสมัครสมาชิก ChatGPT",
+  },
   accentColorSettings: {
     title: "สีเน้น",
     subtitle: "เลือกสีเน้นของแอป",

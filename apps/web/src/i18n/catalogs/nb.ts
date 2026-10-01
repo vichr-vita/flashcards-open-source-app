@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const nbCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI-innstillinger",
+    provider: "Chatleverandør",
+    model: "Modell",
+    connect: "Koble til ChatGPT",
+    disconnect: "Koble fra",
+    notConnected: "Ikke tilkoblet",
+    notConfigured: "ChatGPT-tilkoblingen er deaktivert på denne serveren.",
+    supported: "Chat og kortverktøy. Diktering krever en API-nøkkel.",
+    apiDescription: "API-bruk og bilder faktureres separat.",
+    codeInstruction: "Åpne innloggingslenken og skriv inn denne koden.",
+    copyCode: "Kopier kode",
+    copied: "Kopiert",
+    copyFailed: "Kopier koden manuelt.",
+    openSignIn: "Åpne ChatGPT-innlogging",
+    waiting: "Venter på godkjenning...",
+    usingChatGPT: "Bruker ChatGPT-abonnement",
+  },
   accentColorSettings: {
     title: "Aksentfarge",
     subtitle: "Velg appens aksentfarge.",

@@ -1,7 +1,14 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
+import { getAuthConfig } from "../../auth/config";
+import { getLocalCsrfSecret } from "../../auth/local";
 import { HttpError } from "../../shared/errors";
 import type { BackendTraceCarrier } from "../../observability/sentry";
 import { getBackendChatLiveAuthSecret } from "../../aws/secrets";
+
+async function getChatLiveSecret(): Promise<string> {
+  if (process.env.AUTH_MODE === "local" && getAuthConfig().mode === "local") return createHmac("sha256", getLocalCsrfSecret()).update("local-chat-live-v1").digest("hex");
+  return getBackendChatLiveAuthSecret(getBackendChatLiveAuthSecretArn());
+}
 
 const CHAT_LIVE_AUTH_TOKEN_VERSION = 1;
 const CHAT_LIVE_AUTH_TTL_MS = 10 * 60 * 1000;
@@ -137,7 +144,7 @@ export async function createChatLiveStreamEnvelope(
     expiresAt,
     traceContext,
   };
-  const secret = await getBackendChatLiveAuthSecret(getBackendChatLiveAuthSecretArn());
+  const secret = await getChatLiveSecret();
   const encodedPayload = encodePayload(payload);
   const signature = signPayload(encodedPayload, secret);
 
@@ -172,7 +179,7 @@ export async function verifyChatLiveAuthorizationHeader(
     throw new HttpError(401, "Chat live auth token is malformed", "CHAT_LIVE_AUTH_INVALID");
   }
 
-  const secret = await getBackendChatLiveAuthSecret(getBackendChatLiveAuthSecretArn());
+  const secret = await getChatLiveSecret();
   const expectedSignature = signPayload(encodedPayload, secret);
   if (isMatchingSignature(expectedSignature, providedSignature) === false) {
     throw new HttpError(401, "Chat live auth token signature is invalid", "CHAT_LIVE_AUTH_INVALID");

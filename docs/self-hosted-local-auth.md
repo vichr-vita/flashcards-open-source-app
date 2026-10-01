@@ -33,6 +33,8 @@ Set `WEBAUTHN_RP_ID` to the hostname of `PUBLIC_AUTH_BASE_URL`. The verifier che
 
 Unset `DB_SECRET_ARN`, Cognito settings, Cognito CSRF-secret ARN settings, and demo-account credentials. Local authentication does not call AWS or an email service. Existing upstream dependencies remain for the Cognito mode. Unconfigured AI, object storage, billing, and other unrelated integrations do not become available through this auth change.
 
+For subscription-backed chat, follow [ChatGPT subscriptions on a private server](self-hosted-chatgpt.md). It adds a dedicated AI settings page and requires a private persistent credential directory.
+
 Use HTTPS and keep the existing private Tailscale access. Web, API, and auth must share a cookie domain and be on the same browser site. Separate ports on the same hostname work. An auth origin on an unrelated site does not work with this cookie contract.
 
 Plain HTTP is allowed only for explicit loopback development with both `NODE_ENV=development` and `LOCAL_AUTH_ALLOW_HTTP=true`. Do not use these settings on a remote host. Do not use `AUTH_MODE=none`.
@@ -119,9 +121,9 @@ npm --prefix apps/auth run test:local-integration
 docker rm -f nibomo-local-auth-test
 ```
 
-Wait for PostgreSQL to report readiness before migrating. Trust authentication above is for this disposable loopback fixture only. It is not a deployment example. The integration command starts real auth/backend HTTP processes on ports `19401` and `19400`. Those ports must be free. Run with Node 24.21.0.
+Wait for PostgreSQL to report readiness before migrating. Trust authentication above is for this disposable loopback fixture only. It is not a deployment example. The integration command starts real auth/backend HTTP processes on ports `19401` and `19400`, plus a simulated OpenAI provider on `19402`. Those ports must be free. Run with Node 24.21.0. Optional browser review uses a separate web process on `19411`.
 
-The check covers signed WebAuthn registration/login, missing device verification, wrong signature/origin/RP, browser binding, expiry/replay, persisted throttling, login and backend CSRF, stable identity, card creation and review scheduling, cross-session sync, service restart, expiry, concurrent refresh, logout, passkey addition/reset/revocation, deleted-account behavior, disabled alternate authentication, and database role permissions. Its server-process preload blocks outbound HTTP calls to detect an unexpected Cognito or email dependency. It does not verify paid services or a real phone.
+The check covers signed WebAuthn registration/login, missing device verification, wrong signature/origin/RP, browser binding, expiry/replay, persisted throttling, login and backend CSRF, stable identity, card creation and review scheduling, cross-session sync, service restart, expiry, concurrent refresh, logout, passkey addition/reset/revocation, deleted-account behavior, disabled alternate authentication, and database role permissions. It also exercises subscription chat through the simulated provider. Its server-process preload redirects the fixed OpenAI hosts to that fixture and blocks other outbound HTTP calls to detect an unexpected Cognito or email dependency. It does not verify paid services or a real phone.
 
 ## Prepare deployment and rollback
 

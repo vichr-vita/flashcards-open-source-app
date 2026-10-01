@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const isCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI-stillingar",
+    provider: "Spjallþjónusta",
+    model: "Líkan",
+    connect: "Tengja ChatGPT",
+    disconnect: "Aftengja",
+    notConnected: "Ekki tengt",
+    notConfigured: "ChatGPT-tenging er óvirk á þessum þjóni.",
+    supported: "Spjall og kortaverkfæri. Upplestur í texta krefst API-lykils.",
+    apiDescription: "API-notkun og myndir eru gjaldfærðar sérstaklega.",
+    codeInstruction: "Opnaðu innskráningartengilinn og sláðu inn þennan kóða.",
+    copyCode: "Afrita kóða",
+    copied: "Afritað",
+    copyFailed: "Afritaðu kóðann handvirkt.",
+    openSignIn: "Opna ChatGPT-innskráningu",
+    waiting: "Beðið eftir heimild...",
+    usingChatGPT: "ChatGPT-áskrift í notkun",
+  },
   accentColorSettings: {
     title: "Áherslulitur",
     subtitle: "Veldu áherslulit appsins.",

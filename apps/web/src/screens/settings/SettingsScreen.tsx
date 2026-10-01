@@ -1,3 +1,4 @@
+import { useAISettings } from "../../chat/preferences/useAISettings";
 import { useEffect, useState, type ReactElement } from "react";
 import { isAuthRedirectError } from "../../api";
 import { useAppData } from "../../appData";
@@ -37,6 +38,7 @@ import {
   settingsLeaderboardParticipationRoute,
   settingsNotificationsRoute,
   settingsOwnOpenAIKeyRoute,
+  settingsAIRoute,
   settingsSubscriptionRoute,
   settingsReviewAnimationsRoute,
   settingsResetStudyProgressRoute,
@@ -95,6 +97,7 @@ function formatShareErrorMessage(error: unknown, unavailableMessage: string): st
 }
 
 export function SettingsScreen(): ReactElement {
+  const { settings: aiSettings } = useAISettings();
   const {
     activeWorkspace,
     cloudSettings,
@@ -314,6 +317,13 @@ export function SettingsScreen(): ReactElement {
             to={workspacePath(settingsAIChatSuggestionsRoute)}
             testId="settings-row-ai-chat-suggestions"
           />
+          {aiSettings === null ? null : <SettingsNavigationCard
+            title={t("aiSettings.title")}
+            description={t("aiSettings.provider")}
+            value={aiSettings.provider === "chatgpt" ? "ChatGPT" : "OpenAI API"}
+            to={workspacePath(settingsAIRoute)}
+            testId="settings-row-ai"
+          />}
           <SettingsNavigationCard
             title={t("ownOpenAIKeySettings.title")}
             description={t("ownOpenAIKeySettings.subtitle")}

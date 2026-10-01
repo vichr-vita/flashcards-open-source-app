@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const swCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Mipangilio ya AI",
+    provider: "Mtoa huduma ya mazungumzo",
+    model: "Modeli",
+    connect: "Unganisha ChatGPT",
+    disconnect: "Katisha muunganisho",
+    notConnected: "Haijaunganishwa",
+    notConfigured: "Muunganisho wa ChatGPT umezimwa kwenye seva hii.",
+    supported: "Mazungumzo na zana za kadi. Kuandika kwa sauti kunahitaji ufunguo wa API.",
+    apiDescription: "Matumizi ya API na picha hulipiwa kando.",
+    codeInstruction: "Fungua kiungo cha kuingia na uweke msimbo huu.",
+    copyCode: "Nakili msimbo",
+    copied: "Imenakiliwa",
+    copyFailed: "Nakili msimbo mwenyewe.",
+    openSignIn: "Fungua kuingia ChatGPT",
+    waiting: "Inasubiri idhini...",
+    usingChatGPT: "Inatumia usajili wa ChatGPT",
+  },
   accentColorSettings: {
     title: "Rangi ya msisitizo",
     subtitle: "Chagua rangi ya msisitizo ya programu.",

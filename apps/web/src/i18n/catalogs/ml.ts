@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const mlCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI ക്രമീകരണങ്ങൾ",
+    provider: "ചാറ്റ് ദാതാവ്",
+    model: "മോഡൽ",
+    connect: "ChatGPT ബന്ധിപ്പിക്കുക",
+    disconnect: "ബന്ധം വിച്ഛേദിക്കുക",
+    notConnected: "ബന്ധിപ്പിച്ചിട്ടില്ല",
+    notConfigured: "ഈ സെർവറിൽ ChatGPT ബന്ധം പ്രവർത്തനരഹിതമാണ്.",
+    supported: "ചാറ്റും കാർഡ് ഉപകരണങ്ങളും. ശബ്ദത്തിൽ എഴുതാൻ API കീ വേണം.",
+    apiDescription: "API ഉപയോഗത്തിനും ചിത്രങ്ങൾക്കും പ്രത്യേകം നിരക്കുണ്ട്.",
+    codeInstruction: "സൈൻ-ഇൻ ലിങ്ക് തുറന്ന് ഈ കോഡ് നൽകുക.",
+    copyCode: "കോഡ് പകർത്തുക",
+    copied: "പകർത്തി",
+    copyFailed: "കോഡ് സ്വയം പകർത്തുക.",
+    openSignIn: "ChatGPT സൈൻ-ഇൻ തുറക്കുക",
+    waiting: "അനുമതിക്കായി കാത്തിരിക്കുന്നു...",
+    usingChatGPT: "ChatGPT സബ്‌സ്‌ക്രിപ്ഷൻ ഉപയോഗിക്കുന്നു",
+  },
   accentColorSettings: {
     title: "ആക്സന്റ് നിറം",
     subtitle: "ആപ്പിന്റെ ആക്സന്റ് നിറം തിരഞ്ഞെടുക്കുക.",

@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const teCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI సెట్టింగ్‌లు",
+    provider: "చాట్ ప్రొవైడర్",
+    model: "మోడల్",
+    connect: "ChatGPT కనెక్ట్ చేయండి",
+    disconnect: "కనెక్షన్ తొలగించండి",
+    notConnected: "కనెక్ట్ కాలేదు",
+    notConfigured: "ఈ సర్వర్‌లో ChatGPT కనెక్షన్ నిలిపివేయబడింది.",
+    supported: "చాట్ మరియు కార్డ్ సాధనాలు. వాయిస్‌తో రాయడానికి API కీ అవసరం.",
+    apiDescription: "API వినియోగం మరియు చిత్రాలకు విడిగా ఛార్జీలు ఉంటాయి.",
+    codeInstruction: "సైన్-ఇన్ లింక్ తెరిచి ఈ కోడ్ నమోదు చేయండి.",
+    copyCode: "కోడ్ కాపీ చేయండి",
+    copied: "కాపీ అయింది",
+    copyFailed: "కోడ్‌ను మీరే కాపీ చేయండి.",
+    openSignIn: "ChatGPT సైన్-ఇన్ తెరవండి",
+    waiting: "అనుమతి కోసం వేచి ఉంది...",
+    usingChatGPT: "ChatGPT సభ్యత్వం ఉపయోగించబడుతోంది",
+  },
   accentColorSettings: {
     title: "ప్రధాన రంగు",
     subtitle: "యాప్ ప్రధాన రంగును ఎంచుకోండి.",

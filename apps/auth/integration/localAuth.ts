@@ -1,3 +1,7 @@
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { startChatGPTFixture, checkChatGPTConnection } from "./chatgpt.js";
 /** Real HTTP/PostgreSQL integration. Run only against the disposable container in the self-hosting guide. */
 import assert from "node:assert/strict";
 import { spawn, type ChildProcess } from "node:child_process";
@@ -11,12 +15,15 @@ import { closeDatabase, query } from "../src/db.js";
 import { bootstrapAccount, issueEnrollment, revokePasskey, revokeAllSessions } from "../src/local/admin.js";
 import { hashToken, newToken } from "../src/local/credentials.js";
 
+const connectionDirectory = await mkdtemp(join(tmpdir(), "nibomo-chatgpt-integration-"));
+const fixture = await startChatGPTFixture();
 const ownerUrl = "postgresql://flashcards_owner@127.0.0.1:19432/flashcards";
 const authOrigin = "http://localhost:19401";
-const webOrigin = "http://localhost:19410";
+const webOrigin = "http://localhost:19411";
 const apiOrigin = "http://localhost:19400";
 const root = fileURLToPath(new URL("../../../", import.meta.url));
 Object.assign(process.env, {
+  CHATGPT_CONNECTION_DIR: connectionDirectory, LOCAL_CHATGPT_FIXTURE: "true", CHAT_LIVE_URL: "http://localhost:19400/v1/chat/live",
   COOKIE_DOMAIN: "localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
   DATABASE_URL: ownerUrl, WEBAUTHN_RP_ID: "localhost",
   PUBLIC_AUTH_BASE_URL: authOrigin, ALLOWED_REDIRECT_URIS: webOrigin,
@@ -237,6 +244,8 @@ try {
   assert.equal(afterRestart.status, 200); assert.ok((await afterRestart.text()).includes(cardId));
   console.log("Passed backend CSRF, disabled alternate auth, card creation, review scheduling, cross-session sync, and restart persistence.");
 
+  await checkChatGPTConnection(first, me.csrfToken, me.selectedWorkspaceId, connectionDirectory, fixture);
+
   const savedSession = first.cookies.get("session"); assert.ok(savedSession);
   await query("UPDATE auth.local_sessions SET expires_at = now() - interval '1 second' WHERE session_hash = $1", [hashToken(savedSession)]);
   assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
@@ -288,6 +297,11 @@ try {
     await assert.rejects(authClient.query("INSERT INTO auth.local_enrollment_grants (grant_hash, user_id, expires_at) VALUES ($1, $2, now())", [hashToken(newToken()), userId]), /permission denied/);
     await assert.rejects(authClient.query("DELETE FROM auth.local_passkeys"), /permission denied/);
   } finally { await Promise.all([backendClient.end(), authClient.end()]); }
+  if (process.env.LOCAL_CHATGPT_BROWSER_REVIEW === "true") {
+    fixture.prepareBrowserReview(first.cookieHeader());
+    console.log("Disposable browser review ready at http://localhost:19402/fixture-login. Press Enter to finish and clean up.");
+    await once(process.stdin, "data");
+  }
   await query("DELETE FROM org.workspaces WHERE workspace_id IN (SELECT workspace_id FROM org.workspace_memberships WHERE user_id = $1)", [userId]);
   await query("DELETE FROM org.user_settings WHERE user_id = $1", [userId]); userId = null;
   assert.equal((await query("SELECT 1 FROM auth.local_account", [])).rows.length, 0);
@@ -302,4 +316,6 @@ try {
     await query("DELETE FROM org.user_settings WHERE user_id = $1", [userId]);
   }
   await closeDatabase();
+  await fixture.close();
+  await rm(connectionDirectory, { recursive: true, force: true });
 }

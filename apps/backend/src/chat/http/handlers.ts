@@ -1,3 +1,4 @@
+import { resolveChatGPTReference } from "../chatgpt/connection";
 import type { Handler } from "hono";
 import type { AppEnv } from "../../server/app";
 import {
@@ -185,7 +186,8 @@ export function createPostChatHandler(dependencies: ChatRouteDependencies): Hand
       context.req.raw,
       dependencies,
     );
-    const userOpenAIApiKey = readUserOpenAIApiKeyHeader(context.req.raw);
+    const chatgpt = await resolveChatGPTReference(requestContext.userId);
+    const userOpenAIApiKey = chatgpt === null ? readUserOpenAIApiKeyHeader(context.req.raw) : null;
     const rawBody = await parseJsonBodyWithByteLimit(
       context.req.raw,
       chatMaximumStartRunRequestBytes,
@@ -243,7 +245,7 @@ export function createPostChatHandler(dependencies: ChatRouteDependencies): Hand
         // write but its own. A turn sent with the person's own OpenAI key is never refused: its usage
         // does not count against the allowance.
         async () => {
-          if (userOpenAIApiKey !== null) {
+          if (userOpenAIApiKey !== null || chatgpt !== null) {
             return;
           }
 
@@ -279,6 +281,7 @@ export function createPostChatHandler(dependencies: ChatRouteDependencies): Hand
           sessionId: preparedRun.sessionId,
           initiatingAuthIsSignedIn: preparedRun.initiatingAuthIsSignedIn,
           userOpenAIApiKey,
+          ...(chatgpt === null ? {} : { chatgpt }),
         }));
       }
     } finally {

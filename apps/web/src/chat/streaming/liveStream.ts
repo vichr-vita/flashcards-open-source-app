@@ -1,3 +1,4 @@
+import { getAppConfig } from "../../config";
 import {
   parseChatComposerSuggestionArray,
   parseContentPartArray,
@@ -642,7 +643,7 @@ export async function consumeChatLiveStream(
       params.afterCursor,
     ), {
       method: "GET",
-      credentials: "omit",
+      credentials: params.liveStream.url === `${getAppConfig().apiBaseUrl}/chat/live` ? "include" : "omit",
       headers,
       signal: params.signal,
     });

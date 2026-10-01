@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const etCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI seaded",
+    provider: "Vestluse pakkuja",
+    model: "Mudel",
+    connect: "Ühenda ChatGPT",
+    disconnect: "Katkesta ühendus",
+    notConnected: "Pole ühendatud",
+    notConfigured: "ChatGPT ühendus on selles serveris keelatud.",
+    supported: "Vestlus ja kaarditööriistad. Dikteerimiseks on vaja API-võtit.",
+    apiDescription: "API kasutust ja pilte tasustatakse eraldi.",
+    codeInstruction: "Ava sisselogimislink ja sisesta see kood.",
+    copyCode: "Kopeeri kood",
+    copied: "Kopeeritud",
+    copyFailed: "Kopeeri kood käsitsi.",
+    openSignIn: "Ava ChatGPT sisselogimine",
+    waiting: "Ootab volitust...",
+    usingChatGPT: "Kasutatakse ChatGPT tellimust",
+  },
   accentColorSettings: {
     title: "Rõhuvärv",
     subtitle: "Vali rakenduse rõhuvärv.",

@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const huCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI-beállítások",
+    provider: "Csevegési szolgáltató",
+    model: "Modell",
+    connect: "ChatGPT csatlakoztatása",
+    disconnect: "Leválasztás",
+    notConnected: "Nincs csatlakoztatva",
+    notConfigured: "A ChatGPT-kapcsolat le van tiltva ezen a szerveren.",
+    supported: "Csevegés és kártyaeszközök. A diktáláshoz API-kulcs kell.",
+    apiDescription: "Az API-használat és a képek külön díjazásúak.",
+    codeInstruction: "Nyisd meg a bejelentkezési hivatkozást és írd be ezt a kódot.",
+    copyCode: "Kód másolása",
+    copied: "Másolva",
+    copyFailed: "Másold ki a kódot kézzel.",
+    openSignIn: "ChatGPT-bejelentkezés megnyitása",
+    waiting: "Várakozás az engedélyezésre...",
+    usingChatGPT: "ChatGPT-előfizetés használata",
+  },
   accentColorSettings: {
     title: "Kiemelőszín",
     subtitle: "Válaszd ki az alkalmazás kiemelőszínét.",

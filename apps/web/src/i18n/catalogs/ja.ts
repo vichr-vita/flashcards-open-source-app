@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 export const jaCatalog = {
+  aiSettings: {
+    title: "AI設定",
+    provider: "チャットのプロバイダー",
+    model: "モデル",
+    connect: "ChatGPTに接続",
+    disconnect: "接続を解除",
+    notConnected: "未接続",
+    notConfigured: "このサーバーではChatGPT接続が無効です。",
+    supported: "チャットとカードツール。音声入力にはAPIキーが必要です。",
+    apiDescription: "APIの利用と画像は別途課金されます。",
+    codeInstruction: "ログインリンクを開いて、このコードを入力してください。",
+    copyCode: "コードをコピー",
+    copied: "コピーしました",
+    copyFailed: "コードを手動でコピーしてください。",
+    openSignIn: "ChatGPTログインを開く",
+    waiting: "認証を待っています...",
+    usingChatGPT: "ChatGPTサブスクリプションを使用中",
+  },
   accentColorSettings: {
     title: "アクセントカラー",
     subtitle: "アプリのアクセントカラーを選択します。",

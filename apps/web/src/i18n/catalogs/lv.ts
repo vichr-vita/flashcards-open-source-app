@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const lvCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI iestatījumi",
+    provider: "Tērzēšanas pakalpojums",
+    model: "Modelis",
+    connect: "Pievienot ChatGPT",
+    disconnect: "Atvienot",
+    notConnected: "Nav pievienots",
+    notConfigured: "ChatGPT savienojums šajā serverī ir atspējots.",
+    supported: "Tērzēšana un kartīšu rīki. Diktēšanai vajadzīga API atslēga.",
+    apiDescription: "API lietošana un attēli tiek apmaksāti atsevišķi.",
+    codeInstruction: "Atveriet pierakstīšanās saiti un ievadiet šo kodu.",
+    copyCode: "Kopēt kodu",
+    copied: "Nokopēts",
+    copyFailed: "Nokopējiet kodu manuāli.",
+    openSignIn: "Atvērt ChatGPT pierakstīšanos",
+    waiting: "Gaida atļauju...",
+    usingChatGPT: "Tiek izmantots ChatGPT abonements",
+  },
   accentColorSettings: {
     title: "Akcenta krāsa",
     subtitle: "Izvēlieties lietotnes akcenta krāsu.",

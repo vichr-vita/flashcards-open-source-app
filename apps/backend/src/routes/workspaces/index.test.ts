@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { before, after } from "node:test";
+import { resetAuthConfigForTests } from "../../auth/config";
 import { Hono } from "hono";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 import type { AppEnv } from "../../server/app";
@@ -8,6 +9,14 @@ import { HttpError } from "../../shared/errors";
 import type { RequestContext } from "../../server/requestContext";
 import type { WorkspaceSummary } from "../../workspaces";
 import { createWorkspaceRoutes } from "./index";
+
+const originalAuthMode = process.env.AUTH_MODE;
+before(() => { process.env.AUTH_MODE = "cognito"; resetAuthConfigForTests(); });
+after(() => {
+  if (originalAuthMode === undefined) delete process.env.AUTH_MODE;
+  else process.env.AUTH_MODE = originalAuthMode;
+  resetAuthConfigForTests();
+});
 
 const workspaceId = "11111111-1111-4111-8111-111111111111";
 

@@ -1,3 +1,4 @@
+import type { ChatGPTReference } from "../chatgpt/connection";
 import type {
   ChatComposerSuggestionsLocale,
 } from "../composerSuggestions";
@@ -66,6 +67,7 @@ export type StartPersistedChatRunParams = Readonly<{
    * is paid with it, its usage facts are marked as user-supplied, and no follow-up suggestions are generated.
    */
   userOpenAIApiKey: UserOpenAIApiKey | null;
+  chatgpt?: ChatGPTReference | null;
   diagnostics: ChatRunDiagnostics;
   getRemainingTimeInMillis: () => number;
 }>;

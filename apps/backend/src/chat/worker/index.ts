@@ -1,3 +1,4 @@
+import type { ChatGPTReference } from "../chatgpt/connection";
 /**
  * Worker entrypoint for backend-owned chat runs.
  * The HTTP route prepares and persists the run; the worker claims it and executes the model loop independently of the client connection.
@@ -18,6 +19,7 @@ export type ChatWorkerEvent = Readonly<{
   userId: string;
   workspaceId: string;
   initiatingAuthIsSignedIn?: boolean;
+  chatgpt?: ChatGPTReference | null;
   userOpenAIApiKey?: string | null;
   routeRequestId?: string | null;
   chatRequestId?: string | null;
@@ -129,7 +131,8 @@ export async function handleChatWorkerEvent(
     assistantItemId: claimedRun.assistantItemId,
     localMessages: claimedRun.localMessages,
     turnInput: claimedRun.turnInput,
-    generatedImageEligible: isGeneratedImageEligibleForWorker(
+    chatgpt: event.chatgpt ?? null,
+    generatedImageEligible: event.chatgpt != null ? false : isGeneratedImageEligibleForWorker(
       event,
       claimedRun.initiatingAuthIsSignedIn,
       userOpenAIApiKey,

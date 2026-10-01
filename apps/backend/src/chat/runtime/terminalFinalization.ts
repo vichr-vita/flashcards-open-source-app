@@ -61,7 +61,7 @@ async function generateTerminalComposerSuggestions(
   dependencies: ChatRuntimeDependencies,
 ): Promise<ReadonlyArray<ChatComposerSuggestion>> {
   // Suggestions would be a platform-key call on a run the person pays for themselves.
-  if (params.userOpenAIApiKey !== null) {
+  if (params.userOpenAIApiKey !== null || params.chatgpt != null) {
     return emptyChatComposerSuggestions();
   }
 
@@ -145,7 +145,9 @@ export async function persistFailedChatRun(
     sessionId: input.params.sessionId,
     assistantItemId: input.params.assistantItemId,
     assistantContent,
-    errorMessage: input.params.userOpenAIApiKey === null
+    errorMessage: input.params.chatgpt != null
+      ? "ChatGPT could not complete this turn. Check your connection and usage limits in AI settings."
+      : input.params.userOpenAIApiKey === null
       ? createPublicTerminalErrorMessage(input.error)
       : createOwnOpenAIKeyPublicTerminalErrorMessage(input.error),
     sessionState: "idle",

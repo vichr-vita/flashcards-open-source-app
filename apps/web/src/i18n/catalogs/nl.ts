@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const nlCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI-instellingen",
+    provider: "Chataanbieder",
+    model: "Model",
+    connect: "ChatGPT verbinden",
+    disconnect: "Verbinding verbreken",
+    notConnected: "Niet verbonden",
+    notConfigured: "De ChatGPT-verbinding is uitgeschakeld op deze server.",
+    supported: "Chat en kaarttools. Dicteren vereist een API-sleutel.",
+    apiDescription: "API-gebruik en afbeeldingen worden apart in rekening gebracht.",
+    codeInstruction: "Open de aanmeldlink en voer deze code in.",
+    copyCode: "Code kopiëren",
+    copied: "Gekopieerd",
+    copyFailed: "Kopieer de code handmatig.",
+    openSignIn: "ChatGPT-aanmelding openen",
+    waiting: "Wachten op toestemming...",
+    usingChatGPT: "ChatGPT-abonnement wordt gebruikt",
+  },
   accentColorSettings: {
     title: "Accentkleur",
     subtitle: "Kies de accentkleur van de app.",

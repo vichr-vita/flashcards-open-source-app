@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const viCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Cài đặt AI",
+    provider: "Nhà cung cấp trò chuyện",
+    model: "Mô hình",
+    connect: "Kết nối ChatGPT",
+    disconnect: "Ngắt kết nối",
+    notConnected: "Chưa kết nối",
+    notConfigured: "Kết nối ChatGPT bị tắt trên máy chủ này.",
+    supported: "Trò chuyện và công cụ thẻ. Nhập bằng giọng nói cần khóa API.",
+    apiDescription: "Việc sử dụng API và hình ảnh được tính phí riêng.",
+    codeInstruction: "Mở liên kết đăng nhập và nhập mã này.",
+    copyCode: "Sao chép mã",
+    copied: "Đã sao chép",
+    copyFailed: "Sao chép mã thủ công.",
+    openSignIn: "Mở đăng nhập ChatGPT",
+    waiting: "Đang chờ cấp quyền...",
+    usingChatGPT: "Đang dùng gói đăng ký ChatGPT",
+  },
   accentColorSettings: {
     title: "Màu nhấn",
     subtitle: "Chọn màu nhấn của ứng dụng.",
