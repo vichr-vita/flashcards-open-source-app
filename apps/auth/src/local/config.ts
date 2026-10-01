@@ -1,10 +1,5 @@
 /** Fail closed before serving the local provider; HTTP is only available on loopback in development. */
 export function getLocalAuthConfig() {
-  const encodedKey = process.env.LOCAL_AUTH_ENCRYPTION_KEY ?? "";
-  const encryptionKey = Buffer.from(encodedKey, "base64");
-  if (encryptionKey.length !== 32 || encryptionKey.toString("base64") !== encodedKey) {
-    throw new Error("LOCAL_AUTH_ENCRYPTION_KEY must be a canonical base64-encoded 32-byte key");
-  }
   const allowHttp = process.env.NODE_ENV === "development" && process.env.LOCAL_AUTH_ALLOW_HTTP === "true";
   function parseOrigin(value: string): string {
     const url = new URL(value);
@@ -16,8 +11,12 @@ export function getLocalAuthConfig() {
     return url.origin;
   }
   const authOrigin = parseOrigin(process.env.PUBLIC_AUTH_BASE_URL ?? "");
+  const rpId = process.env.WEBAUTHN_RP_ID ?? "";
+  if (!rpId || rpId !== new URL(authOrigin).hostname || (rpId !== "localhost" && (!rpId.includes(".") || /^[\d.]+$/.test(rpId)))) {
+    throw new Error("WEBAUTHN_RP_ID must equal the auth hostname, without a port; use a DNS hostname or development localhost");
+  }
   const redirectOrigins = (process.env.ALLOWED_REDIRECT_URIS ?? "").split(",").filter(Boolean).map(value => parseOrigin(value.trim()));
   if (redirectOrigins.length === 0) throw new Error("ALLOWED_REDIRECT_URIS is required for local auth");
   if (!process.env.DATABASE_URL || process.env.DB_SECRET_ARN) throw new Error("Local auth requires DATABASE_URL and does not use DB_SECRET_ARN");
-  return { encryptionKey, authOrigin, redirectOrigins, allowHttp };
+  return { rpId, authOrigin, redirectOrigins, allowHttp };
 }

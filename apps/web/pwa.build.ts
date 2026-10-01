@@ -32,7 +32,7 @@ self.addEventListener("fetch", event => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== self.location.origin || request.headers.has("authorization")) return;
-  if (["v1","api","login","logout","logout-local","token","authorize","register","userinfo",".well-known"].includes(url.pathname.split("/")[1])) return;
+  if (["v1","api","login","enroll","logout","logout-local","token","authorize","register","userinfo",".well-known"].includes(url.pathname.split("/")[1])) return;
   // All navigations receive the same public SPA shell, never a personalized response.
   if (request.mode === "navigate") {
     event.respondWith(fetch(new Request("/index.html", {credentials:"omit",cache:"no-store"})).then(response => {

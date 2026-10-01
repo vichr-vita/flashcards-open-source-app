@@ -5,9 +5,11 @@ import { once } from "node:events";
 import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import pg from "pg";
+import type { AuthenticationResponseJSON, PublicKeyCredentialCreationOptionsJSON, PublicKeyCredentialRequestOptionsJSON } from "@simplewebauthn/server";
+import { TestPasskey } from "./passkey.js";
 import { closeDatabase, query } from "../src/db.js";
-import { bootstrapAccount, resetCredentials, revokeAllSessions } from "../src/local/admin.js";
-import { createAuthenticator, hashToken, newToken } from "../src/local/credentials.js";
+import { bootstrapAccount, issueEnrollment, revokePasskey, revokeAllSessions } from "../src/local/admin.js";
+import { hashToken, newToken } from "../src/local/credentials.js";
 
 const ownerUrl = "postgresql://flashcards_owner@127.0.0.1:19432/flashcards";
 const authOrigin = "http://localhost:19401";
@@ -16,7 +18,7 @@ const apiOrigin = "http://localhost:19400";
 const root = fileURLToPath(new URL("../../../", import.meta.url));
 Object.assign(process.env, {
   COOKIE_DOMAIN: "localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
-  DATABASE_URL: ownerUrl, LOCAL_AUTH_ENCRYPTION_KEY: Buffer.from(newToken()).subarray(0, 32).toString("base64"),
+  DATABASE_URL: ownerUrl, WEBAUTHN_RP_ID: "localhost",
   PUBLIC_AUTH_BASE_URL: authOrigin, ALLOWED_REDIRECT_URIS: webOrigin,
   PUBLIC_APP_BASE_URL: webOrigin, BACKEND_ALLOWED_ORIGINS: webOrigin,
   BACKEND_CSRF_SECRET: newToken(), AWS_EC2_METADATA_DISABLED: "true",
@@ -65,17 +67,41 @@ class BrowserSession {
     }
     return response;
   }
-  async openLogin(): Promise<void> {
-    const response = await this.request(`${authOrigin}/login?redirect_uri=${encodeURIComponent(webOrigin)}`);
+  async openLogin(enrollment = false): Promise<void> {
+    const response = await this.request(enrollment ? `${authOrigin}/enroll` : `${authOrigin}/login?redirect_uri=${encodeURIComponent(webOrigin)}`);
     assert.equal(response.status, 200);
     const html = await response.text();
-    assert.ok(html.includes("Authenticator code"));
+    assert.ok(html.includes(enrollment ? "Create passkey" : "Sign in with passkey"));
+    assert.ok(!html.includes("password") && !html.includes("Authenticator code"));
     assert.equal(response.headers.get("cache-control"), "no-store");
-    const token = html.match(/const csrfToken = "([A-Za-z0-9_-]+)"/u)?.[1];
-    assert.ok(token); this.csrf = token;
+    assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+    const config = html.match(/id="local-auth-config" type="application\/json">([^<]+)</u)?.[1];
+    assert.ok(config); this.csrf = (JSON.parse(config) as { csrfToken: string }).csrfToken;
   }
-  async login(password: string, code: string): Promise<Response> {
-    return this.request(`${authOrigin}/api/login`, { method: "POST", headers: { Origin: authOrigin, "Content-Type": "application/json", "X-CSRF-Token": this.csrf }, body: JSON.stringify({ password, code }) });
+  async ceremony(path: string, body: unknown): Promise<Response> {
+    return this.request(`${authOrigin}/api/webauthn/${path}`, { method: "POST", headers: { Origin: authOrigin, "Content-Type": "application/json", "X-CSRF-Token": this.csrf }, body: JSON.stringify(body) });
+  }
+  async options(): Promise<PublicKeyCredentialRequestOptionsJSON> {
+    const response = await this.ceremony("authentication/options", {});
+    assert.equal(response.status, 200, await response.clone().text());
+    const options = await response.json() as PublicKeyCredentialRequestOptionsJSON;
+    assert.equal(options.userVerification, "required"); assert.equal(options.rpId, "localhost");
+    return options;
+  }
+  async login(key: TestPasskey): Promise<Response> { return this.ceremony("authentication/verify", key.assertion(await this.options())); }
+  async enroll(url: string, key: TestPasskey): Promise<void> {
+    await this.openLogin(true);
+    const grant = new URLSearchParams(new URL(url).hash.slice(1)).get("enroll"); assert.ok(grant);
+    const response = await this.ceremony("registration/options", { grant });
+    assert.equal(response.status, 200, await response.clone().text());
+    const options = await response.json() as PublicKeyCredentialCreationOptionsJSON;
+    assert.equal(options.authenticatorSelection?.userVerification, "required");
+    assert.equal(options.authenticatorSelection?.residentKey, "required");
+    assert.equal(options.authenticatorSelection?.authenticatorAttachment, undefined);
+    const verified = await this.ceremony("registration/verify", { grant, credential: key.registration(options) });
+    assert.equal(verified.status, 200, await verified.clone().text());
+    assert.equal(verified.headers.getSetCookie().length, 0, "Enrollment cannot issue a session");
+    assert.equal((await this.ceremony("registration/options", { grant })).status, 401, "Grant is single-use");
   }
   async me() {
     const response = await this.request(`${apiOrigin}/v1/me`);
@@ -90,59 +116,87 @@ class BrowserSession {
   }
 }
 
-const authenticator = createAuthenticator();
-const password = newToken();
+const key = new TestPasskey();
+const syncedKey = new TestPasskey(true);
 const first = new BrowserSession();
 const second = new BrowserSession();
 let userId: string | null = null;
 try {
   const existing = await query("SELECT 1 FROM auth.local_account", []);
   assert.equal(existing.rows.length, 0, "Disposable test database must have no local account");
-  await assert.rejects(bootstrapAccount(password, authenticator.secret, "invalid"));
-  userId = await bootstrapAccount(password, authenticator.secret, authenticator.generate());
-  await assert.rejects(bootstrapAccount(password, authenticator.secret, authenticator.generate()), /already exists/);
-  // Enrollment consumes its confirmation code. Advance the fixture's enrollment marker, not server time.
-  await query("UPDATE auth.local_account SET last_totp_counter = -1", []);
+  const createdAccount = await bootstrapAccount(); userId = createdAccount.userId;
+  await assert.rejects(bootstrapAccount(), /already exists/);
   let auth = start("apps/auth/dist/index.js", "auth_app", 19401);
   let backend = start("apps/backend/dist/entrypoints/index.js", "backend_app", 19400);
   await Promise.all([ready(`${authOrigin}/health`), ready(`${apiOrigin}/v1/health`)]);
   await first.openLogin();
   assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
-  assert.equal((await first.login("incorrect-password", authenticator.generate())).status, 401);
-  assert.equal((await first.login(password, "not-a-code")).status, 400);
-  const timestampForWrongCode = Date.now();
-  const acceptedCodes = new Set([-1, 0, 1].map(delta => authenticator.generate({ timestamp: timestampForWrongCode + delta * 30000 })));
-  let wrongCode = "000000";
-  while (acceptedCodes.has(wrongCode)) wrongCode = String(Number(wrongCode) + 1).padStart(6, "0");
-  assert.equal((await first.login(password, wrongCode)).status, 401);
+  assert.equal((await first.ceremony("registration/options", { grant: newToken() })).status, 401);
+  assert.equal((await first.ceremony("authentication/options", {})).status, 401);
+  await first.openLogin(true);
+  const bootstrapGrant = new URLSearchParams(new URL(createdAccount.enrollmentUrl).hash.slice(1)).get("enroll");
+  for (const override of [{ flags: 0x41 }, { origin: webOrigin }, { rpId: "untrusted.example" }, { crossOrigin: true }]) {
+    const optionsResponse = await first.ceremony("registration/options", { grant: bootstrapGrant });
+    assert.equal(optionsResponse.status, 200);
+    const options = await optionsResponse.json() as PublicKeyCredentialCreationOptionsJSON;
+    assert.equal((await first.ceremony("registration/verify", { grant: bootstrapGrant, credential: key.registration(options, override) })).status, 401);
+    assert.equal((await query("SELECT 1 FROM auth.local_webauthn_challenges WHERE challenge_hash = $1", [hashToken(options.challenge)])).rows.length, 0);
+    assert.equal((await query("SELECT 1 FROM auth.local_passkeys", [])).rows.length, 0);
+    await query("UPDATE auth.local_account SET failed_attempts = 0, locked_until = NULL", []);
+  }
+  await first.enroll(createdAccount.enrollmentUrl, key);
   assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
   assert.equal((await query("SELECT 1 FROM auth.local_sessions", [])).rows.length, 0);
-  assert.equal((await first.request(`${authOrigin}/api/login`, { method: "POST", headers: { Origin: "https://untrusted.example", "Content-Type": "application/json" }, body: JSON.stringify({ password, code: authenticator.generate() }) })).status, 403);
-  assert.equal((await first.request(`${authOrigin}/api/login`, { method: "POST", headers: { Origin: authOrigin, "Content-Type": "application/json" }, body: JSON.stringify({ password, code: authenticator.generate() }) })).status, 403);
-  const validCode = authenticator.generate();
-  const loginResponse = await first.login(password, validCode);
-  assert.equal(loginResponse.status, 200);
-  assert.ok(loginResponse.headers.getSetCookie().filter(cookie => /^(session|refresh)=/.test(cookie)).every(cookie => cookie.includes("HttpOnly") && cookie.includes("SameSite=Lax")));
-  const me = await first.me();
-  assert.equal(me.userId, userId);
+  await second.enroll(await issueEnrollment(false), syncedKey);
+  assert.equal((await query("SELECT 1 FROM auth.local_passkeys", [])).rows.length, 2);
   await second.openLogin();
-  assert.equal((await second.login(password, validCode)).status, 401);
-  for (let attempt = 0; attempt < 3; attempt++) await second.login("incorrect-password", validCode);
-  const throttled = await second.login("incorrect-password", validCode);
+  const loginEndpoint = `${authOrigin}/api/webauthn/authentication/options`;
+  for (const headers of ([{ Origin: "https://untrusted.example", "X-CSRF-Token": first.csrf }, { Origin: authOrigin }] as Array<Record<string, string>>)) {
+    assert.equal((await first.request(loginEndpoint, { method: "POST", headers: { ...headers, "Content-Type": "application/json" }, body: "{}" })).status, 403);
+  }
+  for (const override of [{ wrongSignature: true }, { origin: webOrigin }, { rpId: "untrusted.example" }, { flags: 0x01 }, { flags: 0x04 }, { crossOrigin: true }, { challenge: newToken() }, { userHandle: newToken() }]) {
+    const options = await first.options();
+    assert.equal((await first.ceremony("authentication/verify", key.assertion(options, override))).status, 401);
+    await query("UPDATE auth.local_account SET failed_attempts = 0, locked_until = NULL", []);
+  }
+  const bound = key.assertion(await first.options());
+  assert.equal((await second.ceremony("authentication/verify", bound)).status, 401, "Challenge is bound to its requesting browser");
+  const expired = await first.options();
+  await query("UPDATE auth.local_webauthn_challenges SET expires_at = now() - interval '1 second' WHERE challenge_hash = $1", [hashToken(expired.challenge)]);
+  assert.equal((await first.ceremony("authentication/verify", key.assertion(expired))).status, 401);
+  await query("UPDATE auth.local_account SET failed_attempts = 0, locked_until = NULL", []);
+  const replay = key.assertion(await first.options());
+  const sameBrowserCookies = first.cookieHeader();
+  const concurrent = await Promise.all([first.ceremony("authentication/verify", replay), fetch(`${authOrigin}/api/webauthn/authentication/verify`, { method: "POST", headers: { Origin: authOrigin, "Content-Type": "application/json", "X-CSRF-Token": first.csrf, Cookie: sameBrowserCookies }, body: JSON.stringify(replay) })]);
+  assert.deepEqual(concurrent.map(response => response.status).sort(), [200, 401]);
+  // Capture the winning cookie pair even when the raw fetch won the lock.
+  for (const cookie of concurrent.find(response => response.ok)!.headers.getSetCookie()) { const pair = cookie.split(";")[0]; const index = pair.indexOf("="); first.cookies.set(pair.slice(0, index), pair.slice(index + 1)); }
+  const loginResponse = concurrent.find(response => response.ok)!;
+  assert.ok(loginResponse.headers.getSetCookie().filter(cookie => /^(session|refresh)=/.test(cookie)).every(cookie => cookie.includes("HttpOnly") && cookie.includes("SameSite=Lax")));
+  const me = await first.me(); assert.equal(me.userId, userId);
+  await query("UPDATE auth.local_account SET failed_attempts = 0, locked_until = NULL", []);
+  const failedOptions = await second.options();
+  const validAfterFailure = key.assertion(failedOptions);
+  const failed = structuredClone(validAfterFailure);
+  const badSignature = Buffer.from(failed.response.signature, "base64url"); badSignature[badSignature.length - 1] ^= 1;
+  failed.response.signature = badSignature.toString("base64url");
+  assert.equal((await second.ceremony("authentication/verify", failed)).status, 401);
+  assert.equal((await second.ceremony("authentication/verify", validAfterFailure)).status, 401, "Rejected completed assertion consumes the challenge");
+  for (let attempt = 0; attempt < 3; attempt++) await second.ceremony("authentication/verify", key.assertion(await second.options(), { wrongSignature: true }));
+  const throttled = await second.ceremony("authentication/options", {});
   assert.equal(throttled.status, 429); assert.ok(Number(throttled.headers.get("retry-after")) > 0);
-  assert.equal((await second.login(password, authenticator.generate({ timestamp: Date.now() + 30000 }))).status, 429);
   await stop(auth); auth = start("apps/auth/dist/index.js", "auth_app", 19401); await ready(`${authOrigin}/health`);
-  assert.equal((await second.login(password, validCode)).status, 429, "Throttle survives a service restart");
+  assert.equal((await second.ceremony("authentication/options", {})).status, 429, "Throttle survives restart");
   await query("UPDATE auth.local_account SET locked_until = now() - interval '1 second'", []);
-  assert.equal((await second.login(password, authenticator.generate({ timestamp: Date.now() + 30000 }))).status, 200);
+  assert.equal((await second.login(syncedKey)).status, 200);
   const secondMe = await second.me();
   assert.equal(secondMe.userId, me.userId); assert.equal(secondMe.selectedWorkspaceId, me.selectedWorkspaceId);
-  console.log("Passed password/TOTP, replay rejection, persistent throttling, login CSRF, and stable identity.");
+  console.log("Passed owner-only enrollment, device verification, real signature/origin/RP checks, single-use browser-bound challenges, replay rejection, persistent throttling, and stable identity.");
 
   for (const scheme of ["Bearer", "Guest", "ApiKey"]) {
     assert.equal((await first.request(`${apiOrigin}/v1/me`, { headers: { Authorization: `${scheme} ${newToken()}` } })).status, 401);
   }
-  for (const path of ["/api/send-code", "/api/verify-code", "/api/agent/send-code", "/api/refresh-token", "/token", "/register"]) {
+  for (const path of ["/api/login", "/api/send-code", "/api/verify-code", "/api/agent/send-code", "/api/refresh-token", "/token", "/register"]) {
     assert.equal((await first.request(`${authOrigin}${path}`, { method: "POST", headers: { Origin: authOrigin } })).status, 404);
   }
   for (const path of ["/guest-sessions", "/agent-api-keys", "/agent/sql/query", "/admin/users"]) {
@@ -200,33 +254,44 @@ try {
   await query("UPDATE auth.local_sessions SET expires_at = now() - interval '2 seconds', refresh_expires_at = now() - interval '1 second'", []);
   assert.equal((await second.request(`${authOrigin}/api/refresh-session`, { method: "POST", headers: { Origin: webOrigin } })).status, 401);
   assert.equal((await second.request(`${apiOrigin}/v1/me`)).status, 401);
-  const nextPassword = newToken(); await resetCredentials({ password: nextPassword });
-  await first.openLogin();
-  assert.equal((await first.login(password, validCode)).status, 401);
-  const nextAuthenticator = createAuthenticator();
-  await resetCredentials({ secret: nextAuthenticator.secret, code: nextAuthenticator.generate() });
-  assert.equal((await first.login(nextPassword, authenticator.generate())).status, 401);
-  await second.openLogin();
-  const concurrentCode = nextAuthenticator.generate({ timestamp: Date.now() + 30000 });
-  const concurrentLogins = await Promise.all([first.login(nextPassword, concurrentCode), second.login(nextPassword, concurrentCode)]);
-  assert.deepEqual(concurrentLogins.map(response => response.status).sort(), [200, 401], "A code can establish exactly one session under concurrent login");
-  const winner = concurrentLogins[0].ok ? first : second;
-  assert.equal((await winner.me()).userId, userId);
-  await resetCredentials({ password: newToken() });
-  assert.equal((await winner.request(`${apiOrigin}/v1/me`)).status, 401);
-  await revokeAllSessions();
+  const enrollmentBrowser = new BrowserSession();
+  const expiredGrantUrl = await issueEnrollment(false);
+  const expiredGrant = new URLSearchParams(new URL(expiredGrantUrl).hash.slice(1)).get("enroll");
+  await query("UPDATE auth.local_enrollment_grants SET expires_at = now() - interval '1 second'", []);
+  await enrollmentBrowser.openLogin(true);
+  assert.equal((await enrollmentBrowser.ceremony("registration/options", { grant: expiredGrant })).status, 401);
+  const additional = new TestPasskey();
+  await enrollmentBrowser.enroll(await issueEnrollment(false), additional);
+  await enrollmentBrowser.openLogin(); assert.equal((await enrollmentBrowser.login(additional)).status, 200);
+  await revokePasskey(additional.id);
+  assert.equal((await enrollmentBrowser.request(`${apiOrigin}/v1/me`)).status, 401);
+  await enrollmentBrowser.openLogin();
+  assert.equal((await enrollmentBrowser.login(additional)).status, 401, "Revoked credential cannot authenticate");
+  await first.openLogin(); assert.equal((await first.login(key)).status, 200);
+  const resetUrl = await issueEnrollment(true);
+  assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
+  const replacement = new TestPasskey(true);
+  await first.enroll(resetUrl, replacement);
+  assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
+  assert.equal((await first.login(key)).status, 401, "Reset invalidates previous passkeys");
+  assert.equal((await first.login(replacement)).status, 200);
+  assert.equal((await first.me()).selectedWorkspaceId, me.selectedWorkspaceId);
+  await revokeAllSessions(); assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
+  await first.openLogin(); assert.equal((await first.login(replacement)).status, 200, "Zero-counter synced passkey remains usable");
   const backendClient = new pg.Client({ connectionString: ownerUrl.replace("flashcards_owner@", "backend_app@") });
   const authClient = new pg.Client({ connectionString: ownerUrl.replace("flashcards_owner@", "auth_app@") });
   try {
     await Promise.all([backendClient.connect(), authClient.connect()]);
-    await assert.rejects(backendClient.query("SELECT password_hash FROM auth.local_account"), /permission denied/);
+    await assert.rejects(backendClient.query("SELECT public_key FROM auth.local_passkeys"), /permission denied/);
     await assert.rejects(backendClient.query("SELECT refresh_hash FROM auth.local_sessions"), /permission denied/);
-    await assert.rejects(authClient.query("UPDATE auth.local_account SET password_hash = 'forbidden'"), /permission denied/);
+    await assert.rejects(authClient.query("UPDATE auth.local_passkeys SET public_key = decode('00', 'hex')"), /permission denied/);
+    await assert.rejects(authClient.query("INSERT INTO auth.local_enrollment_grants (grant_hash, user_id, expires_at) VALUES ($1, $2, now())", [hashToken(newToken()), userId]), /permission denied/);
+    await assert.rejects(authClient.query("DELETE FROM auth.local_passkeys"), /permission denied/);
   } finally { await Promise.all([backendClient.end(), authClient.end()]); }
   await query("DELETE FROM org.workspaces WHERE workspace_id IN (SELECT workspace_id FROM org.workspace_memberships WHERE user_id = $1)", [userId]);
   await query("DELETE FROM org.user_settings WHERE user_id = $1", [userId]); userId = null;
   assert.equal((await query("SELECT 1 FROM auth.local_account", [])).rows.length, 0);
-  await assert.rejects(resetCredentials({ password: newToken() }), /does not exist/);
+  await assert.rejects(issueEnrollment(true), /does not exist/);
   assert.ok(!unexpectedOutboundDetected, "Browser auth must not attempt Cognito/email-service calls");
   console.log("Passed expiry, concurrent refresh, logout, absolute expiry, recovery/reset revocation, deletion cascade, and runtime-role isolation.");
 } finally {

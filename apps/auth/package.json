@@ -7,7 +7,7 @@
     "local-account": "node dist/local/cli.js",
     "test:local-integration": "tsx integration/localAuth.ts",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc",
+    "build": "tsc && tsc -p browser/tsconfig.json && node scripts/build-local-browser.mjs",
     "test": "node --test --import tsx \"src/**/*.test.ts\"",
     "start": "node dist/index.js"
   },
@@ -15,18 +15,17 @@
     "@aws-sdk/client-kms": "^3.1141.0",
     "@aws-sdk/client-secrets-manager": "^3.1138.0",
     "@hono/node-server": "^2.1.1",
-    "@node-rs/argon2": "2.2.1",
     "@sentry/aws-serverless": "^10.75.2",
+    "@simplewebauthn/browser": "14.0.0",
+    "@simplewebauthn/server": "14.0.3",
     "aws-jwt-verify": "^5.2.1",
     "hono": "^4.13.8",
-    "otpauth": "9.5.2",
-    "pg": "^8.23.0",
-    "qrcode": "1.5.4"
+    "pg": "^8.23.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.6",
     "@types/pg": "^8.23.1",
-    "@types/qrcode": "1.5.6",
+    "esbuild": "0.28.2",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },

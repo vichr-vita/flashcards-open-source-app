@@ -1,6 +1,6 @@
 # Auth Service (`apps/auth/`)
 
-This fork also supports `AUTH_MODE=local` for a single pre-created browser account with a password and authenticator-app MFA. See [self-hosted local authentication](self-hosted-local-auth.md) for bootstrap, recovery, configuration, and verification. Local mode does not mount the Cognito, native, demo, or OAuth login routes described below.
+This fork also supports `AUTH_MODE=local` for a single pre-created browser account with WebAuthn passkeys. See [self-hosted local authentication](self-hosted-local-auth.md) for bootstrap, recovery, configuration, and verification. Local mode does not mount the Cognito, native, demo, or OAuth login routes described below.
 
 The remaining sections describe upstream email + OTP authentication via AWS Cognito.
 
