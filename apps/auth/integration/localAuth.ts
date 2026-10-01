@@ -2,6 +2,7 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { startChatGPTFixture, checkChatGPTConnection } from "./chatgpt.js";
+import { checkLocalMcp } from "./mcp.js";
 /** Real HTTP/PostgreSQL integration. Run only against the disposable container in the self-hosting guide. */
 import assert from "node:assert/strict";
 import { spawn, type ChildProcess } from "node:child_process";
@@ -132,6 +133,8 @@ try {
   const existing = await query("SELECT 1 FROM auth.local_account", []);
   assert.equal(existing.rows.length, 0, "Disposable test database must have no local account");
   const createdAccount = await bootstrapAccount(); userId = createdAccount.userId;
+  process.env.LOCAL_MCP_ENABLED = "true";
+  process.env.LOCAL_MCP_USER_ID = userId;
   await assert.rejects(bootstrapAccount(), /already exists/);
   let auth = start("apps/auth/dist/index.js", "auth_app", 19401);
   let backend = start("apps/backend/dist/entrypoints/index.js", "backend_app", 19400);
@@ -243,6 +246,8 @@ try {
   const afterRestart = await second.api(pullPath, { ...pull, installationId: randomUUID() }, secondMe.csrfToken);
   assert.equal(afterRestart.status, 200); assert.ok((await afterRestart.text()).includes(cardId));
   console.log("Passed backend CSRF, disabled alternate auth, card creation, review scheduling, cross-session sync, and restart persistence.");
+
+  await checkLocalMcp(root, me.userId, me.selectedWorkspaceId);
 
   await checkChatGPTConnection(first, me.csrfToken, me.selectedWorkspaceId, connectionDirectory, fixture);
 

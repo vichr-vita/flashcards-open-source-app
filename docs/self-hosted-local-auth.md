@@ -80,7 +80,24 @@ Sessions use random opaque HttpOnly cookies, with only SHA-256 token hashes stor
 
 The non-HttpOnly `logged_in` cookie is an existing browser hint, not proof of authentication. `/v1/me` verifies the server session and supplies the existing CSRF token. Mutations still require a trusted origin and CSRF token. Five failed attempts lock the single account for 60 seconds; the lock, credential counters, and pending challenges survive service restarts. The lock applies to every caller, so an attacker with network access can temporarily delay login. Keep access private as already configured.
 
-Local mode accepts only browser session cookies. Bearer tokens, guest credentials, API keys, demo login, native email OTP, OAuth/MCP issuance, and agent/admin routes cannot bypass passkey verification. Do not expose separate upstream Lambda/MCP entrypoints in this deployment. Native clients are outside this fork's supported scope.
+Local browser routes accept only session cookies. Guest credentials, API keys, demo login, native email OTP, OAuth issuance, and agent/admin routes cannot bypass passkey verification. The separately enabled MCP endpoint accepts administrator-issued agent keys as described below. Do not expose the upstream Lambda/MCP entrypoint in this deployment. Native clients are outside this fork's supported scope.
+
+## Optional local MCP
+
+Set `LOCAL_MCP_ENABLED=true` and `LOCAL_MCP_USER_ID` to the existing local account UUID in the backend environment. `PUBLIC_APP_BASE_URL` must match the app's HTTPS origin, including its port. The normal backend serves Streamable HTTP at `/v1/mcp`, so the existing `/v1/` reverse proxy also serves MCP. It rejects other hosts and browser origins. MCP is disabled by default and does not use OAuth or browser cookies.
+
+From the built backend directory, use the protected owner `DATABASE_URL` and `AUTH_MODE=local` to manage connections:
+
+```sh
+umask 077
+node scripts/local-mcp-key.cjs create 'OpenCode Nibomo' > /private/path/nibomo-key.json
+node scripts/local-mcp-key.cjs list
+node scripts/local-mcp-key.cjs revoke CONNECTION_ID
+```
+
+The create command reads the existing local account and returns `userId`, `apiKey`, and the connection metadata once. Runtime roles cannot read that account table. The database stores only the key hash. Keep the returned key in a private client credential file and send `Authorization: Bearer <apiKey>` to `/v1/mcp`. Only keys owned by `LOCAL_MCP_USER_ID` authenticate. Revocation takes effect on the next request. Changing the enable flag requires restarting the backend.
+
+The endpoint exposes the same eight MCP tools as the hosted server, including authoring and reviews, with existing workspace access checks and sync identities. It does not enable agent keys on browser, REST-agent, or administrator routes. Browser passkey resets and session revocation do not revoke MCP keys. Revoke these connections separately through the owner command.
 
 ## Mobile web and offline use
 

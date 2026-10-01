@@ -69,6 +69,7 @@ import {
   browserCorsExposeHeaders,
 } from "./browserCors";
 import type { AppEnv } from "./appEnv";
+import { createLocalMcpRoutes } from "../mcp/local";
 
 export { getHttpErrorResponseHeaders } from "./httpErrorResponseHeaders";
 export type { AppEnv } from "./appEnv";
@@ -504,6 +505,7 @@ function createMountedApp(basePath: string, allowedOrigins: Array<string>): Hono
 
   app.route("/", createSystemRoutes({ allowedOrigins }));
   const localAuth = getAuthConfig().mode === "local";
+  app.route("/", createLocalMcpRoutes());
   if (localAuth) {
     app.route("/", createAISettingsRoutes({ allowedOrigins }));
     app.route("/", createChatLocalLiveRoutes({ allowedOrigins }));
