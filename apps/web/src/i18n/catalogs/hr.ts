@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const hrCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Postavke AI-ja",
+    provider: "Pružatelj razgovora",
+    model: "Model",
+    connect: "Poveži ChatGPT",
+    disconnect: "Prekini vezu",
+    notConnected: "Nije povezano",
+    notConfigured: "Veza s ChatGPT-jem onemogućena je na ovom poslužitelju.",
+    supported: "Razgovor i alati za kartice. Diktiranje zahtijeva API ključ.",
+    apiDescription: "Upotreba API-ja i slike naplaćuju se zasebno.",
+    codeInstruction: "Otvori poveznicu za prijavu i unesi ovaj kod.",
+    copyCode: "Kopiraj kod",
+    copied: "Kopirano",
+    copyFailed: "Kopiraj kod ručno.",
+    openSignIn: "Otvori prijavu u ChatGPT",
+    waiting: "Čeka se autorizacija...",
+    usingChatGPT: "Koristi se pretplata na ChatGPT",
+  },
   accentColorSettings: {
     title: "Boja naglaska",
     subtitle: "Odaberite boju naglaska aplikacije.",

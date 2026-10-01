@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const slCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Nastavitve AI",
+    provider: "Ponudnik klepeta",
+    model: "Model",
+    connect: "Poveži ChatGPT",
+    disconnect: "Prekini povezavo",
+    notConnected: "Ni povezano",
+    notConfigured: "Povezava ChatGPT je na tem strežniku onemogočena.",
+    supported: "Klepet in orodja za kartice. Narekovanje zahteva ključ API.",
+    apiDescription: "Uporaba API in slike se zaračunajo ločeno.",
+    codeInstruction: "Odpri povezavo za prijavo in vnesi to kodo.",
+    copyCode: "Kopiraj kodo",
+    copied: "Kopirano",
+    copyFailed: "Kodo kopiraj ročno.",
+    openSignIn: "Odpri prijavo ChatGPT",
+    waiting: "Čakanje na odobritev...",
+    usingChatGPT: "Uporablja se naročnina ChatGPT",
+  },
   accentColorSettings: {
     title: "Barva poudarka",
     subtitle: "Izberite barvo poudarka aplikacije.",

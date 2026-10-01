@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const svCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI-inställningar",
+    provider: "Chattleverantör",
+    model: "Modell",
+    connect: "Anslut ChatGPT",
+    disconnect: "Koppla från",
+    notConnected: "Inte ansluten",
+    notConfigured: "ChatGPT-anslutning är avstängd på den här servern.",
+    supported: "Chatt och kortverktyg. Diktering kräver en API-nyckel.",
+    apiDescription: "API-användning och bilder debiteras separat.",
+    codeInstruction: "Öppna inloggningslänken och ange den här koden.",
+    copyCode: "Kopiera kod",
+    copied: "Kopierad",
+    copyFailed: "Kopiera koden manuellt.",
+    openSignIn: "Öppna ChatGPT-inloggning",
+    waiting: "Väntar på godkännande...",
+    usingChatGPT: "Använder ChatGPT-prenumeration",
+  },
   accentColorSettings: {
     title: "Accentfärg",
     subtitle: "Välj appens accentfärg.",

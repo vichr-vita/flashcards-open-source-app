@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const trCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI ayarları",
+    provider: "Sohbet sağlayıcısı",
+    model: "Model",
+    connect: "ChatGPT bağla",
+    disconnect: "Bağlantıyı kes",
+    notConnected: "Bağlı değil",
+    notConfigured: "Bu sunucuda ChatGPT bağlantısı devre dışı.",
+    supported: "Sohbet ve kart araçları. Dikte için API anahtarı gerekir.",
+    apiDescription: "API kullanımı ve görseller ayrı ücretlendirilir.",
+    codeInstruction: "Giriş bağlantısını açın ve bu kodu girin.",
+    copyCode: "Kodu kopyala",
+    copied: "Kopyalandı",
+    copyFailed: "Kodu elle kopyalayın.",
+    openSignIn: "ChatGPT girişini aç",
+    waiting: "Yetkilendirme bekleniyor...",
+    usingChatGPT: "ChatGPT aboneliği kullanılıyor",
+  },
   accentColorSettings: {
     title: "Vurgu rengi",
     subtitle: "Uygulamanın vurgu rengini seçin.",

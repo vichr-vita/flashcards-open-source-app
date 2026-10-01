@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const ukCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Налаштування ШІ",
+    provider: "Провайдер чату",
+    model: "Модель",
+    connect: "Підключити ChatGPT",
+    disconnect: "Відключити",
+    notConnected: "Не підключено",
+    notConfigured: "Підключення ChatGPT вимкнено на цьому сервері.",
+    supported: "Чат та інструменти карток. Для диктування потрібен ключ API.",
+    apiDescription: "Використання API та зображення оплачуються окремо.",
+    codeInstruction: "Відкрийте посилання для входу та введіть цей код.",
+    copyCode: "Копіювати код",
+    copied: "Скопійовано",
+    copyFailed: "Скопіюйте код вручну.",
+    openSignIn: "Відкрити вхід у ChatGPT",
+    waiting: "Очікування авторизації...",
+    usingChatGPT: "Використовується підписка ChatGPT",
+  },
   accentColorSettings: {
     title: "Акцентний колір",
     subtitle: "Виберіть акцентний колір застосунку.",

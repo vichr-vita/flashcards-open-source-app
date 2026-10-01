@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 export const zhHansCatalog = {
+  aiSettings: {
+    title: "AI 设置",
+    provider: "聊天提供商",
+    model: "模型",
+    connect: "连接 ChatGPT",
+    disconnect: "断开连接",
+    notConnected: "未连接",
+    notConfigured: "此服务器已禁用 ChatGPT 连接。",
+    supported: "聊天和卡片工具。语音输入需要 API 密钥。",
+    apiDescription: "API 使用和图片单独计费。",
+    codeInstruction: "打开登录链接并输入此代码。",
+    copyCode: "复制代码",
+    copied: "已复制",
+    copyFailed: "请手动复制代码。",
+    openSignIn: "打开 ChatGPT 登录",
+    waiting: "等待授权...",
+    usingChatGPT: "正在使用 ChatGPT 订阅",
+  },
   accentColorSettings: {
     title: "强调色",
     subtitle: "选择应用的强调色。",

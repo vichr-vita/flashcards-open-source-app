@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const koCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI 설정",
+    provider: "채팅 제공업체",
+    model: "모델",
+    connect: "ChatGPT 연결",
+    disconnect: "연결 해제",
+    notConnected: "연결되지 않음",
+    notConfigured: "이 서버에서는 ChatGPT 연결이 비활성화되어 있습니다.",
+    supported: "채팅 및 카드 도구. 받아쓰기에는 API 키가 필요합니다.",
+    apiDescription: "API 사용과 이미지는 별도로 청구됩니다.",
+    codeInstruction: "로그인 링크를 열고 이 코드를 입력하세요.",
+    copyCode: "코드 복사",
+    copied: "복사됨",
+    copyFailed: "코드를 직접 복사하세요.",
+    openSignIn: "ChatGPT 로그인 열기",
+    waiting: "인증 대기 중...",
+    usingChatGPT: "ChatGPT 구독 사용 중",
+  },
   accentColorSettings: {
     title: "강조 색상",
     subtitle: "앱의 강조 색상을 선택하세요.",

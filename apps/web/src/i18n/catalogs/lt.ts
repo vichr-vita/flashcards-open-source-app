@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const ltCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI nustatymai",
+    provider: "Pokalbio teikėjas",
+    model: "Modelis",
+    connect: "Prijungti ChatGPT",
+    disconnect: "Atjungti",
+    notConnected: "Neprijungta",
+    notConfigured: "ChatGPT ryšys šiame serveryje išjungtas.",
+    supported: "Pokalbis ir kortelių įrankiai. Diktavimui reikia API rakto.",
+    apiDescription: "API naudojimas ir vaizdai apmokestinami atskirai.",
+    codeInstruction: "Atidarykite prisijungimo nuorodą ir įveskite šį kodą.",
+    copyCode: "Kopijuoti kodą",
+    copied: "Nukopijuota",
+    copyFailed: "Nukopijuokite kodą rankiniu būdu.",
+    openSignIn: "Atidaryti ChatGPT prisijungimą",
+    waiting: "Laukiama leidimo...",
+    usingChatGPT: "Naudojama ChatGPT prenumerata",
+  },
   accentColorSettings: {
     title: "Akcento spalva",
     subtitle: "Pasirinkite programėlės akcento spalvą.",

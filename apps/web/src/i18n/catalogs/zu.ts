@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const zuCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Izilungiselelo ze-AI",
+    provider: "Umhlinzeki wengxoxo",
+    model: "Imodeli",
+    connect: "Xhuma i-ChatGPT",
+    disconnect: "Nqamula",
+    notConnected: "Ayixhunyiwe",
+    notConfigured: "Uxhumano lwe-ChatGPT lukhutshaziwe kule seva.",
+    supported: "Ingxoxo namathuluzi amakhadi. Ukubhala ngezwi kudinga ukhiye we-API.",
+    apiDescription: "Ukusetshenziswa kwe-API nezithombe kukhokhelwa ngokwehlukana.",
+    codeInstruction: "Vula isixhumanisi sokungena bese ufaka le khodi.",
+    copyCode: "Kopisha ikhodi",
+    copied: "Ikopishiwe",
+    copyFailed: "Kopisha ikhodi ngesandla.",
+    openSignIn: "Vula ukungena kwe-ChatGPT",
+    waiting: "Ilinde ukugunyazwa...",
+    usingChatGPT: "Kusetshenziswa ukubhaliswa kwe-ChatGPT",
+  },
   accentColorSettings: {
     title: "Umbala wokugqamisa",
     subtitle: "Khetha umbala wokugqamisa wohlelo lokusebenza.",

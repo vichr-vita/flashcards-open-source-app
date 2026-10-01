@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const ptBrCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Configurações de IA",
+    provider: "Provedor do chat",
+    model: "Modelo",
+    connect: "Conectar ChatGPT",
+    disconnect: "Desconectar",
+    notConnected: "Não conectado",
+    notConfigured: "A conexão com o ChatGPT está desativada neste servidor.",
+    supported: "Chat e ferramentas de cartões. O ditado exige uma chave API.",
+    apiDescription: "O uso da API e as imagens são cobrados separadamente.",
+    codeInstruction: "Abra o link de login e insira este código.",
+    copyCode: "Copiar código",
+    copied: "Copiado",
+    copyFailed: "Copie o código manualmente.",
+    openSignIn: "Abrir login do ChatGPT",
+    waiting: "Aguardando autorização...",
+    usingChatGPT: "Usando a assinatura do ChatGPT",
+  },
   accentColorSettings: {
     title: "Cor de destaque",
     subtitle: "Escolha a cor de destaque do aplicativo.",

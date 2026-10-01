@@ -53,8 +53,8 @@ export type AiUsageCounters = Readonly<{
  * they are facts of the call rather than of the provider's usage report: an image surface knows what
  * it asked for and what came back even when the provider reports no tokens.
  *
- * `userSuppliedKey` is true when the call was paid with an API key the person supplied rather than the
- * platform key; such a row never counts against the monthly allowance (`cap.ts`).
+ * `userSuppliedKey` is true when the call uses the person's API key or private ChatGPT subscription
+ * instead of the platform key; such a row never counts against the monthly allowance (`cap.ts`).
  */
 export type AiUsageEvent = Readonly<{
   userId: string;

@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const elCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Ρυθμίσεις AI",
+    provider: "Πάροχος συνομιλίας",
+    model: "Μοντέλο",
+    connect: "Σύνδεση ChatGPT",
+    disconnect: "Αποσύνδεση",
+    notConnected: "Δεν έχει συνδεθεί",
+    notConfigured: "Η σύνδεση ChatGPT είναι απενεργοποιημένη σε αυτόν τον διακομιστή.",
+    supported: "Συνομιλία και εργαλεία καρτών. Η υπαγόρευση απαιτεί κλειδί API.",
+    apiDescription: "Η χρήση API και οι εικόνες χρεώνονται ξεχωριστά.",
+    codeInstruction: "Ανοίξτε τον σύνδεσμο σύνδεσης και εισαγάγετε αυτόν τον κωδικό.",
+    copyCode: "Αντιγραφή κωδικού",
+    copied: "Αντιγράφηκε",
+    copyFailed: "Αντιγράψτε τον κωδικό χειροκίνητα.",
+    openSignIn: "Άνοιγμα σύνδεσης ChatGPT",
+    waiting: "Αναμονή εξουσιοδότησης...",
+    usingChatGPT: "Χρήση συνδρομής ChatGPT",
+  },
   accentColorSettings: {
     title: "Χρώμα έμφασης",
     subtitle: "Επιλέξτε το χρώμα έμφασης της εφαρμογής.",

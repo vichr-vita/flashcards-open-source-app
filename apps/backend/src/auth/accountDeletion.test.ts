@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { before, after } from "node:test";
+import { resetAuthConfigForTests } from "./config";
 import type pg from "pg";
 import {
   deleteAccountConfirmationText,
@@ -10,6 +11,14 @@ import type {
   SqlValue,
 } from "../database";
 import { hashDeletedSubject } from "./deletedSubjects";
+
+const originalAuthMode = process.env.AUTH_MODE;
+before(() => { process.env.AUTH_MODE = "cognito"; resetAuthConfigForTests(); });
+after(() => {
+  if (originalAuthMode === undefined) delete process.env.AUTH_MODE;
+  else process.env.AUTH_MODE = originalAuthMode;
+  resetAuthConfigForTests();
+});
 
 type RecordedQuery = Readonly<{
   text: string;

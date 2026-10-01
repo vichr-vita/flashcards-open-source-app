@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const arCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "إعدادات الذكاء الاصطناعي",
+    provider: "مزود الدردشة",
+    model: "النموذج",
+    connect: "ربط ChatGPT",
+    disconnect: "قطع الاتصال",
+    notConnected: "غير متصل",
+    notConfigured: "الاتصال بـ ChatGPT معطل على هذا الخادم.",
+    supported: "الدردشة وأدوات البطاقات. الإملاء يتطلب مفتاح API.",
+    apiDescription: "استخدام API والصور يُحاسبان بشكل منفصل.",
+    codeInstruction: "افتح رابط تسجيل الدخول وأدخل هذا الرمز.",
+    copyCode: "نسخ الرمز",
+    copied: "تم النسخ",
+    copyFailed: "انسخ الرمز يدويًا.",
+    openSignIn: "فتح تسجيل الدخول إلى ChatGPT",
+    waiting: "بانتظار التفويض...",
+    usingChatGPT: "استخدام اشتراك ChatGPT",
+  },
   accentColorSettings: {
     title: "لون التمييز",
     subtitle: "اختر لون التمييز للتطبيق.",

@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const fiCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Tekoälyasetukset",
+    provider: "Chat-palveluntarjoaja",
+    model: "Malli",
+    connect: "Yhdistä ChatGPT",
+    disconnect: "Katkaise yhteys",
+    notConnected: "Ei yhdistetty",
+    notConfigured: "ChatGPT-yhteys on poistettu käytöstä tällä palvelimella.",
+    supported: "Chat ja korttityökalut. Sanelu vaatii API-avaimen.",
+    apiDescription: "API:n käyttö ja kuvat laskutetaan erikseen.",
+    codeInstruction: "Avaa kirjautumislinkki ja syötä tämä koodi.",
+    copyCode: "Kopioi koodi",
+    copied: "Kopioitu",
+    copyFailed: "Kopioi koodi käsin.",
+    openSignIn: "Avaa ChatGPT-kirjautuminen",
+    waiting: "Odotetaan valtuutusta...",
+    usingChatGPT: "ChatGPT-tilaus käytössä",
+  },
   accentColorSettings: {
     title: "Korostusväri",
     subtitle: "Valitse sovelluksen korostusväri.",

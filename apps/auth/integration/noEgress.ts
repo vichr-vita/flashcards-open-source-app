@@ -12,6 +12,9 @@ function requireLoopback(hostname: string): void {
 const originalFetch = globalThis.fetch;
 globalThis.fetch = (input, init) => {
   const url = new URL(typeof input === "string" ? input : input instanceof URL ? input.href : input.url);
+  if (process.env.LOCAL_CHATGPT_FIXTURE === "true" && (url.origin === "https://auth.openai.com" || url.origin === "https://chatgpt.com")) {
+    return originalFetch(`http://127.0.0.1:19402${url.pathname}${url.search}`, init);
+  }
   requireLoopback(url.hostname);
   return originalFetch(input, init);
 };

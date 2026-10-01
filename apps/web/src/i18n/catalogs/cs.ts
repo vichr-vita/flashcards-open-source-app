@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const csCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Nastavení AI",
+    provider: "Poskytovatel chatu",
+    model: "Model",
+    connect: "Připojit ChatGPT",
+    disconnect: "Odpojit",
+    notConnected: "Nepřipojeno",
+    notConfigured: "Připojení ChatGPT je na tomto serveru vypnuté.",
+    supported: "Chat a nástroje pro kartičky. Diktování vyžaduje API klíč.",
+    apiDescription: "Použití API a obrázky se účtují zvlášť.",
+    codeInstruction: "Otevřete přihlašovací odkaz a zadejte tento kód.",
+    copyCode: "Kopírovat kód",
+    copied: "Zkopírováno",
+    copyFailed: "Zkopírujte kód ručně.",
+    openSignIn: "Otevřít přihlášení ChatGPT",
+    waiting: "Čeká se na autorizaci...",
+    usingChatGPT: "Používá se předplatné ChatGPT",
+  },
   accentColorSettings: {
     title: "Barva zvýraznění",
     subtitle: "Vyberte barvu zvýraznění aplikace.",

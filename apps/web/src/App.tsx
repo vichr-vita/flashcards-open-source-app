@@ -54,6 +54,7 @@ import {
   settingsAIChatSuggestionsRoute,
   settingsAnalyticsRoute,
   settingsOwnOpenAIKeyRoute,
+  settingsAIRoute,
   settingsSubscriptionRoute,
   settingsCurrentWorkspaceRoute,
   settingsDeckNewRoute,
@@ -164,6 +165,7 @@ const AIChatSuggestionsSettingsScreen = lazy(async () => import("./screens/setti
 const SubscriptionSettingsScreen = lazy(async () => import("./screens/settings/SubscriptionSettingsScreen").then((module) => ({
   default: module.SubscriptionSettingsScreen,
 })));
+const AISettingsScreen = lazy(async () => import("./screens/settings/AISettingsScreen").then((module) => ({ default: module.AISettingsScreen })));
 const OwnOpenAIKeySettingsScreen = lazy(async () => import("./screens/settings/OwnOpenAIKeySettingsScreen").then((module) => ({
   default: module.OwnOpenAIKeySettingsScreen,
 })));
@@ -1029,6 +1031,7 @@ export function RoutedShell(): ReactElement {
           <Route path={`${workspaceRoutePattern}${settingsReviewAnimationsRoute}`} element={renderDeferredRoute(<ReviewAnimationsSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsAIChatSuggestionsRoute}`} element={renderDeferredRoute(<AIChatSuggestionsSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsSubscriptionRoute}`} element={renderDeferredRoute(<SubscriptionSettingsScreen />, "loading.settings")} />
+          <Route path={`${workspaceRoutePattern}${settingsAIRoute}`} element={renderDeferredRoute(<AISettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsOwnOpenAIKeyRoute}`} element={renderDeferredRoute(<OwnOpenAIKeySettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsAnalyticsRoute}`} element={renderDeferredRoute(<AnalyticsSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsSchedulerRoute}`} element={renderDeferredRoute(<WorkspaceSchedulerScreen />, "loading.schedulerSettings")} />

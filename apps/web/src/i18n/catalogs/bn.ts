@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const bnCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI সেটিংস",
+    provider: "চ্যাট প্রদানকারী",
+    model: "মডেল",
+    connect: "ChatGPT সংযুক্ত করুন",
+    disconnect: "সংযোগ বিচ্ছিন্ন করুন",
+    notConnected: "সংযুক্ত নয়",
+    notConfigured: "এই সার্ভারে ChatGPT সংযোগ বন্ধ রয়েছে।",
+    supported: "চ্যাট ও কার্ড টুল। কণ্ঠে লেখার জন্য API কী প্রয়োজন।",
+    apiDescription: "API ব্যবহার ও ছবির জন্য আলাদা খরচ হয়।",
+    codeInstruction: "সাইন-ইন লিংক খুলে এই কোড লিখুন।",
+    copyCode: "কোড কপি করুন",
+    copied: "কপি হয়েছে",
+    copyFailed: "কোডটি নিজে কপি করুন।",
+    openSignIn: "ChatGPT সাইন-ইন খুলুন",
+    waiting: "অনুমতির অপেক্ষায়...",
+    usingChatGPT: "ChatGPT সাবস্ক্রিপশন ব্যবহার করা হচ্ছে",
+  },
   accentColorSettings: {
     title: "অ্যাকসেন্ট রং",
     subtitle: "অ্যাপের অ্যাকসেন্ট রং বেছে নিন।",

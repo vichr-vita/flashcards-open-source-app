@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const idCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Pengaturan AI",
+    provider: "Penyedia chat",
+    model: "Model",
+    connect: "Hubungkan ChatGPT",
+    disconnect: "Putuskan koneksi",
+    notConnected: "Belum terhubung",
+    notConfigured: "Koneksi ChatGPT dinonaktifkan di server ini.",
+    supported: "Chat dan alat kartu. Dikte memerlukan kunci API.",
+    apiDescription: "Penggunaan API dan gambar ditagih terpisah.",
+    codeInstruction: "Buka tautan masuk dan masukkan kode ini.",
+    copyCode: "Salin kode",
+    copied: "Disalin",
+    copyFailed: "Salin kode secara manual.",
+    openSignIn: "Buka masuk ChatGPT",
+    waiting: "Menunggu otorisasi...",
+    usingChatGPT: "Menggunakan langganan ChatGPT",
+  },
   accentColorSettings: {
     title: "Warna aksen",
     subtitle: "Pilih warna aksen aplikasi.",

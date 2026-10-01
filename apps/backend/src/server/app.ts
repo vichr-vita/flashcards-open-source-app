@@ -18,6 +18,8 @@ import {
   HttpError,
   type PublicHttpErrorDetails,
 } from "../shared/errors";
+import { createAISettingsRoutes } from "../routes/aiSettings";
+import { createChatLocalLiveRoutes } from "../routes/chatLocalLive";
 import { createChatRoutes } from "../routes/chat";
 import { createChatTranscriptionsRoutes } from "../routes/chatTranscriptions";
 import { createAgentRoutes } from "../routes/agent";
@@ -502,6 +504,10 @@ function createMountedApp(basePath: string, allowedOrigins: Array<string>): Hono
 
   app.route("/", createSystemRoutes({ allowedOrigins }));
   const localAuth = getAuthConfig().mode === "local";
+  if (localAuth) {
+    app.route("/", createAISettingsRoutes({ allowedOrigins }));
+    app.route("/", createChatLocalLiveRoutes({ allowedOrigins }));
+  }
   if (!localAuth) app.route("/", createAgentRoutes({ allowedOrigins }));
   app.route("/", createWorkspaceRoutes({ allowedOrigins }));
   if (!localAuth) {

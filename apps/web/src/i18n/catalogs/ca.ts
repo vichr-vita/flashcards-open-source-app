@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const caCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "Configuració d’IA",
+    provider: "Proveïdor del xat",
+    model: "Model",
+    connect: "Connecta ChatGPT",
+    disconnect: "Desconnecta",
+    notConnected: "No connectat",
+    notConfigured: "La connexió amb ChatGPT està desactivada en aquest servidor.",
+    supported: "Xat i eines de targetes. El dictat requereix una clau API.",
+    apiDescription: "L’ús de l’API i les imatges es facturen per separat.",
+    codeInstruction: "Obre l’enllaç d’inici de sessió i introdueix aquest codi.",
+    copyCode: "Copia el codi",
+    copied: "Copiat",
+    copyFailed: "Copia el codi manualment.",
+    openSignIn: "Obre l’inici de sessió de ChatGPT",
+    waiting: "Esperant autorització...",
+    usingChatGPT: "S’està utilitzant la subscripció de ChatGPT",
+  },
   accentColorSettings: {
     title: "Color d’accent",
     subtitle: "Tria el color d’accent de l’aplicació.",

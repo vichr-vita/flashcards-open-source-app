@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const faCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "تنظیمات هوش مصنوعی",
+    provider: "ارائه‌دهنده گفتگو",
+    model: "مدل",
+    connect: "اتصال ChatGPT",
+    disconnect: "قطع اتصال",
+    notConnected: "متصل نیست",
+    notConfigured: "اتصال ChatGPT در این سرور غیرفعال است.",
+    supported: "گفتگو و ابزارهای کارت. دیکته به کلید API نیاز دارد.",
+    apiDescription: "استفاده از API و تصاویر جداگانه هزینه دارند.",
+    codeInstruction: "پیوند ورود را باز کنید و این کد را وارد کنید.",
+    copyCode: "کپی کد",
+    copied: "کپی شد",
+    copyFailed: "کد را دستی کپی کنید.",
+    openSignIn: "باز کردن ورود ChatGPT",
+    waiting: "در انتظار اجازه...",
+    usingChatGPT: "استفاده از اشتراک ChatGPT",
+  },
   accentColorSettings: {
     title: "رنگ تأکیدی",
     subtitle: "رنگ تأکیدی برنامه را انتخاب کنید.",

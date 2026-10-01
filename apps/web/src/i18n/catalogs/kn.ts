@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const knCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    provider: "ಚಾಟ್ ಪೂರೈಕೆದಾರ",
+    model: "ಮಾದರಿ",
+    connect: "ChatGPT ಸಂಪರ್ಕಿಸಿ",
+    disconnect: "ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಿ",
+    notConnected: "ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ",
+    notConfigured: "ಈ ಸರ್ವರ್‌ನಲ್ಲಿ ChatGPT ಸಂಪರ್ಕ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ.",
+    supported: "ಚಾಟ್ ಮತ್ತು ಕಾರ್ಡ್ ಸಾಧನಗಳು. ಧ್ವನಿ ಬರವಣಿಗೆಗೆ API ಕೀ ಬೇಕು.",
+    apiDescription: "API ಬಳಕೆ ಮತ್ತು ಚಿತ್ರಗಳಿಗೆ ಪ್ರತ್ಯೇಕ ಶುಲ್ಕ ವಿಧಿಸಲಾಗುತ್ತದೆ.",
+    codeInstruction: "ಸೈನ್-ಇನ್ ಲಿಂಕ್ ತೆರೆದು ಈ ಕೋಡ್ ನಮೂದಿಸಿ.",
+    copyCode: "ಕೋಡ್ ನಕಲಿಸಿ",
+    copied: "ನಕಲಿಸಲಾಗಿದೆ",
+    copyFailed: "ಕೋಡ್ ಅನ್ನು ಕೈಯಾರೆ ನಕಲಿಸಿ.",
+    openSignIn: "ChatGPT ಸೈನ್-ಇನ್ ತೆರೆಯಿರಿ",
+    waiting: "ಅನುಮತಿಗಾಗಿ ಕಾಯುತ್ತಿದೆ...",
+    usingChatGPT: "ChatGPT ಚಂದಾದಾರಿಕೆ ಬಳಸಲಾಗುತ್ತಿದೆ",
+  },
   accentColorSettings: {
     title: "ಪ್ರಮುಖ ಬಣ್ಣ",
     subtitle: "ಆ್ಯಪ್‌ನ ಪ್ರಮುಖ ಬಣ್ಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",

@@ -1,7 +1,9 @@
+import type { ChatGPTReference } from "../chatgpt/connection";
 /**
  * Backend-owned chat worker dispatch helpers.
  * The route layer persists the run first, then this module triggers the worker so the run survives client disconnects.
  */
+import { getAuthConfig } from "../../auth/config";
 import { InvokeCommand, LambdaClient } from "@aws-sdk/client-lambda";
 import {
   captureBackendException,
@@ -18,6 +20,7 @@ export type ChatWorkerDispatch = Readonly<{
   runId: string;
   userId: string;
   workspaceId: string;
+  chatgpt?: ChatGPTReference | null;
   initiatingAuthIsSignedIn: boolean;
   userOpenAIApiKey: UserOpenAIApiKey | null;
   routeRequestId?: string | null;
@@ -30,6 +33,7 @@ export type ChatWorkerInvocation = Readonly<{
   userId: string;
   workspaceId: string;
   initiatingAuthIsSignedIn?: boolean;
+  chatgpt?: ChatGPTReference | null;
   /**
    * The person's own key in the clear, the only place it leaves the request that carried it. The invoke is
    * asynchronous (`InvocationType: "Event"`) and the chat worker has no dead-letter queue or failure
@@ -93,6 +97,7 @@ function createChatWorkerInvocation(
     userId: payload.userId,
     workspaceId: payload.workspaceId,
     initiatingAuthIsSignedIn: payload.initiatingAuthIsSignedIn,
+    ...(payload.chatgpt == null ? {} : { chatgpt: payload.chatgpt }),
     userOpenAIApiKey: payload.userOpenAIApiKey === null ? null : payload.userOpenAIApiKey.revealRawValue(),
     routeRequestId: payload.routeRequestId ?? null,
     chatRequestId: payload.chatRequestId ?? null,
@@ -132,6 +137,18 @@ export async function invokeChatWorkerWithDependencies(
 export async function invokeChatWorker(
   payload: ChatWorkerDispatch,
 ): Promise<void> {
+  if (process.env.AUTH_MODE === "local" && getAuthConfig().mode === "local") {
+    const { handleChatWorkerEvent } = await import("./index");
+    const startedAt = Date.now();
+    const invocation = createChatWorkerInvocation(payload, getBackendTraceCarrier());
+    void handleChatWorkerEvent(invocation, {
+      lambdaRequestId: null,
+      getRemainingTimeInMillis: () => Math.max(0, 900_000 - (Date.now() - startedAt)),
+    }).catch((error: unknown) => {
+      captureBackendException(createChatWorkerDispatchFailedEvent(payload, normalizeCaughtError(error), "Local chat worker failed"));
+    });
+    return;
+  }
   await invokeChatWorkerWithDependencies(payload, {
     getTraceCarrier: getBackendTraceCarrier,
     getFunctionName: getChatWorkerFunctionName,

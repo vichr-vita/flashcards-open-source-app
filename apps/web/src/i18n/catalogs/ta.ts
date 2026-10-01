@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const taCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "AI அமைப்புகள்",
+    provider: "அரட்டை வழங்குநர்",
+    model: "மாதிரி",
+    connect: "ChatGPT இணைக்கவும்",
+    disconnect: "இணைப்பைத் துண்டிக்கவும்",
+    notConnected: "இணைக்கப்படவில்லை",
+    notConfigured: "இந்தச் சேவையகத்தில் ChatGPT இணைப்பு முடக்கப்பட்டுள்ளது.",
+    supported: "அரட்டை மற்றும் அட்டைக் கருவிகள். குரலில் எழுத API விசை தேவை.",
+    apiDescription: "API பயன்பாடும் படங்களும் தனியாகக் கட்டணம் வசூலிக்கப்படும்.",
+    codeInstruction: "உள்நுழைவு இணைப்பைத் திறந்து இந்தக் குறியீட்டை உள்ளிடவும்.",
+    copyCode: "குறியீட்டை நகலெடுக்கவும்",
+    copied: "நகலெடுக்கப்பட்டது",
+    copyFailed: "குறியீட்டை நீங்களே நகலெடுக்கவும்.",
+    openSignIn: "ChatGPT உள்நுழைவைத் திறக்கவும்",
+    waiting: "அனுமதிக்காகக் காத்திருக்கிறது...",
+    usingChatGPT: "ChatGPT சந்தா பயன்படுத்தப்படுகிறது",
+  },
   accentColorSettings: {
     title: "சிறப்பம்ச நிறம்",
     subtitle: "செயலியின் சிறப்பம்ச நிறத்தைத் தேர்ந்தெடுக்கவும்.",

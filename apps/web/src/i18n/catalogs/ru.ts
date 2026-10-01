@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 export const ruCatalog = {
+  aiSettings: {
+    title: "Настройки ИИ",
+    provider: "Провайдер чата",
+    model: "Модель",
+    connect: "Подключить ChatGPT",
+    disconnect: "Отключить",
+    notConnected: "Не подключено",
+    notConfigured: "Подключение ChatGPT отключено на этом сервере.",
+    supported: "Чат и инструменты карточек. Для диктовки нужен ключ API.",
+    apiDescription: "Использование API и изображения оплачиваются отдельно.",
+    codeInstruction: "Откройте ссылку для входа и введите этот код.",
+    copyCode: "Копировать код",
+    copied: "Скопировано",
+    copyFailed: "Скопируйте код вручную.",
+    openSignIn: "Открыть вход в ChatGPT",
+    waiting: "Ожидание авторизации...",
+    usingChatGPT: "Используется подписка ChatGPT",
+  },
   accentColorSettings: {
     title: "Акцентный цвет",
     subtitle: "Выберите акцентный цвет приложения.",

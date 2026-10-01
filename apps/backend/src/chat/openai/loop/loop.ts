@@ -1,8 +1,10 @@
+import type { ChatGPTReference } from "../../chatgpt/connection";
 /**
  * OpenAI model loop for backend-owned chat runs.
  * The loop replays persisted history, sequences model and tool steps, and returns replay items for the next recovery point.
  */
 import OpenAI from "openai";
+import { createChatGPTClient } from "../../chatgpt/client";
 import type { LangfuseObservation } from "@langfuse/tracing";
 import {
   buildChatCompletionInput,
@@ -105,6 +107,7 @@ export type StartOpenAILoopParams = Readonly<{
   tierAtCall: EntitlementTier;
   initiatingAuthIsSignedIn: boolean;
   userOpenAIApiKey: UserOpenAIApiKey | null;
+  chatgpt?: ChatGPTReference | null;
   modelId: ChatRuntimeModelId;
   reasoningEffort: ChatRuntimeReasoningEffort;
   timezone: string;
@@ -164,14 +167,14 @@ async function recordModelCallUsage(
     occurredAt: new Date(),
     surface: "chat",
     provider: "openai",
-    modelId: params.modelId,
+    modelId: params.chatgpt?.modelId ?? params.modelId,
     requestId: params.requestId,
     tierAtCall: params.tierAtCall,
     counters: toOpenAIResponsesUsageCounters(modelCall.finalResponse.usage),
     imageCount: null,
     imageSize: null,
     imageQuality: null,
-    userSuppliedKey: params.userOpenAIApiKey !== null,
+    userSuppliedKey: params.userOpenAIApiKey !== null || params.chatgpt != null,
   });
 }
 
@@ -230,7 +233,7 @@ async function runModelCallWithOverflowRetry(
       onEvent,
       request: buildRequest(baseInput),
       callIndex,
-      userSuppliedKey: params.userOpenAIApiKey !== null,
+      userSuppliedKey: params.userOpenAIApiKey !== null || params.chatgpt != null,
     });
     await recordModelCallUsage(params, dependencies, modelCall);
     return { baseInput, modelCall };
@@ -253,7 +256,7 @@ async function runModelCallWithOverflowRetry(
       onEvent,
       request: buildRequest(reducedBaseInput),
       callIndex,
-      userSuppliedKey: params.userOpenAIApiKey !== null,
+      userSuppliedKey: params.userOpenAIApiKey !== null || params.chatgpt != null,
     });
     await recordModelCallUsage(params, dependencies, retriedModelCall);
     return { baseInput: reducedBaseInput, modelCall: retriedModelCall };
@@ -310,7 +313,9 @@ async function runLoopWithDeps(
   dependencies: OpenAILoopDependencies,
 ): Promise<OpenAILoopCompletion> {
   // One client for every model call of the run, built from the person's own key when the turn carried one.
-  const client = params.userOpenAIApiKey === null
+  const client = params.chatgpt != null
+    ? createChatGPTClient(params.userId, params.chatgpt)
+    : params.userOpenAIApiKey === null
     ? dependencies.getObservedOpenAIClient()
     : dependencies.createObservedUserOpenAIClient(params.userOpenAIApiKey);
   let baseInput = await dependencies.buildChatCompletionInput(
@@ -440,8 +445,12 @@ export async function startOpenAILoopWithDeps(
   dependencies: OpenAILoopDependencies,
 ): Promise<OpenAILoopCompletion> {
   setExecutionPhase(params, "idle");
-  const userSuppliedKey = params.userOpenAIApiKey !== null;
-  const history = dropHistoryReasoningItemsFromOtherKey(params.localMessages, userSuppliedKey);
+  const userSuppliedKey = params.userOpenAIApiKey !== null || params.chatgpt != null;
+  // Subscription reasoning stays within this run. Stored history may come from another connection.
+  const messages = params.chatgpt == null ? params.localMessages : params.localMessages.map((message) => ({
+    ...message, openaiItems: message.openaiItems?.filter((item) => item.type !== "reasoning"),
+  }));
+  const history = dropHistoryReasoningItemsFromOtherKey(messages, userSuppliedKey);
   if (history.droppedReasoningItems > 0) {
     addBackendBreadcrumb({
       action: "chat_replay_reasoning_items_dropped",
@@ -461,7 +470,9 @@ export async function startOpenAILoopWithDeps(
       details: { droppedReasoningItems: history.droppedReasoningItems, userSuppliedKey },
     });
   }
-  return runLoopWithDeps({ ...params, localMessages: history.messages }, onEvent, dependencies).finally(() => {
+  return runLoopWithDeps({ ...params, localMessages: history.messages }, onEvent, dependencies).then((completion) => params.chatgpt == null ? completion : {
+    ...completion, openaiItems: completion.openaiItems.filter((item) => item.type !== "reasoning"),
+  }).finally(() => {
     setExecutionPhase(params, "idle");
   });
 }

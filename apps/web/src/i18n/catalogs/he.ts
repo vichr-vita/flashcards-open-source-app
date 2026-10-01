@@ -1,6 +1,24 @@
 import type { TranslationCatalog } from "../catalogTypes";
 
 const heCatalog: TranslationCatalog = {
+  aiSettings: {
+    title: "הגדרות AI",
+    provider: "ספק צ׳אט",
+    model: "מודל",
+    connect: "חיבור ChatGPT",
+    disconnect: "ניתוק",
+    notConnected: "לא מחובר",
+    notConfigured: "החיבור ל-ChatGPT מושבת בשרת זה.",
+    supported: "צ׳אט וכלי כרטיסיות. הכתבה דורשת מפתח API.",
+    apiDescription: "השימוש ב-API ותמונות מחויבים בנפרד.",
+    codeInstruction: "פתחו את קישור ההתחברות והזינו את הקוד הזה.",
+    copyCode: "העתקת קוד",
+    copied: "הועתק",
+    copyFailed: "העתיקו את הקוד ידנית.",
+    openSignIn: "פתיחת ההתחברות ל-ChatGPT",
+    waiting: "ממתין לאישור...",
+    usingChatGPT: "שימוש במינוי ChatGPT",
+  },
   accentColorSettings: {
     title: "צבע הדגשה",
     subtitle: "בחרו את צבע ההדגשה של האפליקציה.",
