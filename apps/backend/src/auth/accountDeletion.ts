@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { getAuthConfig } from "./config";
 import { deleteCognitoUser } from "./cognitoUsers";
 import { anonymizeAiUsageForDeletedPersonInExecutor } from "../aiUsage/identity";
 import { anonymizeBillingForDeletedPersonInExecutor } from "../billing/identity";
@@ -419,6 +420,9 @@ export async function deleteAccountForAuthenticatedUser(
   dependencies: AccountDeletionDependencies = defaultAccountDeletionDependencies,
 ): Promise<void> {
   assertValidConfirmationText(input.confirmationText);
+  if (getAuthConfig().mode === "local") {
+    throw new HttpError(409, "Account deletion is managed over SSH for this installation.", "LOCAL_ACCOUNT_ADMIN_REQUIRED");
+  }
   const isDemoAccount = dependencies.isConfiguredDemoEmail(input.email);
 
   await dependencies.unsafeTransaction(async (executor) => {

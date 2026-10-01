@@ -1,4 +1,7 @@
+import { getLocalCsrfSecret } from "./local";
+
 export type AuthConfig =
+  | Readonly<{ mode: "local" }>
   | Readonly<{ mode: "cognito" }>
   | Readonly<{ mode: "none" }>;
 
@@ -34,7 +37,14 @@ export function getAuthConfig(): AuthConfig {
 
   const authMode = process.env.AUTH_MODE;
   if (authMode === undefined || authMode === "") {
-    throw new Error('AUTH_MODE is required and must be set to "cognito" or "none"');
+    throw new Error('AUTH_MODE is required and must be set to "local", "cognito", or "none"');
+  }
+
+  if (authMode === "local") {
+    getLocalCsrfSecret();
+    if (!process.env.DATABASE_URL || process.env.DB_SECRET_ARN) throw new Error("Local auth requires DATABASE_URL and does not use DB_SECRET_ARN");
+    resolvedAuthConfig = { mode: "local" };
+    return resolvedAuthConfig;
   }
 
   if (authMode === "cognito") {
@@ -57,7 +67,7 @@ export function getAuthConfig(): AuthConfig {
     return resolvedAuthConfig;
   }
 
-  throw new Error(`AUTH_MODE must be set to "cognito" or "none", got "${authMode}"`);
+  throw new Error(`AUTH_MODE must be set to "local", "cognito", or "none", got "${authMode}"`);
 }
 
 export function resetAuthConfigForTests(): void {

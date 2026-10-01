@@ -1,5 +1,7 @@
 # Nibomo
 
+This fork adds a single-account, browser-only self-hosted mode with password and authenticator-app MFA. See the [local authentication guide](docs/self-hosted-local-auth.md) for setup, recovery, PWA behavior, and isolated verification. Native clients and external agent authentication are disabled in local mode. The upstream product information follows.
+
 AI-powered open-source flashcards app for iOS, Android, and web.
 
 ![Nibomo screenshots](apps/ios/docs/media/marketing-materials/iphone/en-US-1-2-3-4-5-horizontal-dark-gray.png)

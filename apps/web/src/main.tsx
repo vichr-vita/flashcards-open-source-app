@@ -13,8 +13,10 @@ import {
 } from "./i18n";
 import { installStaleBundleReloadGuard } from "./staleBundleReload";
 import "./styles/index.css";
+import { registerOfflineShell } from "./offlineShell";
 
 installStaleBundleReloadGuard();
+registerOfflineShell();
 
 // Resolving the prefetch locale must not abort module evaluation, or the root below never renders
 // and no error boundary can report it; I18nProvider resolves the same preference inside the

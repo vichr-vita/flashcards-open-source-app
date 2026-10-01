@@ -9,6 +9,11 @@ import {
 import { logWarning } from "./server/logger.js";
 
 let pool: pg.Pool | undefined;
+/** Releases the pool after an administrative command or integration run. */
+export async function closeDatabase(): Promise<void> {
+  await pool?.end();
+  pool = undefined;
+}
 // AuthHandler's share of the fleet-wide Postgres connection budget is stated per container, so the
 // pool has to be bounded here for its reservedConcurrentExecutions to bound anything.
 // Infrastructure owns the number: infra/aws/lib/gateways/api-gateway.ts checks the whole budget at

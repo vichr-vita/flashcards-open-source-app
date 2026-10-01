@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { getAuthConfig } from "../../auth/config";
 import {
   createAgentConnectionCreateEnvelope,
   createAgentConnectionListEnvelope,
@@ -516,6 +517,9 @@ export function createWorkspaceRoutes(options: WorkspaceRoutesOptions): Hono<App
       throw error;
     }
   });
+
+  // The browser-only local provider must not issue credentials usable without MFA.
+  if (getAuthConfig().mode === "local") return app;
 
   app.get("/agent-api-keys", async (context) => {
     const { requestContext } = await loadRequestContextFromRequestFn(context.req.raw, options.allowedOrigins);

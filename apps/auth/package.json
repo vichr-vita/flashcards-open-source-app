@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "local-account": "node dist/local/cli.js",
+    "test:local-integration": "tsx integration/localAuth.ts",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "test": "node --test --import tsx \"src/**/*.test.ts\"",
@@ -13,14 +15,18 @@
     "@aws-sdk/client-kms": "^3.1141.0",
     "@aws-sdk/client-secrets-manager": "^3.1138.0",
     "@hono/node-server": "^2.1.1",
+    "@node-rs/argon2": "2.2.1",
     "@sentry/aws-serverless": "^10.75.2",
     "aws-jwt-verify": "^5.2.1",
     "hono": "^4.13.8",
-    "pg": "^8.23.0"
+    "otpauth": "9.5.2",
+    "pg": "^8.23.0",
+    "qrcode": "1.5.4"
   },
   "devDependencies": {
     "@types/node": "^24.13.6",
     "@types/pg": "^8.23.1",
+    "@types/qrcode": "1.5.6",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },

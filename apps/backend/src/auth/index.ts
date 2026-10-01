@@ -20,6 +20,7 @@ import { authenticateGuestSession } from "../guestAuth/session/index";
 import type { AnalyticsConsentChoice } from "./ensureUser";
 import type { GuestSessionPlatform } from "../guestAuth/types";
 import { loadCognitoIdentityMapping } from "./userIdentities";
+import { verifyLocalSession } from "./local";
 
 export type AuthTransport = "none" | "bearer" | "session" | "api_key" | "guest";
 
@@ -321,6 +322,20 @@ async function authenticateRequestWithDependencies(
   dependencies: AuthenticateRequestDependencies,
 ): Promise<AuthResult> {
   const authConfig = getAuthConfig();
+
+  if (authConfig.mode === "local") {
+    // A bearer header cannot downgrade a cookie request or bypass browser CSRF checks.
+    const sessionToken = request.sessionToken;
+    if (request.authorizationHeader || !sessionToken) throw new AuthError(401, "Local auth requires a browser session");
+    const userId = await runOperation(() => verifyLocalSession(sessionToken));
+    if (!userId) throw new AuthError(401, "Invalid or expired browser session");
+    return {
+      userId, subjectUserId: userId, email: null, cognitoUsername: null,
+      transport: "session", connectionId: null, selectedWorkspaceId: null,
+      guestSessionId: null, guestPlatform: null, guestAnalyticsConsent: null,
+      guestProductAnalyticsEnabled: null,
+    };
+  }
 
   if (authConfig.mode === "none") {
     return {

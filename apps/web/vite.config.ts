@@ -2,6 +2,7 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import webPackageInfo from "./package.json";
+import { offlineShellPlugin } from "./pwa.build";
 
 type SentrySourceMapUploadConfig = Readonly<{
   authToken: string;
@@ -85,6 +86,7 @@ export default defineConfig(({ command }) => {
   return {
     plugins: [
       react(),
+      offlineShellPlugin(),
       ...(sentrySourceMapUploadConfig !== undefined
         ? sentryVitePlugin({
             org: sentrySourceMapUploadConfig.org,

@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { HttpError } from "../shared/errors";
 import {
   applyUserDatabaseScopeInExecutor,
   transactionWithUserScope,
@@ -66,11 +67,9 @@ export async function ensureUserProfileInExecutor(
   executor: DatabaseExecutor,
   userId: string,
   email: string | null,
+  allowCreate = true,
 ): Promise<UserProfile> {
-  await executor.query(
-    upsertUserSettingsSql,
-    [userId, email],
-  );
+  if (allowCreate) await executor.query(upsertUserSettingsSql, [userId, email]);
 
   const existing = await executor.query<UserSettingsRow>(
     [
@@ -84,6 +83,7 @@ export async function ensureUserProfileInExecutor(
   );
 
   if (existing.rows.length === 0) {
+    if (!allowCreate) throw new HttpError(410, "Local account no longer exists", "ACCOUNT_DELETED");
     throw new Error("Failed to load user settings after upsert");
   }
 
@@ -111,6 +111,11 @@ export async function ensureUserProfileInExecutor(
 
 export async function ensureUserProfile(userId: string, email: string | null): Promise<UserProfile> {
   return transactionWithUserScope({ userId }, async (executor) => ensureUserProfileInExecutor(executor, userId, email));
+}
+
+/** Local mode must never recreate a profile removed after session verification. */
+export async function loadExistingUserProfile(userId: string): Promise<UserProfile> {
+  return transactionWithUserScope({ userId }, executor => ensureUserProfileInExecutor(executor, userId, null, false));
 }
 
 /** Reads under the caller's scope, so the caller applies the scope of the id it is asking about. */

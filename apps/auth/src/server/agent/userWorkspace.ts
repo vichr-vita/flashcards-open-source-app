@@ -336,7 +336,7 @@ async function createWorkspaceInExecutor(
 export async function ensureUserSettingsAndSelectWorkspace(
   executor: DatabaseExecutor,
   userId: string,
-  email: string,
+  email: string | null,
 ): Promise<string | null> {
   await executor.query(upsertUserSettingsSql, [userId, email]);
 

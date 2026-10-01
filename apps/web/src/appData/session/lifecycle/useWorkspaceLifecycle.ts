@@ -3,6 +3,7 @@ import { clearEntitlementState, readEntitlementIdentityGeneration, setEntitlemen
 import { useCallback, useEffect, useRef } from "react";
 import {
   ApiError,
+  ApiNetworkError,
   buildLogoutLocalUrl,
   getSession,
   isAuthRedirectError,
@@ -235,6 +236,11 @@ export function useWorkspaceLifecycle(params: UseWorkspaceLifecycleParams): Work
       try {
         currentSession = await getSession();
       } catch (error) {
+        if (shouldPreserveWarmStartState && error instanceof ApiNetworkError && error.statusCode === 0) {
+          // Cached local work remains available offline. Remote sync still requires verified auth.
+          indexedDbOpenRecoveryState.throwIfFailed();
+          return;
+        }
         if (
           isAccountDeletionPending()
           && error instanceof ApiError
@@ -425,6 +431,24 @@ export function useWorkspaceLifecycle(params: UseWorkspaceLifecycleParams): Work
   useEffect(() => {
     void initializeRef.current();
   }, []);
+
+  useEffect(() => {
+    if (sessionLoadState !== "ready" || sessionVerificationState !== "unverified") return;
+    let pending = false;
+    const retry = (): void => {
+      if (pending || document.visibilityState !== "visible") return;
+      pending = true;
+      void initializeRef.current().finally(() => { pending = false; });
+    };
+    const interval = window.setInterval(retry, 60_000);
+    window.addEventListener("online", retry);
+    window.addEventListener("focus", retry);
+    return () => {
+      window.clearInterval(interval);
+      window.removeEventListener("online", retry);
+      window.removeEventListener("focus", retry);
+    };
+  }, [sessionLoadState, sessionVerificationState]);
 
   const revalidateActiveSession = useCallback(async function revalidateActiveSession(): Promise<boolean> {
     if (

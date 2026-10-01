@@ -6,6 +6,7 @@
  * Custom-domain auth traffic arrives without a stage prefix.
  */
 import { randomUUID } from "node:crypto";
+import { createLocalAuthApp } from "./local/app.js";
 import * as Sentry from "@sentry/aws-serverless";
 import { type Context, Hono } from "hono";
 import type { MiddlewareHandler } from "hono";
@@ -314,6 +315,14 @@ function createMountedApp(basePath: string): Hono<AuthAppEnv> {
 }
 
 export function createApp(basePath: string): Hono<AuthAppEnv> {
+  if (process.env.AUTH_MODE === "local") {
+    const localApp = new Hono<AuthAppEnv>();
+    for (const path of getMountPaths(basePath)) localApp.route("/", createLocalAuthApp(path));
+    return localApp;
+  }
+  if (process.env.AUTH_MODE !== undefined && process.env.AUTH_MODE !== "cognito") {
+    throw new Error("Auth service AUTH_MODE must be local or cognito");
+  }
   const mountPaths = getMountPaths(basePath);
   if (mountPaths.length === 1) {
     return createMountedApp(mountPaths[0]);

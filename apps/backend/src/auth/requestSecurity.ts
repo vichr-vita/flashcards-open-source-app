@@ -1,6 +1,8 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import type { AuthRequest } from "./index";
 import { HttpError } from "../shared/errors";
+import { getAuthConfig } from "./config";
+import { getLocalCsrfSecret } from "./local";
 import {
   getBackendCsrfSecret,
   getBackendCsrfSecretWithAbortSignal,
@@ -143,10 +145,11 @@ export function toAuthRequest(requestAuthInputs: RequestAuthInputs): AuthRequest
 }
 
 /**
- * Derives a stateless CSRF token from the current session JWT. This keeps the
+ * Derives a stateless CSRF token from the current session credential. This keeps the
  * browser flow compatible with domain-wide SSO and avoids storing CSRF state.
  */
 export async function getSessionCsrfToken(sessionToken: string): Promise<string> {
+  if (getAuthConfig().mode === "local") return createSessionCsrfToken(sessionToken, getLocalCsrfSecret());
   const csrfSecret = await getBackendCsrfSecret(getBackendCsrfSecretArn());
   return createSessionCsrfToken(sessionToken, csrfSecret);
 }
@@ -155,6 +158,10 @@ async function getSessionCsrfTokenWithAbortSignal(
   sessionToken: string,
   abortSignal: AbortSignal,
 ): Promise<string> {
+  if (getAuthConfig().mode === "local") {
+    abortSignal.throwIfAborted();
+    return createSessionCsrfToken(sessionToken, getLocalCsrfSecret());
+  }
   const csrfSecret = await getBackendCsrfSecretWithAbortSignal(
     getBackendCsrfSecretArn(),
     abortSignal,

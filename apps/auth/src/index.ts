@@ -1,15 +1,14 @@
 /**
  * Auth service entry point (local development / Docker).
  *
- * Standalone Hono service for email OTP authentication via Cognito.
- * Handles login page, OTP send/verify, browser session logout, and mobile
- * token refresh/revoke.
+ * Standalone Hono service for Cognito or local password-plus-TOTP browser authentication.
  * Runs on its own port, separate from the backend Lambda.
  */
 import { serve } from "@hono/node-server";
 import { createApp } from "./app.js";
 
 const validateEnv = (): void => {
+  if (process.env.AUTH_MODE === "local") return; // The local app validates its own configuration eagerly.
   const errors: Array<string> = [];
   if (!process.env.COGNITO_USER_POOL_ID) errors.push("COGNITO_USER_POOL_ID");
   if (!process.env.COGNITO_CLIENT_ID) errors.push("COGNITO_CLIENT_ID");

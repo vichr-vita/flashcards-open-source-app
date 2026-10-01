@@ -501,11 +501,14 @@ function createMountedApp(basePath: string, allowedOrigins: Array<string>): Hono
   });
 
   app.route("/", createSystemRoutes({ allowedOrigins }));
-  app.route("/", createAgentRoutes({ allowedOrigins }));
+  const localAuth = getAuthConfig().mode === "local";
+  if (!localAuth) app.route("/", createAgentRoutes({ allowedOrigins }));
   app.route("/", createWorkspaceRoutes({ allowedOrigins }));
-  app.route("/", createAdminRoutes({ allowedOrigins }));
-  app.route("/", createCatalogAdminRoutes({ allowedOrigins }));
-  app.route("/", createCatalogAdminImageIngestionRoutes({ allowedOrigins }));
+  if (!localAuth) {
+    app.route("/", createAdminRoutes({ allowedOrigins }));
+    app.route("/", createCatalogAdminRoutes({ allowedOrigins }));
+    app.route("/", createCatalogAdminImageIngestionRoutes({ allowedOrigins }));
+  }
   app.route("/", createCatalogPublicRoutes({}));
   app.route("/", createCatalogInstallRoutes({ allowedOrigins }));
   app.route("/", createCardsRoutes({ allowedOrigins }));
@@ -521,7 +524,7 @@ function createMountedApp(basePath: string, allowedOrigins: Array<string>): Hono
     authOrigins: getConfiguredPublicAuthOrigins(),
   }));
   app.route("/", createGlobalSnapshotRoutes({}));
-  app.route("/", createGuestAuthRoutes());
+  if (!localAuth) app.route("/", createGuestAuthRoutes());
   app.route("/", createChatTranscriptionsRoutes({ allowedOrigins }));
   app.route("/", createChatRoutes({ allowedOrigins }));
   app.route("/", createSyncRoutes({ allowedOrigins }));

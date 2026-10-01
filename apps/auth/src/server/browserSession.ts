@@ -10,6 +10,8 @@ import {
 import type { Context } from "hono";
 import { deleteCookie, setCookie } from "hono/cookie";
 import { parseCookieDomainCandidates, resolveCookieDomain } from "./cookieDomain.js";
+import { getLocalAuthConfig } from "../local/config.js";
+import { refreshSeconds } from "../local/store.js";
 
 const SESSION_COOKIE_MAX_AGE_SECONDS = 3_024_000;
 
@@ -86,7 +88,7 @@ function getCookieOptions(context: Context): Readonly<{
 }> {
   return {
     path: "/",
-    secure: true,
+    secure: process.env.AUTH_MODE === "local" ? !getLocalAuthConfig().allowHttp : true,
     sameSite: "Lax",
     domain: getCookieDomain(context),
   };
@@ -141,19 +143,19 @@ export function setBrowserSessionCookies(
 
   setCookie(context, "session", sessionToken, {
     ...cookieOptions,
-    maxAge: SESSION_COOKIE_MAX_AGE_SECONDS,
+    maxAge: process.env.AUTH_MODE === "local" ? refreshSeconds : SESSION_COOKIE_MAX_AGE_SECONDS,
     httpOnly: true,
   });
 
   setCookie(context, "refresh", refreshToken, {
     ...cookieOptions,
-    maxAge: SESSION_COOKIE_MAX_AGE_SECONDS,
+    maxAge: process.env.AUTH_MODE === "local" ? refreshSeconds : SESSION_COOKIE_MAX_AGE_SECONDS,
     httpOnly: true,
   });
 
   setCookie(context, "logged_in", "1", {
     ...cookieOptions,
-    maxAge: SESSION_COOKIE_MAX_AGE_SECONDS,
+    maxAge: process.env.AUTH_MODE === "local" ? refreshSeconds : SESSION_COOKIE_MAX_AGE_SECONDS,
     httpOnly: false,
   });
 }

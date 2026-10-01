@@ -31,6 +31,15 @@ function assertConfiguredLocalOriginPolicy(
   rawValue: string,
   variableName: string,
 ): void {
+  if (process.env.AUTH_MODE === "local") {
+    const developmentLoopback = process.env.NODE_ENV === "development"
+      && process.env.LOCAL_AUTH_ALLOW_HTTP === "true"
+      && (url.hostname === "localhost" || url.hostname === "127.0.0.1");
+    if (url.protocol !== "https:" && !developmentLoopback) {
+      throw new Error(`${variableName} requires HTTPS for local auth outside explicit loopback development`);
+    }
+    if (developmentLoopback) return;
+  }
   if (isLocalOrLoopbackHostname(url.hostname) && rawValue !== fixedLocalPublicOrigin) {
     throw new Error(
       `${variableName} local or loopback origin must be exactly ${fixedLocalPublicOrigin}`,

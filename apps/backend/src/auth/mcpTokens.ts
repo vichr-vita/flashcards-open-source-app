@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { getAuthConfig } from "./config";
 import { unsafeQuery } from "../database/unsafe";
 import { HttpError } from "../shared/errors";
 import { normalizeCrockfordToken } from "../agent/crockford";
@@ -87,6 +88,7 @@ export async function authenticateMcpAccessToken(
   token: string,
   expectedResource: string,
 ): Promise<AuthenticatedMcpAccessToken> {
+  if (getAuthConfig().mode === "local") throw new HttpError(401, "MCP authentication is disabled in local mode", MCP_TOKEN_INVALID_CODE);
   const trimmedToken = token.trim();
   if (trimmedToken === "") {
     throw new HttpError(401, "Invalid MCP access token", MCP_TOKEN_INVALID_CODE);
@@ -166,6 +168,7 @@ export async function authenticateMcpBearerToken(
   token: string,
   expectedResource: string,
 ): Promise<AuthenticatedMcpAccessToken> {
+  if (getAuthConfig().mode === "local") throw new HttpError(401, "MCP authentication is disabled in local mode", MCP_TOKEN_INVALID_CODE);
   const trimmedToken = token.trim();
   if (trimmedToken === "") {
     throw new HttpError(401, "Invalid MCP access token", MCP_TOKEN_INVALID_CODE);

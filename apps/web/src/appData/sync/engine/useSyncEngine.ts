@@ -742,7 +742,6 @@ export function useSyncEngine(params: UseSyncEngineParams): SyncEngine {
     if (
       indexedDbOpenRecoveryState.isFailed
       || sessionLoadState !== "ready"
-      || sessionVerificationState !== "verified"
       || session === null
       || activeWorkspace === null
     ) {
@@ -765,8 +764,11 @@ export function useSyncEngine(params: UseSyncEngineParams): SyncEngine {
         entityId: null,
       });
     });
-    runSyncInBackground(runSyncForWorkspace(activeWorkspace));
-    runMediaUploadTransfersForWorkspace(activeWorkspace);
+    // Cached scheduler settings support local reviews before online session verification.
+    if (sessionVerificationState === "verified") {
+      runSyncInBackground(runSyncForWorkspace(activeWorkspace));
+      runMediaUploadTransfersForWorkspace(activeWorkspace);
+    }
   }, [
     activeWorkspace,
     indexedDbOpenRecoveryState,

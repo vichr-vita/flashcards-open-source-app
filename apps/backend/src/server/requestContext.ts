@@ -11,6 +11,7 @@ import { HttpError } from "../shared/errors";
 import {
   ensureCognitoUserProfile,
   ensureUserProfile,
+  loadExistingUserProfile,
   type AccountPreferences,
 } from "../auth/ensureUser";
 import { assertUserHasWorkspaceAccess } from "../workspaces/selection";
@@ -26,6 +27,7 @@ import {
   type RequestAuthInputs,
 } from "../auth/requestSecurity";
 import { getAllowedBrowserOrigins } from "./browserCors";
+import { getAuthConfig } from "../auth/config";
 
 export type RequestContext = Readonly<{
   userId: string;
@@ -145,9 +147,11 @@ async function loadAuthenticatedRequestContext(
       throw new HttpError(410, "This account has already been deleted.", "ACCOUNT_DELETED");
     }
   }
-  const userProfile = auth.transport === "bearer" || auth.transport === "session"
-    ? await dependencies.ensureCognitoUserProfileFn(auth.subjectUserId, auth.email)
-    : await dependencies.ensureUserProfileFn(auth.userId, auth.email);
+  const userProfile = getAuthConfig().mode === "local"
+    ? await loadExistingUserProfile(auth.userId)
+    : auth.transport === "bearer" || auth.transport === "session"
+      ? await dependencies.ensureCognitoUserProfileFn(auth.subjectUserId, auth.email)
+      : await dependencies.ensureUserProfileFn(auth.userId, auth.email);
   assertRequestActive();
   const selectedWorkspaceId = auth.transport === "api_key"
     ? auth.selectedWorkspaceId

@@ -1,8 +1,10 @@
 # Auth Service (`apps/auth/`)
 
-Email + OTP authentication via AWS Cognito (passwordless).
+This fork also supports `AUTH_MODE=local` for a single pre-created browser account with a password and authenticator-app MFA. See [self-hosted local authentication](self-hosted-local-auth.md) for bootstrap, recovery, configuration, and verification. Local mode does not mount the Cognito, native, demo, or OAuth login routes described below.
 
-- `AUTH_MODE`: `none` (local dev, no auth) or `cognito` (verify JWT from `Authorization: Bearer`)
+The remaining sections describe upstream email + OTP authentication via AWS Cognito.
+
+- `AUTH_MODE`: `local` for the self-hosted browser provider, `none` for explicitly insecure local development, or `cognito` for upstream JWT verification.
 - Account identity: an account's `user_id` is a surrogate identifier the product owns, and
   `auth.user_identities` maps a Cognito subject to it. The two are not required to be equal, and the
   id is not derived from the subject; the column rule lives in
