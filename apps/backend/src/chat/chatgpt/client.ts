@@ -5,6 +5,7 @@ import { codexBaseUrl, getChatGPTCredentials, type ChatGPTReference } from "./co
 
 const requestSchema = z.object({
   input: z.array(z.object({ type: z.string().optional(), role: z.string().optional(), content: z.unknown().optional() }).passthrough()),
+  reasoning: z.object({ effort: z.unknown().optional() }).passthrough().optional(),
 }).passthrough();
 
 /** Keep the existing Responses tool loop, adapting its requests to Codex's subscription endpoint. */
@@ -29,8 +30,13 @@ export function createChatGPTClient(userId: string, reference: ChatGPTReference)
         }
         return false;
       });
-      const { max_output_tokens: _maxTokens, safety_identifier: _safetyIdentifier, ...body } = original;
-      const adaptedBody = JSON.stringify({ ...body, model: reference.modelId, instructions: instructions.join("\n\n"), input: messages, store: false, stream: true });
+      const { max_output_tokens: _maxTokens, safety_identifier: _safetyIdentifier, reasoning: originalReasoning, ...body } = original;
+      const { effort: _apiEffort, ...reasoning } = originalReasoning ?? {};
+      const adaptedBody = JSON.stringify({
+        ...body, model: reference.modelId,
+        reasoning: { ...reasoning, ...(reference.reasoningEffort === null ? {} : { effort: reference.reasoningEffort }) },
+        instructions: instructions.join("\n\n"), input: messages, store: false, stream: true,
+      });
       async function send(forceRefresh: boolean): Promise<Response> {
         const credentials = await getChatGPTCredentials(userId, reference, forceRefresh);
         const headers = new Headers(init?.headers);

@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { z } from "zod";
-import { getAISettings, startChatGPTLogin, updateAISettings } from "../chat/chatgpt/connection";
+import { chatGPTReasoningEffortSchema, getAISettings, startChatGPTLogin, updateAISettings } from "../chat/chatgpt/connection";
 import { loadRequestContextFromRequest } from "../server/requestContext";
 import type { AppEnv } from "../server/appEnv";
 import { parseJsonBody } from "../server/requestParsing";
@@ -28,9 +28,9 @@ export function createAISettingsRoutes(options: Readonly<{ allowedOrigins: strin
   });
   app.post("/ai/settings", async (context) => {
     const requestContext = await sessionContext(context.req.raw);
-    const body = z.object({ action: z.enum(["cancel", "disconnect", "api", "chatgpt"]), modelId: z.string().min(1).max(200).optional() }).strict().safeParse(await parseJsonBody(context.req.raw));
+    const body = z.object({ action: z.enum(["cancel", "disconnect", "api", "chatgpt"]), modelId: z.string().min(1).max(200).optional(), reasoningEffort: chatGPTReasoningEffortSchema.optional() }).strict().safeParse(await parseJsonBody(context.req.raw));
     if (!body.success) throw new HttpError(400, "Choose an AI provider or connection action.", "AI_SETTINGS_INVALID");
-    await updateAISettings(requestContext.userId, body.data.action, body.data.modelId);
+    await updateAISettings(requestContext.userId, body.data.action, body.data.modelId, body.data.reasoningEffort);
     return context.json(await getAISettings(requestContext.userId));
   });
   return app;

@@ -14,9 +14,13 @@ function parseAISettings(value: unknown, endpoint: string) {
       email: parseNullableString(connection.email, endpoint, "connection.email"),
       plan: parseNullableString(connection.plan, endpoint, "connection.plan"),
       modelId: parseString(connection.modelId, endpoint, "connection.modelId"),
+      reasoningEffort: parseNullableString(connection.reasoningEffort, endpoint, "connection.reasoningEffort"),
       models: parseArray(connection.models, endpoint, "connection.models", (item, pathEndpoint, path) => {
         const model = parseObject(item, pathEndpoint, path);
-        return { id: parseString(model.id, pathEndpoint, `${path}.id`), name: parseString(model.name, pathEndpoint, `${path}.name`) };
+        return {
+          id: parseString(model.id, pathEndpoint, `${path}.id`), name: parseString(model.name, pathEndpoint, `${path}.name`),
+          supportedReasoningEfforts: parseArray(model.supportedReasoningEfforts ?? [], pathEndpoint, `${path}.supportedReasoningEfforts`, parseString),
+        };
       }),
     },
     login: login === null ? null : {
@@ -34,9 +38,9 @@ export async function loadAISettings(signal?: AbortSignal): Promise<AISettings |
   catch (error) { if (error instanceof ApiError && error.statusCode === 404) return null; throw error; }
 }
 
-export async function changeAISettings(action: "start" | "cancel" | "disconnect" | "api" | "chatgpt", modelId?: string): Promise<AISettings> {
+export async function changeAISettings(action: "start" | "cancel" | "disconnect" | "api" | "chatgpt", modelId?: string, reasoningEffort?: string): Promise<AISettings> {
   const path = action === "start" ? "/ai/settings/chatgpt/start" : "/ai/settings";
-  const settings = parseContractResponse(await requestJson(path, { method: "POST", body: JSON.stringify(action === "start" ? {} : { action, modelId }) }, allowAuthRecovery), `POST ${path}`, parseAISettings);
+  const settings = parseContractResponse(await requestJson(path, { method: "POST", body: JSON.stringify(action === "start" ? {} : { action, modelId, reasoningEffort }) }, allowAuthRecovery), `POST ${path}`, parseAISettings);
   window.dispatchEvent(new Event("ai-settings-changed"));
   return settings;
 }

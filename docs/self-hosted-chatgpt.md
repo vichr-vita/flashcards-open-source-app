@@ -25,9 +25,11 @@ No database migration is required. Local mode executes the chat worker in the ba
 1. Enable device-code login in your [ChatGPT security settings](https://learn.chatgpt.com/docs/auth#preferred-device-code-authentication-beta).
 2. Sign in to the private app with your passkey. Open **Settings > AI settings** and select **Connect ChatGPT**.
 3. Copy the displayed code. Select **Open OpenAI sign-in**, authenticate on OpenAI's site, and enter the code there.
-4. Keep the app open while it polls. When the account appears, choose an available model and send a chat message.
+4. Keep the app open while it polls. When the account appears, choose an available model and **Reasoning effort**, then send a chat message. Higher effort can take longer.
 
-OAuth tokens remain on the server. The connection belongs to the local application account, so its signed-in devices use the same subscription. Each chat turn captures the connection and model selected when it starts. A later model change affects new turns.
+OAuth tokens remain on the server. The connection belongs to the local application account, so its signed-in devices use the same subscription. Model and effort selections save immediately and persist across backend restarts. Each chat turn captures the connection, model, and effort selected when it starts. Later changes affect new turns.
+
+The effort dropdown shows the levels advertised for the selected model by your account's model catalog. Switching models preserves the effort if supported, otherwise it selects the new model's advertised default or first supported level. Models without effort levels disable the dropdown and omit effort from requests. Existing connections automatically load this metadata without another sign-in, refreshing expired tokens first.
 
 **Disconnect** removes the stored tokens and cancels pending sign-in. It keeps ChatGPT selected, so the next turn asks you to reconnect or explicitly select API. It does not revoke OpenAI's grant, and an upstream request already sent may finish. Use OpenAI's account controls if you also want to revoke the authorization.
 
@@ -55,14 +57,14 @@ Live sign-in with a real subscription has not been verified. The automated provi
 
 ## Verification
 
-Run the disposable PostgreSQL/auth/backend flow documented in [the local-auth integration guide](self-hosted-local-auth.md#run-the-isolated-integration-check). It now also starts a simulated OpenAI provider on loopback port `19402`. It exercises device-code sign-in, protected settings routes, private credential storage, model selection, refresh, a real workspace tool call, streamed replies, provider limits, and disconnect. No real account or paid API is used.
+Run the disposable PostgreSQL/auth/backend flow documented in [the local-auth integration guide](self-hosted-local-auth.md#run-the-isolated-integration-check). It now also starts a simulated OpenAI provider on loopback port `19402`. It exercises device-code sign-in, protected settings routes, private credential storage, model and effort selection, legacy connection upgrades, refresh, a real workspace tool call, streamed replies, provider limits, and disconnect. It checks that every provider request in a turn uses its captured effort, even after a settings change or token refresh. No real account or paid API is used.
 
 For browser review, set `LOCAL_CHATGPT_BROWSER_REVIEW=true` for that integration command. Start an isolated web process on port `19411` with API base `http://localhost:19400/v1`, auth base `http://localhost:19401`, and app base `http://localhost:19411`. Open the fixture login URL printed by the integration process. Press Enter in its terminal when finished so it removes the throwaway account and credential directory. Use these settings only for the disposable loopback fixture.
 
 After an authorized deployment, verify the real account manually:
 
 1. Complete device-code sign-in and send a chat message. Ask the assistant to create a card and confirm the front contains the question and the back contains the answer.
-2. Check model selection, cancellation of pending sign-in, and expiry of an unused code. Verify a provider error leaves an actionable message.
+2. Change **Reasoning effort**, reload AI settings, and confirm the choice persists. Change models and confirm the available efforts follow the model. Send a new turn and change effort while it runs; the next turn should use the new choice. Check cancellation of pending sign-in and expiry of an unused code. Verify a provider error leaves an actionable message.
 3. Restart the private backend through its established runbook and verify the connection persists. Verify refresh after the access token expires.
 4. Disconnect and confirm new turns require reconnection. Select API explicitly and verify its separate key setup. Check dictation separately with the API configuration.
 5. Repeat sign-in and chat on the real phone. A desktop browser at phone width does not establish iOS Home Screen behavior.
