@@ -12,16 +12,22 @@ const issuer = "https://auth.openai.com";
 export const codexBaseUrl = "https://chatgpt.com/backend-api/codex";
 const verificationUrl = "https://auth.openai.com/codex/device";
 const tokenSchema = z.object({ access_token: z.string().min(1), refresh_token: z.string().min(1), id_token: z.string().min(1) });
-const modelSchema = z.object({ id: z.string().min(1), name: z.string().min(1) });
+export const chatGPTReasoningEffortSchema = z.string().min(1).max(100);
+const modelSchema = z.object({
+  id: z.string().min(1), name: z.string().min(1),
+  supportedReasoningEfforts: z.array(chatGPTReasoningEffortSchema).optional(),
+  defaultReasoningEffort: chatGPTReasoningEffortSchema.nullable().optional(),
+});
 const connectionSchema = z.object({
   id: z.string().uuid(), accountId: z.string().min(1), email: z.string().nullable(), plan: z.string().nullable(),
   idToken: z.string().min(1), accessToken: z.string().min(1), refreshToken: z.string().min(1), expiresAt: z.number(),
   models: z.array(modelSchema), modelId: z.string().min(1),
+  reasoningEffort: chatGPTReasoningEffortSchema.nullable().optional(),
 });
 const stateSchema = z.object({ userId: z.string().uuid(), provider: z.enum(["api", "chatgpt"]), connection: connectionSchema.nullable() });
 type State = z.infer<typeof stateSchema>;
 type Connection = z.infer<typeof connectionSchema>;
-export type ChatGPTReference = Readonly<{ connectionId: string; modelId: string }>;
+export type ChatGPTReference = Readonly<{ connectionId: string; modelId: string; reasoningEffort: string | null }>;
 type Pending = { userId: string; deviceId: string; userCode: string; expiresAt: number; nextPollAt: number; intervalMs: number };
 let pending: Pending | null = null;
 let loginError: string | null = null;
@@ -67,6 +73,20 @@ async function readState(userId: string): Promise<State> {
   if (!parsed.success) throw new HttpError(503, "The private ChatGPT connection file is invalid.", "CHATGPT_STORAGE_INVALID");
   if (parsed.data.userId !== userId) throw new HttpError(403, "This server's ChatGPT connection belongs to another account.", "CHATGPT_OWNER_MISMATCH");
   return parsed.data;
+}
+
+/** Upgrade old model catalogs only when using ChatGPT, so reconnect/disconnect/API remain available. */
+async function upgradeConnectionModels(state: State): Promise<State> {
+  const connection = state.connection;
+  if (connection !== null && (connection.reasoningEffort === undefined || connection.models.some((model) => model.supportedReasoningEfforts === undefined))) {
+    const refreshed = await refreshConnection(connection);
+    // Preserve rotated refresh tokens even if the subsequent catalog request fails.
+    if (refreshed !== connection) await saveState({ ...state, connection: refreshed });
+    const upgraded = { ...state, connection: await loadModels(refreshed) };
+    await saveState(upgraded);
+    return upgraded;
+  }
+  return state;
 }
 
 async function saveState(state: State): Promise<void> {
@@ -118,6 +138,7 @@ function tokensToConnection(tokens: z.infer<typeof tokenSchema>, previous?: Conn
     email: typeof id.email === "string" ? id.email : profile.success ? profile.data.email ?? null : null,
     plan: auth.data.chatgpt_plan_type ?? null, idToken: tokens.id_token, accessToken: tokens.access_token, refreshToken: tokens.refresh_token,
     expiresAt: exp.data * 1000, models: previous?.models ?? [], modelId: previous?.modelId ?? "",
+    reasoningEffort: previous?.reasoningEffort ?? null,
   };
 }
 
@@ -130,12 +151,24 @@ async function loadModels(connection: Connection): Promise<Connection> {
   try { response = await fetch(`${codexBaseUrl}/models?client_version=0.159.3`, { headers: chatGPTHeaders(connection), signal: AbortSignal.timeout(15_000), redirect: "error" }); }
   catch { throw new HttpError(502, "Cannot load ChatGPT models. Try connecting again.", "CHATGPT_MODELS_UNAVAILABLE"); }
   if (!response.ok) throw new HttpError(502, "Cannot load models for this ChatGPT account. Try connecting again.", "CHATGPT_MODELS_UNAVAILABLE");
-  const catalog = z.object({ models: z.array(z.object({ slug: z.string(), display_name: z.string(), visibility: z.string().optional() })) }).safeParse(await readProviderJSON(response));
+  const catalog = z.object({ models: z.array(z.object({
+    slug: z.string(), display_name: z.string(), visibility: z.string().optional(),
+    default_reasoning_level: chatGPTReasoningEffortSchema.nullish(),
+    supported_reasoning_levels: z.array(z.object({ effort: chatGPTReasoningEffortSchema })).default([]),
+  })) }).safeParse(await readProviderJSON(response));
   if (!catalog.success) throw new HttpError(502, "ChatGPT returned an invalid model list.", "CHATGPT_MODELS_UNAVAILABLE");
-  const models = catalog.data.models.filter((model) => model.visibility === undefined || model.visibility === "list").map((model) => ({ id: model.slug, name: model.display_name }));
+  const models = catalog.data.models.filter((model) => model.visibility === undefined || model.visibility === "list").map((model) => {
+    const supportedReasoningEfforts = model.supported_reasoning_levels.map((level) => level.effort);
+    const defaultReasoningEffort = model.default_reasoning_level != null && supportedReasoningEfforts.includes(model.default_reasoning_level)
+      ? model.default_reasoning_level : supportedReasoningEfforts[0] ?? null;
+    return { id: model.slug, name: model.display_name, supportedReasoningEfforts, defaultReasoningEffort };
+  });
   const first = models[0];
   if (first === undefined) throw new HttpError(409, "No chat models are available for this ChatGPT account.", "CHATGPT_MODELS_UNAVAILABLE");
-  return { ...connection, models, modelId: models.some((model) => model.id === connection.modelId) ? connection.modelId : first.id };
+  const selected = models.find((model) => model.id === connection.modelId) ?? first;
+  const reasoningEffort = connection.reasoningEffort != null && selected.supportedReasoningEfforts.includes(connection.reasoningEffort)
+    ? connection.reasoningEffort : selected.defaultReasoningEffort;
+  return { ...connection, models, modelId: selected.id, reasoningEffort };
 }
 
 async function pollLogin(userId: string): Promise<void> {
@@ -166,11 +199,12 @@ export async function getAISettings(userId: string) {
   if (!isChatGPTConfigured()) return { enabled: false, provider: "api" as const, connection: null, login: null, error: null };
   return serialized(async () => {
     await pollLogin(userId);
-    const state = await readState(userId);
+    const savedState = await readState(userId);
+    const state = savedState.provider === "chatgpt" ? await upgradeConnectionModels(savedState) : savedState;
     const connection = state.connection;
     return {
       enabled: true, provider: state.provider,
-      connection: connection === null ? null : { email: connection.email, plan: connection.plan, modelId: connection.modelId, models: connection.models },
+      connection: connection === null ? null : { email: connection.email, plan: connection.plan, modelId: connection.modelId, reasoningEffort: connection.reasoningEffort ?? null, models: connection.models },
       login: pending?.userId === userId ? { verificationUrl, userCode: pending.userCode, expiresAt: pending.expiresAt } : null,
       error: loginError,
     };
@@ -192,18 +226,25 @@ export async function startChatGPTLogin(userId: string): Promise<void> {
   });
 }
 
-export async function updateAISettings(userId: string, action: "cancel" | "disconnect" | "api" | "chatgpt", modelId?: string): Promise<void> {
+export async function updateAISettings(userId: string, action: "cancel" | "disconnect" | "api" | "chatgpt", modelId?: string, reasoningEffort?: string): Promise<void> {
   await serialized(async () => {
-    const state = await readState(userId);
+    const savedState = await readState(userId);
+    const state = action === "chatgpt" ? await upgradeConnectionModels(savedState) : savedState;
     if (action === "cancel" || action === "disconnect") { pending = null; loginError = null; }
     if (action === "disconnect") await saveState({ ...state, connection: null });
     if (action === "api") await saveState({ ...state, provider: "api" });
     if (action === "chatgpt") {
       const connection = state.connection;
       if (connection === null) throw new HttpError(409, "Connect ChatGPT first.", "CHATGPT_RECONNECT_REQUIRED");
-      const selected = modelId ?? connection.modelId;
-      if (!connection.models.some((model) => model.id === selected)) throw new HttpError(400, "Select an available ChatGPT model.", "CHATGPT_MODEL_INVALID");
-      await saveState({ ...state, provider: "chatgpt", connection: { ...connection, modelId: selected } });
+      const selected = connection.models.find((model) => model.id === (modelId ?? connection.modelId));
+      if (selected === undefined) throw new HttpError(400, "Select an available ChatGPT model.", "CHATGPT_MODEL_INVALID");
+      const supported = selected.supportedReasoningEfforts ?? [];
+      if (reasoningEffort !== undefined && !supported.includes(reasoningEffort)) {
+        throw new HttpError(400, "Select a reasoning effort supported by this ChatGPT model.", "CHATGPT_REASONING_EFFORT_INVALID");
+      }
+      const effort = reasoningEffort ?? (connection.reasoningEffort != null && supported.includes(connection.reasoningEffort)
+        ? connection.reasoningEffort : selected.defaultReasoningEffort ?? null);
+      await saveState({ ...state, provider: "chatgpt", connection: { ...connection, modelId: selected.id, reasoningEffort: effort } });
     }
   });
 }
@@ -211,31 +252,37 @@ export async function updateAISettings(userId: string, action: "cancel" | "disco
 export async function resolveChatGPTReference(userId: string): Promise<ChatGPTReference | null> {
   if (!isChatGPTConfigured()) return null;
   return serialized(async () => {
-    const state = await readState(userId);
-    if (state.provider === "api") return null;
+    const savedState = await readState(userId);
+    if (savedState.provider === "api") return null;
+    const state = await upgradeConnectionModels(savedState);
     if (state.connection === null) throw new HttpError(409, "Reconnect ChatGPT or select API in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
-    return { connectionId: state.connection.id, modelId: state.connection.modelId };
+    return { connectionId: state.connection.id, modelId: state.connection.modelId, reasoningEffort: state.connection.reasoningEffort ?? null };
   });
+}
+
+/** Refresh tokens without reacquiring the connection lock, including during a legacy catalog upgrade. */
+async function refreshConnection(connection: Connection, forceRefresh = false): Promise<Connection> {
+  if (forceRefresh || connection.expiresAt < Date.now() + 60_000) {
+    const response = await authPost("/oauth/token", { grant_type: "refresh_token", client_id: clientId, refresh_token: connection.refreshToken });
+    if (!response.ok) throw new HttpError(401, "ChatGPT sign-in expired. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
+    const responseTokens = z.object({ access_token: z.string().min(1), refresh_token: z.string().min(1).optional(), id_token: z.string().min(1).optional() }).safeParse(await readProviderJSON(response));
+    const refreshed = responseTokens.success ? tokenSchema.safeParse({
+      access_token: responseTokens.data.access_token,
+      refresh_token: responseTokens.data.refresh_token ?? connection.refreshToken,
+      id_token: responseTokens.data.id_token ?? connection.idToken,
+    }) : responseTokens;
+    if (!refreshed.success) throw new HttpError(401, "ChatGPT sign-in expired. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
+    connection = tokensToConnection(refreshed.data, connection);
+  }
+  return connection;
 }
 
 export async function getChatGPTCredentials(userId: string, reference: ChatGPTReference, forceRefresh = false): Promise<Headers> {
   return serialized(async () => {
     const state = await readState(userId);
-    let connection = state.connection;
-    if (connection === null || connection.id !== reference.connectionId) throw new HttpError(401, "ChatGPT was disconnected. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
-    if (forceRefresh || connection.expiresAt < Date.now() + 60_000) {
-      const response = await authPost("/oauth/token", { grant_type: "refresh_token", client_id: clientId, refresh_token: connection.refreshToken });
-      if (!response.ok) throw new HttpError(401, "ChatGPT sign-in expired. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
-      const responseTokens = z.object({ access_token: z.string().min(1), refresh_token: z.string().min(1).optional(), id_token: z.string().min(1).optional() }).safeParse(await readProviderJSON(response));
-      const refreshed = responseTokens.success ? tokenSchema.safeParse({
-        access_token: responseTokens.data.access_token,
-        refresh_token: responseTokens.data.refresh_token ?? connection.refreshToken,
-        id_token: responseTokens.data.id_token ?? connection.idToken,
-      }) : responseTokens;
-      if (!refreshed.success) throw new HttpError(401, "ChatGPT sign-in expired. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
-      connection = tokensToConnection(refreshed.data, connection);
-      await saveState({ ...state, connection });
-    }
+    if (state.connection === null || state.connection.id !== reference.connectionId) throw new HttpError(401, "ChatGPT was disconnected. Connect again in AI settings.", "CHATGPT_RECONNECT_REQUIRED");
+    const connection = await refreshConnection(state.connection, forceRefresh);
+    if (connection !== state.connection) await saveState({ ...state, connection });
     return chatGPTHeaders(connection);
   });
 }

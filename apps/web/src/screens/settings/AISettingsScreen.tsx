@@ -15,14 +15,30 @@ export function AISettingsScreen(): ReactElement {
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const modelFieldId = useId();
+  const effortFieldId = useId();
   const workspaceId = activeWorkspace?.workspaceId;
-  async function act(action: Parameters<typeof changeAISettings>[0], modelId?: string): Promise<void> {
+  async function act(action: Parameters<typeof changeAISettings>[0], modelId?: string, reasoningEffort?: string): Promise<void> {
     setBusy(true); setError(null); setCopied(false);
-    try { await changeAISettings(action, modelId); }
+    try { await changeAISettings(action, modelId, reasoningEffort); }
     catch (caught) { if (!isAuthRedirectError(caught)) setError(caught instanceof Error ? caught.message : String(caught)); }
     finally { setBusy(false); }
   }
   const connection = settings?.connection;
+  const supportedEfforts = connection?.models.find((model) => model.id === connection.modelId)?.supportedReasoningEfforts ?? [];
+  function effortLabel(effort: string): string {
+    switch (effort) {
+      case "none": return t("aiSettings.efforts.none");
+      case "minimal": return t("aiSettings.efforts.minimal");
+      case "low": return t("aiSettings.efforts.low");
+      case "medium": return t("aiSettings.efforts.medium");
+      case "high": return t("aiSettings.efforts.high");
+      case "xhigh": return t("aiSettings.efforts.xhigh");
+      case "max": return t("aiSettings.efforts.max");
+      case "ultra": return t("aiSettings.efforts.ultra");
+      case "persistent": return t("aiSettings.efforts.persistent");
+      default: return effort;
+    }
+  }
   const login = settings?.login;
   return (
     <main className="container ai-settings-page">
@@ -47,6 +63,11 @@ export function AISettingsScreen(): ReactElement {
                 <select id={modelFieldId} value={connection.modelId} disabled={busy} onChange={(event) => void act("chatgpt", event.target.value)}>
                   {connection.models.map((model) => <option key={model.id} value={model.id}>{model.name}</option>)}
                 </select>
+                <label htmlFor={effortFieldId}>{t("aiSettings.reasoningEffort")}</label>
+                <select id={effortFieldId} value={connection.reasoningEffort ?? ""} disabled={busy || supportedEfforts.length === 0} aria-describedby={`${effortFieldId}-hint`} onChange={(event) => void act("chatgpt", undefined, event.target.value)}>
+                  {supportedEfforts.length === 0 ? <option value="">{t("common.unavailable")}</option> : supportedEfforts.map((effort) => <option key={effort} value={effort}>{effortLabel(effort)}</option>)}
+                </select>
+                <p id={`${effortFieldId}-hint`} className="ai-reasoning-effort-hint">{t("aiSettings.reasoningEffortHint")}</p>
               </>
             )}
             <p>{t("aiSettings.supported")}</p>
