@@ -168,15 +168,15 @@ describe("MobileAppPromotionDialog", () => {
     });
 
     const closeButton = requireElement(container, "[data-testid='mobile-app-promo-close']");
-    const mcpCopyButton = requireElement(container, "[data-testid='mobile-app-promo-mcp-copy-button']");
+    const androidLink = requireElement(container, "[data-testid='mobile-app-promo-link-android']");
 
-    mcpCopyButton.focus();
+    androidLink.focus();
     await dispatchWindowKeyDown("Tab", false);
     expect(document.activeElement).toBe(closeButton);
 
     closeButton.focus();
     await dispatchWindowKeyDown("Tab", true);
-    expect(document.activeElement).toBe(mcpCopyButton);
+    expect(document.activeElement).toBe(androidLink);
   });
 
   it("renders the platform grid cells, store links, and QR output for each platform", async () => {
@@ -198,7 +198,6 @@ describe("MobileAppPromotionDialog", () => {
     expect(gridTestIds).toEqual([
       "mobile-app-promo-link-ios",
       "mobile-app-promo-link-android",
-      "mobile-app-promo-mcp-option",
     ]);
 
     const iosBadgeLink = requireAnchor(container, "[data-testid='mobile-app-promo-link-ios']");

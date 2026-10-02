@@ -83,24 +83,18 @@ export async function runAnalyticsConsentBannerFlow(browser: Browser, testInfo: 
       await expect(banner).toBeVisible({ timeout: externalUiTimeoutMs });
       await expect(page.getByTestId("share-app-screen")).toBeVisible({ timeout: localUiTimeoutMs });
 
-      // The strip is not a modal, so the flow underneath has to stay reachable while it is up —
-      // including the bottom-of-page interactions the strip sits near. The MCP option is the last
-      // tile on this page, so it is the one the strip actually overlaps, and its copy button reports
-      // into a status line rather than navigating away.
-      const copyButton = page.getByTestId("share-app-mcp-copy-button");
-      const copyStatus = page.getByTestId("share-app-mcp-copy-status");
-      await copyButton.click();
-      // The status reads `copied` or `failed` depending on whether this browser grants clipboard
-      // access, and both prove the click reached the page. Asserting that it is no longer empty
-      // rather than matching either word keeps this off the translated copy.
-      await expect(copyStatus).not.toBeEmpty({ timeout: localUiTimeoutMs });
+      // The strip is not modal. The last platform link must still receive a pointer click.
+      const webLink = page.getByTestId("share-app-link-web");
+      const popupPromise = page.waitForEvent("popup");
+      await webLink.click();
+      const popup = await popupPromise;
+      await popup.close();
       await expect(banner).toBeVisible();
 
       await page.getByTestId("analytics-consent-allow").click();
       await expect(banner).toBeHidden({ timeout: externalUiTimeoutMs });
       // Answering it must neither reload the page nor disturb what the visitor was doing.
-      await expect(copyButton).toBeVisible();
-      await expect(copyStatus).not.toBeEmpty();
+      await expect(webLink).toBeVisible();
     } catch (error) {
       const failure = normalizeError(error);
       await diagnostics.attachFailureDetails(testInfo, failure);

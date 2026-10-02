@@ -32,6 +32,14 @@ const slCatalog: TranslationCatalog = {
     waiting: "Čakanje na odobritev...",
     usingChatGPT: "Uporablja se naročnina ChatGPT",
   },
+  appearanceSettings: {
+    title: "Videz",
+    subtitle: "Izberite videz aplikacije v tej napravi.",
+    system: "Sistem",
+    light: "Svetlo",
+    dark: "Temno",
+    systemHint: "Sistem sledi nastavitvi naprave.",
+  },
   accentColorSettings: {
     title: "Barva poudarka",
     subtitle: "Izberite barvo poudarka aplikacije.",

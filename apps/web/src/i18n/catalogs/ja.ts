@@ -32,6 +32,14 @@ export const jaCatalog = {
     waiting: "認証を待っています...",
     usingChatGPT: "ChatGPTサブスクリプションを使用中",
   },
+  appearanceSettings: {
+    title: "外観",
+    subtitle: "このデバイスでのアプリの表示を選択します。",
+    system: "システム",
+    light: "ライト",
+    dark: "ダーク",
+    systemHint: "システムはデバイスの設定に従います。",
+  },
   accentColorSettings: {
     title: "アクセントカラー",
     subtitle: "アプリのアクセントカラーを選択します。",

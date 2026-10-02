@@ -1,0 +1,32 @@
+name: Web browser checks
+
+on:
+  push:
+    branches: [vichr-fork]
+    paths:
+      - 'apps/web/**'
+      - '.github/workflows/web-browser-checks.yml'
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - '.github/workflows/web-browser-checks.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci --prefix apps/web
+      - run: npx playwright install --with-deps chromium
+        working-directory: apps/web
+      - run: FLASHCARDS_E2E_TARGET=local npx playwright test e2e/theme-public.spec.ts
+        working-directory: apps/web

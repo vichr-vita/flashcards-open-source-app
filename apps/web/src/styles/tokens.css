@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  --neutral-rgb: 255, 255, 255;
   --bg: #000000;
   --bg-elevated: #000000;
   --surface: #1c1c1e;
@@ -22,7 +23,7 @@
   --muted: var(--text-secondary);
   --accent: #c44b2d;
   --accent-rgb: 196, 75, 45;
-  --accent-strong: #d65a38;
+  --accent-strong: color-mix(in srgb, var(--accent) 88%, white);
   --accent-muted: rgba(var(--accent-rgb), 0.18);
   --accent-soft: rgba(var(--accent-rgb), 0.12);
   --danger: #ff4d57;
@@ -66,4 +67,32 @@
   --z-index-popover: 250;
   /* Reserved for the app error dialog, which has to reach a person whose app is already broken. */
   --z-index-app-modal-top: 300;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --neutral-rgb: 0, 0, 0;
+  --bg: #f5f5f7;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-hover: #ededf0;
+  --surface-pressed: #e4e4e8;
+  --surface-glass: rgba(255, 255, 255, 0.88);
+  --surface-muted: rgba(0, 0, 0, 0.035);
+  --panel-border: rgba(0, 0, 0, 0.1);
+  --panel-border-strong: rgba(0, 0, 0, 0.18);
+  --divider: rgba(0, 0, 0, 0.1);
+  --text: #17171a;
+  --text-primary: #17171a;
+  --text-secondary: #5d5d66;
+  --text-tertiary: #797982;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.24);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.38);
+  --muted: var(--text-secondary);
+  --accent-strong: color-mix(in srgb, var(--accent) 72%, black);
+  --danger: #b42332;
+  --success: #13743b;
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.1);
 }

@@ -32,6 +32,14 @@ const ukCatalog: TranslationCatalog = {
     waiting: "Очікування авторизації...",
     usingChatGPT: "Використовується підписка ChatGPT",
   },
+  appearanceSettings: {
+    title: "Вигляд",
+    subtitle: "Виберіть вигляд застосунку на цьому пристрої.",
+    system: "Система",
+    light: "Світла",
+    dark: "Темна",
+    systemHint: "Система використовує налаштування пристрою.",
+  },
   accentColorSettings: {
     title: "Акцентний колір",
     subtitle: "Виберіть акцентний колір застосунку.",

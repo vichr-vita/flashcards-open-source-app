@@ -7,8 +7,8 @@ import {
 } from "../../live-smoke.actions";
 import {
   accountStatusRoute,
-  accountLegalRoute,
-  accountSupportRoute,
+  reviewRoute,
+  settingsAppearanceRoute,
   settingsAccessRoute,
   settingsCurrentWorkspaceRoute,
   settingsDeviceRoute,
@@ -41,6 +41,11 @@ const settingsDetailTargets: ReadonlyArray<SettingsDetailTarget> = [
     actionName: "open Workspace settings",
   },
   {
+    rowTestId: "settings-row-appearance",
+    route: settingsAppearanceRoute,
+    actionName: "open Appearance settings",
+  },
+  {
     rowTestId: "settings-row-language",
     route: settingsLanguageRoute,
     actionName: "open Language settings",
@@ -70,16 +75,6 @@ const settingsDetailTargets: ReadonlyArray<SettingsDetailTarget> = [
     route: settingsDeviceRoute,
     actionName: "open Device settings",
   },
-  {
-    rowTestId: "settings-row-support",
-    route: accountSupportRoute,
-    actionName: "open Support settings",
-  },
-  {
-    rowTestId: "settings-row-legal",
-    route: accountLegalRoute,
-    actionName: "open Legal settings",
-  },
 ];
 
 const rootRowTestIds: ReadonlyArray<string> = [
@@ -88,6 +83,7 @@ const rootRowTestIds: ReadonlyArray<string> = [
   "settings-row-account-status",
   "settings-row-current-workspace",
   "settings-row-review-reminders",
+  "settings-row-appearance",
   "settings-row-language",
   "settings-row-access",
   "settings-row-decks",
@@ -95,8 +91,6 @@ const rootRowTestIds: ReadonlyArray<string> = [
   "settings-row-import",
   "settings-row-export",
   "settings-row-feedback",
-  "settings-row-support",
-  "settings-row-legal",
   "settings-row-open-source",
   "settings-row-scheduling",
   "settings-row-agent-connections",
@@ -114,7 +108,37 @@ export async function runSettingsIaFlow(session: LiveSmokeSession): Promise<void
     for (const target of settingsDetailTargets) {
       await openSettingsDetailFromRoot(session, target);
     }
+
+    await verifyAppearanceAndLogo(session);
   });
+}
+
+async function verifyAppearanceAndLogo(session: LiveSmokeSession): Promise<void> {
+  const { page, diagnostics, baseUrl } = session;
+  await openSettingsRoot(session, "return to Settings before theme check");
+  await trackedClick(diagnostics, "open Appearance", page.getByTestId("settings-row-appearance"));
+
+  for (const option of ["system", "light", "dark"] as const) {
+    await expect(page.getByTestId(`appearance-option-${option}`).locator("xpath=..").locator("svg")).toHaveCount(1);
+  }
+
+  await page.getByTestId("appearance-option-light").check();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await page.reload();
+  await expect(page.getByTestId("appearance-option-light")).toBeChecked();
+
+  await page.getByTestId("appearance-option-dark").check();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.getByTestId("appearance-option-system").check();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await page.emulateMedia({ colorScheme: "dark" });
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.emulateMedia({ colorScheme: "no-preference" });
+
+  await trackedClick(diagnostics, "return to Review through the logo", page.locator(".topbar-brand"));
+  await trackedWaitForUrl(page, diagnostics, "confirm logo leads to Review", buildRouteUrlPattern(baseUrl, reviewRoute), localUiTimeoutMs);
 }
 
 async function assertSettingsRootTree(session: LiveSmokeSession): Promise<void> {

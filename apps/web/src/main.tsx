@@ -14,7 +14,9 @@ import {
 import { installStaleBundleReloadGuard } from "./staleBundleReload";
 import "./styles/index.css";
 import { registerOfflineShell } from "./offlineShell";
+import { initializeTheme } from "./theme";
 
+initializeTheme();
 installStaleBundleReloadGuard();
 registerOfflineShell();
 

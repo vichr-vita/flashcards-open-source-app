@@ -353,6 +353,8 @@ describe("SettingsScreen navigation", () => {
     [
       "settings-row-account-status",
       "settings-row-current-workspace",
+      "settings-row-accent-color",
+      "settings-row-appearance",
       "settings-row-review-reminders",
       "settings-row-review-animations",
       "settings-row-ai-chat-suggestions",
@@ -364,8 +366,6 @@ describe("SettingsScreen navigation", () => {
       "settings-row-import",
       "settings-row-export",
       "settings-row-feedback",
-      "settings-row-support",
-      "settings-row-legal",
       "settings-row-open-source",
       "settings-row-scheduling",
       "settings-row-agent-connections",
@@ -386,12 +386,13 @@ describe("SettingsScreen navigation", () => {
     expect(rowIndex("settings-invite-open")).toBeLessThan(rowIndex("settings-share-app-open"));
     expect(rowIndex("settings-share-app-open")).toBeLessThan(rowIndex("settings-row-account-status"));
     expect(rowIndex("settings-row-private-feedback")).toBeLessThan(rowIndex("settings-row-account-status"));
+    expect(rowIndex("settings-row-accent-color")).toBeLessThan(rowIndex("settings-row-appearance"));
+    expect(rowIndex("settings-row-appearance")).toBeLessThan(rowIndex("settings-row-review-reminders"));
     expect(rowIndex("settings-row-review-reminders")).toBeLessThan(rowIndex("settings-row-review-animations"));
     expect(rowIndex("settings-row-review-animations")).toBeLessThan(rowIndex("settings-row-ai-chat-suggestions"));
     expect(rowIndex("settings-row-ai-chat-suggestions")).toBeLessThan(rowIndex("settings-row-leaderboard-participation"));
     expect(rowIndex("settings-row-leaderboard-participation")).toBeLessThan(rowIndex("settings-row-language"));
     expect(rowIndex("settings-row-import")).toBeLessThan(rowIndex("settings-row-export"));
-    expect(rowIndex("settings-row-support")).toBeLessThan(rowIndex("settings-row-legal"));
     expect(getContainer().querySelector("[data-testid='settings-row-test']")).toBeNull();
   });
 

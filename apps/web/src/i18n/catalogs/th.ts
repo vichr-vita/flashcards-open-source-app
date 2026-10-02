@@ -32,6 +32,14 @@ const thCatalog: TranslationCatalog = {
     waiting: "กำลังรอการอนุญาต...",
     usingChatGPT: "กำลังใช้การสมัครสมาชิก ChatGPT",
   },
+  appearanceSettings: {
+    title: "รูปลักษณ์",
+    subtitle: "เลือกรูปลักษณ์ของแอปบนอุปกรณ์นี้",
+    system: "ระบบ",
+    light: "สว่าง",
+    dark: "มืด",
+    systemHint: "ระบบจะใช้การตั้งค่าของอุปกรณ์",
+  },
   accentColorSettings: {
     title: "สีเน้น",
     subtitle: "เลือกสีเน้นของแอป",

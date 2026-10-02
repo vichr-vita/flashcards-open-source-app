@@ -32,6 +32,14 @@ const ptBrCatalog: TranslationCatalog = {
     waiting: "Aguardando autorização...",
     usingChatGPT: "Usando a assinatura do ChatGPT",
   },
+  appearanceSettings: {
+    title: "Aparência",
+    subtitle: "Escolha a aparência do app neste dispositivo.",
+    system: "Sistema",
+    light: "Claro",
+    dark: "Escuro",
+    systemHint: "Sistema segue a configuração do dispositivo.",
+  },
   accentColorSettings: {
     title: "Cor de destaque",
     subtitle: "Escolha a cor de destaque do aplicativo.",

@@ -32,6 +32,14 @@ const isCatalog: TranslationCatalog = {
     waiting: "Beðið eftir heimild...",
     usingChatGPT: "ChatGPT-áskrift í notkun",
   },
+  appearanceSettings: {
+    title: "Útlit",
+    subtitle: "Veldu útlit forritsins á þessu tæki.",
+    system: "Kerfi",
+    light: "Ljóst",
+    dark: "Dökkt",
+    systemHint: "Kerfi fylgir stillingu tækisins.",
+  },
   accentColorSettings: {
     title: "Áherslulitur",
     subtitle: "Veldu áherslulit appsins.",

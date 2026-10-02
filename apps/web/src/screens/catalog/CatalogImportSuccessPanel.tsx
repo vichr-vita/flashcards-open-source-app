@@ -42,14 +42,13 @@ export function CatalogImportSuccessPanel(props: CatalogImportSuccessPanelProps)
   const { cardCount, importTag, workspaceName, accountEmail, webHref } = props;
   const { messages, t, formatCount } = useI18n();
   const platformOptions = buildAppPlatformOptions({
-    platforms: ["ios", "android", "web", "mcp"],
+    platforms: ["ios", "android", "web"],
     storeLinks: catalogImportStoreLinks,
     webHref,
     labels: {
       ios: t("appPlatformLinks.ios"),
       android: t("appPlatformLinks.android"),
       web: t("appPlatformLinks.web"),
-      mcp: t("appPlatformLinks.mcp.label"),
     },
     qrTitles: {
       ios: t("appPlatformLinks.qr.ios"),

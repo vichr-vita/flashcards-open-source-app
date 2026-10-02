@@ -32,6 +32,14 @@ const urCatalog: TranslationCatalog = {
     waiting: "اجازت کا انتظار ہے...",
     usingChatGPT: "ChatGPT سبسکرپشن استعمال ہو رہی ہے",
   },
+  appearanceSettings: {
+    title: "ظاہری شکل",
+    subtitle: "اس آلے پر ایپ کی ظاہری شکل منتخب کریں۔",
+    system: "سسٹم",
+    light: "روشن",
+    dark: "تاریک",
+    systemHint: "سسٹم آپ کے آلے کی ترتیب کی پیروی کرتا ہے۔",
+  },
   accentColorSettings: {
     title: "نمایاں رنگ",
     subtitle: "ایپ کا نمایاں رنگ منتخب کریں۔",

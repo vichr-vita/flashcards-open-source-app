@@ -1,5 +1,5 @@
 import { Suspense, lazy, useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactElement } from "react";
-import { BrowserRouter, NavLink, Navigate, Route, Routes as RouterRoutes, useLocation, useNavigate, useParams } from "react-router";
+import { BrowserRouter, Link, NavLink, Navigate, Route, Routes as RouterRoutes, useLocation, useNavigate, useParams } from "react-router";
 import { AccountAccentTheme } from "./premium/accentColor";
 import { PremiumProvider } from "./premium/PremiumProvider";
 import { AccountMenu } from "./AccountMenu";
@@ -28,14 +28,11 @@ import { AnchoredFloatingOverlay, useAnchoredFloatingOutsidePointerDismiss, type
 import { useAppErrorDialog } from "./appError/AppErrorContext";
 import { type TranslationKey, useI18n } from "./i18n";
 import { AppErrorBoundary, wrapRoutesComponent } from "./observability/instrument";
-import { getPublicSiteHomeUrl } from "./publicSiteUrl";
 import {
   accountAgentConnectionsRoute,
   accountDangerZoneRoute,
-  accountLegalRoute,
   accountOpenSourceRoute,
   accountStatusRoute,
-  accountSupportRoute,
   buildSettingsDeckDetailRoute,
   buildSettingsDeckEditRoute,
   buildWorkspaceRoute,
@@ -69,6 +66,7 @@ import {
   settingsNotificationsRoute,
   settingsReviewAnimationsRoute,
   settingsAccentColorRoute,
+  settingsAppearanceRoute,
   settingsResetStudyProgressRoute,
   settingsSchedulerRoute,
   settingsServerRoute,
@@ -174,12 +172,6 @@ const AnalyticsSettingsScreen = lazy(async () => import("./screens/settings/Anal
 const SettingsScreen = lazy(async () => import("./screens/settings/SettingsScreen").then((module) => ({
   default: module.SettingsScreen,
 })));
-const LegalScreen = lazy(async () => import("./screens/settings/account/LegalScreen").then((module) => ({
-  default: module.LegalScreen,
-})));
-const SupportScreen = lazy(async () => import("./screens/settings/account/SupportScreen").then((module) => ({
-  default: module.SupportScreen,
-})));
 const OpenSourceSettingsScreen = lazy(async () => import("./screens/settings/account/OpenSourceSettingsScreen").then((module) => ({
   default: module.OpenSourceSettingsScreen,
 })));
@@ -188,6 +180,9 @@ const NotificationsSettingsScreen = lazy(async () => import("./screens/settings/
 })));
 const AccentColorSettingsScreen = lazy(async () => import("./screens/settings/AccentColorSettingsScreen").then((module) => ({
   default: module.AccentColorSettingsScreen,
+})));
+const AppearanceSettingsScreen = lazy(async () => import("./screens/settings/AppearanceSettingsScreen").then((module) => ({
+  default: module.AppearanceSettingsScreen,
 })));
 const ReviewAnimationsSettingsScreen = lazy(async () => import("./screens/settings/ReviewAnimationsSettingsScreen").then((module) => ({
   default: module.ReviewAnimationsSettingsScreen,
@@ -866,10 +861,10 @@ export function AppShell(): ReactElement {
           <div className="topbar">
             <div className="topbar-brand-block">
               <div className="topbar-brand-row">
-                <a className="topbar-brand" href={getPublicSiteHomeUrl(locale)} rel="noreferrer" target="_blank">
+                <Link className="topbar-brand" to={workspacePath(reviewRoute)}>
                   <span className="brand-full">Nibomo</span>
                   <span className="brand-short">Nibomo</span>
-                </a>
+                </Link>
                 {isSyncing ? <span className="topbar-sync-status">{t("app.syncing")}</span> : null}
                 {!isSyncing && sessionRestoringMessage !== "" ? <span className="topbar-sync-status">{sessionRestoringMessage}</span> : null}
               </div>
@@ -1026,6 +1021,7 @@ export function RoutedShell(): ReactElement {
           <Route path={`${workspaceRoutePattern}${settingsAccessDetailRoutePattern}`} element={renderDeferredRoute(<AccessPermissionDetailScreen />, "loading.accessDetails")} />
           <Route path={`${workspaceRoutePattern}${settingsNotificationsRoute}`} element={renderDeferredRoute(<NotificationsSettingsScreen />, "loading.notificationSettings")} />
           <Route path={`${workspaceRoutePattern}${settingsAccentColorRoute}`} element={renderDeferredRoute(<AccentColorSettingsScreen />, "loading.settings")} />
+          <Route path={`${workspaceRoutePattern}${settingsAppearanceRoute}`} element={renderDeferredRoute(<AppearanceSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsReviewAnimationsRoute}`} element={renderDeferredRoute(<ReviewAnimationsSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsAIChatSuggestionsRoute}`} element={renderDeferredRoute(<AIChatSuggestionsSettingsScreen />, "loading.settings")} />
           <Route path={`${workspaceRoutePattern}${settingsSubscriptionRoute}`} element={renderDeferredRoute(<SubscriptionSettingsScreen />, "loading.settings")} />
@@ -1084,8 +1080,6 @@ export function RoutedShell(): ReactElement {
             ), "loading.testSettings")}
           />
           <Route path={`${workspaceRoutePattern}${accountStatusRoute}`} element={renderDeferredRoute(<AccountStatusScreen />, "loading.accountStatus")} />
-          <Route path={`${workspaceRoutePattern}${accountLegalRoute}`} element={renderDeferredRoute(<LegalScreen />, "loading.legal")} />
-          <Route path={`${workspaceRoutePattern}${accountSupportRoute}`} element={renderDeferredRoute(<SupportScreen />, "loading.support")} />
           <Route path={`${workspaceRoutePattern}${accountOpenSourceRoute}`} element={renderDeferredRoute(<OpenSourceSettingsScreen />, "loading.openSourceSettings")} />
           <Route path={`${workspaceRoutePattern}${accountAgentConnectionsRoute}`} element={renderDeferredRoute(<AgentConnectionsScreen />, "loading.agentConnections")} />
           <Route path={`${workspaceRoutePattern}${accountDangerZoneRoute}`} element={renderDeferredRoute(<DangerZoneScreen />, "loading.dangerZone")} />

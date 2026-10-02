@@ -30,6 +30,14 @@ const enCatalog = {
     waiting: "Waiting for authorization...",
     usingChatGPT: "Using ChatGPT subscription",
   },
+  appearanceSettings: {
+    title: "Appearance",
+    subtitle: "Choose how the app looks on this device.",
+    system: "System",
+    light: "Light",
+    dark: "Dark",
+    systemHint: "System follows your device setting.",
+  },
   accentColorSettings: {
     title: "Accent color",
     subtitle: "Choose the app’s accent color.",

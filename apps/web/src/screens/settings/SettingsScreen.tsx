@@ -8,6 +8,7 @@ import {
   useAppErrorDialog,
 } from "../../appError/AppErrorContext";
 import { useAccountAccentColor } from "../../premium/accentColor";
+import { useThemePreference } from "../../theme";
 import { getAppConfig } from "../../config";
 import {
   autoLocalePreference,
@@ -19,12 +20,11 @@ import {
 import {
   accountAgentConnectionsRoute,
   accountDangerZoneRoute,
-  accountLegalRoute,
   accountOpenSourceRoute,
   accountStatusRoute,
-  accountSupportRoute,
   settingsAccessRoute,
   settingsAccentColorRoute,
+  settingsAppearanceRoute,
   settingsAIChatSuggestionsRoute,
   settingsAnalyticsRoute,
   settingsCurrentWorkspaceRoute,
@@ -110,6 +110,7 @@ export function SettingsScreen(): ReactElement {
   } = useAppData();
   const workspacePath = useWorkspacePath();
   const { effectiveColor } = useAccountAccentColor();
+  const themePreference = useThemePreference();
   const { indexedDbOpenRecoveryState } = useAppErrorDialog();
   const { localePreference, t } = useI18n();
   const { aiChatComposerSuggestionsEnabled } = useAIChatPreferences();
@@ -297,6 +298,13 @@ export function SettingsScreen(): ReactElement {
             testId="settings-row-accent-color"
           />
           <SettingsNavigationCard
+            title={t("appearanceSettings.title")}
+            description={t("appearanceSettings.subtitle")}
+            value={t(`appearanceSettings.${themePreference}`)}
+            to={workspacePath(settingsAppearanceRoute)}
+            testId="settings-row-appearance"
+          />
+          <SettingsNavigationCard
             title={t("notificationsSettings.title")}
             description={t("notificationsSettings.subtitle")}
             value={t("notificationsSettings.value")}
@@ -398,20 +406,6 @@ export function SettingsScreen(): ReactElement {
             value={t("settingsHome.feedback.value")}
             to={workspacePath(settingsFeedbackRoute)}
             testId="settings-row-feedback"
-          />
-          <SettingsNavigationCard
-            title={t("support.title")}
-            description={t("support.subtitle")}
-            value={null}
-            to={workspacePath(accountSupportRoute)}
-            testId="settings-row-support"
-          />
-          <SettingsNavigationCard
-            title={t("legal.title")}
-            description={t("legal.subtitle")}
-            value={null}
-            to={workspacePath(accountLegalRoute)}
-            testId="settings-row-legal"
           />
           <SettingsNavigationCard
             title={t("openSourceSettings.title")}

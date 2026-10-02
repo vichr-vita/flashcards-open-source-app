@@ -32,6 +32,14 @@ const daCatalog: TranslationCatalog = {
     waiting: "Venter på godkendelse...",
     usingChatGPT: "Bruger ChatGPT-abonnement",
   },
+  appearanceSettings: {
+    title: "Udseende",
+    subtitle: "Vælg, hvordan appen skal se ud på denne enhed.",
+    system: "System",
+    light: "Lyst",
+    dark: "Mørkt",
+    systemHint: "System følger enhedens indstilling.",
+  },
   accentColorSettings: {
     title: "Accentfarve",
     subtitle: "Vælg appens accentfarve.",

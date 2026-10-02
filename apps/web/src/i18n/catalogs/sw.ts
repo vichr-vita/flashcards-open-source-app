@@ -32,6 +32,14 @@ const swCatalog: TranslationCatalog = {
     waiting: "Inasubiri idhini...",
     usingChatGPT: "Inatumia usajili wa ChatGPT",
   },
+  appearanceSettings: {
+    title: "Mwonekano",
+    subtitle: "Chagua jinsi programu inavyoonekana kwenye kifaa hiki.",
+    system: "Mfumo",
+    light: "Angavu",
+    dark: "Giza",
+    systemHint: "Mfumo hufuata mipangilio ya kifaa chako.",
+  },
   accentColorSettings: {
     title: "Rangi ya msisitizo",
     subtitle: "Chagua rangi ya msisitizo ya programu.",

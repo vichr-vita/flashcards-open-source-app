@@ -32,6 +32,14 @@ const elCatalog: TranslationCatalog = {
     waiting: "Αναμονή εξουσιοδότησης...",
     usingChatGPT: "Χρήση συνδρομής ChatGPT",
   },
+  appearanceSettings: {
+    title: "Εμφάνιση",
+    subtitle: "Επιλέξτε πώς εμφανίζεται η εφαρμογή σε αυτή τη συσκευή.",
+    system: "Σύστημα",
+    light: "Φωτεινό",
+    dark: "Σκοτεινό",
+    systemHint: "Το Σύστημα ακολουθεί τη ρύθμιση της συσκευής σας.",
+  },
   accentColorSettings: {
     title: "Χρώμα έμφασης",
     subtitle: "Επιλέξτε το χρώμα έμφασης της εφαρμογής.",

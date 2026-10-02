@@ -32,6 +32,14 @@ const bgCatalog: TranslationCatalog = {
     waiting: "Изчакване на разрешение...",
     usingChatGPT: "Използва се абонамент за ChatGPT",
   },
+  appearanceSettings: {
+    title: "Външен вид",
+    subtitle: "Изберете как изглежда приложението на това устройство.",
+    system: "Системна",
+    light: "Светла",
+    dark: "Тъмна",
+    systemHint: "Системната тема следва настройката на устройството.",
+  },
   accentColorSettings: {
     title: "Акцентен цвят",
     subtitle: "Изберете акцентния цвят на приложението.",

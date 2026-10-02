@@ -32,6 +32,14 @@ const knCatalog: TranslationCatalog = {
     waiting: "ಅನುಮತಿಗಾಗಿ ಕಾಯುತ್ತಿದೆ...",
     usingChatGPT: "ChatGPT ಚಂದಾದಾರಿಕೆ ಬಳಸಲಾಗುತ್ತಿದೆ",
   },
+  appearanceSettings: {
+    title: "ಗೋಚರಿಕೆ",
+    subtitle: "ಈ ಸಾಧನದಲ್ಲಿ ಅಪ್ಲಿಕೇಶನ್ ಹೇಗೆ ಕಾಣಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    system: "ಸಿಸ್ಟಂ",
+    light: "ಲೈಟ್",
+    dark: "ಡಾರ್ಕ್",
+    systemHint: "ಸಿಸ್ಟಂ ನಿಮ್ಮ ಸಾಧನದ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಅನುಸರಿಸುತ್ತದೆ.",
+  },
   accentColorSettings: {
     title: "ಪ್ರಮುಖ ಬಣ್ಣ",
     subtitle: "ಆ್ಯಪ್‌ನ ಪ್ರಮುಖ ಬಣ್ಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",

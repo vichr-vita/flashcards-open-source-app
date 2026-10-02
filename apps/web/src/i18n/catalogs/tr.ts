@@ -32,6 +32,14 @@ const trCatalog: TranslationCatalog = {
     waiting: "Yetkilendirme bekleniyor...",
     usingChatGPT: "ChatGPT aboneliği kullanılıyor",
   },
+  appearanceSettings: {
+    title: "Görünüm",
+    subtitle: "Uygulamanın bu cihazda nasıl görüneceğini seçin.",
+    system: "Sistem",
+    light: "Açık",
+    dark: "Koyu",
+    systemHint: "Sistem cihazınızın ayarını izler.",
+  },
   accentColorSettings: {
     title: "Vurgu rengi",
     subtitle: "Uygulamanın vurgu rengini seçin.",

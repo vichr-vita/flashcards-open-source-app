@@ -32,6 +32,14 @@ const arCatalog: TranslationCatalog = {
     waiting: "بانتظار التفويض...",
     usingChatGPT: "استخدام اشتراك ChatGPT",
   },
+  appearanceSettings: {
+    title: "المظهر",
+    subtitle: "اختر مظهر التطبيق على هذا الجهاز.",
+    system: "النظام",
+    light: "فاتح",
+    dark: "داكن",
+    systemHint: "يتبع النظام إعداد جهازك.",
+  },
   accentColorSettings: {
     title: "لون التمييز",
     subtitle: "اختر لون التمييز للتطبيق.",

@@ -32,6 +32,14 @@ const nlCatalog: TranslationCatalog = {
     waiting: "Wachten op toestemming...",
     usingChatGPT: "ChatGPT-abonnement wordt gebruikt",
   },
+  appearanceSettings: {
+    title: "Weergave",
+    subtitle: "Kies hoe de app eruitziet op dit apparaat.",
+    system: "Systeem",
+    light: "Licht",
+    dark: "Donker",
+    systemHint: "Systeem volgt de instelling van je apparaat.",
+  },
   accentColorSettings: {
     title: "Accentkleur",
     subtitle: "Kies de accentkleur van de app.",

@@ -32,6 +32,14 @@ const koCatalog: TranslationCatalog = {
     waiting: "인증 대기 중...",
     usingChatGPT: "ChatGPT 구독 사용 중",
   },
+  appearanceSettings: {
+    title: "화면 모드",
+    subtitle: "이 기기에서 앱이 표시되는 방식을 선택하세요.",
+    system: "시스템",
+    light: "라이트",
+    dark: "다크",
+    systemHint: "시스템은 기기 설정을 따릅니다.",
+  },
   accentColorSettings: {
     title: "강조 색상",
     subtitle: "앱의 강조 색상을 선택하세요.",

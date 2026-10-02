@@ -32,6 +32,14 @@ const heCatalog: TranslationCatalog = {
     waiting: "ממתין לאישור...",
     usingChatGPT: "שימוש במינוי ChatGPT",
   },
+  appearanceSettings: {
+    title: "מראה",
+    subtitle: "בחרו את מראה היישום במכשיר זה.",
+    system: "מערכת",
+    light: "בהיר",
+    dark: "כהה",
+    systemHint: "מערכת פועלת לפי הגדרת המכשיר.",
+  },
   accentColorSettings: {
     title: "צבע הדגשה",
     subtitle: "בחרו את צבע ההדגשה של האפליקציה.",

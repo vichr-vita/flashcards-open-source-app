@@ -32,6 +32,14 @@ const deCatalog: TranslationCatalog = {
     waiting: "Warten auf Autorisierung...",
     usingChatGPT: "ChatGPT-Abonnement wird verwendet",
   },
+  appearanceSettings: {
+    title: "Darstellung",
+    subtitle: "Wähle das Erscheinungsbild der App auf diesem Gerät.",
+    system: "System",
+    light: "Hell",
+    dark: "Dunkel",
+    systemHint: "System folgt der Einstellung deines Geräts.",
+  },
   accentColorSettings: {
     title: "Akzentfarbe",
     subtitle: "Wähle die Akzentfarbe der App.",

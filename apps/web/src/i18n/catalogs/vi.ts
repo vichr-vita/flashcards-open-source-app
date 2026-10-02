@@ -32,6 +32,14 @@ const viCatalog: TranslationCatalog = {
     waiting: "Đang chờ cấp quyền...",
     usingChatGPT: "Đang dùng gói đăng ký ChatGPT",
   },
+  appearanceSettings: {
+    title: "Giao diện",
+    subtitle: "Chọn giao diện ứng dụng trên thiết bị này.",
+    system: "Hệ thống",
+    light: "Sáng",
+    dark: "Tối",
+    systemHint: "Hệ thống làm theo cài đặt của thiết bị.",
+  },
   accentColorSettings: {
     title: "Màu nhấn",
     subtitle: "Chọn màu nhấn của ứng dụng.",

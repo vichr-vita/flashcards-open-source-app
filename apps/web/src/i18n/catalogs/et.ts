@@ -32,6 +32,14 @@ const etCatalog: TranslationCatalog = {
     waiting: "Ootab volitust...",
     usingChatGPT: "Kasutatakse ChatGPT tellimust",
   },
+  appearanceSettings: {
+    title: "Välimus",
+    subtitle: "Vali rakenduse välimus selles seadmes.",
+    system: "Süsteem",
+    light: "Hele",
+    dark: "Tume",
+    systemHint: "Süsteem järgib seadme seadistust.",
+  },
   accentColorSettings: {
     title: "Rõhuvärv",
     subtitle: "Vali rakenduse rõhuvärv.",

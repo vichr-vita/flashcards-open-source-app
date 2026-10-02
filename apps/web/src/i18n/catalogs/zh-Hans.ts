@@ -32,6 +32,14 @@ export const zhHansCatalog = {
     waiting: "等待授权...",
     usingChatGPT: "正在使用 ChatGPT 订阅",
   },
+  appearanceSettings: {
+    title: "外观",
+    subtitle: "选择此设备上的应用外观。",
+    system: "跟随系统",
+    light: "浅色",
+    dark: "深色",
+    systemHint: "跟随系统会采用设备的外观设置。",
+  },
   accentColorSettings: {
     title: "强调色",
     subtitle: "选择应用的强调色。",

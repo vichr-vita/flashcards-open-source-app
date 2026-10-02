@@ -32,6 +32,14 @@ const idCatalog: TranslationCatalog = {
     waiting: "Menunggu otorisasi...",
     usingChatGPT: "Menggunakan langganan ChatGPT",
   },
+  appearanceSettings: {
+    title: "Tampilan",
+    subtitle: "Pilih tampilan aplikasi di perangkat ini.",
+    system: "Sistem",
+    light: "Terang",
+    dark: "Gelap",
+    systemHint: "Sistem mengikuti pengaturan perangkat Anda.",
+  },
   accentColorSettings: {
     title: "Warna aksen",
     subtitle: "Pilih warna aksen aplikasi.",

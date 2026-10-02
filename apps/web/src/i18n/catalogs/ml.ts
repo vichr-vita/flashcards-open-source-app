@@ -32,6 +32,14 @@ const mlCatalog: TranslationCatalog = {
     waiting: "അനുമതിക്കായി കാത്തിരിക്കുന്നു...",
     usingChatGPT: "ChatGPT സബ്‌സ്‌ക്രിപ്ഷൻ ഉപയോഗിക്കുന്നു",
   },
+  appearanceSettings: {
+    title: "രൂപം",
+    subtitle: "ഈ ഉപകരണത്തിൽ ആപ്പ് എങ്ങനെ കാണണമെന്ന് തിരഞ്ഞെടുക്കുക.",
+    system: "സിസ്റ്റം",
+    light: "ലൈറ്റ്",
+    dark: "ഡാർക്ക്",
+    systemHint: "സിസ്റ്റം നിങ്ങളുടെ ഉപകരണത്തിലെ ക്രമീകരണം പിന്തുടരുന്നു.",
+  },
   accentColorSettings: {
     title: "ആക്സന്റ് നിറം",
     subtitle: "ആപ്പിന്റെ ആക്സന്റ് നിറം തിരഞ്ഞെടുക്കുക.",

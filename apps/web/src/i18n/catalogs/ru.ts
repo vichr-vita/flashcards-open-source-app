@@ -32,6 +32,14 @@ export const ruCatalog = {
     waiting: "Ожидание авторизации...",
     usingChatGPT: "Используется подписка ChatGPT",
   },
+  appearanceSettings: {
+    title: "Оформление",
+    subtitle: "Выберите оформление приложения на этом устройстве.",
+    system: "Система",
+    light: "Светлая",
+    dark: "Тёмная",
+    systemHint: "Система использует настройку устройства.",
+  },
   accentColorSettings: {
     title: "Акцентный цвет",
     subtitle: "Выберите акцентный цвет приложения.",

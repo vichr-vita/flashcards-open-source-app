@@ -32,6 +32,14 @@ const lvCatalog: TranslationCatalog = {
     waiting: "Gaida atļauju...",
     usingChatGPT: "Tiek izmantots ChatGPT abonements",
   },
+  appearanceSettings: {
+    title: "Izskats",
+    subtitle: "Izvēlieties lietotnes izskatu šajā ierīcē.",
+    system: "Sistēma",
+    light: "Gaišs",
+    dark: "Tumšs",
+    systemHint: "Sistēma seko ierīces iestatījumam.",
+  },
   accentColorSettings: {
     title: "Akcenta krāsa",
     subtitle: "Izvēlieties lietotnes akcenta krāsu.",

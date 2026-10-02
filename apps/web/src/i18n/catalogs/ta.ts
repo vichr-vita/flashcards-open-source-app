@@ -32,6 +32,14 @@ const taCatalog: TranslationCatalog = {
     waiting: "அனுமதிக்காகக் காத்திருக்கிறது...",
     usingChatGPT: "ChatGPT சந்தா பயன்படுத்தப்படுகிறது",
   },
+  appearanceSettings: {
+    title: "தோற்றம்",
+    subtitle: "இந்தச் சாதனத்தில் செயலியின் தோற்றத்தைத் தேர்ந்தெடுக்கவும்.",
+    system: "கணினி",
+    light: "ஒளி",
+    dark: "இருள்",
+    systemHint: "கணினி உங்கள் சாதன அமைப்பைப் பின்பற்றும்.",
+  },
   accentColorSettings: {
     title: "சிறப்பம்ச நிறம்",
     subtitle: "செயலியின் சிறப்பம்ச நிறத்தைத் தேர்ந்தெடுக்கவும்.",

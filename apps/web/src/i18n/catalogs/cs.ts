@@ -32,6 +32,14 @@ const csCatalog: TranslationCatalog = {
     waiting: "Čeká se na autorizaci...",
     usingChatGPT: "Používá se předplatné ChatGPT",
   },
+  appearanceSettings: {
+    title: "Vzhled",
+    subtitle: "Vyberte vzhled aplikace na tomto zařízení.",
+    system: "Systém",
+    light: "Světlý",
+    dark: "Tmavý",
+    systemHint: "Systém se řídí nastavením zařízení.",
+  },
   accentColorSettings: {
     title: "Barva zvýraznění",
     subtitle: "Vyberte barvu zvýraznění aplikace.",

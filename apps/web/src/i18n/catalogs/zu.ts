@@ -32,6 +32,14 @@ const zuCatalog: TranslationCatalog = {
     waiting: "Ilinde ukugunyazwa...",
     usingChatGPT: "Kusetshenziswa ukubhaliswa kwe-ChatGPT",
   },
+  appearanceSettings: {
+    title: "Ukubukeka",
+    subtitle: "Khetha indlela uhlelo lokusebenza olubukeka ngayo kule divayisi.",
+    system: "Isistimu",
+    light: "Okukhanyayo",
+    dark: "Okumnyama",
+    systemHint: "Isistimu ilandela isilungiselelo sedivayisi yakho.",
+  },
   accentColorSettings: {
     title: "Umbala wokugqamisa",
     subtitle: "Khetha umbala wokugqamisa wohlelo lokusebenza.",

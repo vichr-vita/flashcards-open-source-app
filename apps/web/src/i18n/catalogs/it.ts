@@ -32,6 +32,14 @@ const itCatalog: TranslationCatalog = {
     waiting: "In attesa di autorizzazione...",
     usingChatGPT: "Abbonamento ChatGPT in uso",
   },
+  appearanceSettings: {
+    title: "Aspetto",
+    subtitle: "Scegli l’aspetto dell’app su questo dispositivo.",
+    system: "Sistema",
+    light: "Chiaro",
+    dark: "Scuro",
+    systemHint: "Sistema segue l’impostazione del dispositivo.",
+  },
   accentColorSettings: {
     title: "Colore di accento",
     subtitle: "Scegli il colore di accento dell’app.",

@@ -32,6 +32,14 @@ const teCatalog: TranslationCatalog = {
     waiting: "అనుమతి కోసం వేచి ఉంది...",
     usingChatGPT: "ChatGPT సభ్యత్వం ఉపయోగించబడుతోంది",
   },
+  appearanceSettings: {
+    title: "రూపం",
+    subtitle: "ఈ పరికరంలో యాప్ ఎలా కనిపించాలో ఎంచుకోండి.",
+    system: "సిస్టమ్",
+    light: "లైట్",
+    dark: "డార్క్",
+    systemHint: "సిస్టమ్ మీ పరికర సెట్టింగ్‌ను అనుసరిస్తుంది.",
+  },
   accentColorSettings: {
     title: "ప్రధాన రంగు",
     subtitle: "యాప్ ప్రధాన రంగును ఎంచుకోండి.",

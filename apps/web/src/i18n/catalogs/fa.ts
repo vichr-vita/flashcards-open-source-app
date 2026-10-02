@@ -32,6 +32,14 @@ const faCatalog: TranslationCatalog = {
     waiting: "در انتظار اجازه...",
     usingChatGPT: "استفاده از اشتراک ChatGPT",
   },
+  appearanceSettings: {
+    title: "ظاهر",
+    subtitle: "ظاهر برنامه را در این دستگاه انتخاب کنید.",
+    system: "سیستم",
+    light: "روشن",
+    dark: "تیره",
+    systemHint: "سیستم از تنظیم دستگاه شما پیروی می‌کند.",
+  },
   accentColorSettings: {
     title: "رنگ تأکیدی",
     subtitle: "رنگ تأکیدی برنامه را انتخاب کنید.",

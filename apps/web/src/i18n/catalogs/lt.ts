@@ -32,6 +32,14 @@ const ltCatalog: TranslationCatalog = {
     waiting: "Laukiama leidimo...",
     usingChatGPT: "Naudojama ChatGPT prenumerata",
   },
+  appearanceSettings: {
+    title: "Išvaizda",
+    subtitle: "Pasirinkite programėlės išvaizdą šiame įrenginyje.",
+    system: "Sistemos",
+    light: "Šviesi",
+    dark: "Tamsi",
+    systemHint: "Sistemos tema atitinka įrenginio nuostatą.",
+  },
   accentColorSettings: {
     title: "Akcento spalva",
     subtitle: "Pasirinkite programėlės akcento spalvą.",

@@ -18,3 +18,4 @@
 @import "./features/analytics-consent.css" layer(features);
 @import "./features/dev-previews.css" layer(features);
 @import "./features/premium.css" layer(features);
+@import "./light.css" layer(features);

@@ -32,6 +32,14 @@ const guCatalog: TranslationCatalog = {
     waiting: "મંજૂરીની રાહ જોઈ રહ્યું છે...",
     usingChatGPT: "ChatGPT સબ્સ્ક્રિપ્શનનો ઉપયોગ થઈ રહ્યો છે",
   },
+  appearanceSettings: {
+    title: "દેખાવ",
+    subtitle: "આ ઉપકરણ પર એપ્લિકેશનનો દેખાવ પસંદ કરો.",
+    system: "સિસ્ટમ",
+    light: "લાઇટ",
+    dark: "ડાર્ક",
+    systemHint: "સિસ્ટમ તમારા ઉપકરણની સેટિંગને અનુસરે છે.",
+  },
   accentColorSettings: {
     title: "ઍક્સેન્ટ રંગ",
     subtitle: "ઍપનો ઍક્સેન્ટ રંગ પસંદ કરો.",

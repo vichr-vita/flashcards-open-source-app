@@ -32,6 +32,14 @@ const huCatalog: TranslationCatalog = {
     waiting: "Várakozás az engedélyezésre...",
     usingChatGPT: "ChatGPT-előfizetés használata",
   },
+  appearanceSettings: {
+    title: "Megjelenés",
+    subtitle: "Válaszd ki az alkalmazás megjelenését ezen az eszközön.",
+    system: "Rendszer",
+    light: "Világos",
+    dark: "Sötét",
+    systemHint: "A Rendszer az eszköz beállítását követi.",
+  },
   accentColorSettings: {
     title: "Kiemelőszín",
     subtitle: "Válaszd ki az alkalmazás kiemelőszínét.",

@@ -32,6 +32,14 @@ const svCatalog: TranslationCatalog = {
     waiting: "Väntar på godkännande...",
     usingChatGPT: "Använder ChatGPT-prenumeration",
   },
+  appearanceSettings: {
+    title: "Utseende",
+    subtitle: "Välj hur appen ska se ut på den här enheten.",
+    system: "System",
+    light: "Ljust",
+    dark: "Mörkt",
+    systemHint: "System följer enhetens inställning.",
+  },
   accentColorSettings: {
     title: "Accentfärg",
     subtitle: "Välj appens accentfärg.",

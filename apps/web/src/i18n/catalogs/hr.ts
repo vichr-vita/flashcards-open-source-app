@@ -32,6 +32,14 @@ const hrCatalog: TranslationCatalog = {
     waiting: "Čeka se autorizacija...",
     usingChatGPT: "Koristi se pretplata na ChatGPT",
   },
+  appearanceSettings: {
+    title: "Izgled",
+    subtitle: "Odaberite izgled aplikacije na ovom uređaju.",
+    system: "Sustav",
+    light: "Svijetla",
+    dark: "Tamna",
+    systemHint: "Sustav prati postavku uređaja.",
+  },
   accentColorSettings: {
     title: "Boja naglaska",
     subtitle: "Odaberite boju naglaska aplikacije.",

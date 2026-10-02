@@ -1,0 +1,51 @@
+:root[data-theme="light"] .error-banner,
+:root[data-theme="light"] .global-error,
+:root[data-theme="light"] .workspace-text-import-invalid-count,
+:root[data-theme="light"] .review-markdown-media-image-placeholder[data-state="failed"] {
+  border-color: rgba(180, 35, 50, 0.25);
+  background: #fff0f2;
+  color: #98202e;
+}
+
+:root[data-theme="light"] .warning-banner {
+  border-color: #b7811d;
+  background: #fff4d9;
+  color: #674504;
+}
+
+:root[data-theme="light"] .account-menu-banner,
+:root[data-theme="light"] .settings-temporary-banner,
+:root[data-theme="light"] .tag-chip {
+  color: #853019;
+}
+
+:root[data-theme="light"] .settings-danger-btn,
+:root[data-theme="light"] .deck-detail-delete-btn,
+:root[data-theme="light"] .review-editor-delete-btn,
+:root[data-theme="light"] .card-form-media-error,
+:root[data-theme="light"] .card-form-managed-media-upload-state[data-status="failed"] {
+  color: #a12332;
+}
+
+:root[data-theme="light"] .progress-streak-freeze-chip .streak-freeze-icon,
+:root[data-theme="light"] .progress-streak-day-frozen .progress-streak-marker,
+:root[data-theme="light"] .review-progress-freeze-indicator {
+  color: #27658d;
+}
+
+:root[data-theme="light"] .review-progress-badge-active .review-progress-freeze-indicator {
+  color: #104467;
+}
+
+:root[data-theme="light"] .progress-streak-marker {
+  background: rgba(var(--neutral-rgb), 0.06);
+}
+
+:root[data-theme="light"] .progress-streak-day-complete .progress-streak-marker,
+:root[data-theme="light"] .progress-streak-day-today .progress-streak-marker {
+  background: var(--accent);
+}
+
+:root[data-theme="light"] .progress-streak-day-future .progress-streak-marker {
+  background: transparent;
+}

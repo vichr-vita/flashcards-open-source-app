@@ -32,6 +32,14 @@ const bnCatalog: TranslationCatalog = {
     waiting: "অনুমতির অপেক্ষায়...",
     usingChatGPT: "ChatGPT সাবস্ক্রিপশন ব্যবহার করা হচ্ছে",
   },
+  appearanceSettings: {
+    title: "চেহারা",
+    subtitle: "এই ডিভাইসে অ্যাপের চেহারা বেছে নিন।",
+    system: "সিস্টেম",
+    light: "লাইট",
+    dark: "ডার্ক",
+    systemHint: "সিস্টেম আপনার ডিভাইসের সেটিং অনুসরণ করে।",
+  },
   accentColorSettings: {
     title: "অ্যাকসেন্ট রং",
     subtitle: "অ্যাপের অ্যাকসেন্ট রং বেছে নিন।",

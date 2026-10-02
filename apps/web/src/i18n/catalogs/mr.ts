@@ -32,6 +32,14 @@ const mrCatalog: TranslationCatalog = {
     waiting: "परवानगीची प्रतीक्षा करत आहे...",
     usingChatGPT: "ChatGPT सदस्यता वापरत आहे",
   },
+  appearanceSettings: {
+    title: "देखावा",
+    subtitle: "या डिव्हाइसवर अॅप कसे दिसेल ते निवडा.",
+    system: "सिस्टम",
+    light: "फिकट",
+    dark: "गडद",
+    systemHint: "सिस्टम तुमच्या डिव्हाइसच्या सेटिंगनुसार बदलते.",
+  },
   accentColorSettings: {
     title: "अॅक्सेंट रंग",
     subtitle: "अॅपचा अॅक्सेंट रंग निवडा.",

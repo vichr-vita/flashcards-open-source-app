@@ -89,14 +89,13 @@ function InviteSuccessLinks(): ReactElement {
   return (
     <AppPlatformLinksGrid
       options={buildAppPlatformOptions({
-        platforms: ["ios", "android", "web", "mcp"],
+        platforms: ["ios", "android", "web"],
         storeLinks: friendInviteStoreLinks,
         webHref,
         labels: {
           ios: t("appPlatformLinks.ios"),
           android: t("appPlatformLinks.android"),
           web: t("appPlatformLinks.web"),
-          mcp: t("appPlatformLinks.mcp.label"),
         },
         qrTitles: {
           ios: t("appPlatformLinks.qr.ios"),

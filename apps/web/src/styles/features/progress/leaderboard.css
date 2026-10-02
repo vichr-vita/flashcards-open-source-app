@@ -115,7 +115,7 @@
 }
 
 .progress-leaderboard-row-button:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(var(--neutral-rgb), 0.04);
 }
 
 .progress-leaderboard-row-button:focus-visible {
@@ -132,7 +132,7 @@
 }
 
 .progress-leaderboard-row-friend {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(var(--neutral-rgb), 0.035);
 }
 
 .progress-leaderboard-row-padding {

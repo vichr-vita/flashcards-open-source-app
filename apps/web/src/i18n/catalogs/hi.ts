@@ -32,6 +32,14 @@ const hiCatalog: TranslationCatalog = {
     waiting: "अनुमति का इंतज़ार है...",
     usingChatGPT: "ChatGPT सदस्यता का उपयोग हो रहा है",
   },
+  appearanceSettings: {
+    title: "दिखावट",
+    subtitle: "इस डिवाइस पर ऐप का रूप चुनें।",
+    system: "सिस्टम",
+    light: "लाइट",
+    dark: "डार्क",
+    systemHint: "सिस्टम आपके डिवाइस की सेटिंग का अनुसरण करता है।",
+  },
   accentColorSettings: {
     title: "एक्सेंट रंग",
     subtitle: "ऐप का एक्सेंट रंग चुनें।",

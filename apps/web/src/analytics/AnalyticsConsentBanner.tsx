@@ -11,8 +11,6 @@ import {
 } from "./client";
 import { isAnalyticsConsentBannerVisible, subscribeToAnalyticsConsent } from "./consent";
 
-const privacyPolicyUrl: string = "https://nibomo.com/privacy/";
-
 /** Published on `:root`; the layouts that must leave room for the strip read it as bottom padding. */
 const bannerHeightCustomProperty: string = "--analytics-consent-banner-height";
 
@@ -155,14 +153,6 @@ export function AnalyticsConsentBanner(): ReactElement | null {
       <div className="analytics-consent-banner-inner">
         <div className="analytics-consent-banner-copy">
           <p className="analytics-consent-banner-message">{t("analyticsConsentBanner.message")}</p>
-          <a
-            className="analytics-consent-banner-link"
-            href={privacyPolicyUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {t("analyticsConsentBanner.privacyPolicy")}
-          </a>
         </div>
         <div className="analytics-consent-banner-actions">
           <button

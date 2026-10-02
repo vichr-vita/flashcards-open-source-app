@@ -32,6 +32,14 @@ const plCatalog: TranslationCatalog = {
     waiting: "Oczekiwanie na autoryzację...",
     usingChatGPT: "Używana jest subskrypcja ChatGPT",
   },
+  appearanceSettings: {
+    title: "Wygląd",
+    subtitle: "Wybierz wygląd aplikacji na tym urządzeniu.",
+    system: "System",
+    light: "Jasny",
+    dark: "Ciemny",
+    systemHint: "System używa ustawienia urządzenia.",
+  },
   accentColorSettings: {
     title: "Kolor akcentu",
     subtitle: "Wybierz kolor akcentu aplikacji.",

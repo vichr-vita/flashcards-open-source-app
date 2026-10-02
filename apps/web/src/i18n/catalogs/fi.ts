@@ -32,6 +32,14 @@ const fiCatalog: TranslationCatalog = {
     waiting: "Odotetaan valtuutusta...",
     usingChatGPT: "ChatGPT-tilaus käytössä",
   },
+  appearanceSettings: {
+    title: "Ulkoasu",
+    subtitle: "Valitse sovelluksen ulkoasu tällä laitteella.",
+    system: "Järjestelmä",
+    light: "Vaalea",
+    dark: "Tumma",
+    systemHint: "Järjestelmä noudattaa laitteen asetusta.",
+  },
   accentColorSettings: {
     title: "Korostusväri",
     subtitle: "Valitse sovelluksen korostusväri.",

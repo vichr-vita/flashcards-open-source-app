@@ -145,14 +145,13 @@ export function MobileAppPromotionDialog(props: MobileAppPromotionDialogProps): 
         <div dir="ltr">
           <AppPlatformLinksGrid
             options={buildAppPlatformOptions({
-              platforms: ["ios", "android", "mcp"],
+              platforms: ["ios", "android"],
               storeLinks,
               webHref: null,
               labels: {
                 ios: t("appPlatformLinks.ios"),
                 android: t("appPlatformLinks.android"),
                 web: t("appPlatformLinks.web"),
-                mcp: t("appPlatformLinks.mcp.label"),
               },
               qrTitles: {
                 ios: t("appPlatformLinks.qr.ios"),

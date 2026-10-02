@@ -20,14 +20,13 @@ export function ShareAppScreen(): ReactElement {
         <p className="subtitle">{t("shareApp.body")}</p>
         <AppPlatformLinksGrid
           options={buildAppPlatformOptions({
-            platforms: ["ios", "android", "web", "mcp"],
+            platforms: ["ios", "android", "web"],
             storeLinks: shareAppStoreLinks,
             webHref,
             labels: {
               ios: t("appPlatformLinks.ios"),
               android: t("appPlatformLinks.android"),
               web: t("appPlatformLinks.web"),
-              mcp: t("appPlatformLinks.mcp.label"),
             },
             qrTitles: {
               ios: t("appPlatformLinks.qr.ios"),

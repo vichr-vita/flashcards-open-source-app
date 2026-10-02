@@ -1,7 +1,6 @@
 import type { ReactElement } from "react";
 import { track } from "../analytics/client";
 import { toAnalyticsStore, type AppPlatformOption } from "./appPlatformOptions";
-import { AppPlatformMcpOption } from "./AppPlatformMcpOption";
 import { AppPlatformQrCode } from "./AppPlatformQrCode";
 import { AppStoreBadge, GooglePlayBadge, WebAppIcon } from "./badges";
 
@@ -96,21 +95,13 @@ export function AppPlatformLinksGrid(props: AppPlatformLinksGridProps): ReactEle
 
   return (
     <div className="app-platform-links-grid" data-testid={`${testIdPrefix}-grid`}>
-      {options.map((option) => (option.kind === "mcp"
-        ? (
-          <AppPlatformMcpOption
-            key={option.kind}
-            label={option.label}
-            testIdPrefix={testIdPrefix}
-          />
-        )
-        : (
-          <AppPlatformLinkTile
-            key={option.kind}
-            option={option}
-            testIdPrefix={testIdPrefix}
-          />
-        )))}
+      {options.map((option) => (
+        <AppPlatformLinkTile
+          key={option.kind}
+          option={option}
+          testIdPrefix={testIdPrefix}
+        />
+      ))}
     </div>
   );
 }

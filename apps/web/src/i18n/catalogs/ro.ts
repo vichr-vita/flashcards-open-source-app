@@ -32,6 +32,14 @@ const roCatalog: TranslationCatalog = {
     waiting: "Se așteaptă autorizarea...",
     usingChatGPT: "Se folosește abonamentul ChatGPT",
   },
+  appearanceSettings: {
+    title: "Aspect",
+    subtitle: "Alege cum arată aplicația pe acest dispozitiv.",
+    system: "Sistem",
+    light: "Luminos",
+    dark: "Întunecat",
+    systemHint: "Sistem urmează setarea dispozitivului.",
+  },
   accentColorSettings: {
     title: "Culoare de accent",
     subtitle: "Alege culoarea de accent a aplicației.",

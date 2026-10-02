@@ -32,6 +32,14 @@ const paCatalog: TranslationCatalog = {
     waiting: "ਇਜਾਜ਼ਤ ਦੀ ਉਡੀਕ ਹੈ...",
     usingChatGPT: "ChatGPT ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਵਰਤੀ ਜਾ ਰਹੀ ਹੈ",
   },
+  appearanceSettings: {
+    title: "ਦਿੱਖ",
+    subtitle: "ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਐਪ ਦੀ ਦਿੱਖ ਚੁਣੋ।",
+    system: "ਸਿਸਟਮ",
+    light: "ਲਾਈਟ",
+    dark: "ਡਾਰਕ",
+    systemHint: "ਸਿਸਟਮ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀ ਸੈਟਿੰਗ ਅਨੁਸਾਰ ਚੱਲਦਾ ਹੈ।",
+  },
   accentColorSettings: {
     title: "ਐਕਸੈਂਟ ਰੰਗ",
     subtitle: "ਐਪ ਦਾ ਐਕਸੈਂਟ ਰੰਗ ਚੁਣੋ।",
