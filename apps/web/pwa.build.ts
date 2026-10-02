@@ -14,7 +14,7 @@ export function offlineShellPlugin(): Plugin {
     },
     async closeBundle() {
       const files = (await readdir(dist, { recursive: true })).filter(name =>
-        name === "index.html" || name === "manifest.webmanifest" || /^icon-\d+\.png$/.test(name)
+        ["index.html", "manifest.webmanifest", "logo.svg", "icon.svg", "favicon.ico"].includes(name) || /^icon-\d+\.png$/.test(name)
         || /^assets\/.*\.(?:js|css|json|wasm|woff2?|png|svg)$/.test(name),
       ).sort();
       const paths = files.map(name => `/${name}`);
