@@ -5,11 +5,14 @@ import type { Plugin } from "vite";
 
 /** Only public build artifacts are cached. API data remains in the existing IndexedDB sync model. */
 export function offlineShellPlugin(): Plugin {
+  let dist = resolve("dist");
   return {
     name: "nibomo-offline-shell",
     apply: "build",
+    configResolved(config) {
+      dist = resolve(config.root, config.build.outDir);
+    },
     async closeBundle() {
-      const dist = resolve("dist");
       const files = (await readdir(dist, { recursive: true })).filter(name =>
         name === "index.html" || name === "manifest.webmanifest" || /^icon-\d+\.png$/.test(name)
         || /^assets\/.*\.(?:js|css|json|wasm|woff2?|png|svg)$/.test(name),

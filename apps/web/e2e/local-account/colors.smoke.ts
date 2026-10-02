@@ -2,6 +2,9 @@ import { expect, test } from "@playwright/test";
 
 test("a free account saves preset and custom colors across reloads", async ({ page }) => {
   await page.goto("/settings/accent-color");
+  const worker = await page.request.get("/sw.js");
+  expect(worker.ok()).toBe(true);
+  expect(await worker.text()).toContain('self.addEventListener("install"');
   const purple = page.getByTestId("accent-preset-purple");
   await expect(purple).toBeEnabled();
 

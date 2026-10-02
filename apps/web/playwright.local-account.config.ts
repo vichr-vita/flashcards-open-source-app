@@ -20,7 +20,7 @@ export default defineConfig({
     serviceWorkers: "block",
   },
   webServer: {
-    command: "npm exec -- vite preview --host 127.0.0.1 --port 19411 --strictPort",
+    command: "npm exec -- vite preview --outDir /tmp/nibomo-local-web --host 127.0.0.1 --port 19411 --strictPort",
     url: "http://localhost:19411",
     reuseExistingServer: false,
   },
