@@ -10,8 +10,8 @@
   position: sticky;
   bottom: 0;
   z-index: 1;
-  margin-top: auto;
-  padding-top: 8px;
+  margin-top: 8px;
+  padding-block: 0;
   border: none;
   border-radius: 0;
   background: transparent;
@@ -21,12 +21,24 @@
 
 .review-reveal-btn {
   width: 100%;
+  min-height: 72px;
+  border-radius: var(--radius-md);
+  font-size: 20px;
+}
+
+.review-reveal-btn:focus-visible,
+.rating-btn:focus-visible,
+.review-pane-edit-btn:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
 }
 
 .rating-bar {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
 }
 
 .rating-bar-column {
@@ -38,7 +50,7 @@
   width: 100%;
   min-height: 58px;
   border: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-md);
   background: var(--accent);
   cursor: pointer;
   display: flex;
@@ -130,5 +142,29 @@
   .review-reveal-btn:not(:disabled):hover > .review-shortcut-hint,
   .review-reveal-btn:not(:disabled):focus-visible > .review-shortcut-hint {
     display: block;
+  }
+
+  .review-reveal-btn > .review-shortcut-hint,
+  .review-reveal-btn:not(:disabled):hover > .review-shortcut-hint,
+  .review-reveal-btn:not(:disabled):focus-visible > .review-shortcut-hint {
+    display: block;
+    inset: auto 18px auto auto;
+    transform: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font-size: 0;
+  }
+
+  .review-reveal-btn .review-shortcut-hint-key {
+    padding: 4px 8px;
+    border-color: currentColor;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font-size: 12px;
+    opacity: 0.8;
   }
 }

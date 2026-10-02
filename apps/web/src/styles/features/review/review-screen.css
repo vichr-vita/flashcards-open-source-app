@@ -1,4 +1,5 @@
 .review-screen-panel {
+  --panel-padding: 16px;
   --review-screen-panel-height: var(--chat-shell-pane-height, calc(100dvh - 128px));
   position: relative;
   border: 0;
@@ -12,6 +13,7 @@
   min-height: var(--review-screen-panel-height);
   max-height: var(--review-screen-panel-height);
   overflow: hidden;
+  padding-inline: 32px;
 }
 
 .chat-layout-shell-sidebar-open .review-screen-panel {
@@ -20,11 +22,12 @@
 
 .review-layout {
   display: grid;
-  grid-template-columns: minmax(0, calc((100% - 10px) * 0.6));
+  grid-template-columns: minmax(0, min(100%, 1140px));
   gap: 10px;
   align-items: stretch;
   justify-content: center;
   min-height: 0;
+  padding-top: clamp(8px, 3dvh, 32px);
 }
 
 .review-layout-queue-open {
@@ -41,11 +44,15 @@
 }
 
 .review-screen-head {
-  align-items: flex-start;
+  align-items: center;
+}
+
+.review-screen-head .title {
+  font-size: clamp(28px, 2.6vw, 38px);
 }
 
 .review-screen-head-actions {
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 0;
   gap: 10px;
 }
@@ -79,4 +86,74 @@
   align-items: center;
   justify-content: flex-end;
   gap: 6px;
+}
+
+.review-screen-head .review-filter-label {
+  display: none;
+}
+
+.review-screen-head .review-filter-trigger {
+  min-width: 180px;
+  border-color: transparent;
+  border-radius: var(--radius-xs);
+  background: transparent;
+}
+
+.review-screen-head .review-progress-badge {
+  border-color: transparent;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  box-shadow: none;
+}
+
+.review-screen-head .review-progress-badge:hover,
+.review-screen-head .review-filter-trigger:hover {
+  background: var(--surface-muted);
+}
+
+.review-screen-head .review-progress-badge-active {
+  color: var(--accent-strong);
+}
+
+.review-screen-head .review-progress-badge-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.review-screen-head .review-progress-shortcuts > * + * {
+  border-inline-start-color: var(--divider);
+}
+
+/* Match the selected review design without changing navigation on other screens. */
+.app-shell:has(.review-screen-panel) .header-sticky {
+  --header-inline-padding: 32px;
+}
+
+.app-shell:has(.review-screen-panel) .topbar-brand {
+  font-size: 36px;
+}
+
+.app-shell:has(.review-screen-panel) .topbar-shell {
+  border-bottom-color: var(--divider);
+}
+
+.app-shell:has(.review-screen-panel) .nav {
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+}
+
+.app-shell:has(.review-screen-panel) .nav-link {
+  font-size: 16px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+}
+
+.app-shell:has(.review-screen-panel) .nav-link:hover {
+  color: var(--text);
+}
+
+.app-shell:has(.review-screen-panel) .nav-link-active {
+  border-bottom-color: var(--accent-strong);
 }

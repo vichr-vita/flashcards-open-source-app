@@ -76,7 +76,7 @@ export function useReviewScreenController(
   const reviewProgressBadge = useReviewProgressBadge();
   const { formatCount, locale, messages, t } = useI18n();
   const { indexedDbOpenRecoveryState, showCapturedTechnicalError, showTechnicalError } = useAppErrorDialog();
-  const [isAnswerVisible, setIsAnswerVisible] = useState<boolean>(false);
+  const [answerVisibleForCardId, setAnswerVisibleForCardId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [reviewSubmitState, setReviewSubmitState] = useState<ReviewSubmitState>("idle");
   const [lastSubmittedReview, setLastSubmittedReview] = useState<LastSubmittedReview | null>(null);
@@ -125,6 +125,8 @@ export function useReviewScreenController(
     userId: session?.userId ?? null,
   });
   const selectedCard = currentReviewCard(activeReviewQueue);
+  // A replacement card must render its front immediately, before effects reset the old reveal.
+  const isAnswerVisible = selectedCard !== null && selectedCard.cardId === answerVisibleForCardId;
   const {
     activeSide: activeSpeechSide,
     stopSpeech,
@@ -369,7 +371,8 @@ export function useReviewScreenController(
 
   function handleRevealAnswer(): void {
     reportCardRevealed();
-    setIsAnswerVisible(true);
+    stopSpeech();
+    setAnswerVisibleForCardId(selectedCard?.cardId ?? null);
   }
 
   async function handleRetryReviewLoad(): Promise<void> {
@@ -406,7 +409,7 @@ export function useReviewScreenController(
     // Clearing the reveal ref here is what makes it mean "this presentation": a new presentation
     // always changes this dep, so the guard and the card on screen move together.
     revealedCardIdRef.current = null;
-    setIsAnswerVisible(false);
+    setAnswerVisibleForCardId(null);
     stopSpeech();
   }, [selectedCard?.cardId, stopSpeech]);
 
@@ -444,8 +447,9 @@ export function useReviewScreenController(
     setIsAnswerVisible: (value) => {
       if (value) {
         reportCardRevealed();
+        stopSpeech();
       }
-      setIsAnswerVisible(value);
+      setAnswerVisibleForCardId(value ? selectedCard?.cardId ?? null : null);
     },
   });
 

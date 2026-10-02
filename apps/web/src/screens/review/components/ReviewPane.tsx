@@ -308,26 +308,10 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   const repetitionValue = selectedCard.reps === 0 ? t("reviewScreen.repetitionBadgeNew") : formatNumber(selectedCard.reps);
   const leftReviewButtonOptions = reviewButtonOptions.slice(0, REVIEW_BUTTONS_PER_COLUMN);
   const rightReviewButtonOptions = reviewButtonOptions.slice(REVIEW_BUTTONS_PER_COLUMN, REVIEW_BUTTONS_PER_COLUMN * 2);
-  const frontTargetRef = useRef<HTMLDivElement>(null);
-  const backTargetRef = useRef<HTMLDivElement>(null);
-  const previousCardIdRef = useRef<string | null>(null);
-  const wasAnswerVisibleRef = useRef(false);
+  const cardTargetRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const didCardChange = previousCardIdRef.current !== selectedCard.cardId;
-    const didRevealAnswer = !didCardChange && !wasAnswerVisibleRef.current && isAnswerVisible;
-
-    previousCardIdRef.current = selectedCard.cardId;
-    wasAnswerVisibleRef.current = isAnswerVisible;
-
-    if (didCardChange) {
-      frontTargetRef.current?.scrollIntoView(REVIEW_SCROLL_INTO_VIEW_OPTIONS);
-      return;
-    }
-
-    if (didRevealAnswer) {
-      backTargetRef.current?.scrollIntoView(REVIEW_SCROLL_INTO_VIEW_OPTIONS);
-    }
+    cardTargetRef.current?.scrollIntoView(REVIEW_SCROLL_INTO_VIEW_OPTIONS);
   }, [isAnswerVisible, selectedCard.cardId]);
 
   return (
@@ -355,55 +339,64 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
           </button>
         </div>
       </div>
-      <div className="review-card-stack">
-        <div className="review-card-scroll-target" ref={frontTargetRef}>
-          <ReviewCardSide
-            label={frontSideLabel}
-            aiButtonAriaLabel={null}
-            text={selectedCard.frontText}
-            contentClassName="review-front"
-            isSpeaking={activeSpeechSide === "front"}
-            onOpenAi={null}
-            onToggleSpeech={() => onToggleSpeech("front", selectedCard.frontText)}
-            showAiButton={false}
-            showSpeechButton={selectedFrontSpeakableText !== ""}
-            speechButtonAriaLabel={t(activeSpeechSide === "front" ? "reviewScreen.speakAriaLabel.stop" : "reviewScreen.speakAriaLabel.start", {
-              side: frontSideLabel.toLowerCase(),
-            })}
-            speechButtonDisabled={false}
-            localReadVersion={localReadVersion}
-            surfaceCardId={selectedCard.cardId}
-            surfaceClassName="review-card-surface review-card-surface-front"
-            surfaceFrontText={selectedCard.frontText}
-            surfaceTestId="review-current-front-card"
-            workspaceId={workspaceId}
-          />
-        </div>
-
-        {isAnswerVisible ? (
-          <div className="review-card-scroll-target" ref={backTargetRef}>
+      <div className="review-card-scroll-target review-card-flip-scene" ref={cardTargetRef}>
+        {/* A new card mounts facing forward, without rotating the previous answer back. */}
+        <div
+          key={selectedCard.cardId}
+          className={`review-card-stack review-card-flipper${isAnswerVisible ? " review-card-flipper-revealed" : ""}`}
+          data-testid="review-card-flipper"
+          data-side={isAnswerVisible ? "back" : "front"}
+        >
+          <div className="review-card-face review-card-face-front" inert={isAnswerVisible} aria-hidden={isAnswerVisible}>
             <ReviewCardSide
-              label={backSideLabel}
-              aiButtonAriaLabel={t("reviewScreen.aiOpenAriaLabel", {
-                side: backSideLabel.toLowerCase(),
-              })}
-              text={selectedCard.backText === "" ? t("common.noBackText") : selectedCard.backText}
-              contentClassName="review-back"
-              isSpeaking={activeSpeechSide === "back"}
-              onOpenAi={() => void onAiHandoff(selectedCard)}
-              onToggleSpeech={() => onToggleSpeech("back", selectedCard.backText)}
-              showAiButton={true}
-              showSpeechButton={selectedBackSpeakableText !== ""}
-              speechButtonAriaLabel={t(activeSpeechSide === "back" ? "reviewScreen.speakAriaLabel.stop" : "reviewScreen.speakAriaLabel.start", {
-                side: backSideLabel.toLowerCase(),
+              label={frontSideLabel}
+              aiButtonAriaLabel={null}
+              text={selectedCard.frontText}
+              contentClassName="review-front"
+              isSpeaking={activeSpeechSide === "front"}
+              onOpenAi={null}
+              onToggleSpeech={() => onToggleSpeech("front", selectedCard.frontText)}
+              showAiButton={false}
+              showSpeechButton={selectedFrontSpeakableText !== ""}
+              speechButtonAriaLabel={t(activeSpeechSide === "front" ? "reviewScreen.speakAriaLabel.stop" : "reviewScreen.speakAriaLabel.start", {
+                side: frontSideLabel.toLowerCase(),
               })}
               speechButtonDisabled={false}
               localReadVersion={localReadVersion}
-              surfaceClassName="review-card-surface review-card-answer"
+              surfaceCardId={selectedCard.cardId}
+              surfaceClassName="review-card-surface review-card-surface-front"
+              surfaceFrontText={selectedCard.frontText}
+              surfaceTestId="review-current-front-card"
               workspaceId={workspaceId}
             />
           </div>
-        ) : null}
+
+          {isAnswerVisible ? (
+            <div className="review-card-face review-card-face-back">
+              <ReviewCardSide
+                label={backSideLabel}
+                aiButtonAriaLabel={t("reviewScreen.aiOpenAriaLabel", {
+                  side: backSideLabel.toLowerCase(),
+                })}
+                text={selectedCard.backText === "" ? t("common.noBackText") : selectedCard.backText}
+                contentClassName="review-back"
+                isSpeaking={activeSpeechSide === "back"}
+                onOpenAi={() => void onAiHandoff(selectedCard)}
+                onToggleSpeech={() => onToggleSpeech("back", selectedCard.backText)}
+                showAiButton={true}
+                showSpeechButton={selectedBackSpeakableText !== ""}
+                speechButtonAriaLabel={t(activeSpeechSide === "back" ? "reviewScreen.speakAriaLabel.stop" : "reviewScreen.speakAriaLabel.start", {
+                  side: backSideLabel.toLowerCase(),
+                })}
+                speechButtonDisabled={false}
+                localReadVersion={localReadVersion}
+                surfaceClassName="review-card-surface review-card-answer"
+                surfaceTestId="review-current-back-card"
+                workspaceId={workspaceId}
+              />
+            </div>
+          ) : null}
+        </div>
       </div>
 
       <div className="review-actions-dock">

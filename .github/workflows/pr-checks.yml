@@ -279,6 +279,22 @@ jobs:
       - name: Test web app
         run: npm test --prefix apps/web
 
+      - name: Install Chromium for review UI smoke
+        working-directory: apps/web
+        run: npx playwright install --with-deps chromium
+
+      - name: Test review UI in both themes
+        run: npm run test:e2e:review-ui --prefix apps/web
+
+      - name: Upload review UI screenshots and failure traces
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: review-ui-results
+          path: apps/web/test-results/review-ui
+          if-no-files-found: ignore
+          retention-days: 7
+
   repository_static_validation:
     name: Repository static validation
     runs-on: ubuntu-24.04

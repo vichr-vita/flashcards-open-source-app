@@ -1,0 +1,4 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["main.tsx", "review-ui.spec.ts", "appData.ts", "../../src/env.d.ts"]
+}

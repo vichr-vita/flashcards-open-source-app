@@ -6,6 +6,7 @@ import {
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { Pencil, Volume2 } from "lucide-react";
 import {
   ManagedMediaReference,
   parseManagedMediaUrlReference,
@@ -329,22 +330,7 @@ function ReviewCardMarkdown(props: Readonly<{
 
 export function ReviewEditIcon(): ReactElement {
   return (
-    <svg className="review-pane-edit-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M4 20H8.5L19 9.5L14.5 5L4 15.5V20Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M13 6.5L17.5 11"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <Pencil className="review-pane-edit-icon" strokeWidth={1.8} aria-hidden="true" />
   );
 }
 
@@ -373,11 +359,7 @@ export function ReviewCardSpeechButton(props: ReviewCardSpeechButtonProps): Reac
       aria-label={ariaLabel}
       disabled={disabled}
     >
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M5 14H2V10H5L10 6V18L5 14Z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M14 9C15.333 10.2 15.333 13.8 14 15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M17.5 6.5C20.5 9.4 20.5 14.6 17.5 17.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <Volume2 strokeWidth={1.7} aria-hidden="true" />
     </button>
   );
 }
@@ -405,6 +387,11 @@ export function ReviewCardSide(props: ReviewCardSideProps): ReactElement {
   const presentationMode = parseManagedImageMarkdownReferences(text).length > 0
     ? "markdown"
     : classifyReviewContentPresentation(text);
+  // Give short questions display typography without changing the shared markdown classifier.
+  const isCompactPrompt = contentClassName === "review-front"
+    && presentationMode !== "markdown"
+    && text.trim().length <= 160
+    && !/[\r\n]/.test(text.trim());
 
   return (
     <div
@@ -423,6 +410,7 @@ export function ReviewCardSide(props: ReviewCardSideProps): ReactElement {
               `review-card-content-${presentationMode}`,
             ].join(" ")}
             data-presentation-mode={presentationMode}
+            data-compact-prompt={isCompactPrompt}
           >
             {presentationMode === "markdown" ? (
               <ReviewCardMarkdown localReadVersion={localReadVersion} text={text} workspaceId={workspaceId} />

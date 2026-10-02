@@ -3,6 +3,10 @@
     grid-template-columns: 1fr;
   }
 
+  .review-screen-head {
+    align-items: flex-start;
+  }
+
   .review-queue-panel {
     display: none;
   }
@@ -17,6 +21,19 @@
 }
 
 @media (max-width: 768px) {
+  .review-screen-panel {
+    --panel-padding: 14px;
+    padding-inline: var(--panel-padding);
+  }
+
+  .app-shell:has(.review-screen-panel) .header-sticky {
+    --header-inline-padding: var(--shell-frame-gap);
+  }
+
+  .app-shell:has(.review-screen-panel) .topbar-brand {
+    font-size: 30px;
+  }
+
   .review-layout {
     grid-template-columns: 1fr;
   }
@@ -68,7 +85,11 @@
 
   .review-pane,
   .review-queue-panel {
-    --review-pane-padding: 10px;
+    --review-pane-padding: 12px;
+  }
+
+  .review-pane {
+    gap: 12px;
   }
 
   .review-pane-head-actions {
@@ -81,11 +102,29 @@
   }
 
   .review-card-surface {
-    min-height: 150px;
-    padding: 12px;
+    min-height: clamp(220px, 38dvh, 360px);
+    padding: 24px;
+  }
+
+  .review-pane-head-meta {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .review-metadata-chip + .review-metadata-chip {
+    padding-inline-start: 8px;
+  }
+
+  .review-layout {
+    padding-top: 0;
   }
 
   .rating-bar {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-reveal-btn {
+    min-height: 60px;
+    font-size: 16px;
   }
 }

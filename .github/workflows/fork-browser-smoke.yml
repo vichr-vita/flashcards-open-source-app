@@ -55,6 +55,15 @@ jobs:
         env:
           LOCAL_AUTH_BROWSER_SMOKE: "true"
         run: npm --prefix apps/auth run test:local-integration
+      - name: Test review UI in both themes
+        run: npm --prefix apps/web run test:e2e:review-ui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review-ui-results
+          path: apps/web/test-results/review-ui
+          if-no-files-found: ignore
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

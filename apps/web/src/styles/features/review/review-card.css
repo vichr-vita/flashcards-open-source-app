@@ -1,9 +1,9 @@
 .review-pane,
 .review-queue-panel {
-  --review-pane-padding: 12px;
+  --review-pane-padding: 24px;
   --review-pane-radius: var(--panel-inner-radius, var(--radius-lg));
   --review-pane-inner-radius: calc(var(--review-pane-radius) / 2);
-  --review-card-radius: var(--panel-inner-radius, var(--radius-lg));
+  --review-card-radius: 20px;
   --review-managed-media-image-radius: calc(var(--review-card-radius) / 2);
   display: grid;
   gap: 10px;
@@ -17,6 +17,9 @@
 }
 
 .review-pane {
+  --review-card-background: #18181c;
+  --review-card-border: rgba(255, 255, 255, 0.28);
+  --review-card-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 8px 28px rgba(var(--accent-rgb), 0.13);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,6 +28,13 @@
   scrollbar-gutter: auto;
   scroll-padding-bottom: 132px;
   background: transparent;
+  gap: 20px;
+}
+
+:root[data-theme="light"] .review-pane {
+  --review-card-background: var(--surface);
+  --review-card-border: rgba(0, 0, 0, 0.1);
+  --review-card-shadow: 0 20px 48px rgba(0, 0, 0, 0.11), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .review-queue-panel {
@@ -36,7 +46,7 @@
 .review-pane-head {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
 }
 
@@ -45,9 +55,9 @@
   flex: 1 1 0;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   min-width: 0;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .review-metadata-chip {
@@ -56,9 +66,18 @@
   min-height: 30px;
   min-width: 0;
   max-width: 100%;
-  padding: 5px 9px;
+  padding: 0;
   border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: inherit;
+  font-weight: 500;
   overflow-wrap: anywhere;
+}
+
+.review-metadata-chip + .review-metadata-chip {
+  border-inline-start: 1px solid var(--divider);
+  padding-inline-start: 12px;
 }
 
 .review-metadata-chip .review-progress-badge-icon {
@@ -87,17 +106,20 @@
 }
 
 .review-pane-edit-btn {
-  width: 30px;
-  min-width: 30px;
-  height: 30px;
-  min-height: 30px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
   padding: 0;
   flex-shrink: 0;
+  border-color: transparent;
+  border-radius: var(--radius-xs);
+  background: transparent;
 }
 
 .review-pane-edit-icon {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
@@ -154,21 +176,51 @@
   min-width: 0;
 }
 
-.review-card-surface {
-  min-height: 112px;
-  width: 100%;
-  min-width: 0;
-  padding: 12px;
-  border: 0;
-  border-radius: var(--review-card-radius);
-  background: var(--surface);
-  display: grid;
-  grid-template-rows: auto minmax(64px, 1fr);
-  gap: 6px;
+/* Only the transform animates, once per reveal. Shadows and card content stay static. */
+.review-card-flip-scene {
+  perspective: 1800px;
 }
 
-.review-card-answer {
-  background: var(--surface);
+.review-card-flipper {
+  gap: 0;
+  transform-style: preserve-3d;
+  transition: transform 460ms cubic-bezier(0.22, 0.68, 0, 1);
+}
+
+.review-card-flipper-revealed {
+  transform: rotateY(180deg);
+}
+
+.review-card-face {
+  display: grid;
+  grid-area: 1 / 1;
+  min-width: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.review-card-face-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-card-flipper {
+    transition: none;
+  }
+}
+
+.review-card-surface {
+  min-height: clamp(260px, 44dvh, 460px);
+  width: 100%;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 64px);
+  border: 1px solid var(--review-card-border);
+  border-radius: var(--review-card-radius);
+  background: var(--review-card-background);
+  box-shadow: var(--review-card-shadow);
+  display: grid;
+  grid-template-rows: auto minmax(64px, 1fr);
+  gap: 24px;
 }
 
 .review-loading-card-surface {
@@ -176,8 +228,7 @@
 }
 
 .review-card-surface-front {
-  min-height: auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto minmax(64px, 1fr);
 }
 
 .review-card-surface-front .review-card-body {
@@ -185,10 +236,10 @@
 }
 
 .review-label {
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }
 
 .review-card-body {
@@ -196,10 +247,13 @@
   display: grid;
   gap: 10px;
   min-width: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .review-card-content-wrap {
   min-width: 0;
+  display: grid;
+  align-content: center;
 }
 
 .review-loading-card-lines {
@@ -244,12 +298,12 @@
 }
 
 .review-card-speech-btn {
-  width: 32px;
-  height: 32px;
-  min-height: 32px;
-  border: 1px solid rgba(var(--neutral-rgb), 0.08);
-  border-radius: 999px;
-  background: rgba(var(--neutral-rgb), 0.05);
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  background: transparent;
   color: var(--text-secondary);
   display: inline-flex;
   align-items: center;
@@ -284,8 +338,8 @@
 }
 
 .review-card-speech-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
 }
 
 .review-card-ai-btn {
@@ -331,15 +385,15 @@
 
 .review-card-content-shortPlain {
   margin: auto;
-  text-align: center;
-  font-size: clamp(1.65rem, 2vw, 2.3rem);
+  text-align: start;
+  font-size: clamp(1.65rem, 3.5vw, 3.1rem);
   line-height: 1.14;
   letter-spacing: -0.04em;
   font-weight: 680;
 }
 
 .review-back.review-card-content-shortPlain {
-  font-size: clamp(1.4rem, 1.7vw, 1.9rem);
+  font-size: clamp(1.4rem, 2.6vw, 2.3rem);
 }
 
 .review-card-content-paragraphPlain,
@@ -355,4 +409,13 @@
 
 .review-card-content-markdown {
   white-space: normal;
+}
+
+.review-front[data-compact-prompt="true"] {
+  max-width: 20ch;
+  align-self: center;
+  font-size: clamp(1.65rem, 3.5vw, 3.3rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 600;
 }

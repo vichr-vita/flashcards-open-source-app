@@ -62,7 +62,6 @@ export function ReviewScreenHeader(props: ReviewScreenHeaderProps): ReactElement
     <div className="screen-head review-screen-head">
       <div>
         <h1 className="title">{t("reviewScreen.title")}</h1>
-        <p className="subtitle">{t("reviewScreen.subtitle")}</p>
         {reviewLoadErrorMessage !== "" ? <p className="error-banner">{reviewLoadErrorMessage}</p> : null}
         {reviewSpeechMessage !== "" ? <p className="review-transient-message" role="status">{reviewSpeechMessage}</p> : null}
         {reviewLoadErrorMessage !== "" && hasLoadedReviewData === false ? (
