@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Un răspuns este deja în curs. Așteaptă să se termine sau oprește-l înainte de a trimite alt mesaj.";
 "ai.dictation.error.microphoneUnavailable" = "Microfonul nu este disponibil pe acest dispozitiv.";
 "ai.dictation.error.microphoneDenied" = "Accesul la microfon nu a fost acordat.";
-"ai.dictation.error.microphoneBlocked" = "Accesul la microfon este dezactivat pentru Nibomo. Activează-l în Configurări > Intimitate și securitate > Microfon.";
+"ai.dictation.error.microphoneBlocked" = "Accesul la microfon este dezactivat pentru lingvichr. Activează-l în Configurări > Intimitate și securitate > Microfon.";
 "ai.dictation.error.invalidRecording" = "Înregistrarea audio nu a putut fi pregătită.";
 "ai.dictation.error.recordingStartFailed" = "Înregistrarea cu microfonul nu a putut fi pornită.";
 "ai.dictation.error.emptyRecording" = "Nu a fost înregistrată nicio vorbire.";
@@ -138,7 +138,7 @@
 "settings.title" = "Configurări";
 "settings.inviteFriend.button" = "Adaugă un prieten";
 "settings.section.share" = "Partajează";
-"settings.row.shareApp" = "Partajează Nibomo";
+"settings.row.shareApp" = "Partajează lingvichr";
 "settings.section.feedback" = "Feedback";
 "settings.row.reviewInAppStore" = "Scrie o recenzie în App Store";
 "settings.row.sharePrivateFeedback" = "Trimite feedback privat";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Planul tău va apărea aici după ce aplicația se sincronizează cu contul tău.";
 "settings.subscription.manage" = "Gestionează abonamentul";
 "settings.language.title" = "Limbă";
-"settings.language.systemDescription" = "iOS controlează limba aplicației. În Configurări iOS, deschide Nibomo și folosește Limbă preferată. Dacă opțiunea nu apare, adaugă mai întâi o altă limbă în Configurări > General > Limbă și regiune.";
-"settings.language.action.openAppSettings" = "Deschide configurările Nibomo";
+"settings.language.systemDescription" = "iOS controlează limba aplicației. În Configurări iOS, deschide lingvichr și folosește Limbă preferată. Dacă opțiunea nu apare, adaugă mai întâi o altă limbă în Configurări > General > Limbă și regiune.";
+"settings.language.action.openAppSettings" = "Deschide configurările lingvichr";
 "settings.language.section.supportedLanguages" = "Limbi acceptate";
 "settings.language.supported.english" = "Engleză";
 "settings.language.supported.arabic" = "Arabă";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rusă";
 "settings.language.supported.spanishMexico" = "Spaniolă (Mexic)";
 "settings.language.supported.spanishSpain" = "Spaniolă (Spania)";
-"feedback.settings.description" = "Împărtășește o idee, semnalează o problemă sau spune-ne ce ar face Nibomo mai bun.";
+"feedback.settings.description" = "Împărtășește o idee, semnalează o problemă sau spune-ne ce ar face lingvichr mai bun.";
 "settings.sync.success" = "Sincronizare reușită";
 "settings.sync.guestAiActive" = "AI pentru vizitatori este activ";
 "settings.sync.notSyncing" = "Nu se sincronizează";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Permisiuni";
 "settings.access.notifications" = "Notificări";
 "settings.access.thisDevice" = "Acest dispozitiv";
-"settings.access.footer" = "Nibomo solicită doar accesul necesar pentru atașamente și dictare în chat.";
+"settings.access.footer" = "lingvichr solicită doar accesul necesar pentru atașamente și dictare în chat.";
 "settings.access.detail.status" = "Stare";
 "settings.access.kind.photos" = "Poze";
 "settings.access.kind.camera" = "Cameră";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Indisponibil";
 "settings.access.action.request" = "Solicită acces";
 "settings.access.action.openSettings" = "Deschide Configurări";
-"settings.access.guidance.photos.limited" = "Sunt disponibile doar pozele deja partajate cu Nibomo. Deschide Configurări pentru a permite accesul la mai multe poze.";
-"settings.access.guidance.photos.blocked" = "Accesul la poze este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Poze pentru a-l modifica.";
-"settings.access.guidance.camera.blocked" = "Accesul la cameră este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Cameră pentru a-l modifica.";
-"settings.access.guidance.microphone.blocked" = "Accesul la microfon este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Microfon pentru a-l modifica.";
+"settings.access.guidance.photos.limited" = "Sunt disponibile doar pozele deja partajate cu lingvichr. Deschide Configurări pentru a permite accesul la mai multe poze.";
+"settings.access.guidance.photos.blocked" = "Accesul la poze este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Poze pentru a-l modifica.";
+"settings.access.guidance.camera.blocked" = "Accesul la cameră este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Cameră pentru a-l modifica.";
+"settings.access.guidance.microphone.blocked" = "Accesul la microfon este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Microfon pentru a-l modifica.";
 "settings.access.guidance.askEveryTime" = "Solicită acces acum sau deschide Configurări mai târziu pentru a-l gestiona manual.";
 "settings.access.guidance.allowed" = "Deschide Configurări dacă vrei să dezactivezi acest acces.";
 "settings.access.guidance.limited" = "Deschide Configurări pentru a verifica sau extinde acest acces.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Insigna pictogramei aplicației";
 "settings.notifications.section.strictReminders" = "Mementouri pentru serie";
 "settings.notifications.enableStrictReminders" = "Activează mementourile pentru serie";
-"settings.notifications.strictReminders.description" = "Dacă nu ai recapitulat astăzi în spațiul de lucru actual, Nibomo îți amintește cu 4, 3 și 2 ore înainte de miezul nopții, ca să îți păstrezi seria.";
+"settings.notifications.strictReminders.description" = "Dacă nu ai recapitulat astăzi în spațiul de lucru actual, lingvichr îți amintește cu 4, 3 și 2 ore înainte de miezul nopții, ca să îți păstrezi seria.";
 "settings.notifications.section.dailyReminder" = "O dată pe zi";
 "settings.notifications.permission.allowed" = "Permis";
 "settings.notifications.permission.notRequested" = "Nesolicitat";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Import";
 "settings.workspace.import.cloudRequired" = "Importul ZIP cu fișiere media necesită un cont în cloud în această versiune.";
-"settings.workspace.import.invalidFile" = "Alege un pachet ZIP Nibomo.";
+"settings.workspace.import.invalidFile" = "Alege un pachet ZIP lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Alege un pachet ZIP de maximum %d MB.";
 "settings.workspace.import.missingImportTag" = "Introdu o etichetă de import înainte de importare.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Acest număr este pentru întregul spațiu de lucru și nu numără de două ori fișele care au etichete comune.";
 "settings.row.sendFeedback" = "Trimite feedback";
 "settings.row.sendFeedback.value" = "Împărtășește o idee";
-"feedback.sheet.title" = "Ai o idee pentru Nibomo?";
+"feedback.sheet.title" = "Ai o idee pentru lingvichr?";
 "feedback.sheet.body" = "Spune-ne ce ar face aplicația mai bună. Creatorul citește personal fiecare mesaj.";
 "feedback.sheet.placeholder" = "Scrie ideea ta aici";
 "feedback.sheet.send" = "Trimite";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Verificarea stării %@ a returnat starea %d pentru %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Verificarea stării %@ pentru %@ a fost redirecționată către alt server: %@. Configurează-l să răspundă pe același server, apoi încearcă din nou.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Starea API la %@ nu declară un serviciu și un contract cloud valide. Actualizează și implementează din nou serverul personalizat, apoi încearcă din nou.";
-"settings.account.server.validation.unexpectedApiService" = "Starea API la %@ identifică %@ în loc de un backend Nibomo compatibil. Actualizează și implementează din nou serverul personalizat, apoi încearcă din nou.";
+"settings.account.server.validation.unexpectedApiService" = "Starea API la %@ identifică %@ în loc de un backend lingvichr compatibil. Actualizează și implementează din nou serverul personalizat, apoi încearcă din nou.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Starea API la %@ declară versiunea de contract cloud %d, care nu este acceptată. Această aplicație necesită versiunea 1. Actualizează și implementează din nou serverul personalizat, apoi încearcă din nou.";
 "settings.sync.customGuestWorkspacePaused.message" = "Acest server personalizat nu poate accesa acest spațiu de lucru de vizitator. Serverul poate fi incompatibil sau configurat incorect. Sincronizarea este suspendată, iar fișele locale și modificările în așteptare sunt în siguranță pe acest dispozitiv.";
 "settings.account.status.customGuestPause.title" = "Spațiul de lucru de vizitator din cloud nu este disponibil";

@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "La resposta ja està en curs. Espereu que acabi o atureu-lo abans d'enviar un altre missatge.";
 "ai.dictation.error.microphoneUnavailable" = "El micròfon no està disponible en aquest dispositiu.";
 "ai.dictation.error.microphoneDenied" = "No s'ha concedit l'accés al micròfon.";
-"ai.dictation.error.microphoneBlocked" = "L'accés al micròfon està desactivat per a Nibomo. Activeu-lo a Configuració > Privadesa i seguretat > Micròfon.";
+"ai.dictation.error.microphoneBlocked" = "L'accés al micròfon està desactivat per a lingvichr. Activeu-lo a Configuració > Privadesa i seguretat > Micròfon.";
 "ai.dictation.error.invalidRecording" = "No s'ha pogut preparar l'àudio gravat.";
 "ai.dictation.error.recordingStartFailed" = "No s'ha pogut iniciar la gravació del micròfon.";
 "ai.dictation.error.emptyRecording" = "No s’ha gravat cap veu.";
@@ -138,7 +138,7 @@
 "settings.title" = "Configuració";
 "settings.inviteFriend.button" = "Afegeix amic";
 "settings.section.share" = "Comparteix";
-"settings.row.shareApp" = "Comparteix Nibomo";
+"settings.row.shareApp" = "Comparteix lingvichr";
 "settings.section.feedback" = "Comentaris";
 "settings.row.reviewInAppStore" = "Escriu una ressenya a l’App Store";
 "settings.row.sharePrivateFeedback" = "Comparteix comentaris privats";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "El teu pla apareixerà aquí quan l'aplicació se sincronitzi amb el teu compte.";
 "settings.subscription.manage" = "Gestiona la subscripció";
 "settings.language.title" = "Idioma";
-"settings.language.systemDescription" = "iOS controla l'idioma de l'aplicació. A iOS Configuració, obriu Nibomo i feu servir l'idioma preferit. Si no es mostra l'idioma preferit, primer afegiu un altre idioma a Configuració > General > Idioma i regió.";
-"settings.language.action.openAppSettings" = "Obre la configuració de Nibomo";
+"settings.language.systemDescription" = "iOS controla l'idioma de l'aplicació. A iOS Configuració, obriu lingvichr i feu servir l'idioma preferit. Si no es mostra l'idioma preferit, primer afegiu un altre idioma a Configuració > General > Idioma i regió.";
+"settings.language.action.openAppSettings" = "Obre la configuració de lingvichr";
 "settings.language.section.supportedLanguages" = "Idiomes admesos";
 "settings.language.supported.english" = "Anglès";
 "settings.language.supported.arabic" = "Àrab";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rus";
 "settings.language.supported.spanishMexico" = "Espanyol de Mèxic";
 "settings.language.supported.spanishSpain" = "Espanyol d’Espanya";
-"feedback.settings.description" = "Comparteix una idea, explica’ns algun problema o digues què milloraria Nibomo.";
+"feedback.settings.description" = "Comparteix una idea, explica’ns algun problema o digues què milloraria lingvichr.";
 "settings.sync.success" = "S'ha sincronitzat correctament";
 "settings.sync.guestAiActive" = "La IA per a convidats està activa";
 "settings.sync.notSyncing" = "No es sincronitza";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Permisos";
 "settings.access.notifications" = "Notificacions";
 "settings.access.thisDevice" = "Aquest dispositiu";
-"settings.access.footer" = "Nibomo sol·licita només l'accés necessari per als fitxers adjunts i el dictat de xat.";
+"settings.access.footer" = "lingvichr sol·licita només l'accés necessari per als fitxers adjunts i el dictat de xat.";
 "settings.access.detail.status" = "Estat";
 "settings.access.kind.photos" = "Fotos";
 "settings.access.kind.camera" = "Càmera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "No disponible";
 "settings.access.action.request" = "Sol·licitar accés";
 "settings.access.action.openSettings" = "Obriu Configuració";
-"settings.access.guidance.photos.limited" = "Només estan disponibles les fotos que ja has compartit amb Nibomo. Obriu Configuració per concedir un accés més ampli a les fotos.";
-"settings.access.guidance.photos.blocked" = "L'accés a les fotos està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Fotos per canviar-ho.";
-"settings.access.guidance.camera.blocked" = "L'accés a la càmera està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Càmera per canviar-ho.";
-"settings.access.guidance.microphone.blocked" = "L'accés al micròfon està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Micròfon per canviar-lo.";
+"settings.access.guidance.photos.limited" = "Només estan disponibles les fotos que ja has compartit amb lingvichr. Obriu Configuració per concedir un accés més ampli a les fotos.";
+"settings.access.guidance.photos.blocked" = "L'accés a les fotos està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Fotos per canviar-ho.";
+"settings.access.guidance.camera.blocked" = "L'accés a la càmera està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Càmera per canviar-ho.";
+"settings.access.guidance.microphone.blocked" = "L'accés al micròfon està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Micròfon per canviar-lo.";
 "settings.access.guidance.askEveryTime" = "Sol·liciteu accés ara o obriu Configuració més tard si voleu gestionar-lo manualment.";
 "settings.access.guidance.allowed" = "Obriu Configuració si voleu desactivar aquest accés.";
 "settings.access.guidance.limited" = "Obriu Configuració per revisar o ampliar aquest accés.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Insígnia d'icona de l'aplicació";
 "settings.notifications.section.strictReminders" = "Recordatoris de ratxa";
 "settings.notifications.enableStrictReminders" = "Activa els recordatoris de ratxa";
-"settings.notifications.strictReminders.description" = "Si avui encara no has repassat a l’espai de treball actual, Nibomo t’ho recorda 4, 3 i 2 hores abans de mitjanit perquè puguis mantenir la ratxa.";
+"settings.notifications.strictReminders.description" = "Si avui encara no has repassat a l’espai de treball actual, lingvichr t’ho recorda 4, 3 i 2 hores abans de mitjanit perquè puguis mantenir la ratxa.";
 "settings.notifications.section.dailyReminder" = "Un cop al dia";
 "settings.notifications.permission.allowed" = "Permès";
 "settings.notifications.permission.notRequested" = "No sol·licitat";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importar";
 "settings.workspace.import.cloudRequired" = "La importació de mitjans ZIP requereix un compte al núvol en aquesta versió.";
-"settings.workspace.import.invalidFile" = "Trieu un paquet Nibomo ZIP.";
+"settings.workspace.import.invalidFile" = "Trieu un paquet lingvichr ZIP.";
 "settings.workspace.import.fileTooLarge" = "Trieu un paquet de ZIP fins a %d MB.";
 "settings.workspace.import.missingImportTag" = "Introduïu una etiqueta d'importació abans d'importar.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Aquest recompte és de tot l’espai de treball i no compta més d’una vegada les targetes que comparteixen etiquetes.";
 "settings.row.sendFeedback" = "Envia comentaris";
 "settings.row.sendFeedback.value" = "Comparteix una idea";
-"feedback.sheet.title" = "Tens una idea per a Nibomo?";
+"feedback.sheet.title" = "Tens una idea per a lingvichr?";
 "feedback.sheet.body" = "Comparteix què milloraria l’app. El creador llegeix cada missatge personalment.";
 "feedback.sheet.placeholder" = "Escriu la teva idea aquí";
 "feedback.sheet.send" = "Enviar";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "La comprovació de l’estat de %@ ha retornat el codi %d a %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "La comprovació de l’estat de %@ a %@ s’ha redirigit a un altre servidor: %@. Configura’l perquè respongui al mateix servidor i torna-ho a provar.";
 "settings.account.server.validation.invalidApiHealthResponse" = "La resposta d’estat de l’API a %@ no indica un servei i un protocol de núvol vàlids. Actualitza i torna a desplegar el servidor personalitzat i torna-ho a provar.";
-"settings.account.server.validation.unexpectedApiService" = "La resposta d’estat de l’API a %@ identifica %@ en lloc d’un servidor Nibomo compatible. Actualitza i torna a desplegar el servidor personalitzat i torna-ho a provar.";
+"settings.account.server.validation.unexpectedApiService" = "La resposta d’estat de l’API a %@ identifica %@ en lloc d’un servidor lingvichr compatible. Actualitza i torna a desplegar el servidor personalitzat i torna-ho a provar.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "La resposta d’estat de l’API a %@ indica la versió %d del protocol de núvol, que no és compatible. Aquesta app requereix la versió 1. Actualitza i torna a desplegar el servidor personalitzat i torna-ho a provar.";
 "settings.sync.customGuestWorkspacePaused.message" = "Aquest servidor personalitzat no pot accedir a aquest espai de treball convidat. El servidor pot ser incompatible o mal configurat. La sincronització està en pausa i les teves targetes locals i els canvis pendents estan segurs en aquest dispositiu.";
 "settings.account.status.customGuestPause.title" = "L'espai de treball del núvol de convidats no està disponible";

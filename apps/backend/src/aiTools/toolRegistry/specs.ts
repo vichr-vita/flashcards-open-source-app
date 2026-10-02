@@ -135,7 +135,7 @@ export const SQL_QUERY_TOOL_INPUT_SCHEMA = z.strictObject({
     .trim()
     .min(1)
     .describe(
-      "One or more read statements in the published Nibomo SQL dialect (SHOW TABLES, DESCRIBE, SHOW COLUMNS, SELECT).",
+      "One or more read statements in the published lingvichr SQL dialect (SHOW TABLES, DESCRIBE, SHOW COLUMNS, SELECT).",
     ),
   workspaceId: optionalWorkspaceIdArgument,
 });
@@ -161,7 +161,7 @@ export const SQL_EXECUTE_TOOL_INPUT_SCHEMA = z.strictObject({
     .trim()
     .min(1)
     .describe(
-      "One or more write statements in the published Nibomo SQL dialect (INSERT, UPDATE, DELETE).",
+      "One or more write statements in the published lingvichr SQL dialect (INSERT, UPDATE, DELETE).",
     ),
   workspaceId: optionalWorkspaceIdArgument,
 });

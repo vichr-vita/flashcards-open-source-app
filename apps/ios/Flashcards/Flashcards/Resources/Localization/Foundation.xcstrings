@@ -922,301 +922,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الكاميرا لتطبيق Nibomo. افتح الإعدادات > الخصوصية والأمان > الكاميرا لتغييره."
+            "value" : "تم إيقاف الوصول إلى الكاميرا لتطبيق lingvichr. افتح الإعدادات > الخصوصية والأمان > الكاميرا لتغييره."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے کیمرے کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > کیمرا کھولیں۔"
+            "value" : "lingvichr کے لیے کیمرے کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > کیمرا کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập camera của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Camera để thay đổi."
+            "value" : "Quyền truy cập camera của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Camera để thay đổi."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yekhamera ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Ikhamera ukuze uyishintshe."
+            "value" : "Imvume yekhamera ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Ikhamera ukuze uyishintshe."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์ใช้กล้อง เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > กล้อง เพื่อเปลี่ยนสิทธิ์"
+            "value" : "lingvichr ไม่มีสิทธิ์ใช้กล้อง เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > กล้อง เพื่อเปลี่ยนสิทธิ์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için kamera erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Kamera’yı açın."
+            "value" : "lingvichr için kamera erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Kamera’yı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до камери вимкнено. Відкрийте Параметри > Приватність і безпека > Камера, щоб змінити це."
+            "value" : "Доступ lingvichr до камери вимкнено. Відкрийте Параметри > Приватність і безпека > Камера, щоб змінити це."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa kamera umezimwa kwa Nibomo. Fungua Mipangilio > Faragha na Usalama > Kamera ili kuubadilisha."
+            "value" : "Ufikiaji wa kamera umezimwa kwa lingvichr. Fungua Mipangilio > Faragha na Usalama > Kamera ili kuubadilisha."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > கேமராவைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > கேமராவைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం కెమెరా అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > కెమెరాను తెరవండి."
+            "value" : "lingvichr కోసం కెమెరా అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > కెమెరాను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k fotoaparátu je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Kamera."
+            "value" : "Prístup k fotoaparátu je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Kamera."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do kamere je za Nibomo izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Kamera."
+            "value" : "Dostop do kamere je za lingvichr izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Kamera."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameraåtkomst är avstängd för Nibomo. Ändra det under Inställningar > Integritet och säkerhet > Kamera."
+            "value" : "Kameraåtkomst är avstängd för lingvichr. Ändra det under Inställningar > Integritet och säkerhet > Kamera."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਕੈਮਰਾ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਕੈਮਰਾ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do aparatu jest wyłączony dla Nibomo. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Aparat."
+            "value" : "Dostęp do aparatu jest wyłączony dla lingvichr. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Aparat."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la cameră este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Cameră pentru a-l modifica."
+            "value" : "Accesul la cameră este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Cameră pentru a-l modifica."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी कॅमेऱ्याचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > कॅमेरा उघडा."
+            "value" : "lingvichr साठी कॅमेऱ्याचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > कॅमेरा उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameratilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Kamera for å endre dette."
+            "value" : "Kameratilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Kamera for å endre dette."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cameratoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Camera om dit te wijzigen."
+            "value" : "Cameratoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Camera om dit te wijzigen."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie kameros išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Kamera."
+            "value" : "lingvichr prieiga prie kameros išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Kamera."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve kamerai ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Kamera."
+            "value" : "lingvichr piekļuve kamerai ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Kamera."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് ക്യാമറ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > ക്യാമറ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് ക്യാമറ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > ക്യാമറ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso alla fotocamera è disattivato per Nibomo. Apri Impostazioni > Privacy e sicurezza > Fotocamera per modificarlo."
+            "value" : "L’accesso alla fotocamera è disattivato per lingvichr. Apri Impostazioni > Privacy e sicurezza > Fotocamera per modificarlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 카메라 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 카메라에서 변경하세요."
+            "value" : "lingvichr의 카메라 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 카메라에서 변경하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo kamerahozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Kamera alatt."
+            "value" : "A lingvichr kamerahozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Kamera alatt."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses kamera untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Kamera untuk mengubahnya."
+            "value" : "Akses kamera untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Kamera untuk mengubahnya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á myndavélaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Myndavél til að breyta því."
+            "value" : "Slökkt er á myndavélaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Myndavél til að breyta því."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે કૅમેરાની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > કૅમેરા ખોલો."
+            "value" : "lingvichr માટે કૅમેરાની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > કૅમેરા ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה למצלמה כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מצלמה."
+            "value" : "הגישה למצלמה כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מצלמה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup kameri isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Kamera."
+            "value" : "Pristup kameri isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Kamera."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo kaamerale juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Kaamera."
+            "value" : "lingvichr kaamerale juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Kaamera."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به دوربین غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > دوربین را باز کنید."
+            "value" : "دسترسی lingvichr به دوربین غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > دوربین را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon kameran käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kamera."
+            "value" : "lingvichrn kameran käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kamera."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до камерата е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Камера, за да го промените."
+            "value" : "Достъпът до камерата е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Камера, за да го промените."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo এর জন্য ক্যামেরা অ্যাক্সেস বন্ধ করা আছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা এবং নিরাপত্তা > ক্যামেরা খুলুন।"
+            "value" : "lingvichr এর জন্য ক্যামেরা অ্যাক্সেস বন্ধ করা আছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা এবং নিরাপত্তা > ক্যামেরা খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés a la càmera està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Càmera per canviar-ho."
+            "value" : "L'accés a la càmera està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Càmera per canviar-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k fotoaparátu je pro Nibomo vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Fotoaparát."
+            "value" : "Přístup k fotoaparátu je pro lingvichr vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Fotoaparát."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameraadgang er slået fra for Nibomo. Åbn Indstillinger > Anonymitet & sikkerhed > Kamera for at ændre det."
+            "value" : "Kameraadgang er slået fra for lingvichr. Åbn Indstillinger > Anonymitet & sikkerhed > Kamera for at ændre det."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Κάμερα."
+            "value" : "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Κάμερα."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Kamerazugriff für Nibomo ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Kamera, um das zu ändern."
+            "value" : "Der Kamerazugriff für lingvichr ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Kamera, um das zu ändern."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Camera access is turned off for Nibomo. Open Settings > Privacy & Security > Camera to change it."
+            "value" : "Camera access is turned off for lingvichr. Open Settings > Privacy & Security > Camera to change it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a la cámara está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Cámara para cambiarlo."
+            "value" : "El acceso a la cámara está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Cámara para cambiarlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a la cámara está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Cámara para cambiarlo."
+            "value" : "El acceso a la cámara está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Cámara para cambiarlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès à l’appareil photo est désactivé pour Nibomo. Ouvrez Réglages > Confidentialité et sécurité > Appareil photo pour le modifier."
+            "value" : "L’accès à l’appareil photo est désactivé pour lingvichr. Ouvrez Réglages > Confidentialité et sécurité > Appareil photo pour le modifier."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए कैमरा एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > कैमरा खोलें।"
+            "value" : "lingvichr के लिए कैमरा एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > कैमरा खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo のカメラへのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「カメラ」を開いてください。"
+            "value" : "lingvichr のカメラへのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「カメラ」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso à câmera está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Câmera para alterar."
+            "value" : "O acesso à câmera está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Câmera para alterar."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к камере для Nibomo отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Камера»."
+            "value" : "Доступ к камере для lingvichr отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Камера»."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的相机访问权限已关闭。打开“设置”>“隐私与安全性”>“相机”进行更改。"
+            "value" : "lingvichr 的相机访问权限已关闭。打开“设置”>“隐私与安全性”>“相机”进行更改。"
           }
         }
       }
@@ -1532,301 +1532,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الميكروفون لتطبيق Nibomo. افتح الإعدادات > الخصوصية والأمان > الميكروفون لتغييره."
+            "value" : "تم إيقاف الوصول إلى الميكروفون لتطبيق lingvichr. افتح الإعدادات > الخصوصية والأمان > الميكروفون لتغييره."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے مائیکروفون کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > مائیکروفون کھولیں۔"
+            "value" : "lingvichr کے لیے مائیکروفون کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > مائیکروفون کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập micrô của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Micrô để thay đổi."
+            "value" : "Quyền truy cập micrô của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Micrô để thay đổi."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yemakrofoni ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni ukuze uyishintshe."
+            "value" : "Imvume yemakrofoni ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni ukuze uyishintshe."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์ใช้ไมโครโฟน เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > ไมโครโฟน เพื่อเปลี่ยนสิทธิ์"
+            "value" : "lingvichr ไม่มีสิทธิ์ใช้ไมโครโฟน เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > ไมโครโฟน เพื่อเปลี่ยนสิทธิ์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için mikrofon erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Mikrofon’u açın."
+            "value" : "lingvichr için mikrofon erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Mikrofon’u açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до мікрофона вимкнено. Відкрийте Параметри > Приватність і безпека > Мікрофон, щоб змінити це."
+            "value" : "Доступ lingvichr до мікрофона вимкнено. Відкрийте Параметри > Приватність і безпека > Мікрофон, щоб змінити це."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa maikrofoni umezimwa kwa Nibomo. Fungua Mipangilio > Faragha na Usalama > Maikrofoni ili kuubadilisha."
+            "value" : "Ufikiaji wa maikrofoni umezimwa kwa lingvichr. Fungua Mipangilio > Faragha na Usalama > Maikrofoni ili kuubadilisha."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం మైక్రోఫోన్ అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > మైక్రోఫోన్‌ను తెరవండి."
+            "value" : "lingvichr కోసం మైక్రోఫోన్ అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > మైక్రోఫోన్‌ను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k mikrofónu je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón."
+            "value" : "Prístup k mikrofónu je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do mikrofona je za Nibomo izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Mikrofon."
+            "value" : "Dostop do mikrofona je za lingvichr izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Mikrofon."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofonåtkomst är avstängd för Nibomo. Ändra det under Inställningar > Integritet och säkerhet > Mikrofon."
+            "value" : "Mikrofonåtkomst är avstängd för lingvichr. Ändra det under Inställningar > Integritet och säkerhet > Mikrofon."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do mikrofonu jest wyłączony dla Nibomo. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Mikrofon."
+            "value" : "Dostęp do mikrofonu jest wyłączony dla lingvichr. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Mikrofon."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la microfon este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Microfon pentru a-l modifica."
+            "value" : "Accesul la microfon este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Microfon pentru a-l modifica."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी मायक्रोफोनचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन उघडा."
+            "value" : "lingvichr साठी मायक्रोफोनचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofontilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Mikrofon for å endre dette."
+            "value" : "Mikrofontilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Mikrofon for å endre dette."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Microfoontoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Microfoon om dit te wijzigen."
+            "value" : "Microfoontoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Microfoon om dit te wijzigen."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie mikrofono išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Mikrofonas."
+            "value" : "lingvichr prieiga prie mikrofono išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Mikrofonas."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve mikrofonam ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Mikrofons."
+            "value" : "lingvichr piekļuve mikrofonam ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Mikrofons."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് മൈക്രോഫോൺ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > മൈക്രോഫോൺ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് മൈക്രോഫോൺ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > മൈക്രോഫോൺ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso al microfono è disattivato per Nibomo. Apri Impostazioni > Privacy e sicurezza > Microfono per modificarlo."
+            "value" : "L’accesso al microfono è disattivato per lingvichr. Apri Impostazioni > Privacy e sicurezza > Microfono per modificarlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್ ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್ ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 변경하세요."
+            "value" : "lingvichr의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 변경하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo mikrofonhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt."
+            "value" : "A lingvichr mikrofonhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses mikrofon untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Mikrofon untuk mengubahnya."
+            "value" : "Akses mikrofon untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Mikrofon untuk mengubahnya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á hljóðnemaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Hljóðnemi til að breyta því."
+            "value" : "Slökkt er á hljóðnemaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Hljóðnemi til að breyta því."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે માઇક્રોફોનની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > માઇક્રોફોન ખોલો."
+            "value" : "lingvichr માટે માઇક્રોફોનની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > માઇક્રોફોન ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה למיקרופון כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מיקרופון."
+            "value" : "הגישה למיקרופון כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מיקרופון."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup mikrofonu isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Mikrofon."
+            "value" : "Pristup mikrofonu isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Mikrofon."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo mikrofoni juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Mikrofon."
+            "value" : "lingvichr mikrofoni juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Mikrofon."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به میکروفون غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > میکروفون را باز کنید."
+            "value" : "دسترسی lingvichr به میکروفون غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > میکروفون را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon mikrofonin käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni."
+            "value" : "lingvichrn mikrofonin käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до микрофона е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Микрофон, за да го промените."
+            "value" : "Достъпът до микрофона е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Микрофон, за да го промените."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo এর জন্য মাইক্রোফোন অ্যাক্সেস বন্ধ করা হয়েছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা ও নিরাপত্তা > মাইক্রোফোন খুলুন।"
+            "value" : "lingvichr এর জন্য মাইক্রোফোন অ্যাক্সেস বন্ধ করা হয়েছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা ও নিরাপত্তা > মাইক্রোফোন খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés al micròfon està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Micròfon per canviar-lo."
+            "value" : "L'accés al micròfon està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Micròfon per canviar-lo."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k mikrofonu je pro Nibomo vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Mikrofon."
+            "value" : "Přístup k mikrofonu je pro lingvichr vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Mikrofon."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofonadgang er slået fra for Nibomo. Åbn Indstillinger > Anonymitet & sikkerhed > Mikrofon for at ændre det."
+            "value" : "Mikrofonadgang er slået fra for lingvichr. Åbn Indstillinger > Anonymitet & sikkerhed > Mikrofon for at ændre det."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο."
+            "value" : "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Mikrofonzugriff für Nibomo ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Mikrofon, um das zu ändern."
+            "value" : "Der Mikrofonzugriff für lingvichr ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Mikrofon, um das zu ändern."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Microphone access is turned off for Nibomo. Open Settings > Privacy & Security > Microphone to change it."
+            "value" : "Microphone access is turned off for lingvichr. Open Settings > Privacy & Security > Microphone to change it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al micrófono está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Micrófono para cambiarlo."
+            "value" : "El acceso al micrófono está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Micrófono para cambiarlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al micrófono está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Micrófono para cambiarlo."
+            "value" : "El acceso al micrófono está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Micrófono para cambiarlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès au microphone est désactivé pour Nibomo. Ouvrez Réglages > Confidentialité et sécurité > Microphone pour le modifier."
+            "value" : "L’accès au microphone est désactivé pour lingvichr. Ouvrez Réglages > Confidentialité et sécurité > Microphone pour le modifier."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए माइक्रोफ़ोन एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > माइक्रोफ़ोन खोलें।"
+            "value" : "lingvichr के लिए माइक्रोफ़ोन एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > माइक्रोफ़ोन खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo のマイクへのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「マイク」を開いてください。"
+            "value" : "lingvichr のマイクへのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「マイク」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso ao microfone está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Microfone para alterar."
+            "value" : "O acesso ao microfone está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Microfone para alterar."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к микрофону для Nibomo отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Микрофон»."
+            "value" : "Доступ к микрофону для lingvichr отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Микрофон»."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的麦克风访问权限已关闭。打开“设置”>“隐私与安全性”>“麦克风”进行更改。"
+            "value" : "lingvichr 的麦克风访问权限已关闭。打开“设置”>“隐私与安全性”>“麦克风”进行更改。"
           }
         }
       }
@@ -1837,301 +1837,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الصور لتطبيق Nibomo. افتح الإعدادات > الخصوصية والأمان > الصور لتغييره."
+            "value" : "تم إيقاف الوصول إلى الصور لتطبيق lingvichr. افتح الإعدادات > الخصوصية والأمان > الصور لتغييره."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے تصاویر کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > تصاویر کھولیں۔"
+            "value" : "lingvichr کے لیے تصاویر کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > تصاویر کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập ảnh của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Ảnh để thay đổi."
+            "value" : "Quyền truy cập ảnh của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Ảnh để thay đổi."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yezithombe ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Izithombe ukuze uyishintshe."
+            "value" : "Imvume yezithombe ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Izithombe ukuze uyishintshe."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์เข้าถึงรูปภาพ เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > รูปภาพ เพื่อเปลี่ยนสิทธิ์"
+            "value" : "lingvichr ไม่มีสิทธิ์เข้าถึงรูปภาพ เปิดการตั้งค่า > ความเป็นส่วนตัวและความปลอดภัย > รูปภาพ เพื่อเปลี่ยนสิทธิ์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için fotoğraf erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Fotoğraflar’ı açın."
+            "value" : "lingvichr için fotoğraf erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Fotoğraflar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до фото вимкнено. Відкрийте Параметри > Приватність і безпека > Фото, щоб змінити це."
+            "value" : "Доступ lingvichr до фото вимкнено. Відкрийте Параметри > Приватність і безпека > Фото, щоб змінити це."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa picha umezimwa kwa Nibomo. Fungua Mipangilio > Faragha na Usalama > Picha ili kuubadilisha."
+            "value" : "Ufikiaji wa picha umezimwa kwa lingvichr. Fungua Mipangilio > Faragha na Usalama > Picha ili kuubadilisha."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > புகைப்படங்களைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > புகைப்படங்களைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం ఫొటోల అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > ఫొటోలను తెరవండి."
+            "value" : "lingvichr కోసం ఫొటోల అనుమతి ఆఫ్‌లో ఉంది. మార్చడానికి సెట్టింగ్‌లు > గోప్యత మరియు భద్రత > ఫొటోలను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k fotkám je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Fotky."
+            "value" : "Prístup k fotkám je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Fotky."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do fotografij je za Nibomo izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Fotografije."
+            "value" : "Dostop do fotografij je za lingvichr izklopljen. Spremenite ga v Nastavitve > Zasebnost in varnost > Fotografije."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bildåtkomst är avstängd för Nibomo. Ändra det under Inställningar > Integritet och säkerhet > Bilder."
+            "value" : "Bildåtkomst är avstängd för lingvichr. Ändra det under Inställningar > Integritet och säkerhet > Bilder."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਫ਼ੋਟੋਆਂ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਫ਼ੋਟੋਆਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do zdjęć jest wyłączony dla Nibomo. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Zdjęcia."
+            "value" : "Dostęp do zdjęć jest wyłączony dla lingvichr. Aby to zmienić, otwórz Ustawienia > Prywatność i ochrona > Zdjęcia."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la poze este dezactivat pentru Nibomo. Deschide Configurări > Intimitate și securitate > Poze pentru a-l modifica."
+            "value" : "Accesul la poze este dezactivat pentru lingvichr. Deschide Configurări > Intimitate și securitate > Poze pentru a-l modifica."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी फोटोंचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > फोटो उघडा."
+            "value" : "lingvichr साठी फोटोंचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > फोटो उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bildetilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Bilder for å endre dette."
+            "value" : "Bildetilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Bilder for å endre dette."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fototoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Foto's om dit te wijzigen."
+            "value" : "Fototoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Foto's om dit te wijzigen."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie nuotraukų išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Nuotraukos."
+            "value" : "lingvichr prieiga prie nuotraukų išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Nuotraukos."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve fotoattēliem ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Fotoattēli."
+            "value" : "lingvichr piekļuve fotoattēliem ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Fotoattēli."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് ഫോട്ടോ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > ഫോട്ടോകൾ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് ഫോട്ടോ അനുമതി ഓഫാണ്. മാറ്റാൻ ക്രമീകരണങ്ങൾ > സ്വകാര്യതയും സുരക്ഷയും > ഫോട്ടോകൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso alle foto è disattivato per Nibomo. Apri Impostazioni > Privacy e sicurezza > Foto per modificarlo."
+            "value" : "L’accesso alle foto è disattivato per lingvichr. Apri Impostazioni > Privacy e sicurezza > Foto per modificarlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಫೋಟೋಗಳು ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಫೋಟೋಗಳು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 사진 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 사진에서 변경하세요."
+            "value" : "lingvichr의 사진 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 사진에서 변경하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo fotóhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Fotók alatt."
+            "value" : "A lingvichr fotóhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Fotók alatt."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses foto untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Foto untuk mengubahnya."
+            "value" : "Akses foto untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Foto untuk mengubahnya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á myndaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Myndir til að breyta því."
+            "value" : "Slökkt er á myndaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Myndir til að breyta því."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે ફોટાની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > ફોટા ખોલો."
+            "value" : "lingvichr માટે ફોટાની ઍક્સેસ બંધ છે. બદલવા માટે સેટિંગ્સ > ગોપનીયતા અને સુરક્ષા > ફોટા ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה לתמונות כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > תמונות."
+            "value" : "הגישה לתמונות כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > תמונות."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup fotografijama isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Fotografije."
+            "value" : "Pristup fotografijama isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Fotografije."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo fotodele juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Fotod."
+            "value" : "lingvichr fotodele juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Fotod."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به عکس‌ها غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > عکس‌ها را باز کنید."
+            "value" : "دسترسی lingvichr به عکس‌ها غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > عکس‌ها را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon kuvien käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kuvat."
+            "value" : "lingvichrn kuvien käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kuvat."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до снимки е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Снимки, за да го промените."
+            "value" : "Достъпът до снимки е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Снимки, за да го промените."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ফটো অ্যাক্সেস Nibomo এর জন্য বন্ধ করা হয়েছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা এবং নিরাপত্তা > ফটো খুলুন।"
+            "value" : "ফটো অ্যাক্সেস lingvichr এর জন্য বন্ধ করা হয়েছে। এটি পরিবর্তন করতে সেটিংস > গোপনীয়তা এবং নিরাপত্তা > ফটো খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés a les fotos està desactivat per a Nibomo. Obriu Configuració > Privadesa i seguretat > Fotos per canviar-ho."
+            "value" : "L'accés a les fotos està desactivat per a lingvichr. Obriu Configuració > Privadesa i seguretat > Fotos per canviar-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k fotkám je pro Nibomo vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Fotky."
+            "value" : "Přístup k fotkám je pro lingvichr vypnutý. Změníte jej v Nastavení > Soukromí a zabezpečení > Fotky."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fotoadgang er slået fra for Nibomo. Åbn Indstillinger > Anonymitet & sikkerhed > Fotos for at ændre det."
+            "value" : "Fotoadgang er slået fra for lingvichr. Åbn Indstillinger > Anonymitet & sikkerhed > Fotos for at ændre det."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Φωτογραφίες."
+            "value" : "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Φωτογραφίες."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Zugriff auf Fotos für Nibomo ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Fotos, um das zu ändern."
+            "value" : "Der Zugriff auf Fotos für lingvichr ist deaktiviert. Öffne Einstellungen > Datenschutz und Sicherheit > Fotos, um das zu ändern."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Photo access is turned off for Nibomo. Open Settings > Privacy & Security > Photos to change it."
+            "value" : "Photo access is turned off for lingvichr. Open Settings > Privacy & Security > Photos to change it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Fotos está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Fotos para cambiarlo."
+            "value" : "El acceso a Fotos está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Fotos para cambiarlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Fotos está desactivado para Nibomo. Abre Ajustes > Privacidad y seguridad > Fotos para cambiarlo."
+            "value" : "El acceso a Fotos está desactivado para lingvichr. Abre Ajustes > Privacidad y seguridad > Fotos para cambiarlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès aux photos est désactivé pour Nibomo. Ouvrez Réglages > Confidentialité et sécurité > Photos pour le modifier."
+            "value" : "L’accès aux photos est désactivé pour lingvichr. Ouvrez Réglages > Confidentialité et sécurité > Photos pour le modifier."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए फ़ोटो एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > फ़ोटो खोलें।"
+            "value" : "lingvichr के लिए फ़ोटो एक्सेस बंद है। इसे बदलने के लिए सेटिंग्स > गोपनीयता और सुरक्षा > फ़ोटो खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo の写真へのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「写真」を開いてください。"
+            "value" : "lingvichr の写真へのアクセスはオフです。変更するには「設定」>「プライバシーとセキュリティ」>「写真」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso às fotos está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Fotos para alterar."
+            "value" : "O acesso às fotos está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Fotos para alterar."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к фото для Nibomo отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Фото»."
+            "value" : "Доступ к фото для lingvichr отключен. Чтобы изменить это, откройте «Настройки» > «Конфиденциальность и безопасность» > «Фото»."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的照片访问权限已关闭。打开“设置”>“隐私与安全性”>“照片”进行更改。"
+            "value" : "lingvichr 的照片访问权限已关闭。打开“设置”>“隐私与安全性”>“照片”进行更改。"
           }
         }
       }
@@ -2142,301 +2142,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الصور الوحيدة المتاحة هي التي سبق أن شاركتها مع Nibomo. افتح الإعدادات لمنح وصول أوسع إلى الصور."
+            "value" : "الصور الوحيدة المتاحة هي التي سبق أن شاركتها مع lingvichr. افتح الإعدادات لمنح وصول أوسع إلى الصور."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "صرف وہ تصاویر دستیاب ہیں جو آپ پہلے ہی Nibomo کے ساتھ شیئر کر چکے ہیں۔ مزید تصاویر کی رسائی دینے کے لیے ترتیبات کھولیں۔"
+            "value" : "صرف وہ تصاویر دستیاب ہیں جو آپ پہلے ہی lingvichr کے ساتھ شیئر کر چکے ہیں۔ مزید تصاویر کی رسائی دینے کے لیے ترتیبات کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chỉ có các ảnh bạn đã chia sẻ với Nibomo. Mở Cài đặt để cấp quyền truy cập thêm ảnh."
+            "value" : "Chỉ có các ảnh bạn đã chia sẻ với lingvichr. Mở Cài đặt để cấp quyền truy cập thêm ảnh."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kutholakala kuphela izithombe osuvele wabelane ngazo ne-Nibomo. Vula Izilungiselelo ukuze uvumele ukufinyelela ezithombeni ezengeziwe."
+            "value" : "Kutholakala kuphela izithombe osuvele wabelane ngazo ne-lingvichr. Vula Izilungiselelo ukuze uvumele ukufinyelela ezithombeni ezengeziwe."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ใช้ได้เฉพาะรูปภาพที่คุณแชร์กับ Nibomo แล้ว เปิดการตั้งค่าเพื่ออนุญาตให้เข้าถึงรูปภาพเพิ่มเติม"
+            "value" : "ใช้ได้เฉพาะรูปภาพที่คุณแชร์กับ lingvichr แล้ว เปิดการตั้งค่าเพื่ออนุญาตให้เข้าถึงรูปภาพเพิ่มเติม"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yalnızca Nibomo ile daha önce paylaştığınız fotoğraflar kullanılabilir. Daha geniş fotoğraf erişimi vermek için Ayarlar’ı açın."
+            "value" : "Yalnızca lingvichr ile daha önce paylaştığınız fotoğraflar kullanılabilir. Daha geniş fotoğraf erişimi vermek için Ayarlar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступні лише фото, якими ви вже поділилися з Nibomo. Відкрийте Параметри, щоб надати доступ до інших фото."
+            "value" : "Доступні лише фото, якими ви вже поділилися з lingvichr. Відкрийте Параметри, щоб надати доступ до інших фото."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Picha ulizoshiriki tayari na Nibomo pekee ndizo zinapatikana. Fungua Mipangilio ili kuruhusu ufikiaji wa picha zaidi."
+            "value" : "Picha ulizoshiriki tayari na lingvichr pekee ndizo zinapatikana. Fungua Mipangilio ili kuruhusu ufikiaji wa picha zaidi."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-வுடன் ஏற்கனவே பகிர்ந்த புகைப்படங்கள் மட்டுமே கிடைக்கும். கூடுதல் புகைப்பட அணுகலை வழங்க அமைப்புகளைத் திறக்கவும்."
+            "value" : "lingvichr-வுடன் ஏற்கனவே பகிர்ந்த புகைப்படங்கள் மட்டுமே கிடைக்கும். கூடுதல் புகைப்பட அணுகலை வழங்க அமைப்புகளைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "మీరు ఇప్పటికే Nibomoతో పంచుకున్న ఫొటోలు మాత్రమే అందుబాటులో ఉన్నాయి. మరిన్ని ఫొటోలకు అనుమతి ఇవ్వడానికి సెట్టింగ్‌లను తెరవండి."
+            "value" : "మీరు ఇప్పటికే lingvichrతో పంచుకున్న ఫొటోలు మాత్రమే అందుబాటులో ఉన్నాయి. మరిన్ని ఫొటోలకు అనుమతి ఇవ్వడానికి సెట్టింగ్‌లను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostupné sú iba fotky, ktoré ste už zdieľali s Nibomo. Širší prístup k fotkám povoľte v Nastaveniach."
+            "value" : "Dostupné sú iba fotky, ktoré ste už zdieľali s lingvichr. Širší prístup k fotkám povoľte v Nastaveniach."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Na voljo so le fotografije, ki ste jih že delili z Nibomo. Širši dostop do fotografij dovolite v Nastavitvah."
+            "value" : "Na voljo so le fotografije, ki ste jih že delili z lingvichr. Širši dostop do fotografij dovolite v Nastavitvah."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Endast bilder som du redan har delat med Nibomo är tillgängliga. Tillåt åtkomst till fler bilder i Inställningar."
+            "value" : "Endast bilder som du redan har delat med lingvichr är tillgängliga. Tillåt åtkomst till fler bilder i Inställningar."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਸਿਰਫ਼ ਉਹ ਫ਼ੋਟੋਆਂ ਉਪਲਬਧ ਹਨ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ Nibomo ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਹਨ। ਹੋਰ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
+            "value" : "ਸਿਰਫ਼ ਉਹ ਫ਼ੋਟੋਆਂ ਉਪਲਬਧ ਹਨ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ lingvichr ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਹਨ। ਹੋਰ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostępne są tylko zdjęcia już udostępnione Nibomo. Otwórz Ustawienia, aby udzielić szerszego dostępu do zdjęć."
+            "value" : "Dostępne są tylko zdjęcia już udostępnione lingvichr. Otwórz Ustawienia, aby udzielić szerszego dostępu do zdjęć."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sunt disponibile doar pozele deja partajate cu Nibomo. Deschide Configurări pentru a permite accesul la mai multe poze."
+            "value" : "Sunt disponibile doar pozele deja partajate cu lingvichr. Deschide Configurări pentru a permite accesul la mai multe poze."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "तुम्ही Nibomo सोबत आधी शेअर केलेले फोटोच उपलब्ध आहेत. अधिक फोटोंचा प्रवेश देण्यासाठी सेटिंग्ज उघडा."
+            "value" : "तुम्ही lingvichr सोबत आधी शेअर केलेले फोटोच उपलब्ध आहेत. अधिक फोटोंचा प्रवेश देण्यासाठी सेटिंग्ज उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bare bildene du allerede har delt med Nibomo, er tilgjengelige. Åpne Innstillinger for å gi tilgang til flere bilder."
+            "value" : "Bare bildene du allerede har delt med lingvichr, er tilgjengelige. Åpne Innstillinger for å gi tilgang til flere bilder."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alleen de foto's die je al met Nibomo hebt gedeeld, zijn beschikbaar. Open Instellingen om toegang tot meer foto's te geven."
+            "value" : "Alleen de foto's die je al met lingvichr hebt gedeeld, zijn beschikbaar. Open Instellingen om toegang tot meer foto's te geven."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pasiekiamos tik nuotraukos, kuriomis jau pasidalijote su Nibomo. Norėdami suteikti platesnę prieigą, atidarykite nustatymus."
+            "value" : "Pasiekiamos tik nuotraukos, kuriomis jau pasidalijote su lingvichr. Norėdami suteikti platesnę prieigą, atidarykite nustatymus."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pieejami tikai fotoattēli, kurus jau kopīgojāt ar Nibomo. Lai piešķirtu plašāku piekļuvi, atveriet iestatījumus."
+            "value" : "Pieejami tikai fotoattēli, kurus jau kopīgojāt ar lingvichr. Lai piešķirtu plašāku piekļuvi, atveriet iestatījumus."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യുമായി ഇതിനകം പങ്കിട്ട ഫോട്ടോകൾ മാത്രമേ ലഭ്യമാകൂ. കൂടുതൽ ഫോട്ടോകൾക്ക് അനുമതി നൽകാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
+            "value" : "lingvichr-യുമായി ഇതിനകം പങ്കിട്ട ഫോട്ടോകൾ മാത്രമേ ലഭ്യമാകൂ. കൂടുതൽ ഫോട്ടോകൾക്ക് അനുമതി നൽകാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sono disponibili solo le foto che hai già condiviso con Nibomo. Apri Impostazioni per consentire l’accesso ad altre foto."
+            "value" : "Sono disponibili solo le foto che hai già condiviso con lingvichr. Apri Impostazioni per consentire l’accesso ad altre foto."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ನೀವು ಈಗಾಗಲೇ Nibomo ಜೊತೆ ಹಂಚಿಕೊಂಡ ಫೋಟೋಗಳು ಮಾತ್ರ ಲಭ್ಯವಿವೆ. ಹೆಚ್ಚಿನ ಫೋಟೋಗಳಿಗೆ ಪ್ರವೇಶ ನೀಡಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
+            "value" : "ನೀವು ಈಗಾಗಲೇ lingvichr ಜೊತೆ ಹಂಚಿಕೊಂಡ ಫೋಟೋಗಳು ಮಾತ್ರ ಲಭ್ಯವಿವೆ. ಹೆಚ್ಚಿನ ಫೋಟೋಗಳಿಗೆ ಪ್ರವೇಶ ನೀಡಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo와 이미 공유한 사진만 사용할 수 있습니다. 더 많은 사진에 접근하도록 허용하려면 설정을 여세요."
+            "value" : "lingvichr와 이미 공유한 사진만 사용할 수 있습니다. 더 많은 사진에 접근하도록 허용하려면 설정을 여세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Csak a Nibomóval már megosztott fotók érhetők el. További fotókhoz a Beállításokban adhatsz hozzáférést."
+            "value" : "Csak a lingvichr alkalmazással már megosztott fotók érhetők el. További fotókhoz a Beállításokban adhatsz hozzáférést."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hanya foto yang sudah Anda bagikan dengan Nibomo yang tersedia. Buka Pengaturan untuk memberi akses ke lebih banyak foto."
+            "value" : "Hanya foto yang sudah Anda bagikan dengan lingvichr yang tersedia. Buka Pengaturan untuk memberi akses ke lebih banyak foto."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aðeins myndir sem þú hefur þegar deilt með Nibomo eru tiltækar. Opnaðu Stillingar til að veita víðtækari aðgang að myndum."
+            "value" : "Aðeins myndir sem þú hefur þegar deilt með lingvichr eru tiltækar. Opnaðu Stillingar til að veita víðtækari aðgang að myndum."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "તમે Nibomo સાથે શેર કરેલા ફોટા જ ઉપલબ્ધ છે. વધુ ફોટાની ઍક્સેસ આપવા સેટિંગ્સ ખોલો."
+            "value" : "તમે lingvichr સાથે શેર કરેલા ફોટા જ ઉપલબ્ધ છે. વધુ ફોટાની ઍક્સેસ આપવા સેટિંગ્સ ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "רק התמונות שכבר שותפו עם Nibomo זמינות. יש לפתוח את ההגדרות כדי לאפשר גישה לתמונות נוספות."
+            "value" : "רק התמונות שכבר שותפו עם lingvichr זמינות. יש לפתוח את ההגדרות כדי לאפשר גישה לתמונות נוספות."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostupne su samo fotografije koje ste već podijelili s aplikacijom Nibomo. Otvorite Postavke da biste dopustili širi pristup fotografijama."
+            "value" : "Dostupne su samo fotografije koje ste već podijelili s aplikacijom lingvichr. Otvorite Postavke da biste dopustili širi pristup fotografijama."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saadaval on ainult fotod, mida oled juba Nibomoga jaganud. Laiema juurdepääsu andmiseks ava seaded."
+            "value" : "Saadaval on ainult fotod, mida oled juba lingvichrga jaganud. Laiema juurdepääsu andmiseks ava seaded."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "فقط عکس‌هایی که قبلاً با Nibomo به اشتراک گذاشته‌اید در دسترس‌اند. برای دسترسی بیشتر به عکس‌ها، تنظیمات را باز کنید."
+            "value" : "فقط عکس‌هایی که قبلاً با lingvichr به اشتراک گذاشته‌اید در دسترس‌اند. برای دسترسی بیشتر به عکس‌ها، تنظیمات را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vain Nibomon kanssa jo jakamasi kuvat ovat käytettävissä. Anna laajempi kuvien käyttöoikeus asetuksissa."
+            "value" : "Vain lingvichrn kanssa jo jakamasi kuvat ovat käytettävissä. Anna laajempi kuvien käyttöoikeus asetuksissa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Налични са само снимките, които вече споделихте с Nibomo. Отворете Настройки, за да предоставите по-широк достъп до снимки."
+            "value" : "Налични са само снимките, които вече споделихте с lingvichr. Отворете Настройки, за да предоставите по-широк достъп до снимки."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "শুধুমাত্র আপনি ইতিমধ্যেই Nibomo এর সাথে ভাগ করা ফটোগুলি উপলব্ধ। বৃহত্তর ফটো অ্যাক্সেস মঞ্জুর করতে সেটিংস খুলুন।"
+            "value" : "শুধুমাত্র আপনি ইতিমধ্যেই lingvichr এর সাথে ভাগ করা ফটোগুলি উপলব্ধ। বৃহত্তর ফটো অ্যাক্সেস মঞ্জুর করতে সেটিংস খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Només estan disponibles les fotos que ja has compartit amb Nibomo. Obriu Configuració per concedir un accés més ampli a les fotos."
+            "value" : "Només estan disponibles les fotos que ja has compartit amb lingvichr. Obriu Configuració per concedir un accés més ampli a les fotos."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostupné jsou pouze fotky, které jste již sdíleli s Nibomo. Širší přístup k fotkám povolíte v Nastavení."
+            "value" : "Dostupné jsou pouze fotky, které jste již sdíleli s lingvichr. Širší přístup k fotkám povolíte v Nastavení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kun de fotos, du allerede har delt med Nibomo, er tilgængelige. Åbn Indstillinger for at give adgang til flere fotos."
+            "value" : "Kun de fotos, du allerede har delt med lingvichr, er tilgængelige. Åbn Indstillinger for at give adgang til flere fotos."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Είναι διαθέσιμες μόνο οι φωτογραφίες που έχετε ήδη μοιραστεί με το Nibomo. Ανοίξτε τις Ρυθμίσεις για ευρύτερη πρόσβαση στις φωτογραφίες."
+            "value" : "Είναι διαθέσιμες μόνο οι φωτογραφίες που έχετε ήδη μοιραστεί με το lingvichr. Ανοίξτε τις Ρυθμίσεις για ευρύτερη πρόσβαση στις φωτογραφίες."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Es sind nur die Fotos verfügbar, die du bereits mit Nibomo geteilt hast. Öffne die Einstellungen, um umfassenderen Fotozugriff zu gewähren."
+            "value" : "Es sind nur die Fotos verfügbar, die du bereits mit lingvichr geteilt hast. Öffne die Einstellungen, um umfassenderen Fotozugriff zu gewähren."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Only the photos you already shared with Nibomo are available. Open Settings to grant broader photo access."
+            "value" : "Only the photos you already shared with lingvichr are available. Open Settings to grant broader photo access."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Solo están disponibles las fotos que ya compartiste con Nibomo. Abre Ajustes para conceder un acceso más amplio a Fotos."
+            "value" : "Solo están disponibles las fotos que ya compartiste con lingvichr. Abre Ajustes para conceder un acceso más amplio a Fotos."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Solo están disponibles las fotos que ya compartiste con Nibomo. Abre Ajustes para conceder un acceso más amplio a Fotos."
+            "value" : "Solo están disponibles las fotos que ya compartiste con lingvichr. Abre Ajustes para conceder un acceso más amplio a Fotos."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seules les photos que vous avez déjà partagées avec Nibomo sont disponibles. Ouvrez Réglages pour accorder un accès plus large aux photos."
+            "value" : "Seules les photos que vous avez déjà partagées avec lingvichr sont disponibles. Ouvrez Réglages pour accorder un accès plus large aux photos."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "केवल वही फ़ोटो उपलब्ध हैं जिन्हें आपने पहले से Nibomo के साथ साझा किया है। फ़ोटो का व्यापक एक्सेस देने के लिए सेटिंग्स खोलें।"
+            "value" : "केवल वही फ़ोटो उपलब्ध हैं जिन्हें आपने पहले से lingvichr के साथ साझा किया है। फ़ोटो का व्यापक एक्सेस देने के लिए सेटिंग्स खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo とすでに共有した写真のみ利用できます。より広い写真アクセスを許可するには、「設定」を開いてください。"
+            "value" : "lingvichr とすでに共有した写真のみ利用できます。より広い写真アクセスを許可するには、「設定」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Somente as fotos que você já compartilhou com o Nibomo estão disponíveis. Abra os Ajustes para conceder um acesso mais amplo às fotos."
+            "value" : "Somente as fotos que você já compartilhou com o lingvichr estão disponíveis. Abra os Ajustes para conceder um acesso mais amplo às fotos."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступны только те фотографии, которыми вы уже поделились с Nibomo. Откройте «Настройки», чтобы предоставить более широкий доступ к фото."
+            "value" : "Доступны только те фотографии, которыми вы уже поделились с lingvichr. Откройте «Настройки», чтобы предоставить более широкий доступ к фото."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "目前只可使用你已与 Nibomo 共享的照片。打开“设置”以授予更广泛的照片访问权限。"
+            "value" : "目前只可使用你已与 lingvichr 共享的照片。打开“设置”以授予更广泛的照片访问权限。"
           }
         }
       }
@@ -6107,301 +6107,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الميكروفون لتطبيق Nibomo. افتح الإعدادات للسماح به."
+            "value" : "تم إيقاف الوصول إلى الميكروفون لتطبيق lingvichr. افتح الإعدادات للسماح به."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے مائیکروفون کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
+            "value" : "lingvichr کے لیے مائیکروفون کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập micrô của Nibomo đang tắt. Mở Cài đặt để cho phép."
+            "value" : "Quyền truy cập micrô của lingvichr đang tắt. Mở Cài đặt để cho phép."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yemakrofoni ye-Nibomo ivaliwe. Vula Izilungiselelo ukuze uyivumele."
+            "value" : "Imvume yemakrofoni ye-lingvichr ivaliwe. Vula Izilungiselelo ukuze uyivumele."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์ใช้ไมโครโฟน เปิดการตั้งค่าเพื่ออนุญาต"
+            "value" : "lingvichr ไม่มีสิทธิ์ใช้ไมโครโฟน เปิดการตั้งค่าเพื่ออนุญาต"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için mikrofon erişimi kapalı. İzin vermek için Ayarlar’ı açın."
+            "value" : "lingvichr için mikrofon erişimi kapalı. İzin vermek için Ayarlar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до мікрофона вимкнено. Відкрийте Параметри, щоб дозволити його."
+            "value" : "Доступ lingvichr до мікрофона вимкнено. Відкрийте Параметри, щоб дозволити його."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa maikrofoni umezimwa kwa Nibomo. Fungua Mipangilio ili kuuruhusu."
+            "value" : "Ufikiaji wa maikrofoni umezimwa kwa lingvichr. Fungua Mipangilio ili kuuruhusu."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం మైక్రోఫోన్ అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
+            "value" : "lingvichr కోసం మైక్రోఫోన్ అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k mikrofónu je pre Nibomo vypnutý. Povoľte ho v Nastaveniach."
+            "value" : "Prístup k mikrofónu je pre lingvichr vypnutý. Povoľte ho v Nastaveniach."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do mikrofona je za Nibomo izklopljen. Dovolite ga v Nastavitvah."
+            "value" : "Dostop do mikrofona je za lingvichr izklopljen. Dovolite ga v Nastavitvah."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofonåtkomst är avstängd för Nibomo. Tillåt den i Inställningar."
+            "value" : "Mikrofonåtkomst är avstängd för lingvichr. Tillåt den i Inställningar."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do mikrofonu jest wyłączony dla Nibomo. Otwórz Ustawienia, aby go włączyć."
+            "value" : "Dostęp do mikrofonu jest wyłączony dla lingvichr. Otwórz Ustawienia, aby go włączyć."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la microfon este dezactivat pentru Nibomo. Deschide Configurări pentru a-l permite."
+            "value" : "Accesul la microfon este dezactivat pentru lingvichr. Deschide Configurări pentru a-l permite."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी मायक्रोफोनचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
+            "value" : "lingvichr साठी मायक्रोफोनचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofontilgang er slått av for Nibomo. Åpne Innstillinger for å tillate den."
+            "value" : "Mikrofontilgang er slått av for lingvichr. Åpne Innstillinger for å tillate den."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Microfoontoegang is uitgeschakeld voor Nibomo. Open Instellingen om toegang toe te staan."
+            "value" : "Microfoontoegang is uitgeschakeld voor lingvichr. Open Instellingen om toegang toe te staan."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie mikrofono išjungta. Atidarykite nustatymus ir ją įjunkite."
+            "value" : "lingvichr prieiga prie mikrofono išjungta. Atidarykite nustatymus ir ją įjunkite."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve mikrofonam ir izslēgta. Lai to atļautu, atveriet iestatījumus."
+            "value" : "lingvichr piekļuve mikrofonam ir izslēgta. Lai to atļautu, atveriet iestatījumus."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് മൈക്രോഫോൺ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് മൈക്രോഫോൺ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso al microfono è disattivato per Nibomo. Apri Impostazioni per consentirlo."
+            "value" : "L’accesso al microfono è disattivato per lingvichr. Apri Impostazioni per consentirlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 마이크 접근이 꺼져 있습니다. 설정에서 허용하세요."
+            "value" : "lingvichr의 마이크 접근이 꺼져 있습니다. 설정에서 허용하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo mikrofonhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
+            "value" : "A lingvichr mikrofonhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses mikrofon untuk Nibomo dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
+            "value" : "Akses mikrofon untuk lingvichr dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á hljóðnemaaðgangi fyrir Nibomo. Opnaðu Stillingar til að leyfa hann."
+            "value" : "Slökkt er á hljóðnemaaðgangi fyrir lingvichr. Opnaðu Stillingar til að leyfa hann."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે માઇક્રોફોનની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
+            "value" : "lingvichr માટે માઇક્રોફોનની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה למיקרופון כבויה עבור Nibomo. יש לפתוח את ההגדרות כדי לאפשר אותה."
+            "value" : "הגישה למיקרופון כבויה עבור lingvichr. יש לפתוח את ההגדרות כדי לאפשר אותה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup mikrofonu isključen je za Nibomo. Otvorite Postavke da biste ga dopustili."
+            "value" : "Pristup mikrofonu isključen je za lingvichr. Otvorite Postavke da biste ga dopustili."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo mikrofoni juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
+            "value" : "lingvichr mikrofoni juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به میکروفون غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
+            "value" : "دسترسی lingvichr به میکروفون غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon mikrofonin käyttöoikeus on poistettu. Salli se asetuksissa."
+            "value" : "lingvichrn mikrofonin käyttöoikeus on poistettu. Salli se asetuksissa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до микрофона е изключен за Nibomo. Отворете Настройки, за да го разрешите."
+            "value" : "Достъпът до микрофона е изключен за lingvichr. Отворете Настройки, за да го разрешите."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo এর জন্য মাইক্রোফোন অ্যাক্সেস বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
+            "value" : "lingvichr এর জন্য মাইক্রোফোন অ্যাক্সেস বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés al micròfon està desactivat per a Nibomo. Obriu Configuració per permetre-ho."
+            "value" : "L'accés al micròfon està desactivat per a lingvichr. Obriu Configuració per permetre-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k mikrofonu je pro Nibomo vypnutý. Povolte jej v Nastavení."
+            "value" : "Přístup k mikrofonu je pro lingvichr vypnutý. Povolte jej v Nastavení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mikrofonadgang er slået fra for Nibomo. Åbn Indstillinger for at tillade den."
+            "value" : "Mikrofonadgang er slået fra for lingvichr. Åbn Indstillinger for at tillade den."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το Nibomo. Επιτρέψτε την στις Ρυθμίσεις."
+            "value" : "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το lingvichr. Επιτρέψτε την στις Ρυθμίσεις."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Mikrofonzugriff für Nibomo ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
+            "value" : "Der Mikrofonzugriff für lingvichr ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Microphone access is turned off for Nibomo. Open Settings to allow it."
+            "value" : "Microphone access is turned off for lingvichr. Open Settings to allow it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al micrófono está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso al micrófono está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al micrófono está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso al micrófono está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès au microphone est désactivé pour Nibomo. Ouvrez Réglages pour l’autoriser."
+            "value" : "L’accès au microphone est désactivé pour lingvichr. Ouvrez Réglages pour l’autoriser."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए माइक्रोफ़ोन एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
+            "value" : "lingvichr के लिए माइक्रोफ़ोन एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo のマイクへのアクセスはオフです。許可するには「設定」を開いてください。"
+            "value" : "lingvichr のマイクへのアクセスはオフです。許可するには「設定」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso ao microfone está desativado para o Nibomo. Abra os Ajustes para permitir."
+            "value" : "O acesso ao microfone está desativado para o lingvichr. Abra os Ajustes para permitir."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к микрофону для Nibomo отключен. Откройте «Настройки», чтобы разрешить его."
+            "value" : "Доступ к микрофону для lingvichr отключен. Откройте «Настройки», чтобы разрешить его."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的麦克风访问权限已关闭。打开“设置”以允许访问。"
+            "value" : "lingvichr 的麦克风访问权限已关闭。打开“设置”以允许访问。"
           }
         }
       }
@@ -6717,301 +6717,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الكاميرا لتطبيق Nibomo. افتح الإعدادات للسماح به."
+            "value" : "تم إيقاف الوصول إلى الكاميرا لتطبيق lingvichr. افتح الإعدادات للسماح به."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے کیمرے کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
+            "value" : "lingvichr کے لیے کیمرے کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập camera của Nibomo đang tắt. Mở Cài đặt để cho phép."
+            "value" : "Quyền truy cập camera của lingvichr đang tắt. Mở Cài đặt để cho phép."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yekhamera ye-Nibomo ivaliwe. Vula Izilungiselelo ukuze uyivumele."
+            "value" : "Imvume yekhamera ye-lingvichr ivaliwe. Vula Izilungiselelo ukuze uyivumele."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์ใช้กล้อง เปิดการตั้งค่าเพื่ออนุญาต"
+            "value" : "lingvichr ไม่มีสิทธิ์ใช้กล้อง เปิดการตั้งค่าเพื่ออนุญาต"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için kamera erişimi kapalı. İzin vermek için Ayarlar’ı açın."
+            "value" : "lingvichr için kamera erişimi kapalı. İzin vermek için Ayarlar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до камери вимкнено. Відкрийте Параметри, щоб дозволити його."
+            "value" : "Доступ lingvichr до камери вимкнено. Відкрийте Параметри, щоб дозволити його."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa kamera umezimwa kwa Nibomo. Fungua Mipangilio ili kuuruhusu."
+            "value" : "Ufikiaji wa kamera umezimwa kwa lingvichr. Fungua Mipangilio ili kuuruhusu."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం కెమెరా అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
+            "value" : "lingvichr కోసం కెమెరా అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k fotoaparátu je pre Nibomo vypnutý. Povoľte ho v Nastaveniach."
+            "value" : "Prístup k fotoaparátu je pre lingvichr vypnutý. Povoľte ho v Nastaveniach."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do kamere je za Nibomo izklopljen. Dovolite ga v Nastavitvah."
+            "value" : "Dostop do kamere je za lingvichr izklopljen. Dovolite ga v Nastavitvah."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameraåtkomst är avstängd för Nibomo. Tillåt den i Inställningar."
+            "value" : "Kameraåtkomst är avstängd för lingvichr. Tillåt den i Inställningar."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do aparatu jest wyłączony dla Nibomo. Otwórz Ustawienia, aby go włączyć."
+            "value" : "Dostęp do aparatu jest wyłączony dla lingvichr. Otwórz Ustawienia, aby go włączyć."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la cameră este dezactivat pentru Nibomo. Deschide Configurări pentru a-l permite."
+            "value" : "Accesul la cameră este dezactivat pentru lingvichr. Deschide Configurări pentru a-l permite."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी कॅमेऱ्याचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
+            "value" : "lingvichr साठी कॅमेऱ्याचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameratilgang er slått av for Nibomo. Åpne Innstillinger for å tillate den."
+            "value" : "Kameratilgang er slått av for lingvichr. Åpne Innstillinger for å tillate den."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cameratoegang is uitgeschakeld voor Nibomo. Open Instellingen om toegang toe te staan."
+            "value" : "Cameratoegang is uitgeschakeld voor lingvichr. Open Instellingen om toegang toe te staan."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie kameros išjungta. Atidarykite nustatymus ir ją įjunkite."
+            "value" : "lingvichr prieiga prie kameros išjungta. Atidarykite nustatymus ir ją įjunkite."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve kamerai ir izslēgta. Lai to atļautu, atveriet iestatījumus."
+            "value" : "lingvichr piekļuve kamerai ir izslēgta. Lai to atļautu, atveriet iestatījumus."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് ക്യാമറ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് ക്യാമറ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso alla fotocamera è disattivato per Nibomo. Apri Impostazioni per consentirlo."
+            "value" : "L’accesso alla fotocamera è disattivato per lingvichr. Apri Impostazioni per consentirlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 카메라 접근이 꺼져 있습니다. 설정에서 허용하세요."
+            "value" : "lingvichr의 카메라 접근이 꺼져 있습니다. 설정에서 허용하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo kamerahozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
+            "value" : "A lingvichr kamerahozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses kamera untuk Nibomo dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
+            "value" : "Akses kamera untuk lingvichr dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á myndavélaaðgangi fyrir Nibomo. Opnaðu Stillingar til að leyfa hann."
+            "value" : "Slökkt er á myndavélaaðgangi fyrir lingvichr. Opnaðu Stillingar til að leyfa hann."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે કૅમેરાની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
+            "value" : "lingvichr માટે કૅમેરાની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה למצלמה כבויה עבור Nibomo. יש לפתוח את ההגדרות כדי לאפשר אותה."
+            "value" : "הגישה למצלמה כבויה עבור lingvichr. יש לפתוח את ההגדרות כדי לאפשר אותה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup kameri isključen je za Nibomo. Otvorite Postavke da biste ga dopustili."
+            "value" : "Pristup kameri isključen je za lingvichr. Otvorite Postavke da biste ga dopustili."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo kaamerale juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
+            "value" : "lingvichr kaamerale juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به دوربین غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
+            "value" : "دسترسی lingvichr به دوربین غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon kameran käyttöoikeus on poistettu. Salli se asetuksissa."
+            "value" : "lingvichrn kameran käyttöoikeus on poistettu. Salli se asetuksissa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до камерата е изключен за Nibomo. Отворете Настройки, за да го разрешите."
+            "value" : "Достъпът до камерата е изключен за lingvichr. Отворете Настройки, за да го разрешите."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo এর জন্য ক্যামেরা অ্যাক্সেস বন্ধ করা আছে। অনুমতি দিতে সেটিংস খুলুন।"
+            "value" : "lingvichr এর জন্য ক্যামেরা অ্যাক্সেস বন্ধ করা আছে। অনুমতি দিতে সেটিংস খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés a la càmera està desactivat per a Nibomo. Obriu Configuració per permetre-ho."
+            "value" : "L'accés a la càmera està desactivat per a lingvichr. Obriu Configuració per permetre-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k fotoaparátu je pro Nibomo vypnutý. Povolte jej v Nastavení."
+            "value" : "Přístup k fotoaparátu je pro lingvichr vypnutý. Povolte jej v Nastavení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameraadgang er slået fra for Nibomo. Åbn Indstillinger for at tillade den."
+            "value" : "Kameraadgang er slået fra for lingvichr. Åbn Indstillinger for at tillade den."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το Nibomo. Επιτρέψτε την στις Ρυθμίσεις."
+            "value" : "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το lingvichr. Επιτρέψτε την στις Ρυθμίσεις."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Kamerazugriff für Nibomo ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
+            "value" : "Der Kamerazugriff für lingvichr ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Camera access is turned off for Nibomo. Open Settings to allow it."
+            "value" : "Camera access is turned off for lingvichr. Open Settings to allow it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a la cámara está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a la cámara está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a la cámara está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a la cámara está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès à l’appareil photo est désactivé pour Nibomo. Ouvrez Réglages pour l’autoriser."
+            "value" : "L’accès à l’appareil photo est désactivé pour lingvichr. Ouvrez Réglages pour l’autoriser."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए कैमरा एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
+            "value" : "lingvichr के लिए कैमरा एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo のカメラへのアクセスはオフです。許可するには「設定」を開いてください。"
+            "value" : "lingvichr のカメラへのアクセスはオフです。許可するには「設定」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso à câmera está desativado para o Nibomo. Abra os Ajustes para permitir."
+            "value" : "O acesso à câmera está desativado para o lingvichr. Abra os Ajustes para permitir."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к камере для Nibomo отключен. Откройте «Настройки», чтобы разрешить его."
+            "value" : "Доступ к камере для lingvichr отключен. Откройте «Настройки», чтобы разрешить его."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的相机访问权限已关闭。打开“设置”以允许访问。"
+            "value" : "lingvichr 的相机访问权限已关闭。打开“设置”以允许访问。"
           }
         }
       }
@@ -7327,301 +7327,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الملفات لتطبيق Nibomo. افتح الإعدادات للسماح به."
+            "value" : "تم إيقاف الوصول إلى الملفات لتطبيق lingvichr. افتح الإعدادات للسماح به."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے فائلوں کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
+            "value" : "lingvichr کے لیے فائلوں کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập tệp của Nibomo đang tắt. Mở Cài đặt để cho phép."
+            "value" : "Quyền truy cập tệp của lingvichr đang tắt. Mở Cài đặt để cho phép."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yamafayela ye-Nibomo ivaliwe. Vula Izilungiselelo ukuze uyivumele."
+            "value" : "Imvume yamafayela ye-lingvichr ivaliwe. Vula Izilungiselelo ukuze uyivumele."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์เข้าถึงไฟล์ เปิดการตั้งค่าเพื่ออนุญาต"
+            "value" : "lingvichr ไม่มีสิทธิ์เข้าถึงไฟล์ เปิดการตั้งค่าเพื่ออนุญาต"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için dosya erişimi kapalı. İzin vermek için Ayarlar’ı açın."
+            "value" : "lingvichr için dosya erişimi kapalı. İzin vermek için Ayarlar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до файлів вимкнено. Відкрийте Параметри, щоб дозволити його."
+            "value" : "Доступ lingvichr до файлів вимкнено. Відкрийте Параметри, щоб дозволити його."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa faili umezimwa kwa Nibomo. Fungua Mipangilio ili kuuruhusu."
+            "value" : "Ufikiaji wa faili umezimwa kwa lingvichr. Fungua Mipangilio ili kuuruhusu."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு கோப்பு அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு கோப்பு அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం ఫైల్ అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
+            "value" : "lingvichr కోసం ఫైల్ అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k súborom je pre Nibomo vypnutý. Povoľte ho v Nastaveniach."
+            "value" : "Prístup k súborom je pre lingvichr vypnutý. Povoľte ho v Nastaveniach."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do datotek je za Nibomo izklopljen. Dovolite ga v Nastavitvah."
+            "value" : "Dostop do datotek je za lingvichr izklopljen. Dovolite ga v Nastavitvah."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filåtkomst är avstängd för Nibomo. Tillåt den i Inställningar."
+            "value" : "Filåtkomst är avstängd för lingvichr. Tillåt den i Inställningar."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਫ਼ਾਈਲਾਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਫ਼ਾਈਲਾਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do plików jest wyłączony dla Nibomo. Otwórz Ustawienia, aby go włączyć."
+            "value" : "Dostęp do plików jest wyłączony dla lingvichr. Otwórz Ustawienia, aby go włączyć."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la fișiere este dezactivat pentru Nibomo. Deschide Configurări pentru a-l permite."
+            "value" : "Accesul la fișiere este dezactivat pentru lingvichr. Deschide Configurări pentru a-l permite."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी फाइलचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
+            "value" : "lingvichr साठी फाइलचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filtilgang er slått av for Nibomo. Åpne Innstillinger for å tillate den."
+            "value" : "Filtilgang er slått av for lingvichr. Åpne Innstillinger for å tillate den."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bestandstoegang is uitgeschakeld voor Nibomo. Open Instellingen om toegang toe te staan."
+            "value" : "Bestandstoegang is uitgeschakeld voor lingvichr. Open Instellingen om toegang toe te staan."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie failų išjungta. Atidarykite nustatymus ir ją įjunkite."
+            "value" : "lingvichr prieiga prie failų išjungta. Atidarykite nustatymus ir ją įjunkite."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve failiem ir izslēgta. Lai to atļautu, atveriet iestatījumus."
+            "value" : "lingvichr piekļuve failiem ir izslēgta. Lai to atļautu, atveriet iestatījumus."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് ഫയൽ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് ഫയൽ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso ai file è disattivato per Nibomo. Apri Impostazioni per consentirlo."
+            "value" : "L’accesso ai file è disattivato per lingvichr. Apri Impostazioni per consentirlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಫೈಲ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಫೈಲ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 파일 접근이 꺼져 있습니다. 설정에서 허용하세요."
+            "value" : "lingvichr의 파일 접근이 꺼져 있습니다. 설정에서 허용하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo fájlhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
+            "value" : "A lingvichr fájlhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses file untuk Nibomo dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
+            "value" : "Akses file untuk lingvichr dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á skráaaðgangi fyrir Nibomo. Opnaðu Stillingar til að leyfa hann."
+            "value" : "Slökkt er á skráaaðgangi fyrir lingvichr. Opnaðu Stillingar til að leyfa hann."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે ફાઇલોની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
+            "value" : "lingvichr માટે ફાઇલોની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה לקבצים כבויה עבור Nibomo. יש לפתוח את ההגדרות כדי לאפשר אותה."
+            "value" : "הגישה לקבצים כבויה עבור lingvichr. יש לפתוח את ההגדרות כדי לאפשר אותה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup datotekama isključen je za Nibomo. Otvorite Postavke da biste ga dopustili."
+            "value" : "Pristup datotekama isključen je za lingvichr. Otvorite Postavke da biste ga dopustili."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo failidele juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
+            "value" : "lingvichr failidele juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به فایل‌ها غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
+            "value" : "دسترسی lingvichr به فایل‌ها غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon tiedostojen käyttöoikeus on poistettu. Salli se asetuksissa."
+            "value" : "lingvichrn tiedostojen käyttöoikeus on poistettu. Salli se asetuksissa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до файлове е изключен за Nibomo. Отворете Настройки, за да го разрешите."
+            "value" : "Достъпът до файлове е изключен за lingvichr. Отворете Настройки, за да го разрешите."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ফাইল অ্যাক্সেস Nibomo এর জন্য বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
+            "value" : "ফাইল অ্যাক্সেস lingvichr এর জন্য বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés al fitxer està desactivat per a Nibomo. Obriu Configuració per permetre-ho."
+            "value" : "L'accés al fitxer està desactivat per a lingvichr. Obriu Configuració per permetre-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k souborům je pro Nibomo vypnutý. Povolte jej v Nastavení."
+            "value" : "Přístup k souborům je pro lingvichr vypnutý. Povolte jej v Nastavení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filadgang er slået fra for Nibomo. Åbn Indstillinger for at tillade den."
+            "value" : "Filadgang er slået fra for lingvichr. Åbn Indstillinger for at tillade den."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στα αρχεία είναι απενεργοποιημένη για το Nibomo. Επιτρέψτε την στις Ρυθμίσεις."
+            "value" : "Η πρόσβαση στα αρχεία είναι απενεργοποιημένη για το lingvichr. Επιτρέψτε την στις Ρυθμίσεις."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Dateizugriff für Nibomo ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
+            "value" : "Der Dateizugriff für lingvichr ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File access is turned off for Nibomo. Open Settings to allow it."
+            "value" : "File access is turned off for lingvichr. Open Settings to allow it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Archivos está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a Archivos está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Archivos está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a Archivos está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès aux fichiers est désactivé pour Nibomo. Ouvrez Réglages pour l’autoriser."
+            "value" : "L’accès aux fichiers est désactivé pour lingvichr. Ouvrez Réglages pour l’autoriser."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए फ़ाइल एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
+            "value" : "lingvichr के लिए फ़ाइल एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo のファイルへのアクセスはオフです。許可するには「設定」を開いてください。"
+            "value" : "lingvichr のファイルへのアクセスはオフです。許可するには「設定」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso a Arquivos está desativado para o Nibomo. Abra os Ajustes para permitir."
+            "value" : "O acesso a Arquivos está desativado para o lingvichr. Abra os Ajustes para permitir."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к файлам для Nibomo отключен. Откройте «Настройки», чтобы разрешить его."
+            "value" : "Доступ к файлам для lingvichr отключен. Откройте «Настройки», чтобы разрешить его."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的文件访问权限已关闭。打开“设置”以允许访问。"
+            "value" : "lingvichr 的文件访问权限已关闭。打开“设置”以允许访问。"
           }
         }
       }
@@ -7937,301 +7937,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الوصول إلى الصور لتطبيق Nibomo. افتح الإعدادات للسماح به."
+            "value" : "تم إيقاف الوصول إلى الصور لتطبيق lingvichr. افتح الإعدادات للسماح به."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کے لیے تصاویر کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
+            "value" : "lingvichr کے لیے تصاویر کی رسائی بند ہے۔ اجازت دینے کے لیے ترتیبات کھولیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quyền truy cập ảnh của Nibomo đang tắt. Mở Cài đặt để cho phép."
+            "value" : "Quyền truy cập ảnh của lingvichr đang tắt. Mở Cài đặt để cho phép."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imvume yezithombe ye-Nibomo ivaliwe. Vula Izilungiselelo ukuze uyivumele."
+            "value" : "Imvume yezithombe ye-lingvichr ivaliwe. Vula Izilungiselelo ukuze uyivumele."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ไม่มีสิทธิ์เข้าถึงรูปภาพ เปิดการตั้งค่าเพื่ออนุญาต"
+            "value" : "lingvichr ไม่มีสิทธิ์เข้าถึงรูปภาพ เปิดการตั้งค่าเพื่ออนุญาต"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo için fotoğraf erişimi kapalı. İzin vermek için Ayarlar’ı açın."
+            "value" : "lingvichr için fotoğraf erişimi kapalı. İzin vermek için Ayarlar’ı açın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ Nibomo до фото вимкнено. Відкрийте Параметри, щоб дозволити його."
+            "value" : "Доступ lingvichr до фото вимкнено. Відкрийте Параметри, щоб дозволити його."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ufikiaji wa picha umezimwa kwa Nibomo. Fungua Mipangilio ili kuuruhusu."
+            "value" : "Ufikiaji wa picha umezimwa kwa lingvichr. Fungua Mipangilio ili kuuruhusu."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
+            "value" : "lingvichr-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. அனுமதிக்க அமைப்புகளைத் திறக்கவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo కోసం ఫొటోల అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
+            "value" : "lingvichr కోసం ఫొటోల అనుమతి ఆఫ్‌లో ఉంది. అనుమతించడానికి సెట్టింగ్‌లను తెరవండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prístup k fotkám je pre Nibomo vypnutý. Povoľte ho v Nastaveniach."
+            "value" : "Prístup k fotkám je pre lingvichr vypnutý. Povoľte ho v Nastaveniach."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostop do fotografij je za Nibomo izklopljen. Dovolite ga v Nastavitvah."
+            "value" : "Dostop do fotografij je za lingvichr izklopljen. Dovolite ga v Nastavitvah."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bildåtkomst är avstängd för Nibomo. Tillåt den i Inställningar."
+            "value" : "Bildåtkomst är avstängd för lingvichr. Tillåt den i Inställningar."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
+            "value" : "lingvichr ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਮਨਜ਼ੂਰੀ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostęp do zdjęć jest wyłączony dla Nibomo. Otwórz Ustawienia, aby go włączyć."
+            "value" : "Dostęp do zdjęć jest wyłączony dla lingvichr. Otwórz Ustawienia, aby go włączyć."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesul la poze este dezactivat pentru Nibomo. Deschide Configurări pentru a-l permite."
+            "value" : "Accesul la poze este dezactivat pentru lingvichr. Deschide Configurări pentru a-l permite."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo साठी फोटोंचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
+            "value" : "lingvichr साठी फोटोंचा प्रवेश बंद आहे. परवानगी देण्यासाठी सेटिंग्ज उघडा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bildetilgang er slått av for Nibomo. Åpne Innstillinger for å tillate den."
+            "value" : "Bildetilgang er slått av for lingvichr. Åpne Innstillinger for å tillate den."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fototoegang is uitgeschakeld voor Nibomo. Open Instellingen om toegang toe te staan."
+            "value" : "Fototoegang is uitgeschakeld voor lingvichr. Open Instellingen om toegang toe te staan."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo prieiga prie nuotraukų išjungta. Atidarykite nustatymus ir ją įjunkite."
+            "value" : "lingvichr prieiga prie nuotraukų išjungta. Atidarykite nustatymus ir ją įjunkite."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo piekļuve fotoattēliem ir izslēgta. Lai to atļautu, atveriet iestatījumus."
+            "value" : "lingvichr piekļuve fotoattēliem ir izslēgta. Lai to atļautu, atveriet iestatījumus."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യ്ക്ക് ഫോട്ടോ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
+            "value" : "lingvichr-യ്ക്ക് ഫോട്ടോ അനുമതി ഓഫാണ്. അനുവദിക്കാൻ ക്രമീകരണങ്ങൾ തുറക്കുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accesso alle foto è disattivato per Nibomo. Apri Impostazioni per consentirlo."
+            "value" : "L’accesso alle foto è disattivato per lingvichr. Apri Impostazioni per consentirlo."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
+            "value" : "lingvichrಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಅನುಮತಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo의 사진 접근이 꺼져 있습니다. 설정에서 허용하세요."
+            "value" : "lingvichr의 사진 접근이 꺼져 있습니다. 설정에서 허용하세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Nibomo fotóhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
+            "value" : "A lingvichr fotóhozzáférése ki van kapcsolva. Engedélyezd a Beállításokban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akses foto untuk Nibomo dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
+            "value" : "Akses foto untuk lingvichr dinonaktifkan. Buka Pengaturan untuk mengizinkannya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slökkt er á aðgangi að myndum fyrir Nibomo. Opnaðu Stillingar til að leyfa hann."
+            "value" : "Slökkt er á aðgangi að myndum fyrir lingvichr. Opnaðu Stillingar til að leyfa hann."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માટે ફોટાની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
+            "value" : "lingvichr માટે ફોટાની ઍક્સેસ બંધ છે. મંજૂરી આપવા સેટિંગ્સ ખોલો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הגישה לתמונות כבויה עבור Nibomo. יש לפתוח את ההגדרות כדי לאפשר אותה."
+            "value" : "הגישה לתמונות כבויה עבור lingvichr. יש לפתוח את ההגדרות כדי לאפשר אותה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup fotografijama isključen je za Nibomo. Otvorite Postavke da biste ga dopustili."
+            "value" : "Pristup fotografijama isključen je za lingvichr. Otvorite Postavke da biste ga dopustili."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo fotodele juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
+            "value" : "lingvichr fotodele juurdepääs on välja lülitatud. Selle lubamiseks ava seaded."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دسترسی Nibomo به عکس‌ها غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
+            "value" : "دسترسی lingvichr به عکس‌ها غیرفعال است. برای فعال کردن آن، تنظیمات را باز کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon kuvien käyttöoikeus on poistettu. Salli se asetuksissa."
+            "value" : "lingvichrn kuvien käyttöoikeus on poistettu. Salli se asetuksissa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Достъпът до снимки е изключен за Nibomo. Отворете Настройки, за да го разрешите."
+            "value" : "Достъпът до снимки е изключен за lingvichr. Отворете Настройки, за да го разрешите."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ফটো অ্যাক্সেস Nibomo এর জন্য বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
+            "value" : "ফটো অ্যাক্সেস lingvichr এর জন্য বন্ধ করা হয়েছে। অনুমতি দিতে সেটিংস খুলুন।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accés a les fotos està desactivat per a Nibomo. Obriu Configuració per permetre-ho."
+            "value" : "L'accés a les fotos està desactivat per a lingvichr. Obriu Configuració per permetre-ho."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přístup k fotkám je pro Nibomo vypnutý. Povolte jej v Nastavení."
+            "value" : "Přístup k fotkám je pro lingvichr vypnutý. Povolte jej v Nastavení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fotoadgang er slået fra for Nibomo. Åbn Indstillinger for at tillade den."
+            "value" : "Fotoadgang er slået fra for lingvichr. Åbn Indstillinger for at tillade den."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το Nibomo. Επιτρέψτε την στις Ρυθμίσεις."
+            "value" : "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το lingvichr. Επιτρέψτε την στις Ρυθμίσεις."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Zugriff auf Fotos für Nibomo ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
+            "value" : "Der Zugriff auf Fotos für lingvichr ist deaktiviert. Öffne die Einstellungen, um ihn zu erlauben."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Photo access is turned off for Nibomo. Open Settings to allow it."
+            "value" : "Photo access is turned off for lingvichr. Open Settings to allow it."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Fotos está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a Fotos está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso a Fotos está desactivado para Nibomo. Abre Ajustes para permitirlo."
+            "value" : "El acceso a Fotos está desactivado para lingvichr. Abre Ajustes para permitirlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’accès aux photos est désactivé pour Nibomo. Ouvrez Réglages pour l’autoriser."
+            "value" : "L’accès aux photos est désactivé pour lingvichr. Ouvrez Réglages pour l’autoriser."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo के लिए फ़ोटो एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
+            "value" : "lingvichr के लिए फ़ोटो एक्सेस बंद है। इसे अनुमति देने के लिए सेटिंग्स खोलें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo の写真へのアクセスはオフです。許可するには「設定」を開いてください。"
+            "value" : "lingvichr の写真へのアクセスはオフです。許可するには「設定」を開いてください。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O acesso às fotos está desativado para o Nibomo. Abra os Ajustes para permitir."
+            "value" : "O acesso às fotos está desativado para o lingvichr. Abra os Ajustes para permitir."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Доступ к фото для Nibomo отключен. Откройте «Настройки», чтобы разрешить его."
+            "value" : "Доступ к фото для lingvichr отключен. Откройте «Настройки», чтобы разрешить его."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 的照片访问权限已关闭。打开“设置”以允许访问。"
+            "value" : "lingvichr 的照片访问权限已关闭。打开“设置”以允许访问。"
           }
         }
       }
@@ -19832,301 +19832,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "افتح دعوة Nibomo هذه، ثم سجّل الدخول أو أنشئ حسابًا، وسنرى بعضنا في التطبيق."
+            "value" : "افتح دعوة lingvichr هذه، ثم سجّل الدخول أو أنشئ حسابًا، وسنرى بعضنا في التطبيق."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo کی یہ دعوت کھولیں، سائن اِن کریں یا اکاؤنٹ بنائیں، پھر ہم ایپ میں ایک دوسرے کو دیکھ سکیں گے۔"
+            "value" : "lingvichr کی یہ دعوت کھولیں، سائن اِن کریں یا اکاؤنٹ بنائیں، پھر ہم ایپ میں ایک دوسرے کو دیکھ سکیں گے۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mở lời mời Nibomo này, đăng nhập hoặc đăng ký để chúng ta thấy nhau trong ứng dụng."
+            "value" : "Mở lời mời lingvichr này, đăng nhập hoặc đăng ký để chúng ta thấy nhau trong ứng dụng."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vula lesi simemo se-Nibomo, ungene noma ubhalise, bese sibonana ohlelweni lokusebenza."
+            "value" : "Vula lesi simemo se-lingvichr, ungene noma ubhalise, bese sibonana ohlelweni lokusebenza."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เปิดคำเชิญ Nibomo นี้แล้วลงชื่อเข้าใช้หรือสมัคร เราจะเห็นกันในแอป"
+            "value" : "เปิดคำเชิญ lingvichr นี้แล้วลงชื่อเข้าใช้หรือสมัคร เราจะเห็นกันในแอป"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu Nibomo davetini açıp giriş yapın veya kaydolun; uygulamada birbirimizi göreceğiz."
+            "value" : "Bu lingvichr davetini açıp giriş yapın veya kaydolun; uygulamada birbirimizi göreceğiz."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Відкрийте це запрошення Nibomo, увійдіть або зареєструйтеся, і ми побачимо одне одного в застосунку."
+            "value" : "Відкрийте це запрошення lingvichr, увійдіть або зареєструйтеся, і ми побачимо одне одного в застосунку."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fungua mwaliko huu wa Nibomo, ingia au jisajili, kisha tutaonana kwenye programu."
+            "value" : "Fungua mwaliko huu wa lingvichr, ingia au jisajili, kisha tutaonana kwenye programu."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "இந்த Nibomo அழைப்பைத் திறந்து உள்நுழையவும் அல்லது பதிவு செய்யவும்; பிறகு செயலியில் ஒருவரையொருவர் காணலாம்."
+            "value" : "இந்த lingvichr அழைப்பைத் திறந்து உள்நுழையவும் அல்லது பதிவு செய்யவும்; பிறகு செயலியில் ஒருவரையொருவர் காணலாம்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ఈ Nibomo ఆహ్వానాన్ని తెరిచి సైన్ ఇన్ లేదా సైన్ అప్ చేయండి. ఆ తర్వాత యాప్‌లో ఒకరినొకరు చూడవచ్చు."
+            "value" : "ఈ lingvichr ఆహ్వానాన్ని తెరిచి సైన్ ఇన్ లేదా సైన్ అప్ చేయండి. ఆ తర్వాత యాప్‌లో ఒకరినొకరు చూడవచ్చు."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otvorte túto pozvánku do Nibomo, prihláste sa alebo zaregistrujte a uvidíme sa navzájom v aplikácii."
+            "value" : "Otvorte túto pozvánku do lingvichr, prihláste sa alebo zaregistrujte a uvidíme sa navzájom v aplikácii."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odprite to povabilo v Nibomo, se prijavite ali registrirajte in videla se bova v aplikaciji."
+            "value" : "Odprite to povabilo v lingvichr, se prijavite ali registrirajte in videla se bova v aplikaciji."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Öppna den här Nibomo-inbjudan och logga in eller registrera dig så ser vi varandra i appen."
+            "value" : "Öppna den här lingvichr-inbjudan och logga in eller registrera dig så ser vi varandra i appen."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ਇਹ Nibomo ਸੱਦਾ ਖੋਲ੍ਹੋ, ਸਾਈਨ ਇਨ ਜਾਂ ਸਾਈਨ ਅੱਪ ਕਰੋ ਅਤੇ ਅਸੀਂ ਐਪ ਵਿੱਚ ਇੱਕ-ਦੂਜੇ ਨੂੰ ਵੇਖਾਂਗੇ।"
+            "value" : "ਇਹ lingvichr ਸੱਦਾ ਖੋਲ੍ਹੋ, ਸਾਈਨ ਇਨ ਜਾਂ ਸਾਈਨ ਅੱਪ ਕਰੋ ਅਤੇ ਅਸੀਂ ਐਪ ਵਿੱਚ ਇੱਕ-ਦੂਜੇ ਨੂੰ ਵੇਖਾਂਗੇ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otwórz to zaproszenie do Nibomo, zaloguj się lub zarejestruj, a zobaczymy się w aplikacji."
+            "value" : "Otwórz to zaproszenie do lingvichr, zaloguj się lub zarejestruj, a zobaczymy się w aplikacji."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deschide această invitație Nibomo, autentifică-te sau înregistrează-te și ne vom vedea în aplicație."
+            "value" : "Deschide această invitație lingvichr, autentifică-te sau înregistrează-te și ne vom vedea în aplicație."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "हे Nibomo आमंत्रण उघडा, साइन-इन किंवा नोंदणी करा, आणि आपण अ‍ॅपमध्ये एकमेकांना पाहू शकू."
+            "value" : "हे lingvichr आमंत्रण उघडा, साइन-इन किंवा नोंदणी करा, आणि आपण अ‍ॅपमध्ये एकमेकांना पाहू शकू."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Åpne denne Nibomo-invitasjonen, logg inn eller registrer deg, så ser vi hverandre i appen."
+            "value" : "Åpne denne lingvichr-invitasjonen, logg inn eller registrer deg, så ser vi hverandre i appen."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open deze Nibomo-uitnodiging, meld je aan of registreer je, dan zien we elkaar in de app."
+            "value" : "Open deze lingvichr-uitnodiging, meld je aan of registreer je, dan zien we elkaar in de app."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atidaryk šį Nibomo kvietimą, prisijunk arba užsiregistruok ir matysime vienas kitą programėlėje."
+            "value" : "Atidaryk šį lingvichr kvietimą, prisijunk arba užsiregistruok ir matysime vienas kitą programėlėje."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atver šo Nibomo uzaicinājumu, pieraksties vai reģistrējies, un redzēsim viens otru lietotnē."
+            "value" : "Atver šo lingvichr uzaicinājumu, pieraksties vai reģistrējies, un redzēsim viens otru lietotnē."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ഈ Nibomo ക്ഷണം തുറന്ന് സൈൻ ഇൻ ചെയ്യൂ, അല്ലെങ്കിൽ അക്കൗണ്ട് സൃഷ്ടിക്കൂ; നമുക്ക് ആപ്പിൽ പരസ്പരം കാണാം."
+            "value" : "ഈ lingvichr ക്ഷണം തുറന്ന് സൈൻ ഇൻ ചെയ്യൂ, അല്ലെങ്കിൽ അക്കൗണ്ട് സൃഷ്ടിക്കൂ; നമുക്ക് ആപ്പിൽ പരസ്പരം കാണാം."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apri questo invito Nibomo, accedi o registrati e ci vedremo nell’app."
+            "value" : "Apri questo invito lingvichr, accedi o registrati e ci vedremo nell’app."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ಈ Nibomo ಆಹ್ವಾನ ತೆರೆಯಿರಿ, ಸೈನ್ ಇನ್ ಅಥವಾ ನೋಂದಣಿ ಮಾಡಿ; ಆ್ಯಪ್‌ನಲ್ಲಿ ಪರಸ್ಪರ ಕಾಣಬಹುದು."
+            "value" : "ಈ lingvichr ಆಹ್ವಾನ ತೆರೆಯಿರಿ, ಸೈನ್ ಇನ್ ಅಥವಾ ನೋಂದಣಿ ಮಾಡಿ; ಆ್ಯಪ್‌ನಲ್ಲಿ ಪರಸ್ಪರ ಕಾಣಬಹುದು."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "이 Nibomo 초대를 열고 로그인하거나 가입하면 앱에서 서로 볼 수 있어요."
+            "value" : "이 lingvichr 초대를 열고 로그인하거나 가입하면 앱에서 서로 볼 수 있어요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nyisd meg ezt a Nibomo-meghívót, jelentkezz be vagy regisztrálj, és látjuk egymást az alkalmazásban."
+            "value" : "Nyisd meg ezt a lingvichr-meghívót, jelentkezz be vagy regisztrálj, és látjuk egymást az alkalmazásban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buka undangan Nibomo ini, masuk atau daftar, dan kita akan saling melihat di aplikasi."
+            "value" : "Buka undangan lingvichr ini, masuk atau daftar, dan kita akan saling melihat di aplikasi."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Opnaðu þetta Nibomo-boð, skráðu þig inn eða stofnaðu aðgang og þá sjáum við hvort annað í forritinu."
+            "value" : "Opnaðu þetta lingvichr-boð, skráðu þig inn eða stofnaðu aðgang og þá sjáum við hvort annað í forritinu."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "આ Nibomo આમંત્રણ ખોલો, સાઇન-ઇન કરો અથવા નોંધણી કરો અને આપણે ઍપમાં એકબીજાને જોઈ શકીશું."
+            "value" : "આ lingvichr આમંત્રણ ખોલો, સાઇન-ઇન કરો અથવા નોંધણી કરો અને આપણે ઍપમાં એકબીજાને જોઈ શકીશું."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "אפשר לפתוח את ההזמנה הזו ל-Nibomo, להיכנס או להירשם, ואז נראה זה את זה באפליקציה."
+            "value" : "אפשר לפתוח את ההזמנה הזו ל-lingvichr, להיכנס או להירשם, ואז נראה זה את זה באפליקציה."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otvorite ovu Nibomo pozivnicu, prijavite se ili registrirajte i vidjet ćemo se u aplikaciji."
+            "value" : "Otvorite ovu lingvichr pozivnicu, prijavite se ili registrirajte i vidjet ćemo se u aplikaciji."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ava see Nibomo kutse, logi sisse või registreeru ning näeme teineteist rakenduses."
+            "value" : "Ava see lingvichr kutse, logi sisse või registreeru ning näeme teineteist rakenduses."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "این دعوت Nibomo را باز کنید، وارد شوید یا ثبت‌نام کنید تا یکدیگر را در برنامه ببینیم."
+            "value" : "این دعوت lingvichr را باز کنید، وارد شوید یا ثبت‌نام کنید تا یکدیگر را در برنامه ببینیم."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avaa tämä Nibomo-kutsu ja kirjaudu tai rekisteröidy, niin näemme toisemme sovelluksessa."
+            "value" : "Avaa tämä lingvichr-kutsu ja kirjaudu tai rekisteröidy, niin näemme toisemme sovelluksessa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отворете тази покана за Nibomo, влезте или се регистрирайте и ще се виждаме в приложението."
+            "value" : "Отворете тази покана за lingvichr, влезте или се регистрирайте и ще се виждаме в приложението."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-এর এই আমন্ত্রণটি খুলে সাইন ইন করুন বা নিবন্ধন করুন। তারপর আমরা অ্যাপে একে অপরকে দেখতে পাব।"
+            "value" : "lingvichr-এর এই আমন্ত্রণটি খুলে সাইন ইন করুন বা নিবন্ধন করুন। তারপর আমরা অ্যাপে একে অপরকে দেখতে পাব।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obre aquesta invitació de Nibomo, inicia la sessió o registra’t i ens veurem a l’app."
+            "value" : "Obre aquesta invitació de lingvichr, inicia la sessió o registra’t i ens veurem a l’app."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otevřete tuto pozvánku do Nibomo, přihlaste se nebo si vytvořte účet a uvidíme se v aplikaci."
+            "value" : "Otevřete tuto pozvánku do lingvichr, přihlaste se nebo si vytvořte účet a uvidíme se v aplikaci."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Åbn denne Nibomo-invitation, log ind eller opret en konto, så kan vi se hinanden i appen."
+            "value" : "Åbn denne lingvichr-invitation, log ind eller opret en konto, så kan vi se hinanden i appen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ανοίξτε αυτήν την πρόσκληση στο Nibomo, συνδεθείτε ή εγγραφείτε και θα βλέπουμε ο ένας τον άλλον στην εφαρμογή."
+            "value" : "Ανοίξτε αυτήν την πρόσκληση στο lingvichr, συνδεθείτε ή εγγραφείτε και θα βλέπουμε ο ένας τον άλλον στην εφαρμογή."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Öffne diese Nibomo-Einladung, melde dich an oder registriere dich, und wir sehen uns in der App."
+            "value" : "Öffne diese lingvichr-Einladung, melde dich an oder registriere dich, und wir sehen uns in der App."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open this Nibomo invite, sign in or sign up, and we will see each other in the app."
+            "value" : "Open this lingvichr invite, sign in or sign up, and we will see each other in the app."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abre esta invitación de Nibomo, inicia sesión o regístrate, y nos veremos en la app."
+            "value" : "Abre esta invitación de lingvichr, inicia sesión o regístrate, y nos veremos en la app."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abre esta invitación de Nibomo, inicia sesión o regístrate, y nos veremos en la app."
+            "value" : "Abre esta invitación de lingvichr, inicia sesión o regístrate, y nos veremos en la app."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrez cette invitation Nibomo, connectez-vous ou inscrivez-vous, et nous nous verrons dans l’app."
+            "value" : "Ouvrez cette invitation lingvichr, connectez-vous ou inscrivez-vous, et nous nous verrons dans l’app."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "इस Nibomo आमंत्रण को खोलें, साइन इन या साइन अप करें, और हम ऐप में एक-दूसरे को देखेंगे।"
+            "value" : "इस lingvichr आमंत्रण को खोलें, साइन इन या साइन अप करें, और हम ऐप में एक-दूसरे को देखेंगे।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "この Nibomo 招待を開き、サインインまたは登録してください。アプリ内でお互いを確認できます。"
+            "value" : "この lingvichr 招待を開き、サインインまたは登録してください。アプリ内でお互いを確認できます。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abra este convite do Nibomo, entre ou crie uma conta, e vamos nos ver no app."
+            "value" : "Abra este convite do lingvichr, entre ou crie uma conta, e vamos nos ver no app."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Открой эту ссылку-приглашение в Nibomo, войди или зарегистрируйся, и мы увидим друг друга в приложении."
+            "value" : "Открой эту ссылку-приглашение в lingvichr, войди или зарегистрируйся, и мы увидим друг друга в приложении."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "打开这个 Nibomo 邀请，登录或注册，然后我们就能在应用中看到彼此。"
+            "value" : "打开这个 lingvichr 邀请，登录或注册，然后我们就能在应用中看到彼此。"
           }
         }
       }
@@ -20137,301 +20137,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دعوة صديق إلى Nibomo"
+            "value" : "دعوة صديق إلى lingvichr"
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo پر دوستی کی دعوت"
+            "value" : "lingvichr پر دوستی کی دعوت"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lời mời kết bạn Nibomo"
+            "value" : "Lời mời kết bạn lingvichr"
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Isimemo sobungane se-Nibomo"
+            "value" : "Isimemo sobungane se-lingvichr"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "คำเชิญเป็นเพื่อนใน Nibomo"
+            "value" : "คำเชิญเป็นเพื่อนใน lingvichr"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo arkadaş daveti"
+            "value" : "lingvichr arkadaş daveti"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Запрошення дружити в Nibomo"
+            "value" : "Запрошення дружити в lingvichr"
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mwaliko wa urafiki wa Nibomo"
+            "value" : "Mwaliko wa urafiki wa lingvichr"
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo நண்பர் அழைப்பு"
+            "value" : "lingvichr நண்பர் அழைப்பு"
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo స్నేహిత ఆహ్వానం"
+            "value" : "lingvichr స్నేహిత ఆహ్వానం"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pozvánka pre priateľa do Nibomo"
+            "value" : "Pozvánka pre priateľa do lingvichr"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Povabilo prijatelju v Nibomo"
+            "value" : "Povabilo prijatelju v lingvichr"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Väninbjudan till Nibomo"
+            "value" : "Väninbjudan till lingvichr"
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਦੋਸਤ ਸੱਦਾ"
+            "value" : "lingvichr ਦੋਸਤ ਸੱਦਾ"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zaproszenie do znajomych w Nibomo"
+            "value" : "Zaproszenie do znajomych w lingvichr"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invitație de prietenie Nibomo"
+            "value" : "Invitație de prietenie lingvichr"
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo मित्र आमंत्रण"
+            "value" : "lingvichr मित्र आमंत्रण"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Venneinvitasjon til Nibomo"
+            "value" : "Venneinvitasjon til lingvichr"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vriendenuitnodiging voor Nibomo"
+            "value" : "Vriendenuitnodiging voor lingvichr"
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo draugo kvietimas"
+            "value" : "lingvichr draugo kvietimas"
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo drauga uzaicinājums"
+            "value" : "lingvichr drauga uzaicinājums"
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo സുഹൃത്ത് ക്ഷണം"
+            "value" : "lingvichr സുഹൃത്ത് ക്ഷണം"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invito di amicizia Nibomo"
+            "value" : "Invito di amicizia lingvichr"
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ಸ್ನೇಹ ಆಹ್ವಾನ"
+            "value" : "lingvichr ಸ್ನೇಹ ಆಹ್ವಾನ"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 친구 초대"
+            "value" : "lingvichr 친구 초대"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo baráti meghívó"
+            "value" : "lingvichr baráti meghívó"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Undangan teman Nibomo"
+            "value" : "Undangan teman lingvichr"
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vinaboð í Nibomo"
+            "value" : "Vinaboð í lingvichr"
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo મિત્ર આમંત્રણ"
+            "value" : "lingvichr મિત્ર આમંત્રણ"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הזמנת חברות ב-Nibomo"
+            "value" : "הזמנת חברות ב-lingvichr"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo pozivnica za prijateljstvo"
+            "value" : "lingvichr pozivnica za prijateljstvo"
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo sõbrakutse"
+            "value" : "lingvichr sõbrakutse"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دعوت دوستی Nibomo"
+            "value" : "دعوت دوستی lingvichr"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomon ystäväkutsu"
+            "value" : "lingvichrn ystäväkutsu"
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Покана за приятелство в Nibomo"
+            "value" : "Покана за приятелство в lingvichr"
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-তে বন্ধুত্বের আমন্ত্রণ"
+            "value" : "lingvichr-তে বন্ধুত্বের আমন্ত্রণ"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invitació d’amistat a Nibomo"
+            "value" : "Invitació d’amistat a lingvichr"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pozvánka od přítele do Nibomo"
+            "value" : "Pozvánka od přítele do lingvichr"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-venneinvitation"
+            "value" : "lingvichr-venneinvitation"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Πρόσκληση φίλου στο Nibomo"
+            "value" : "Πρόσκληση φίλου στο lingvichr"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo Freundes-Einladung"
+            "value" : "lingvichr Freundes-Einladung"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo friend invite"
+            "value" : "lingvichr friend invite"
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invitación de amigo de Nibomo"
+            "value" : "Invitación de amigo de lingvichr"
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invitación de amigo de Nibomo"
+            "value" : "Invitación de amigo de lingvichr"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invitation d’ami Nibomo"
+            "value" : "Invitation d’ami lingvichr"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo दोस्त आमंत्रण"
+            "value" : "lingvichr दोस्त आमंत्रण"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 友だち招待"
+            "value" : "lingvichr 友だち招待"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Convite de amizade do Nibomo"
+            "value" : "Convite de amizade do lingvichr"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Приглашение в Nibomo"
+            "value" : "Приглашение в lingvichr"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo 好友邀请"
+            "value" : "lingvichr 好友邀请"
           }
         }
       }
@@ -50027,301 +50027,301 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "واصل جلسة الدراسة في Nibomo."
+            "value" : "واصل جلسة الدراسة في lingvichr."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo میں اپنا مطالعہ جاری رکھیں۔"
+            "value" : "lingvichr میں اپنا مطالعہ جاری رکھیں۔"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tiếp tục buổi học trong Nibomo."
+            "value" : "Tiếp tục buổi học trong lingvichr."
           }
         },
         "zu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Qhubeka nesikhathi sakho sokufunda ku-Nibomo."
+            "value" : "Qhubeka nesikhathi sakho sokufunda ku-lingvichr."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เรียนต่อใน Nibomo"
+            "value" : "เรียนต่อใน lingvichr"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo’da çalışmaya devam edin."
+            "value" : "lingvichr’da çalışmaya devam edin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продовжуйте навчання в Nibomo."
+            "value" : "Продовжуйте навчання в lingvichr."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Endelea na kipindi chako cha kujifunza kwenye Nibomo."
+            "value" : "Endelea na kipindi chako cha kujifunza kwenye lingvichr."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-வில் உங்கள் படிப்பைத் தொடரவும்."
+            "value" : "lingvichr-வில் உங்கள் படிப்பைத் தொடரவும்."
           }
         },
         "te" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoలో మీ అధ్యయన సెషన్‌ను కొనసాగించండి."
+            "value" : "lingvichrలో మీ అధ్యయన సెషన్‌ను కొనసాగించండి."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokračujte v štúdiu v Nibomo."
+            "value" : "Pokračujte v štúdiu v lingvichr."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadaljujte učenje v Nibomo."
+            "value" : "Nadaljujte učenje v lingvichr."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fortsätt studera i Nibomo."
+            "value" : "Fortsätt studera i lingvichr."
           }
         },
         "pa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo ਵਿੱਚ ਆਪਣਾ ਪੜ੍ਹਾਈ ਸੈਸ਼ਨ ਜਾਰੀ ਰੱਖੋ।"
+            "value" : "lingvichr ਵਿੱਚ ਆਪਣਾ ਪੜ੍ਹਾਈ ਸੈਸ਼ਨ ਜਾਰੀ ਰੱਖੋ।"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kontynuuj naukę w Nibomo."
+            "value" : "Kontynuuj naukę w lingvichr."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continuă sesiunea de studiu în Nibomo."
+            "value" : "Continuă sesiunea de studiu în lingvichr."
           }
         },
         "mr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo मध्ये तुमचे अभ्यास सत्र सुरू ठेवा."
+            "value" : "lingvichr मध्ये तुमचे अभ्यास सत्र सुरू ठेवा."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fortsett studieøkten i Nibomo."
+            "value" : "Fortsett studieøkten i lingvichr."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ga verder met je studiesessie in Nibomo."
+            "value" : "Ga verder met je studiesessie in lingvichr."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tęskite mokymosi sesiją Nibomo."
+            "value" : "Tęskite mokymosi sesiją lingvichr."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turpiniet mācību sesiju Nibomo."
+            "value" : "Turpiniet mācību sesiju lingvichr."
           }
         },
         "ml" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo-യിൽ പഠന സെഷൻ തുടരുക."
+            "value" : "lingvichr-യിൽ പഠന സെഷൻ തുടരുക."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continua la tua sessione di studio in Nibomo."
+            "value" : "Continua la tua sessione di studio in lingvichr."
           }
         },
         "kn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomoದಲ್ಲಿ ನಿಮ್ಮ ಅಧ್ಯಯನವನ್ನು ಮುಂದುವರಿಸಿ."
+            "value" : "lingvichrದಲ್ಲಿ ನಿಮ್ಮ ಅಧ್ಯಯನವನ್ನು ಮುಂದುವರಿಸಿ."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo에서 학습을 이어가세요."
+            "value" : "lingvichr에서 학습을 이어가세요."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Folytasd a tanulást a Nibomóban."
+            "value" : "Folytasd a tanulást a lingvichr alkalmazásban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lanjutkan sesi belajar Anda di Nibomo."
+            "value" : "Lanjutkan sesi belajar Anda di lingvichr."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Haltu áfram að læra í Nibomo."
+            "value" : "Haltu áfram að læra í lingvichr."
           }
         },
         "gu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo માં તમારો અભ્યાસ ચાલુ રાખો."
+            "value" : "lingvichr માં તમારો અભ્યાસ ચાલુ રાખો."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "אפשר להמשיך את הלמידה ב-Nibomo."
+            "value" : "אפשר להמשיך את הלמידה ב-lingvichr."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nastavite učiti u aplikaciji Nibomo."
+            "value" : "Nastavite učiti u aplikaciji lingvichr."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jätka õppimist Nibomos."
+            "value" : "Jätka õppimist lingvichrs."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "جلسهٔ مطالعهٔ خود را در Nibomo ادامه دهید."
+            "value" : "جلسهٔ مطالعهٔ خود را در lingvichr ادامه دهید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jatka opiskelua Nibomossa."
+            "value" : "Jatka opiskelua lingvichrssa."
           }
         },
         "bg" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продължете учебната си сесия в Nibomo."
+            "value" : "Продължете учебната си сесия в lingvichr."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo এ আপনার অধ্যয়ন সেশন চালিয়ে যান।"
+            "value" : "lingvichr এ আপনার অধ্যয়ন সেশন চালিয়ে যান।"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continua la teva sessió d'estudi a Nibomo."
+            "value" : "Continua la teva sessió d'estudi a lingvichr."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokračujte v učení v Nibomo."
+            "value" : "Pokračujte v učení v lingvichr."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fortsæt din læring i Nibomo."
+            "value" : "Fortsæt din læring i lingvichr."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Συνεχίστε τη μελέτη σας στο Nibomo."
+            "value" : "Συνεχίστε τη μελέτη σας στο lingvichr."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Setze deine Lernsitzung in Nibomo fort."
+            "value" : "Setze deine Lernsitzung in lingvichr fort."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continue your study session in Nibomo."
+            "value" : "Continue your study session in lingvichr."
           }
         },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continúa tu sesión de estudio en Nibomo."
+            "value" : "Continúa tu sesión de estudio en lingvichr."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continúa tu sesión de estudio en Nibomo."
+            "value" : "Continúa tu sesión de estudio en lingvichr."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continuez votre session d’apprentissage dans Nibomo."
+            "value" : "Continuez votre session d’apprentissage dans lingvichr."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo में अपना अध्ययन सत्र जारी रखें।"
+            "value" : "lingvichr में अपना अध्ययन सत्र जारी रखें।"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nibomo で学習セッションを続けましょう。"
+            "value" : "lingvichr で学習セッションを続けましょう。"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continue sua sessão de estudo no Nibomo."
+            "value" : "Continue sua sessão de estudo no lingvichr."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продолжите занятие в Nibomo."
+            "value" : "Продолжите занятие в lingvichr."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 Nibomo 中继续你的学习。"
+            "value" : "在 lingvichr 中继续你的学习。"
           }
         }
       }

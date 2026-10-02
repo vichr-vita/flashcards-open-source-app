@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "جواب پہلے ہی جاری ہے۔ نیا پیغام بھیجنے سے پہلے اس کے ختم ہونے کا انتظار کریں یا اسے روک دیں۔";
 "ai.dictation.error.microphoneUnavailable" = "اس آلے پر مائیکروفون دستیاب نہیں ہے۔";
 "ai.dictation.error.microphoneDenied" = "مائیکروفون کی رسائی نہیں دی گئی۔";
-"ai.dictation.error.microphoneBlocked" = "Nibomo کے لیے مائیکروفون کی رسائی بند ہے۔ ترتیبات > رازداری اور سیکیورٹی > مائیکروفون میں اسے فعال کریں۔";
+"ai.dictation.error.microphoneBlocked" = "lingvichr کے لیے مائیکروفون کی رسائی بند ہے۔ ترتیبات > رازداری اور سیکیورٹی > مائیکروفون میں اسے فعال کریں۔";
 "ai.dictation.error.invalidRecording" = "ریکارڈ شدہ آڈیو تیار نہیں ہو سکی۔";
 "ai.dictation.error.recordingStartFailed" = "مائیکروفون کی ریکارڈنگ شروع نہیں ہو سکی۔";
 "ai.dictation.error.emptyRecording" = "کوئی آواز ریکارڈ نہیں ہوئی۔";
@@ -138,7 +138,7 @@
 "settings.title" = "ترتیبات";
 "settings.inviteFriend.button" = "دوست شامل کریں";
 "settings.section.share" = "شیئر کریں";
-"settings.row.shareApp" = "Nibomo شیئر کریں";
+"settings.row.shareApp" = "lingvichr شیئر کریں";
 "settings.section.feedback" = "رائے";
 "settings.row.reviewInAppStore" = "App Store میں جائزہ لکھیں";
 "settings.row.sharePrivateFeedback" = "نجی رائے بھیجیں";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "ایپ کے آپ کے اکاؤنٹ کے ساتھ سنک ہونے کے بعد آپ کا پلان یہاں نظر آئے گا۔";
 "settings.subscription.manage" = "سبسکرپشن کا نظم کریں";
 "settings.language.title" = "زبان";
-"settings.language.systemDescription" = "iOS ایپ کی زبان طے کرتا ہے۔ iOS کی ترتیبات میں Nibomo کھولیں اور ترجیحی زبان منتخب کریں۔ اگر ترجیحی زبان نظر نہ آئے تو پہلے ترتیبات > عمومی > زبان اور علاقہ میں دوسری زبان شامل کریں۔";
-"settings.language.action.openAppSettings" = "Nibomo کی ترتیبات کھولیں";
+"settings.language.systemDescription" = "iOS ایپ کی زبان طے کرتا ہے۔ iOS کی ترتیبات میں lingvichr کھولیں اور ترجیحی زبان منتخب کریں۔ اگر ترجیحی زبان نظر نہ آئے تو پہلے ترتیبات > عمومی > زبان اور علاقہ میں دوسری زبان شامل کریں۔";
+"settings.language.action.openAppSettings" = "lingvichr کی ترتیبات کھولیں";
 "settings.language.section.supportedLanguages" = "معاون زبانیں";
 "settings.language.supported.english" = "انگریزی";
 "settings.language.supported.arabic" = "عربی";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "روسی";
 "settings.language.supported.spanishMexico" = "ہسپانوی (میکسیکو)";
 "settings.language.supported.spanishSpain" = "ہسپانوی (اسپین)";
-"feedback.settings.description" = "کوئی خیال بتائیں، کوئی مسئلہ رپورٹ کریں، یا بتائیں کہ Nibomo کو کیسے بہتر بنایا جا سکتا ہے۔";
+"feedback.settings.description" = "کوئی خیال بتائیں، کوئی مسئلہ رپورٹ کریں، یا بتائیں کہ lingvichr کو کیسے بہتر بنایا جا سکتا ہے۔";
 "settings.sync.success" = "ہم وقت سازی کامیاب";
 "settings.sync.guestAiActive" = "مہمان AI فعال ہے";
 "settings.sync.notSyncing" = "ہم وقت نہیں ہو رہا";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "اجازتیں";
 "settings.access.notifications" = "اطلاعات";
 "settings.access.thisDevice" = "یہ آلہ";
-"settings.access.footer" = "Nibomo صرف منسلکات اور چیٹ میں بول کر لکھنے کے لیے ضروری رسائی طلب کرتا ہے۔";
+"settings.access.footer" = "lingvichr صرف منسلکات اور چیٹ میں بول کر لکھنے کے لیے ضروری رسائی طلب کرتا ہے۔";
 "settings.access.detail.status" = "حالت";
 "settings.access.kind.photos" = "تصاویر";
 "settings.access.kind.camera" = "کیمرا";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "دستیاب نہیں";
 "settings.access.action.request" = "رسائی کی درخواست کریں";
 "settings.access.action.openSettings" = "ترتیبات کھولیں";
-"settings.access.guidance.photos.limited" = "صرف وہ تصاویر دستیاب ہیں جو آپ پہلے ہی Nibomo کے ساتھ شیئر کر چکے ہیں۔ مزید تصاویر کی رسائی دینے کے لیے ترتیبات کھولیں۔";
-"settings.access.guidance.photos.blocked" = "Nibomo کے لیے تصاویر کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > تصاویر کھولیں۔";
-"settings.access.guidance.camera.blocked" = "Nibomo کے لیے کیمرے کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > کیمرا کھولیں۔";
-"settings.access.guidance.microphone.blocked" = "Nibomo کے لیے مائیکروفون کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > مائیکروفون کھولیں۔";
+"settings.access.guidance.photos.limited" = "صرف وہ تصاویر دستیاب ہیں جو آپ پہلے ہی lingvichr کے ساتھ شیئر کر چکے ہیں۔ مزید تصاویر کی رسائی دینے کے لیے ترتیبات کھولیں۔";
+"settings.access.guidance.photos.blocked" = "lingvichr کے لیے تصاویر کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > تصاویر کھولیں۔";
+"settings.access.guidance.camera.blocked" = "lingvichr کے لیے کیمرے کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > کیمرا کھولیں۔";
+"settings.access.guidance.microphone.blocked" = "lingvichr کے لیے مائیکروفون کی رسائی بند ہے۔ اسے بدلنے کے لیے ترتیبات > رازداری اور سیکیورٹی > مائیکروفون کھولیں۔";
 "settings.access.guidance.askEveryTime" = "ابھی رسائی کی درخواست کریں، یا بعد میں خود انتظام کرنے کے لیے ترتیبات کھولیں۔";
 "settings.access.guidance.allowed" = "اگر آپ یہ رسائی بند کرنا چاہتے ہیں تو ترتیبات کھولیں۔";
 "settings.access.guidance.limited" = "اس رسائی کا جائزہ لینے یا اسے بڑھانے کے لیے ترتیبات کھولیں۔";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "ایپ آئیکن بیج";
 "settings.notifications.section.strictReminders" = "مسلسل دنوں کی یاددہانیاں";
 "settings.notifications.enableStrictReminders" = "مسلسل دنوں کی یاددہانیاں فعال کریں";
-"settings.notifications.strictReminders.description" = "اگر آپ نے آج موجودہ ورک اسپیس میں دہرائی نہیں کی تو Nibomo آدھی رات سے 4، 3 اور 2 گھنٹے پہلے یاد دلاتا ہے تاکہ آپ کے مسلسل دن برقرار رہیں۔";
+"settings.notifications.strictReminders.description" = "اگر آپ نے آج موجودہ ورک اسپیس میں دہرائی نہیں کی تو lingvichr آدھی رات سے 4، 3 اور 2 گھنٹے پہلے یاد دلاتا ہے تاکہ آپ کے مسلسل دن برقرار رہیں۔";
 "settings.notifications.section.dailyReminder" = "روزانہ ایک بار";
 "settings.notifications.permission.allowed" = "اجازت ہے";
 "settings.notifications.permission.notRequested" = "درخواست نہیں کی گئی";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "درآمد کریں";
 "settings.workspace.import.cloudRequired" = "اس ورژن میں میڈیا ZIP درآمد کرنے کے لیے کلاؤڈ اکاؤنٹ ضروری ہے۔";
-"settings.workspace.import.invalidFile" = "Nibomo کا ZIP پیکیج چنیں۔";
+"settings.workspace.import.invalidFile" = "lingvichr کا ZIP پیکیج چنیں۔";
 "settings.workspace.import.fileTooLarge" = "زیادہ سے زیادہ %d MB کا ZIP پیکیج چنیں۔";
 "settings.workspace.import.missingImportTag" = "درآمد کرنے سے پہلے درآمدی ٹیگ درج کریں۔";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "یہ گنتی پوری ورک اسپیس کی ہے اور مشترک ٹیگز والے کارڈز دو بار نہیں گنتی۔";
 "settings.row.sendFeedback" = "رائے بھیجیں";
 "settings.row.sendFeedback.value" = "خیال شیئر کریں";
-"feedback.sheet.title" = "Nibomo کے لیے کوئی خیال ہے؟";
+"feedback.sheet.title" = "lingvichr کے لیے کوئی خیال ہے؟";
 "feedback.sheet.body" = "بتائیں کہ ایپ کو کیسے بہتر بنایا جا سکتا ہے۔ بنانے والا ہر پیغام خود پڑھتا ہے۔";
 "feedback.sheet.placeholder" = "اپنا خیال یہاں لکھیں";
 "feedback.sheet.send" = "بھیجیں";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ کی صحت کی جانچ نے حالت %d دی، %@ کے لیے";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ کی صحت کی جانچ %@ کے لیے دوسرے سرور پر بھیجی گئی: %@۔ اسے اسی سرور پر جواب دینے کے لیے ترتیب دیں، پھر دوبارہ کوشش کریں۔";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@ پر API کی صحت درست سروس اور کلاؤڈ معاہدے کی نشاندہی نہیں کرتی۔ اپنے سرور کو اپ ڈیٹ کر کے دوبارہ تعینات کریں، پھر کوشش کریں۔";
-"settings.account.server.validation.unexpectedApiService" = "%@ پر API کی صحت موافق Nibomo بیک اینڈ کے بجائے %@ کی شناخت کرتی ہے۔ اپنے سرور کو اپ ڈیٹ کر کے دوبارہ تعینات کریں، پھر کوشش کریں۔";
+"settings.account.server.validation.unexpectedApiService" = "%@ پر API کی صحت موافق lingvichr بیک اینڈ کے بجائے %@ کی شناخت کرتی ہے۔ اپنے سرور کو اپ ڈیٹ کر کے دوبارہ تعینات کریں، پھر کوشش کریں۔";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@ پر API کی صحت غیر معاون کلاؤڈ معاہدے کا ورژن %d ظاہر کرتی ہے۔ اس ایپ کو ورژن 1 درکار ہے۔ اپنے سرور کو اپ ڈیٹ کر کے دوبارہ تعینات کریں، پھر کوشش کریں۔";
 "settings.sync.customGuestWorkspacePaused.message" = "یہ حسبِ ضرورت سرور اس مہمان ورک اسپیس تک رسائی حاصل نہیں کر سکتا۔ سرور غیر موافق یا غلط ترتیب دیا گیا ہو سکتا ہے۔ ہم وقت سازی رکی ہوئی ہے، اور آپ کے مقامی کارڈز اور زیر التوا تبدیلیاں اس آلے پر محفوظ ہیں۔";
 "settings.account.status.customGuestPause.title" = "مہمان کلاؤڈ ورک اسپیس دستیاب نہیں";

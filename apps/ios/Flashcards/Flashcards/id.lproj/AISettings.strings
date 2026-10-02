@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Respons sedang berlangsung. Tunggu hingga selesai atau hentikan sebelum mengirim pesan lain.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofon tidak tersedia di perangkat ini.";
 "ai.dictation.error.microphoneDenied" = "Akses mikrofon tidak diberikan.";
-"ai.dictation.error.microphoneBlocked" = "Akses mikrofon untuk Nibomo dinonaktifkan. Aktifkan di Pengaturan > Privasi & Keamanan > Mikrofon.";
+"ai.dictation.error.microphoneBlocked" = "Akses mikrofon untuk lingvichr dinonaktifkan. Aktifkan di Pengaturan > Privasi & Keamanan > Mikrofon.";
 "ai.dictation.error.invalidRecording" = "Gagal menyiapkan rekaman audio.";
 "ai.dictation.error.recordingStartFailed" = "Gagal memulai perekaman mikrofon.";
 "ai.dictation.error.emptyRecording" = "Tidak ada ucapan yang direkam.";
@@ -138,7 +138,7 @@
 "settings.title" = "Pengaturan";
 "settings.inviteFriend.button" = "Tambah Teman";
 "settings.section.share" = "Bagikan";
-"settings.row.shareApp" = "Bagikan Nibomo";
+"settings.row.shareApp" = "Bagikan lingvichr";
 "settings.section.feedback" = "Masukan";
 "settings.row.reviewInAppStore" = "Beri ulasan di App Store";
 "settings.row.sharePrivateFeedback" = "Kirim masukan pribadi";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Paket Anda akan muncul di sini setelah aplikasi disinkronkan dengan akun Anda.";
 "settings.subscription.manage" = "Kelola langganan";
 "settings.language.title" = "Bahasa";
-"settings.language.systemDescription" = "Bahasa aplikasi diatur oleh iOS. Di Pengaturan iOS, buka Nibomo dan gunakan Bahasa Pilihan. Jika tidak muncul, tambahkan bahasa lain di Pengaturan > Umum > Bahasa & Wilayah terlebih dahulu.";
-"settings.language.action.openAppSettings" = "Buka pengaturan Nibomo";
+"settings.language.systemDescription" = "Bahasa aplikasi diatur oleh iOS. Di Pengaturan iOS, buka lingvichr dan gunakan Bahasa Pilihan. Jika tidak muncul, tambahkan bahasa lain di Pengaturan > Umum > Bahasa & Wilayah terlebih dahulu.";
+"settings.language.action.openAppSettings" = "Buka pengaturan lingvichr";
 "settings.language.section.supportedLanguages" = "Bahasa yang Didukung";
 "settings.language.supported.english" = "Inggris";
 "settings.language.supported.arabic" = "Arab";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rusia";
 "settings.language.supported.spanishMexico" = "Spanyol Meksiko";
 "settings.language.supported.spanishSpain" = "Spanyol (Spanyol)";
-"feedback.settings.description" = "Bagikan ide, laporkan kekurangan, atau beri tahu apa yang dapat membuat Nibomo lebih baik.";
+"feedback.settings.description" = "Bagikan ide, laporkan kekurangan, atau beri tahu apa yang dapat membuat lingvichr lebih baik.";
 "settings.sync.success" = "Berhasil disinkronkan";
 "settings.sync.guestAiActive" = "AI tamu aktif";
 "settings.sync.notSyncing" = "Tidak menyinkronkan";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Izin";
 "settings.access.notifications" = "Notifikasi";
 "settings.access.thisDevice" = "Perangkat ini";
-"settings.access.footer" = "Nibomo hanya meminta akses yang diperlukan untuk lampiran dan dikte obrolan.";
+"settings.access.footer" = "lingvichr hanya meminta akses yang diperlukan untuk lampiran dan dikte obrolan.";
 "settings.access.detail.status" = "Status";
 "settings.access.kind.photos" = "Foto";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Tidak tersedia";
 "settings.access.action.request" = "Minta akses";
 "settings.access.action.openSettings" = "Buka Pengaturan";
-"settings.access.guidance.photos.limited" = "Hanya foto yang sudah Anda bagikan dengan Nibomo yang tersedia. Buka Pengaturan untuk memberi akses ke lebih banyak foto.";
-"settings.access.guidance.photos.blocked" = "Akses foto untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Foto untuk mengubahnya.";
-"settings.access.guidance.camera.blocked" = "Akses kamera untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Kamera untuk mengubahnya.";
-"settings.access.guidance.microphone.blocked" = "Akses mikrofon untuk Nibomo dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Mikrofon untuk mengubahnya.";
+"settings.access.guidance.photos.limited" = "Hanya foto yang sudah Anda bagikan dengan lingvichr yang tersedia. Buka Pengaturan untuk memberi akses ke lebih banyak foto.";
+"settings.access.guidance.photos.blocked" = "Akses foto untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Foto untuk mengubahnya.";
+"settings.access.guidance.camera.blocked" = "Akses kamera untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Kamera untuk mengubahnya.";
+"settings.access.guidance.microphone.blocked" = "Akses mikrofon untuk lingvichr dinonaktifkan. Buka Pengaturan > Privasi & Keamanan > Mikrofon untuk mengubahnya.";
 "settings.access.guidance.askEveryTime" = "Minta akses sekarang, atau buka Pengaturan nanti untuk mengelolanya secara manual.";
 "settings.access.guidance.allowed" = "Buka Pengaturan untuk menonaktifkan akses ini.";
 "settings.access.guidance.limited" = "Buka Pengaturan untuk meninjau atau memperluas akses ini.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Lencana Ikon Aplikasi";
 "settings.notifications.section.strictReminders" = "Pengingat rangkaian";
 "settings.notifications.enableStrictReminders" = "Aktifkan pengingat rangkaian";
-"settings.notifications.strictReminders.description" = "Jika hari ini Anda belum mengulang di ruang kerja saat ini, Nibomo mengingatkan 4, 3, dan 2 jam sebelum tengah malam agar rangkaian tetap terjaga.";
+"settings.notifications.strictReminders.description" = "Jika hari ini Anda belum mengulang di ruang kerja saat ini, lingvichr mengingatkan 4, 3, dan 2 jam sebelum tengah malam agar rangkaian tetap terjaga.";
 "settings.notifications.section.dailyReminder" = "Sekali sehari";
 "settings.notifications.permission.allowed" = "Diizinkan";
 "settings.notifications.permission.notRequested" = "Belum diminta";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Impor";
 "settings.workspace.import.cloudRequired" = "Impor ZIP media memerlukan akun cloud pada versi ini.";
-"settings.workspace.import.invalidFile" = "Pilih paket ZIP Nibomo.";
+"settings.workspace.import.invalidFile" = "Pilih paket ZIP lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Pilih paket ZIP hingga %d MB.";
 "settings.workspace.import.missingImportTag" = "Masukkan tag impor sebelum mengimpor.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Jumlah ini untuk seluruh ruang kerja dan tidak menghitung ganda kartu yang berbagi tag.";
 "settings.row.sendFeedback" = "Kirim Masukan";
 "settings.row.sendFeedback.value" = "Bagikan ide";
-"feedback.sheet.title" = "Punya ide untuk Nibomo?";
+"feedback.sheet.title" = "Punya ide untuk lingvichr?";
 "feedback.sheet.body" = "Bagikan apa yang dapat membuat aplikasi lebih baik. Pembuatnya membaca setiap pesan secara pribadi.";
 "feedback.sheet.placeholder" = "Tulis ide Anda di sini";
 "feedback.sheet.send" = "Kirim";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Pemeriksaan kesehatan %@ mengembalikan status %d untuk %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Pemeriksaan kesehatan %@ untuk %@ dialihkan ke server lain: %@. Atur agar merespons di server yang sama, lalu coba lagi.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Status API di %@ tidak menyatakan layanan dan kontrak cloud yang valid. Perbarui dan terapkan ulang server kustom, lalu coba lagi.";
-"settings.account.server.validation.unexpectedApiService" = "Status API di %@ mengidentifikasi %@ alih-alih backend Nibomo yang kompatibel. Perbarui dan terapkan ulang server kustom, lalu coba lagi.";
+"settings.account.server.validation.unexpectedApiService" = "Status API di %@ mengidentifikasi %@ alih-alih backend lingvichr yang kompatibel. Perbarui dan terapkan ulang server kustom, lalu coba lagi.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Status API di %@ menyatakan kontrak cloud versi %d yang tidak didukung. Aplikasi ini memerlukan versi 1. Perbarui dan terapkan ulang server kustom, lalu coba lagi.";
 "settings.sync.customGuestWorkspacePaused.message" = "Server kustom ini tidak dapat mengakses ruang kerja tamu ini. Server mungkin tidak kompatibel atau salah konfigurasi. Sinkronisasi dijeda, dan kartu lokal serta perubahan tertunda tetap aman di perangkat ini.";
 "settings.account.status.customGuestPause.title" = "Ruang Kerja Cloud Tamu Tidak Tersedia";

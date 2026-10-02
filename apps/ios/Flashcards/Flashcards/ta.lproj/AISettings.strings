@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "பதில் ஏற்கனவே உருவாகிறது. மற்றொரு செய்தியை அனுப்பும் முன் அது முடியும் வரை காத்திருக்கவும் அல்லது அதை நிறுத்தவும்.";
 "ai.dictation.error.microphoneUnavailable" = "இந்தச் சாதனத்தில் மைக்ரோஃபோன் கிடைக்கவில்லை.";
 "ai.dictation.error.microphoneDenied" = "மைக்ரோஃபோன் அணுகல் வழங்கப்படவில்லை.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனில் அதை இயக்கவும்.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனில் அதை இயக்கவும்.";
 "ai.dictation.error.invalidRecording" = "பதிவுசெய்த ஒலியைத் தயாரிக்க முடியவில்லை.";
 "ai.dictation.error.recordingStartFailed" = "மைக்ரோஃபோன் பதிவைத் தொடங்க முடியவில்லை.";
 "ai.dictation.error.emptyRecording" = "பேச்சு எதுவும் பதிவாகவில்லை.";
@@ -138,7 +138,7 @@
 "settings.title" = "அமைப்புகள்";
 "settings.inviteFriend.button" = "நண்பரைச் சேர்";
 "settings.section.share" = "பகிர்";
-"settings.row.shareApp" = "Nibomo-வைப் பகிர்";
+"settings.row.shareApp" = "lingvichr-வைப் பகிர்";
 "settings.section.feedback" = "கருத்து";
 "settings.row.reviewInAppStore" = "App Store-இல் மதிப்புரை எழுது";
 "settings.row.sharePrivateFeedback" = "தனிப்பட்ட கருத்தைப் பகிர்";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "செயலி உங்கள் கணக்குடன் ஒத்திசைந்த பிறகு உங்கள் திட்டம் இங்கே தோன்றும்.";
 "settings.subscription.manage" = "சந்தாவை நிர்வகி";
 "settings.language.title" = "மொழி";
-"settings.language.systemDescription" = "செயலியின் மொழியை iOS கட்டுப்படுத்துகிறது. iOS அமைப்புகளில் Nibomo-வைத் திறந்து விருப்ப மொழியைப் பயன்படுத்தவும். விருப்ப மொழி தெரியாவிட்டால் முதலில் அமைப்புகள் > பொது > மொழி மற்றும் வட்டாரத்தில் மற்றொரு மொழியைச் சேர்க்கவும்.";
-"settings.language.action.openAppSettings" = "Nibomo அமைப்புகளைத் திற";
+"settings.language.systemDescription" = "செயலியின் மொழியை iOS கட்டுப்படுத்துகிறது. iOS அமைப்புகளில் lingvichr-வைத் திறந்து விருப்ப மொழியைப் பயன்படுத்தவும். விருப்ப மொழி தெரியாவிட்டால் முதலில் அமைப்புகள் > பொது > மொழி மற்றும் வட்டாரத்தில் மற்றொரு மொழியைச் சேர்க்கவும்.";
+"settings.language.action.openAppSettings" = "lingvichr அமைப்புகளைத் திற";
 "settings.language.section.supportedLanguages" = "ஆதரிக்கப்படும் மொழிகள்";
 "settings.language.supported.english" = "ஆங்கிலம்";
 "settings.language.supported.arabic" = "அரபு";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "ரஷ்யன்";
 "settings.language.supported.spanishMexico" = "ஸ்பானிஷ் (மெக்சிகோ)";
 "settings.language.supported.spanishSpain" = "ஸ்பானிஷ் (ஸ்பெயின்)";
-"feedback.settings.description" = "ஒரு யோசனையைப் பகிருங்கள், சிக்கலைத் தெரிவியுங்கள் அல்லது Nibomo-வை எவ்வாறு மேம்படுத்தலாம் எனக் கூறுங்கள்.";
+"feedback.settings.description" = "ஒரு யோசனையைப் பகிருங்கள், சிக்கலைத் தெரிவியுங்கள் அல்லது lingvichr-வை எவ்வாறு மேம்படுத்தலாம் எனக் கூறுங்கள்.";
 "settings.sync.success" = "ஒத்திசைவு வெற்றி";
 "settings.sync.guestAiActive" = "விருந்தினர் AI செயலில் உள்ளது";
 "settings.sync.notSyncing" = "ஒத்திசையவில்லை";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "அனுமதிகள்";
 "settings.access.notifications" = "அறிவிப்புகள்";
 "settings.access.thisDevice" = "இந்தச் சாதனம்";
-"settings.access.footer" = "இணைப்புகளுக்கும் அரட்டையில் பேசித் தட்டச்சு செய்வதற்கும் தேவையான அணுகலை மட்டுமே Nibomo கோருகிறது.";
+"settings.access.footer" = "இணைப்புகளுக்கும் அரட்டையில் பேசித் தட்டச்சு செய்வதற்கும் தேவையான அணுகலை மட்டுமே lingvichr கோருகிறது.";
 "settings.access.detail.status" = "நிலை";
 "settings.access.kind.photos" = "புகைப்படங்கள்";
 "settings.access.kind.camera" = "கேமரா";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "கிடைக்கவில்லை";
 "settings.access.action.request" = "அணுகலைக் கோரு";
 "settings.access.action.openSettings" = "அமைப்புகளைத் திற";
-"settings.access.guidance.photos.limited" = "Nibomo-வுடன் ஏற்கனவே பகிர்ந்த புகைப்படங்கள் மட்டுமே கிடைக்கும். கூடுதல் புகைப்பட அணுகலை வழங்க அமைப்புகளைத் திறக்கவும்.";
-"settings.access.guidance.photos.blocked" = "Nibomo-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > புகைப்படங்களைத் திறக்கவும்.";
-"settings.access.guidance.camera.blocked" = "Nibomo-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > கேமராவைத் திறக்கவும்.";
-"settings.access.guidance.microphone.blocked" = "Nibomo-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனைத் திறக்கவும்.";
+"settings.access.guidance.photos.limited" = "lingvichr-வுடன் ஏற்கனவே பகிர்ந்த புகைப்படங்கள் மட்டுமே கிடைக்கும். கூடுதல் புகைப்பட அணுகலை வழங்க அமைப்புகளைத் திறக்கவும்.";
+"settings.access.guidance.photos.blocked" = "lingvichr-க்கு புகைப்பட அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > புகைப்படங்களைத் திறக்கவும்.";
+"settings.access.guidance.camera.blocked" = "lingvichr-க்கு கேமரா அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > கேமராவைத் திறக்கவும்.";
+"settings.access.guidance.microphone.blocked" = "lingvichr-க்கு மைக்ரோஃபோன் அணுகல் முடக்கப்பட்டுள்ளது. மாற்ற அமைப்புகள் > தனியுரிமை மற்றும் பாதுகாப்பு > மைக்ரோஃபோனைத் திறக்கவும்.";
 "settings.access.guidance.askEveryTime" = "இப்போது அணுகலைக் கோரவும் அல்லது பின்னர் நீங்களே நிர்வகிக்க அமைப்புகளைத் திறக்கவும்.";
 "settings.access.guidance.allowed" = "இந்த அணுகலை முடக்க விரும்பினால் அமைப்புகளைத் திறக்கவும்.";
 "settings.access.guidance.limited" = "இந்த அணுகலைப் பார்க்க அல்லது விரிவாக்க அமைப்புகளைத் திறக்கவும்.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "செயலி ஐகான் பேட்ஜ்";
 "settings.notifications.section.strictReminders" = "தொடர் நாள் நினைவூட்டல்கள்";
 "settings.notifications.enableStrictReminders" = "தொடர் நாள் நினைவூட்டல்களை இயக்கு";
-"settings.notifications.strictReminders.description" = "தற்போதைய பணியிடத்தில் இன்று மீள்பயிற்சி செய்யவில்லை எனில், உங்கள் தொடர் நாட்களைத் தக்கவைக்க நள்ளிரவுக்கு 4, 3 மற்றும் 2 மணி நேரத்திற்கு முன் Nibomo நினைவூட்டும்.";
+"settings.notifications.strictReminders.description" = "தற்போதைய பணியிடத்தில் இன்று மீள்பயிற்சி செய்யவில்லை எனில், உங்கள் தொடர் நாட்களைத் தக்கவைக்க நள்ளிரவுக்கு 4, 3 மற்றும் 2 மணி நேரத்திற்கு முன் lingvichr நினைவூட்டும்.";
 "settings.notifications.section.dailyReminder" = "தினமும் ஒருமுறை";
 "settings.notifications.permission.allowed" = "அனுமதிக்கப்பட்டது";
 "settings.notifications.permission.notRequested" = "கோரப்படவில்லை";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "இறக்குமதி";
 "settings.workspace.import.cloudRequired" = "இந்தப் பதிப்பில் ஊடக ZIP-ஐ இறக்குமதி செய்ய கிளவுட் கணக்கு தேவை.";
-"settings.workspace.import.invalidFile" = "Nibomo ZIP தொகுப்பைத் தேர்ந்தெடுக்கவும்.";
+"settings.workspace.import.invalidFile" = "lingvichr ZIP தொகுப்பைத் தேர்ந்தெடுக்கவும்.";
 "settings.workspace.import.fileTooLarge" = "%d MB-க்கு மிகாத ZIP தொகுப்பைத் தேர்ந்தெடுக்கவும்.";
 "settings.workspace.import.missingImportTag" = "இறக்குமதி செய்வதற்கு முன் இறக்குமதிக் குறிச்சொல்லை உள்ளிடவும்.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "இந்த எண்ணிக்கை முழுப் பணியிடத்திற்கானது; பல குறிச்சொற்களைப் பகிரும் அட்டைகளை இருமுறை கணக்கிடாது.";
 "settings.row.sendFeedback" = "கருத்தை அனுப்பு";
 "settings.row.sendFeedback.value" = "யோசனையைப் பகிர்";
-"feedback.sheet.title" = "Nibomo-க்காக ஒரு யோசனை உள்ளதா?";
+"feedback.sheet.title" = "lingvichr-க்காக ஒரு யோசனை உள்ளதா?";
 "feedback.sheet.body" = "செயலியை எவ்வாறு மேம்படுத்தலாம் எனப் பகிருங்கள். உருவாக்கியவர் ஒவ்வொரு செய்தியையும் நேரடியாகப் படிப்பார்.";
 "feedback.sheet.placeholder" = "உங்கள் யோசனையை இங்கே எழுதவும்";
 "feedback.sheet.send" = "அனுப்பு";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ நலச் சோதனை %d நிலையை %@-க்கு வழங்கியது";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ நலச் சோதனை %@-க்காக வேறொரு சேவையகத்திற்கு மாற்றப்பட்டது: %@. அதே சேவையகத்தில் பதிலளிக்கும்படி அமைத்து மீண்டும் முயலவும்.";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@-இல் உள்ள API நலத் தகவல் சரியான சேவை மற்றும் கிளவுட் ஒப்பந்தத்தை அறிவிக்கவில்லை. தனிப்பயன் சேவையகத்தைப் புதுப்பித்து மீண்டும் நிறுவியபின் முயலவும்.";
-"settings.account.server.validation.unexpectedApiService" = "%@-இல் உள்ள API நலத் தகவல் இணக்கமான Nibomo பின்தளத்திற்குப் பதிலாக %@ என அடையாளப்படுத்துகிறது. தனிப்பயன் சேவையகத்தைப் புதுப்பித்து மீண்டும் நிறுவியபின் முயலவும்.";
+"settings.account.server.validation.unexpectedApiService" = "%@-இல் உள்ள API நலத் தகவல் இணக்கமான lingvichr பின்தளத்திற்குப் பதிலாக %@ என அடையாளப்படுத்துகிறது. தனிப்பயன் சேவையகத்தைப் புதுப்பித்து மீண்டும் நிறுவியபின் முயலவும்.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@-இல் உள்ள API நலத் தகவல் ஆதரிக்கப்படாத கிளவுட் ஒப்பந்தப் பதிப்பு %d-ஐ அறிவிக்கிறது. இந்தச் செயலிக்கு பதிப்பு 1 தேவை. தனிப்பயன் சேவையகத்தைப் புதுப்பித்து மீண்டும் நிறுவியபின் முயலவும்.";
 "settings.sync.customGuestWorkspacePaused.message" = "இந்தத் தனிப்பயன் சேவையகத்தால் இந்த விருந்தினர் பணியிடத்தை அணுக முடியாது. சேவையகம் இணக்கமற்றதாகவோ தவறாக அமைக்கப்பட்டதாகவோ இருக்கலாம். ஒத்திசைவு இடைநிறுத்தப்பட்டுள்ளது; உங்கள் உள்ளூர் அட்டைகளும் நிலுவை மாற்றங்களும் இந்தச் சாதனத்தில் பாதுகாப்பாக உள்ளன.";
 "settings.account.status.customGuestPause.title" = "விருந்தினர் கிளவுட் பணியிடம் கிடைக்கவில்லை";

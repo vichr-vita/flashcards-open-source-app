@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Atbilde jau tiek veidota. Pirms citas ziņas sūtīšanas pagaidiet, līdz tā ir pabeigta, vai apturiet to.";
 "ai.dictation.error.microphoneUnavailable" = "Šajā ierīcē mikrofons nav pieejams.";
 "ai.dictation.error.microphoneDenied" = "Piekļuve mikrofonam netika piešķirta.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo piekļuve mikrofonam ir izslēgta. Ieslēdziet to sadaļā Iestatījumi > Privātums un drošība > Mikrofons.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr piekļuve mikrofonam ir izslēgta. Ieslēdziet to sadaļā Iestatījumi > Privātums un drošība > Mikrofons.";
 "ai.dictation.error.invalidRecording" = "Neizdevās sagatavot ierakstīto audio.";
 "ai.dictation.error.recordingStartFailed" = "Neizdevās sākt mikrofona ierakstu.";
 "ai.dictation.error.emptyRecording" = "Runa netika ierakstīta.";
@@ -138,7 +138,7 @@
 "settings.title" = "Iestatījumi";
 "settings.inviteFriend.button" = "Pievienot draugu";
 "settings.section.share" = "Kopīgot";
-"settings.row.shareApp" = "Kopīgot Nibomo";
+"settings.row.shareApp" = "Kopīgot lingvichr";
 "settings.section.feedback" = "Atsauksmes";
 "settings.row.reviewInAppStore" = "Novērtēt App Store";
 "settings.row.sharePrivateFeedback" = "Nosūtīt privātu atsauksmi";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Jūsu plāns šeit parādīsies pēc tam, kad lietotne būs sinhronizēta ar jūsu kontu.";
 "settings.subscription.manage" = "Pārvaldīt abonementu";
 "settings.language.title" = "Valoda";
-"settings.language.systemDescription" = "iOS pārvalda lietotnes valodu. iOS iestatījumos atveriet Nibomo un izmantojiet vēlamās valodas iestatījumu. Ja tas netiek rādīts, vispirms pievienojiet citu valodu sadaļā Iestatījumi > Vispārīgi > Valoda un reģions.";
-"settings.language.action.openAppSettings" = "Atvērt Nibomo iestatījumus";
+"settings.language.systemDescription" = "iOS pārvalda lietotnes valodu. iOS iestatījumos atveriet lingvichr un izmantojiet vēlamās valodas iestatījumu. Ja tas netiek rādīts, vispirms pievienojiet citu valodu sadaļā Iestatījumi > Vispārīgi > Valoda un reģions.";
+"settings.language.action.openAppSettings" = "Atvērt lingvichr iestatījumus";
 "settings.language.section.supportedLanguages" = "Atbalstītās valodas";
 "settings.language.supported.english" = "Angļu";
 "settings.language.supported.arabic" = "Arābu";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Krievu";
 "settings.language.supported.spanishMexico" = "Spāņu (Meksika)";
 "settings.language.supported.spanishSpain" = "Spāņu (Spānija)";
-"feedback.settings.description" = "Dalieties ar ideju, ziņojiet par trūkumu vai pastāstiet, kas uzlabotu Nibomo.";
+"feedback.settings.description" = "Dalieties ar ideju, ziņojiet par trūkumu vai pastāstiet, kas uzlabotu lingvichr.";
 "settings.sync.success" = "Veiksmīgi sinhronizēts";
 "settings.sync.guestAiActive" = "Viesa MI ir aktīvs";
 "settings.sync.notSyncing" = "Nesinhronizē";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Atļaujas";
 "settings.access.notifications" = "Paziņojumi";
 "settings.access.thisDevice" = "Šī ierīce";
-"settings.access.footer" = "Nibomo pieprasa tikai piekļuvi, kas vajadzīga pielikumiem un sarunas diktēšanai.";
+"settings.access.footer" = "lingvichr pieprasa tikai piekļuvi, kas vajadzīga pielikumiem un sarunas diktēšanai.";
 "settings.access.detail.status" = "Statuss";
 "settings.access.kind.photos" = "Fotoattēli";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Nav pieejams";
 "settings.access.action.request" = "Pieprasīt piekļuvi";
 "settings.access.action.openSettings" = "Atvērt iestatījumus";
-"settings.access.guidance.photos.limited" = "Pieejami tikai fotoattēli, kurus jau kopīgojāt ar Nibomo. Lai piešķirtu plašāku piekļuvi, atveriet iestatījumus.";
-"settings.access.guidance.photos.blocked" = "Nibomo piekļuve fotoattēliem ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Fotoattēli.";
-"settings.access.guidance.camera.blocked" = "Nibomo piekļuve kamerai ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Kamera.";
-"settings.access.guidance.microphone.blocked" = "Nibomo piekļuve mikrofonam ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Mikrofons.";
+"settings.access.guidance.photos.limited" = "Pieejami tikai fotoattēli, kurus jau kopīgojāt ar lingvichr. Lai piešķirtu plašāku piekļuvi, atveriet iestatījumus.";
+"settings.access.guidance.photos.blocked" = "lingvichr piekļuve fotoattēliem ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Fotoattēli.";
+"settings.access.guidance.camera.blocked" = "lingvichr piekļuve kamerai ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Kamera.";
+"settings.access.guidance.microphone.blocked" = "lingvichr piekļuve mikrofonam ir izslēgta. Lai to mainītu, atveriet Iestatījumi > Privātums un drošība > Mikrofons.";
 "settings.access.guidance.askEveryTime" = "Pieprasiet piekļuvi tagad vai vēlāk pārvaldiet to iestatījumos.";
 "settings.access.guidance.allowed" = "Lai izslēgtu šo piekļuvi, atveriet iestatījumus.";
 "settings.access.guidance.limited" = "Lai pārskatītu vai paplašinātu šo piekļuvi, atveriet iestatījumus.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Lietotnes ikonas žetons";
 "settings.notifications.section.strictReminders" = "Sērijas atgādinājumi";
 "settings.notifications.enableStrictReminders" = "Ieslēgt sērijas atgādinājumus";
-"settings.notifications.strictReminders.description" = "Ja šodien vēl neesat atkārtojis pašreizējā darbvietā, Nibomo atgādina 4, 3 un 2 stundas pirms pusnakts, lai jūs saglabātu sēriju.";
+"settings.notifications.strictReminders.description" = "Ja šodien vēl neesat atkārtojis pašreizējā darbvietā, lingvichr atgādina 4, 3 un 2 stundas pirms pusnakts, lai jūs saglabātu sēriju.";
 "settings.notifications.section.dailyReminder" = "Reizi dienā";
 "settings.notifications.permission.allowed" = "Atļauts";
 "settings.notifications.permission.notRequested" = "Nav pieprasīts";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importēt";
 "settings.workspace.import.cloudRequired" = "Šajā versijā multivides ZIP importēšanai nepieciešams mākoņa konts.";
-"settings.workspace.import.invalidFile" = "Izvēlieties Nibomo ZIP pakotni.";
+"settings.workspace.import.invalidFile" = "Izvēlieties lingvichr ZIP pakotni.";
 "settings.workspace.import.fileTooLarge" = "Izvēlieties ZIP pakotni līdz %d MB.";
 "settings.workspace.import.missingImportTag" = "Pirms importēšanas ievadiet importēšanas birku.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Šis skaits attiecas uz visu darbvietu un neskaita atkārtoti kartītes, kurām ir kopīgas birkas.";
 "settings.row.sendFeedback" = "Nosūtīt atsauksmi";
 "settings.row.sendFeedback.value" = "Dalīties ar ideju";
-"feedback.sheet.title" = "Vai jums ir ideja Nibomo?";
+"feedback.sheet.title" = "Vai jums ir ideja lingvichr?";
 "feedback.sheet.body" = "Pastāstiet, kas uzlabotu lietotni. Izstrādātājs personīgi izlasa katru ziņu.";
 "feedback.sheet.placeholder" = "Rakstiet savu ideju šeit";
 "feedback.sheet.send" = "Nosūtīt";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ darbspējas pārbaude atgrieza statusu %d adresei %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ darbspējas pārbaude adresei %@ tika novirzīta uz citu serveri: %@. Konfigurējiet atbildi tajā pašā serverī un mēģiniet vēlreiz.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API darbspējas pārbaude adresē %@ nenorāda derīgu pakalpojumu un mākoņa līgumu. Atjauniniet un atkārtoti izvietojiet pielāgoto serveri, tad mēģiniet vēlreiz.";
-"settings.account.server.validation.unexpectedApiService" = "API darbspējas pārbaude adresē %@ identificē %@, nevis saderīgu Nibomo serveri. Atjauniniet un atkārtoti izvietojiet pielāgoto serveri, tad mēģiniet vēlreiz.";
+"settings.account.server.validation.unexpectedApiService" = "API darbspējas pārbaude adresē %@ identificē %@, nevis saderīgu lingvichr serveri. Atjauniniet un atkārtoti izvietojiet pielāgoto serveri, tad mēģiniet vēlreiz.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API darbspējas pārbaude adresē %@ norāda neatbalstītu mākoņa līguma versiju %d. Šai lietotnei nepieciešama 1. versija. Atjauniniet un atkārtoti izvietojiet pielāgoto serveri, tad mēģiniet vēlreiz.";
 "settings.sync.customGuestWorkspacePaused.message" = "Šis pielāgotais serveris nevar piekļūt šai viesa darbvietai. Serveris var būt nesaderīgs vai nepareizi konfigurēts. Sinhronizācija ir apturēta, un jūsu vietējās kartītes un gaidošās izmaiņas ir drošībā šajā ierīcē.";
 "settings.account.status.customGuestPause.title" = "Viesa mākoņa darbvieta nav pieejama";

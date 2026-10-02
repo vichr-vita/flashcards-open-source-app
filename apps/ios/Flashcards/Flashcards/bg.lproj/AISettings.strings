@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Вече е в ход отговор. Изчакайте да приключи или го спрете, преди да изпратите друго съобщение.";
 "ai.dictation.error.microphoneUnavailable" = "Микрофонът не е наличен на това устройство.";
 "ai.dictation.error.microphoneDenied" = "Достъпът до микрофона не беше предоставен.";
-"ai.dictation.error.microphoneBlocked" = "Достъпът до микрофона е изключен за Nibomo. Активирайте го в Настройки > Поверителност и сигурност > Микрофон.";
+"ai.dictation.error.microphoneBlocked" = "Достъпът до микрофона е изключен за lingvichr. Активирайте го в Настройки > Поверителност и сигурност > Микрофон.";
 "ai.dictation.error.invalidRecording" = "Неуспешна подготовка на записания звук.";
 "ai.dictation.error.recordingStartFailed" = "Стартирането на запис от микрофона не бе успешно.";
 "ai.dictation.error.emptyRecording" = "Не е записана реч.";
@@ -138,7 +138,7 @@
 "settings.title" = "Настройки";
 "settings.inviteFriend.button" = "Добавяне на приятел";
 "settings.section.share" = "Споделете";
-"settings.row.shareApp" = "Споделяне Nibomo";
+"settings.row.shareApp" = "Споделяне lingvichr";
 "settings.section.feedback" = "Обратна връзка";
 "settings.row.reviewInAppStore" = "Оценете в App Store";
 "settings.row.sharePrivateFeedback" = "Споделете лични отзиви";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Планът ви ще се покаже тук, след като приложението се синхронизира с акаунта ви.";
 "settings.subscription.manage" = "Управление на абонамента";
 "settings.language.title" = "Език";
-"settings.language.systemDescription" = "iOS контролира езика на приложението. В Настройки на iOS отворете Nibomo и използвайте Предпочитан език. Ако Предпочитаният език не е показан, първо добавете друг език в Настройки > Общи > Език и регион.";
-"settings.language.action.openAppSettings" = "Отворете настройките на Nibomo";
+"settings.language.systemDescription" = "iOS контролира езика на приложението. В Настройки на iOS отворете lingvichr и използвайте Предпочитан език. Ако Предпочитаният език не е показан, първо добавете друг език в Настройки > Общи > Език и регион.";
+"settings.language.action.openAppSettings" = "Отворете настройките на lingvichr";
 "settings.language.section.supportedLanguages" = "Поддържани езици";
 "settings.language.supported.english" = "Английски";
 "settings.language.supported.arabic" = "Арабски";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Руски";
 "settings.language.supported.spanishMexico" = "Испански (Мексико)";
 "settings.language.supported.spanishSpain" = "Испански (Испания)";
-"feedback.settings.description" = "Споделете идея, съобщете за неудобство или ни кажете какво би подобрило Nibomo.";
+"feedback.settings.description" = "Споделете идея, съобщете за неудобство или ни кажете какво би подобрило lingvichr.";
 "settings.sync.success" = "Успешно синхронизирано";
 "settings.sync.guestAiActive" = "ИИ е активен за гости";
 "settings.sync.notSyncing" = "Не се синхронизира";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Разрешения";
 "settings.access.notifications" = "Известия";
 "settings.access.thisDevice" = "Това устройство";
-"settings.access.footer" = "Nibomo изисква само достъпа, необходим за прикачени файлове и диктовка за чат.";
+"settings.access.footer" = "lingvichr изисква само достъпа, необходим за прикачени файлове и диктовка за чат.";
 "settings.access.detail.status" = "Статус";
 "settings.access.kind.photos" = "Снимки";
 "settings.access.kind.camera" = "Камера";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Недостъпен";
 "settings.access.action.request" = "Поискайте достъп";
 "settings.access.action.openSettings" = "Отворете Настройки";
-"settings.access.guidance.photos.limited" = "Налични са само снимките, които вече споделихте с Nibomo. Отворете Настройки, за да предоставите по-широк достъп до снимки.";
-"settings.access.guidance.photos.blocked" = "Достъпът до снимки е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Снимки, за да го промените.";
-"settings.access.guidance.camera.blocked" = "Достъпът до камерата е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Камера, за да го промените.";
-"settings.access.guidance.microphone.blocked" = "Достъпът до микрофона е изключен за Nibomo. Отворете Настройки > Поверителност и сигурност > Микрофон, за да го промените.";
+"settings.access.guidance.photos.limited" = "Налични са само снимките, които вече споделихте с lingvichr. Отворете Настройки, за да предоставите по-широк достъп до снимки.";
+"settings.access.guidance.photos.blocked" = "Достъпът до снимки е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Снимки, за да го промените.";
+"settings.access.guidance.camera.blocked" = "Достъпът до камерата е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Камера, за да го промените.";
+"settings.access.guidance.microphone.blocked" = "Достъпът до микрофона е изключен за lingvichr. Отворете Настройки > Поверителност и сигурност > Микрофон, за да го промените.";
 "settings.access.guidance.askEveryTime" = "Поискайте достъп сега или отворете Настройки по-късно, ако искате да го управлявате ръчно.";
 "settings.access.guidance.allowed" = "Отворете Настройки, ако искате да изключите този достъп.";
 "settings.access.guidance.limited" = "Отворете Настройки, за да прегледате или разширите този достъп.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Значка с икона на приложението";
 "settings.notifications.section.strictReminders" = "Напомняния за поредицата";
 "settings.notifications.enableStrictReminders" = "Включване на напомняния за поредицата";
-"settings.notifications.strictReminders.description" = "Ако днес не сте преговаряли в текущото работно пространство, Nibomo ви напомня 4, 3 и 2 часа преди полунощ, за да запазите поредицата си.";
+"settings.notifications.strictReminders.description" = "Ако днес не сте преговаряли в текущото работно пространство, lingvichr ви напомня 4, 3 и 2 часа преди полунощ, за да запазите поредицата си.";
 "settings.notifications.section.dailyReminder" = "Веднъж дневно";
 "settings.notifications.permission.allowed" = "Разрешен";
 "settings.notifications.permission.notRequested" = "Не е поискано";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Импортиране";
 "settings.workspace.import.cloudRequired" = "Импортирането на медия ZIP изисква акаунт в облак в тази версия.";
-"settings.workspace.import.invalidFile" = "Изберете пакет Nibomo ZIP.";
+"settings.workspace.import.invalidFile" = "Изберете пакет lingvichr ZIP.";
 "settings.workspace.import.fileTooLarge" = "Изберете пакет ZIP до %d MB.";
 "settings.workspace.import.missingImportTag" = "Въведете етикет за импортиране преди импортиране.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Този брой е за цялото работно пространство. Картите с няколко етикета се броят само веднъж.";
 "settings.row.sendFeedback" = "Изпратете обратна връзка";
 "settings.row.sendFeedback.value" = "Споделете идея";
-"feedback.sheet.title" = "Имате идея за Nibomo?";
+"feedback.sheet.title" = "Имате идея за lingvichr?";
 "feedback.sheet.body" = "Споделете какво би подобрило приложението. Създателят му чете лично всяко съобщение.";
 "feedback.sheet.placeholder" = "Напишете вашата идея тук";
 "feedback.sheet.send" = "Изпратете";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Проверката на състоянието на %@ върна код %d за %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Проверката на състоянието на %@ за %@ е пренасочена към друг сървър: %@. Настройте отговора да идва от същия сървър и опитайте отново.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Отговорът за състоянието на API от %@ не посочва валидна услуга и облачен протокол. Актуализирайте и внедрете отново персонализирания сървър, след което опитайте отново.";
-"settings.account.server.validation.unexpectedApiService" = "Отговорът за състоянието на API от %@ посочва %@ вместо съвместим сървър на Nibomo. Актуализирайте и внедрете отново персонализирания сървър, след което опитайте отново.";
+"settings.account.server.validation.unexpectedApiService" = "Отговорът за състоянието на API от %@ посочва %@ вместо съвместим сървър на lingvichr. Актуализирайте и внедрете отново персонализирания сървър, след което опитайте отново.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Отговорът за състоянието на API от %@ посочва неподдържана версия %d на облачния протокол. Приложението изисква версия 1. Актуализирайте и внедрете отново персонализирания сървър, след което опитайте отново.";
 "settings.sync.customGuestWorkspacePaused.message" = "Този персонализиран сървър няма достъп до това работно пространство за гости. Сървърът може да е несъвместим или неправилно конфигуриран. Синхронизирането е поставено на пауза и вашите локални карти и чакащи промени са в безопасност на това устройство.";
 "settings.account.status.customGuestPause.title" = "Работното пространство в облака за гости е недостъпно";

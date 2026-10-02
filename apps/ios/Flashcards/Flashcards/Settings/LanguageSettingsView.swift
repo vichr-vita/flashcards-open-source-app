@@ -217,13 +217,13 @@ struct LanguageSettingsView: View {
                 Text(
                     aiSettingsLocalized(
                         "settings.language.systemDescription",
-                        "iOS controls the app language. In iOS Settings, open Nibomo and use Preferred Language. If Preferred Language is not shown, add another language in Settings > General > Language & Region first."
+                        "iOS controls the app language. In iOS Settings, open lingvichr and use Preferred Language. If Preferred Language is not shown, add another language in Settings > General > Language & Region first."
                     )
                 )
                     .foregroundStyle(.secondary)
                     .accessibilityIdentifier(UITestIdentifier.languageSettingsSystemText)
 
-                Button(aiSettingsLocalized("settings.language.action.openAppSettings", "Open Nibomo settings")) {
+                Button(aiSettingsLocalized("settings.language.action.openAppSettings", "Open lingvichr settings")) {
                     openApplicationSettings()
                 }
             }

@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Svar er þegar í vinnslu. Bíddu þar til því lýkur eða stöðvaðu það áður en þú sendir önnur skilaboð.";
 "ai.dictation.error.microphoneUnavailable" = "Hljóðnemi er ekki tiltækur á þessu tæki.";
 "ai.dictation.error.microphoneDenied" = "Aðgangur að hljóðnema var ekki veittur.";
-"ai.dictation.error.microphoneBlocked" = "Slökkt er á hljóðnemaaðgangi fyrir Nibomo. Virkjaðu hann í Stillingar > Persónuvernd og öryggi > Hljóðnemi.";
+"ai.dictation.error.microphoneBlocked" = "Slökkt er á hljóðnemaaðgangi fyrir lingvichr. Virkjaðu hann í Stillingar > Persónuvernd og öryggi > Hljóðnemi.";
 "ai.dictation.error.invalidRecording" = "Ekki tókst að undirbúa hljóðupptökuna.";
 "ai.dictation.error.recordingStartFailed" = "Ekki tókst að hefja hljóðnemaupptöku.";
 "ai.dictation.error.emptyRecording" = "Ekkert tal var tekið upp.";
@@ -138,7 +138,7 @@
 "settings.title" = "Stillingar";
 "settings.inviteFriend.button" = "Bæta við vini";
 "settings.section.share" = "Deila";
-"settings.row.shareApp" = "Deila Nibomo";
+"settings.row.shareApp" = "Deila lingvichr";
 "settings.section.feedback" = "Ábendingar";
 "settings.row.reviewInAppStore" = "Gefa umsögn í App Store";
 "settings.row.sharePrivateFeedback" = "Senda ábendingu í einrúmi";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Áskriftarleiðin þín birtist hér þegar forritið hefur samstillst við aðganginn þinn.";
 "settings.subscription.manage" = "Stjórna áskrift";
 "settings.language.title" = "Tungumál";
-"settings.language.systemDescription" = "iOS stjórnar tungumáli forritsins. Opnaðu Nibomo í Stillingum iOS og veldu tungumál. Ef tungumálaval sést ekki skaltu fyrst bæta við öðru tungumáli í Stillingar > Almennt > Tungumál og svæði.";
-"settings.language.action.openAppSettings" = "Opna stillingar Nibomo";
+"settings.language.systemDescription" = "iOS stjórnar tungumáli forritsins. Opnaðu lingvichr í Stillingum iOS og veldu tungumál. Ef tungumálaval sést ekki skaltu fyrst bæta við öðru tungumáli í Stillingar > Almennt > Tungumál og svæði.";
+"settings.language.action.openAppSettings" = "Opna stillingar lingvichr";
 "settings.language.section.supportedLanguages" = "Studd tungumál";
 "settings.language.supported.english" = "Enska";
 "settings.language.supported.arabic" = "Arabíska";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rússneska";
 "settings.language.supported.spanishMexico" = "Spænska, Mexíkó";
 "settings.language.supported.spanishSpain" = "Spænska, Spánn";
-"feedback.settings.description" = "Deildu hugmynd, bentu á hnökra eða segðu okkur hvað myndi bæta Nibomo.";
+"feedback.settings.description" = "Deildu hugmynd, bentu á hnökra eða segðu okkur hvað myndi bæta lingvichr.";
 "settings.sync.success" = "Samstilling tókst";
 "settings.sync.guestAiActive" = "Gervigreind fyrir gesti er virk";
 "settings.sync.notSyncing" = "Samstillir ekki";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Heimildir";
 "settings.access.notifications" = "Tilkynningar";
 "settings.access.thisDevice" = "Þetta tæki";
-"settings.access.footer" = "Nibomo biður aðeins um aðgang sem þarf fyrir viðhengi og innlestur í spjall.";
+"settings.access.footer" = "lingvichr biður aðeins um aðgang sem þarf fyrir viðhengi og innlestur í spjall.";
 "settings.access.detail.status" = "Staða";
 "settings.access.kind.photos" = "Myndir";
 "settings.access.kind.camera" = "Myndavél";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Ekki tiltækt";
 "settings.access.action.request" = "Óska eftir aðgangi";
 "settings.access.action.openSettings" = "Opna Stillingar";
-"settings.access.guidance.photos.limited" = "Aðeins myndir sem þú hefur þegar deilt með Nibomo eru tiltækar. Opnaðu Stillingar til að veita víðtækari aðgang að myndum.";
-"settings.access.guidance.photos.blocked" = "Slökkt er á myndaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Myndir til að breyta því.";
-"settings.access.guidance.camera.blocked" = "Slökkt er á myndavélaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Myndavél til að breyta því.";
-"settings.access.guidance.microphone.blocked" = "Slökkt er á hljóðnemaaðgangi fyrir Nibomo. Opnaðu Stillingar > Persónuvernd og öryggi > Hljóðnemi til að breyta því.";
+"settings.access.guidance.photos.limited" = "Aðeins myndir sem þú hefur þegar deilt með lingvichr eru tiltækar. Opnaðu Stillingar til að veita víðtækari aðgang að myndum.";
+"settings.access.guidance.photos.blocked" = "Slökkt er á myndaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Myndir til að breyta því.";
+"settings.access.guidance.camera.blocked" = "Slökkt er á myndavélaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Myndavél til að breyta því.";
+"settings.access.guidance.microphone.blocked" = "Slökkt er á hljóðnemaaðgangi fyrir lingvichr. Opnaðu Stillingar > Persónuvernd og öryggi > Hljóðnemi til að breyta því.";
 "settings.access.guidance.askEveryTime" = "Óskaðu eftir aðgangi núna eða opnaðu Stillingar síðar til að stjórna honum handvirkt.";
 "settings.access.guidance.allowed" = "Opnaðu Stillingar ef þú vilt slökkva á þessum aðgangi.";
 "settings.access.guidance.limited" = "Opnaðu Stillingar til að skoða eða auka þennan aðgang.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Merki á forritstákni";
 "settings.notifications.section.strictReminders" = "Runuáminningar";
 "settings.notifications.enableStrictReminders" = "Virkja runuáminningar";
-"settings.notifications.strictReminders.description" = "Ef þú hefur ekki rifjað upp á núverandi vinnusvæði í dag minnir Nibomo þig á 4, 3 og 2 klukkustundum fyrir miðnætti svo þú haldir rununni.";
+"settings.notifications.strictReminders.description" = "Ef þú hefur ekki rifjað upp á núverandi vinnusvæði í dag minnir lingvichr þig á 4, 3 og 2 klukkustundum fyrir miðnætti svo þú haldir rununni.";
 "settings.notifications.section.dailyReminder" = "Einu sinni á dag";
 "settings.notifications.permission.allowed" = "Leyft";
 "settings.notifications.permission.notRequested" = "Ekki óskað eftir";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Flytja inn";
 "settings.workspace.import.cloudRequired" = "Innflutningur ZIP-miðlapakka krefst skýjaaðgangs í þessari útgáfu.";
-"settings.workspace.import.invalidFile" = "Veldu Nibomo ZIP-pakka.";
+"settings.workspace.import.invalidFile" = "Veldu lingvichr ZIP-pakka.";
 "settings.workspace.import.fileTooLarge" = "Veldu ZIP-pakka sem er allt að %d MB.";
 "settings.workspace.import.missingImportTag" = "Sláðu inn innflutningsmerki áður en þú flytur inn.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Þessi fjöldi nær yfir allt vinnusvæðið og tvítelur ekki spjöld sem deila merkjum.";
 "settings.row.sendFeedback" = "Senda ábendingu";
 "settings.row.sendFeedback.value" = "Deila hugmynd";
-"feedback.sheet.title" = "Ertu með hugmynd fyrir Nibomo?";
+"feedback.sheet.title" = "Ertu með hugmynd fyrir lingvichr?";
 "feedback.sheet.body" = "Segðu okkur hvað myndi bæta forritið. Höfundurinn les hvert einasta skilaboð sjálfur.";
 "feedback.sheet.placeholder" = "Skrifaðu hugmyndina þína hér";
 "feedback.sheet.send" = "Senda";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Stöðuprófun %@ skilaði stöðu %d fyrir %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Stöðuprófun %@ fyrir %@ var vísað á annan þjón: %@. Stilltu hana til að svara á sama þjóni og reyndu aftur.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API-staða á %@ tilkynnir ekki gilda þjónustu og skýjasamning. Uppfærðu og settu sérsniðna þjóninn upp aftur og reyndu svo aftur.";
-"settings.account.server.validation.unexpectedApiService" = "API-staða á %@ auðkennir %@ í stað samhæfs Nibomo-bakenda. Uppfærðu og settu sérsniðna þjóninn upp aftur og reyndu svo aftur.";
+"settings.account.server.validation.unexpectedApiService" = "API-staða á %@ auðkennir %@ í stað samhæfs lingvichr-bakenda. Uppfærðu og settu sérsniðna þjóninn upp aftur og reyndu svo aftur.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API-staða á %@ tilkynnir óstudda útgáfu %d af skýjasamningi. Forritið krefst útgáfu 1. Uppfærðu og settu sérsniðna þjóninn upp aftur og reyndu svo aftur.";
 "settings.sync.customGuestWorkspacePaused.message" = "Þessi sérsniðni þjónn hefur ekki aðgang að gestavinnusvæðinu. Hann gæti verið ósamhæfur eða rangt stilltur. Samstilling er í bið og staðbundin spjöld og breytingar í bið eru örugg á þessu tæki.";
 "settings.account.status.customGuestPause.title" = "Skýjavinnusvæði gests ekki tiltækt";

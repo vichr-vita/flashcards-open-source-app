@@ -1,9 +1,12 @@
+import { authBrandHtml, authFaviconUrl } from "../templates/branding.js";
+
 export function renderLocalLoginPage(csrfToken: string, redirectUri: string, nonce: string, enrollment: boolean): string {
   const config = JSON.stringify({ csrfToken, redirectUri, enrollment }).replaceAll("<", "\\u003c");
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark"><title>Nibomo</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark"><link rel="icon" href="${authFaviconUrl}"><title>lingvichr</title>
 <style nonce="${nonce}">
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif}body{min-height:100dvh;display:grid;grid-template-rows:auto 1fr}header{padding:24px 28px;font-size:20px;font-weight:700;letter-spacing:-.7px}main{display:grid;place-items:center;padding:32px 24px 96px}.login{width:100%;max-width:300px}h1{font-size:28px;font-weight:600;letter-spacing:-.8px;margin:0 0 24px}button{width:100%;min-height:46px;padding:12px 16px;border:1px solid #fff;border-radius:0;background:#fff;color:#000;font:600 14px Arial,Helvetica,sans-serif;cursor:pointer}button:disabled{opacity:.55;cursor:default}button:focus-visible{outline:2px solid #fff;outline-offset:4px}p{font-size:13px;line-height:1.5;margin:14px 0 0;color:#aaa}#feedback{color:#fff}#feedback:empty{display:none}
-</style></head><body><header>nibomo</header><main><section class="login" aria-labelledby="title"><h1 id="title">${enrollment ? "Set up a passkey" : "Sign in"}</h1><button id="passkey" type="button">${enrollment ? "Create passkey" : "Sign in with passkey"}</button><p id="hint">Confirm on your device.</p><p id="feedback" role="status" aria-live="polite"></p><noscript><p>Enable JavaScript to use a passkey.</p></noscript></section></main>
+.login-brand{display:flex;align-items:center;gap:8px;width:fit-content}.login-brand img{display:block}
+</style></head><body><header>${authBrandHtml}</header><main><section class="login" aria-labelledby="title"><h1 id="title">${enrollment ? "Set up a passkey" : "Sign in"}</h1><button id="passkey" type="button">${enrollment ? "Create passkey" : "Sign in with passkey"}</button><p id="hint">Confirm on your device.</p><p id="feedback" role="status" aria-live="polite"></p><noscript><p>Enable JavaScript to use a passkey.</p></noscript></section></main>
 <script nonce="${nonce}" id="local-auth-config" type="application/json">${config}</script><script nonce="${nonce}" type="module" src="/assets/local-passkey.js"></script></body></html>`;
 }

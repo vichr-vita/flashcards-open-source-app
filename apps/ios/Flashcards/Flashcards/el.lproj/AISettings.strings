@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Υπάρχει ήδη απάντηση σε εξέλιξη. Περιμένετε να ολοκληρωθεί ή σταματήστε την πριν στείλετε άλλο μήνυμα.";
 "ai.dictation.error.microphoneUnavailable" = "Το μικρόφωνο δεν είναι διαθέσιμο σε αυτήν τη συσκευή.";
 "ai.dictation.error.microphoneDenied" = "Δεν παραχωρήθηκε πρόσβαση στο μικρόφωνο.";
-"ai.dictation.error.microphoneBlocked" = "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το Nibomo. Ενεργοποιήστε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο.";
+"ai.dictation.error.microphoneBlocked" = "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το lingvichr. Ενεργοποιήστε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο.";
 "ai.dictation.error.invalidRecording" = "Η προετοιμασία του ηχογραφημένου ήχου απέτυχε.";
 "ai.dictation.error.recordingStartFailed" = "Η έναρξη εγγραφής από το μικρόφωνο απέτυχε.";
 "ai.dictation.error.emptyRecording" = "Δεν καταγράφηκε ομιλία.";
@@ -138,7 +138,7 @@
 "settings.title" = "Ρυθμίσεις";
 "settings.inviteFriend.button" = "Προσθήκη φίλου";
 "settings.section.share" = "Κοινοποίηση";
-"settings.row.shareApp" = "Κοινοποίηση του Nibomo";
+"settings.row.shareApp" = "Κοινοποίηση του lingvichr";
 "settings.section.feedback" = "Σχόλια";
 "settings.row.reviewInAppStore" = "Αξιολόγηση στο App Store";
 "settings.row.sharePrivateFeedback" = "Αποστολή ιδιωτικών σχολίων";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Το πρόγραμμά σας θα εμφανιστεί εδώ μόλις η εφαρμογή συγχρονιστεί με τον λογαριασμό σας.";
 "settings.subscription.manage" = "Διαχείριση συνδρομής";
 "settings.language.title" = "Γλώσσα";
-"settings.language.systemDescription" = "Το iOS ελέγχει τη γλώσσα της εφαρμογής. Στις Ρυθμίσεις iOS, ανοίξτε το Nibomo και χρησιμοποιήστε την Προτιμώμενη γλώσσα. Αν δεν εμφανίζεται, προσθέστε πρώτα άλλη γλώσσα στις Ρυθμίσεις > Γενικά > Γλώσσα και περιοχή.";
-"settings.language.action.openAppSettings" = "Άνοιγμα ρυθμίσεων Nibomo";
+"settings.language.systemDescription" = "Το iOS ελέγχει τη γλώσσα της εφαρμογής. Στις Ρυθμίσεις iOS, ανοίξτε το lingvichr και χρησιμοποιήστε την Προτιμώμενη γλώσσα. Αν δεν εμφανίζεται, προσθέστε πρώτα άλλη γλώσσα στις Ρυθμίσεις > Γενικά > Γλώσσα και περιοχή.";
+"settings.language.action.openAppSettings" = "Άνοιγμα ρυθμίσεων lingvichr";
 "settings.language.section.supportedLanguages" = "Υποστηριζόμενες γλώσσες";
 "settings.language.supported.english" = "Αγγλικά";
 "settings.language.supported.arabic" = "Αραβικά";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Ρωσικά";
 "settings.language.supported.spanishMexico" = "Ισπανικά Μεξικού";
 "settings.language.supported.spanishSpain" = "Ισπανικά Ισπανίας";
-"feedback.settings.description" = "Μοιραστείτε μια ιδέα, αναφέρετε μια δυσκολία ή πείτε μας τι θα έκανε το Nibomo καλύτερο.";
+"feedback.settings.description" = "Μοιραστείτε μια ιδέα, αναφέρετε μια δυσκολία ή πείτε μας τι θα έκανε το lingvichr καλύτερο.";
 "settings.sync.success" = "Ο συγχρονισμός ολοκληρώθηκε";
 "settings.sync.guestAiActive" = "Η ΤΝ επισκέπτη είναι ενεργή";
 "settings.sync.notSyncing" = "Δεν γίνεται συγχρονισμός";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Άδειες";
 "settings.access.notifications" = "Γνωστοποιήσεις";
 "settings.access.thisDevice" = "Αυτή η συσκευή";
-"settings.access.footer" = "Το Nibomo ζητά μόνο την πρόσβαση που χρειάζεται για συνημμένα και υπαγόρευση στη συνομιλία.";
+"settings.access.footer" = "Το lingvichr ζητά μόνο την πρόσβαση που χρειάζεται για συνημμένα και υπαγόρευση στη συνομιλία.";
 "settings.access.detail.status" = "Κατάσταση";
 "settings.access.kind.photos" = "Φωτογραφίες";
 "settings.access.kind.camera" = "Κάμερα";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Μη διαθέσιμο";
 "settings.access.action.request" = "Αίτημα πρόσβασης";
 "settings.access.action.openSettings" = "Άνοιγμα Ρυθμίσεων";
-"settings.access.guidance.photos.limited" = "Είναι διαθέσιμες μόνο οι φωτογραφίες που έχετε ήδη μοιραστεί με το Nibomo. Ανοίξτε τις Ρυθμίσεις για ευρύτερη πρόσβαση στις φωτογραφίες.";
-"settings.access.guidance.photos.blocked" = "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Φωτογραφίες.";
-"settings.access.guidance.camera.blocked" = "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Κάμερα.";
-"settings.access.guidance.microphone.blocked" = "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το Nibomo. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο.";
+"settings.access.guidance.photos.limited" = "Είναι διαθέσιμες μόνο οι φωτογραφίες που έχετε ήδη μοιραστεί με το lingvichr. Ανοίξτε τις Ρυθμίσεις για ευρύτερη πρόσβαση στις φωτογραφίες.";
+"settings.access.guidance.photos.blocked" = "Η πρόσβαση στις φωτογραφίες είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Φωτογραφίες.";
+"settings.access.guidance.camera.blocked" = "Η πρόσβαση στην κάμερα είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Κάμερα.";
+"settings.access.guidance.microphone.blocked" = "Η πρόσβαση στο μικρόφωνο είναι απενεργοποιημένη για το lingvichr. Αλλάξτε την στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Μικρόφωνο.";
 "settings.access.guidance.askEveryTime" = "Ζητήστε πρόσβαση τώρα ή διαχειριστείτε τη χειροκίνητα αργότερα στις Ρυθμίσεις.";
 "settings.access.guidance.allowed" = "Ανοίξτε τις Ρυθμίσεις για να απενεργοποιήσετε αυτήν την πρόσβαση.";
 "settings.access.guidance.limited" = "Ανοίξτε τις Ρυθμίσεις για να ελέγξετε ή να επεκτείνετε αυτήν την πρόσβαση.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Σήμα εικονιδίου εφαρμογής";
 "settings.notifications.section.strictReminders" = "Υπενθυμίσεις σερί";
 "settings.notifications.enableStrictReminders" = "Ενεργοποίηση υπενθυμίσεων σερί";
-"settings.notifications.strictReminders.description" = "Αν δεν έχετε κάνει επανάληψη στον τρέχοντα χώρο εργασίας σήμερα, το Nibomo σας υπενθυμίζει 4, 3 και 2 ώρες πριν από τα μεσάνυχτα για να διατηρήσετε το σερί σας.";
+"settings.notifications.strictReminders.description" = "Αν δεν έχετε κάνει επανάληψη στον τρέχοντα χώρο εργασίας σήμερα, το lingvichr σας υπενθυμίζει 4, 3 και 2 ώρες πριν από τα μεσάνυχτα για να διατηρήσετε το σερί σας.";
 "settings.notifications.section.dailyReminder" = "Μία φορά την ημέρα";
 "settings.notifications.permission.allowed" = "Επιτρέπεται";
 "settings.notifications.permission.notRequested" = "Δεν έχει ζητηθεί";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Εισαγωγή";
 "settings.workspace.import.cloudRequired" = "Η εισαγωγή ZIP πολυμέσων απαιτεί λογαριασμό cloud σε αυτήν την έκδοση.";
-"settings.workspace.import.invalidFile" = "Επιλέξτε ένα πακέτο ZIP του Nibomo.";
+"settings.workspace.import.invalidFile" = "Επιλέξτε ένα πακέτο ZIP του lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Επιλέξτε ένα πακέτο ZIP έως %d MB.";
 "settings.workspace.import.missingImportTag" = "Εισαγάγετε ετικέτα εισαγωγής πριν την εισαγωγή.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Αυτός ο αριθμός αφορά ολόκληρο τον χώρο εργασίας και δεν μετρά διπλά κάρτες που μοιράζονται ετικέτες.";
 "settings.row.sendFeedback" = "Αποστολή σχολίων";
 "settings.row.sendFeedback.value" = "Κοινοποίηση ιδέας";
-"feedback.sheet.title" = "Έχετε μια ιδέα για το Nibomo;";
+"feedback.sheet.title" = "Έχετε μια ιδέα για το lingvichr;";
 "feedback.sheet.body" = "Πείτε μας τι θα βελτίωνε την εφαρμογή. Ο δημιουργός διαβάζει κάθε μήνυμα προσωπικά.";
 "feedback.sheet.placeholder" = "Γράψτε την ιδέα σας εδώ";
 "feedback.sheet.send" = "Αποστολή";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Ο έλεγχος υγείας του %@ επέστρεψε κατάσταση %d για %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Ο έλεγχος υγείας του %@ για %@ ανακατευθύνθηκε σε άλλο διακομιστή: %@. Ρυθμίστε τον να απαντά στον ίδιο διακομιστή και δοκιμάστε ξανά.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Ο έλεγχος υγείας API στο %@ δεν δηλώνει έγκυρη υπηρεσία και σύμβαση cloud. Ενημερώστε και αναπτύξτε ξανά τον προσαρμοσμένο διακομιστή και δοκιμάστε ξανά.";
-"settings.account.server.validation.unexpectedApiService" = "Ο έλεγχος υγείας API στο %@ αναγνωρίζει %@ αντί για συμβατό σύστημα διακομιστή Nibomo. Ενημερώστε και αναπτύξτε ξανά τον προσαρμοσμένο διακομιστή και δοκιμάστε ξανά.";
+"settings.account.server.validation.unexpectedApiService" = "Ο έλεγχος υγείας API στο %@ αναγνωρίζει %@ αντί για συμβατό σύστημα διακομιστή lingvichr. Ενημερώστε και αναπτύξτε ξανά τον προσαρμοσμένο διακομιστή και δοκιμάστε ξανά.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Ο έλεγχος υγείας API στο %@ δηλώνει μη υποστηριζόμενη έκδοση σύμβασης cloud %d. Η εφαρμογή απαιτεί έκδοση 1. Ενημερώστε και αναπτύξτε ξανά τον προσαρμοσμένο διακομιστή και δοκιμάστε ξανά.";
 "settings.sync.customGuestWorkspacePaused.message" = "Αυτός ο προσαρμοσμένος διακομιστής δεν έχει πρόσβαση σε αυτόν τον χώρο εργασίας επισκέπτη. Μπορεί να είναι ασύμβατος ή λανθασμένα ρυθμισμένος. Ο συγχρονισμός έχει τεθεί σε παύση και οι τοπικές κάρτες και εκκρεμείς αλλαγές σας είναι ασφαλείς σε αυτήν τη συσκευή.";
 "settings.account.status.customGuestPause.title" = "Ο χώρος εργασίας επισκέπτη στο cloud δεν είναι διαθέσιμος";

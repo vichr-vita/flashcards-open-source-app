@@ -12,7 +12,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ReviewNotificationsStoreTest {
-    private val fallbackFrontText: String = "Continue your study session in Nibomo."
+    private val fallbackFrontText: String = "Continue your study session in lingvichr."
 
     @Test
     fun reviewRemindersDefaultToEnabled() {

@@ -28,6 +28,9 @@ for (const theme of ["dark", "light"] as const) {
             if (message.type() === "error") pageErrors.push(message.text());
           });
           await page.goto(fixturePath);
+          const brand = page.getByRole("link", { name: "lingvichr", exact: true });
+          await expect(brand).toBeVisible();
+          await expect.poll(() => brand.locator("img").evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
           const front = page.getByTestId("review-current-front-card");
           const flipper = page.getByTestId("review-card-flipper");
           const reveal = page.getByTestId("review-reveal-answer");
@@ -68,6 +71,25 @@ for (const theme of ["dark", "light"] as const) {
         });
       });
     }
+
+    test("brand and navigation fit a narrow phone", async ({ page }, testInfo) => {
+      await page.setViewportSize({ width: 320, height: 844 });
+      await page.goto(fixturePath);
+      const brand = page.getByRole("link", { name: "lingvichr", exact: true });
+      const navigation = page.getByRole("button", { name: "Primary navigation", exact: true });
+      await expect(brand).toBeInViewport({ ratio: 1 });
+      await expect(navigation).toBeInViewport({ ratio: 1 });
+      await expect(page.getByRole("button", { name: "Account", exact: true })).toBeInViewport({ ratio: 1 });
+      const brandBounds = await brand.boundingBox();
+      const navigationBounds = await navigation.boundingBox();
+      expect(brandBounds).not.toBeNull();
+      expect(navigationBounds).not.toBeNull();
+      expect(brandBounds!.x + brandBounds!.width).toBeLessThanOrEqual(navigationBounds!.x);
+      await expectNoHorizontalOverflow(page);
+      await page.screenshot({ path: testInfo.outputPath("branding-narrow-phone.png") });
+      await brand.click();
+      await expect(page.getByTestId("review-reveal-answer")).toBeVisible();
+    });
 
     test("click starts a Y-axis rotation; reduced motion reveals immediately", async ({ page }) => {
       await page.goto(fixturePath);

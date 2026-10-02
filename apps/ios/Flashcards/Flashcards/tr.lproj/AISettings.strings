@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Bir yanıt hazırlanıyor. Yeni bir mesaj göndermeden önce bitmesini bekleyin veya durdurun.";
 "ai.dictation.error.microphoneUnavailable" = "Bu aygıtta mikrofon kullanılamıyor.";
 "ai.dictation.error.microphoneDenied" = "Mikrofon erişimine izin verilmedi.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo için mikrofon erişimi kapalı. Ayarlar > Gizlilik ve Güvenlik > Mikrofon’dan açın.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr için mikrofon erişimi kapalı. Ayarlar > Gizlilik ve Güvenlik > Mikrofon’dan açın.";
 "ai.dictation.error.invalidRecording" = "Kaydedilen ses hazırlanamadı.";
 "ai.dictation.error.recordingStartFailed" = "Mikrofon kaydı başlatılamadı.";
 "ai.dictation.error.emptyRecording" = "Konuşma kaydedilmedi.";
@@ -138,7 +138,7 @@
 "settings.title" = "Ayarlar";
 "settings.inviteFriend.button" = "Arkadaş Ekle";
 "settings.section.share" = "Paylaş";
-"settings.row.shareApp" = "Nibomo’yu Paylaş";
+"settings.row.shareApp" = "lingvichr’yu Paylaş";
 "settings.section.feedback" = "Geri Bildirim";
 "settings.row.reviewInAppStore" = "App Store’da Değerlendir";
 "settings.row.sharePrivateFeedback" = "Özel geri bildirim paylaş";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Uygulama hesabınızla eşitlendikten sonra planınız burada görünür.";
 "settings.subscription.manage" = "Aboneliği yönet";
 "settings.language.title" = "Dil";
-"settings.language.systemDescription" = "iOS uygulama dilini yönetir. iOS Ayarları’nda Nibomo’yu açıp Tercih Edilen Dil’i kullanın. Tercih Edilen Dil görünmüyorsa önce Ayarlar > Genel > Dil ve Bölge’den başka bir dil ekleyin.";
-"settings.language.action.openAppSettings" = "Nibomo ayarlarını aç";
+"settings.language.systemDescription" = "iOS uygulama dilini yönetir. iOS Ayarları’nda lingvichr’yu açıp Tercih Edilen Dil’i kullanın. Tercih Edilen Dil görünmüyorsa önce Ayarlar > Genel > Dil ve Bölge’den başka bir dil ekleyin.";
+"settings.language.action.openAppSettings" = "lingvichr ayarlarını aç";
 "settings.language.section.supportedLanguages" = "Desteklenen Diller";
 "settings.language.supported.english" = "İngilizce";
 "settings.language.supported.arabic" = "Arapça";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rusça";
 "settings.language.supported.spanishMexico" = "İspanyolca (Meksika)";
 "settings.language.supported.spanishSpain" = "İspanyolca (İspanya)";
-"feedback.settings.description" = "Bir fikir paylaşın, bir aksaklık bildirin veya Nibomo’yu nasıl geliştirebileceğimizi söyleyin.";
+"feedback.settings.description" = "Bir fikir paylaşın, bir aksaklık bildirin veya lingvichr’yu nasıl geliştirebileceğimizi söyleyin.";
 "settings.sync.success" = "Başarıyla eşzamanlandı";
 "settings.sync.guestAiActive" = "Misafir AI etkin";
 "settings.sync.notSyncing" = "Eşzamanlanmıyor";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "İzinler";
 "settings.access.notifications" = "Bildirimler";
 "settings.access.thisDevice" = "Bu aygıt";
-"settings.access.footer" = "Nibomo yalnızca ekler ve sohbet diktesi için gereken erişimi ister.";
+"settings.access.footer" = "lingvichr yalnızca ekler ve sohbet diktesi için gereken erişimi ister.";
 "settings.access.detail.status" = "Durum";
 "settings.access.kind.photos" = "Fotoğraflar";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Kullanılamıyor";
 "settings.access.action.request" = "Erişim iste";
 "settings.access.action.openSettings" = "Ayarlar’ı Aç";
-"settings.access.guidance.photos.limited" = "Yalnızca Nibomo ile daha önce paylaştığınız fotoğraflar kullanılabilir. Daha geniş fotoğraf erişimi vermek için Ayarlar’ı açın.";
-"settings.access.guidance.photos.blocked" = "Nibomo için fotoğraf erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Fotoğraflar’ı açın.";
-"settings.access.guidance.camera.blocked" = "Nibomo için kamera erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Kamera’yı açın.";
-"settings.access.guidance.microphone.blocked" = "Nibomo için mikrofon erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Mikrofon’u açın.";
+"settings.access.guidance.photos.limited" = "Yalnızca lingvichr ile daha önce paylaştığınız fotoğraflar kullanılabilir. Daha geniş fotoğraf erişimi vermek için Ayarlar’ı açın.";
+"settings.access.guidance.photos.blocked" = "lingvichr için fotoğraf erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Fotoğraflar’ı açın.";
+"settings.access.guidance.camera.blocked" = "lingvichr için kamera erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Kamera’yı açın.";
+"settings.access.guidance.microphone.blocked" = "lingvichr için mikrofon erişimi kapalı. Değiştirmek için Ayarlar > Gizlilik ve Güvenlik > Mikrofon’u açın.";
 "settings.access.guidance.askEveryTime" = "Şimdi erişim isteyin veya daha sonra elle yönetmek için Ayarlar’ı açın.";
 "settings.access.guidance.allowed" = "Bu erişimi kapatmak için Ayarlar’ı açın.";
 "settings.access.guidance.limited" = "Bu erişimi gözden geçirmek veya genişletmek için Ayarlar’ı açın.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Uygulama Simgesi Rozeti";
 "settings.notifications.section.strictReminders" = "Seri hatırlatmaları";
 "settings.notifications.enableStrictReminders" = "Seri hatırlatmalarını etkinleştir";
-"settings.notifications.strictReminders.description" = "Bugün mevcut çalışma alanında tekrar yapmadıysanız Nibomo serinizi korumanız için gece yarısından 4, 3 ve 2 saat önce hatırlatır.";
+"settings.notifications.strictReminders.description" = "Bugün mevcut çalışma alanında tekrar yapmadıysanız lingvichr serinizi korumanız için gece yarısından 4, 3 ve 2 saat önce hatırlatır.";
 "settings.notifications.section.dailyReminder" = "Günde bir kez";
 "settings.notifications.permission.allowed" = "İzin verildi";
 "settings.notifications.permission.notRequested" = "İstenmedi";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "İçe Aktar";
 "settings.workspace.import.cloudRequired" = "Bu sürümde medya ZIP’i içe aktarmak için bulut hesabı gerekir.";
-"settings.workspace.import.invalidFile" = "Bir Nibomo ZIP paketi seçin.";
+"settings.workspace.import.invalidFile" = "Bir lingvichr ZIP paketi seçin.";
 "settings.workspace.import.fileTooLarge" = "En fazla %d MB boyutunda bir ZIP paketi seçin.";
 "settings.workspace.import.missingImportTag" = "İçe aktarmadan önce bir içe aktarma etiketi girin.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Bu sayı tüm çalışma alanı içindir ve ortak etiketlere sahip kartları iki kez saymaz.";
 "settings.row.sendFeedback" = "Geri Bildirim Gönder";
 "settings.row.sendFeedback.value" = "Bir fikir paylaşın";
-"feedback.sheet.title" = "Nibomo için bir fikriniz mi var?";
+"feedback.sheet.title" = "lingvichr için bir fikriniz mi var?";
 "feedback.sheet.body" = "Uygulamayı nelerin daha iyi yapacağını paylaşın. Geliştirici her mesajı bizzat okur.";
 "feedback.sheet.placeholder" = "Fikrinizi buraya yazın";
 "feedback.sheet.send" = "Gönder";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ sağlık kontrolü %d durumunu döndürdü; adres: %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ sağlık kontrolü %@ için başka bir sunucuya yönlendirildi: %@. Aynı sunucudan yanıt verecek şekilde yapılandırıp tekrar deneyin.";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@ adresindeki API sağlık yanıtı geçerli bir hizmet ve bulut sözleşmesi bildirmiyor. Özel sunucuyu güncelleyip yeniden dağıtın, ardından tekrar deneyin.";
-"settings.account.server.validation.unexpectedApiService" = "%@ adresindeki API sağlık yanıtı uyumlu bir Nibomo arka ucu yerine %@ bildiriyor. Özel sunucuyu güncelleyip yeniden dağıtın, ardından tekrar deneyin.";
+"settings.account.server.validation.unexpectedApiService" = "%@ adresindeki API sağlık yanıtı uyumlu bir lingvichr arka ucu yerine %@ bildiriyor. Özel sunucuyu güncelleyip yeniden dağıtın, ardından tekrar deneyin.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@ adresindeki API sağlık yanıtı desteklenmeyen %d bulut sözleşmesi sürümünü bildiriyor. Bu uygulama sürüm 1 gerektirir. Özel sunucuyu güncelleyip yeniden dağıtın, ardından tekrar deneyin.";
 "settings.sync.customGuestWorkspacePaused.message" = "Bu özel sunucu bu misafir çalışma alanına erişemiyor. Sunucu uyumsuz veya yanlış yapılandırılmış olabilir. Eşzamanlama duraklatıldı; yerel kartlarınız ve bekleyen değişiklikleriniz bu aygıtta güvende.";
 "settings.account.status.customGuestPause.title" = "Misafir Bulut Çalışma Alanı Kullanılamıyor";

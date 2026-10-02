@@ -1,7 +1,6 @@
 import { getLoginPageLocaleDirection, type LoginPageLocale } from "../routes/browser/loginPageLocale.js";
 
-const AUTH_FAVICON_URL =
-  "data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22512%22%20height=%22512%22%20viewBox=%220%200%20512%20512%22%3E%3Crect%20width=%22512%22%20height=%22512%22%20rx=%2296%22%20fill=%22%23232323%22/%3E%3Crect%20x=%22104%22%20y=%2292%22%20width=%22184%22%20height=%22264%22%20rx=%2232%22%20fill=%22%23f8f3ec%22/%3E%3Crect%20x=%22212%22%20y=%22156%22%20width=%22196%22%20height=%22272%22%20rx=%2232%22%20fill=%22%23c44b2d%22/%3E%3C/svg%3E";
+import { authBrandHtml, authFaviconUrl } from "./branding.js";
 
 type LoginPageCopy = Readonly<{
   pageTitle: string;
@@ -910,8 +909,8 @@ export const renderLoginPage = (
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="${AUTH_FAVICON_URL}">
-  <title>${copy.pageTitle}</title>
+  <link rel="icon" href="${authFaviconUrl}">
+  <title>lingvichr · ${copy.pageTitle}</title>
   <style>
     :root {
       color-scheme: dark;
@@ -1017,6 +1016,21 @@ export const renderLoginPage = (
       padding: 30px;
       background: var(--surface);
     }
+
+    .login-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-bottom: 24px;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 750;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .login-brand img { display: block; flex-shrink: 0; }
 
     .login-title {
       margin: 0 0 24px;
@@ -1174,6 +1188,7 @@ export const renderLoginPage = (
   <div class="login-page">
     <a class="login-back-link" href="${websiteHomeUrl}">${copy.backToWebsite}</a>
     <div class="login-card">
+      ${authBrandHtml}
       <h1 class="login-title">${copy.signInTitle}</h1>
 
       <div id="step-checking">

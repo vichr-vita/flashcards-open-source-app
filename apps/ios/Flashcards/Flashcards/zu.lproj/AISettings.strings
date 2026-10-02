@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Impendulo isiyaqhubeka. Linda ize iqede noma uyimise ngaphambi kokuthumela omunye umyalezo.";
 "ai.dictation.error.microphoneUnavailable" = "Imakrofoni ayitholakali kule divayisi.";
 "ai.dictation.error.microphoneDenied" = "Imvume yemakrofoni ayinikezwanga.";
-"ai.dictation.error.microphoneBlocked" = "Imvume yemakrofoni ye-Nibomo ivaliwe. Yivule kokuthi Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni.";
+"ai.dictation.error.microphoneBlocked" = "Imvume yemakrofoni ye-lingvichr ivaliwe. Yivule kokuthi Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni.";
 "ai.dictation.error.invalidRecording" = "Umsindo orekhodiwe awulungisekanga.";
 "ai.dictation.error.recordingStartFailed" = "Ukuqopha ngemakrofoni akuqalanga.";
 "ai.dictation.error.emptyRecording" = "Ayikho inkulumo eqoshiwe.";
@@ -138,7 +138,7 @@
 "settings.title" = "Izilungiselelo";
 "settings.inviteFriend.button" = "Engeza umngane";
 "settings.section.share" = "Yabelana";
-"settings.row.shareApp" = "Yabelana nge-Nibomo";
+"settings.row.shareApp" = "Yabelana nge-lingvichr";
 "settings.section.feedback" = "Impendulo yakho";
 "settings.row.reviewInAppStore" = "Bhala isibuyekezo ku-App Store";
 "settings.row.sharePrivateFeedback" = "Thumela impendulo eyimfihlo";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Uhlelo lwakho luzovela lapha ngemva kokuthi i-app ivumelanise ne-akhawunti yakho.";
 "settings.subscription.manage" = "Phatha okubhaliselwe";
 "settings.language.title" = "Ulimi";
-"settings.language.systemDescription" = "iOS ilawula ulimi lohlelo lokusebenza. Ezilungiselelweni ze-iOS, vula i-Nibomo bese usebenzisa Ulimi olukhethwayo. Uma lungaboniswa, qala ngokwengeza olunye ulimi kokuthi Izilungiselelo > Okuvamile > Ulimi Nesifunda.";
-"settings.language.action.openAppSettings" = "Vula izilungiselelo ze-Nibomo";
+"settings.language.systemDescription" = "iOS ilawula ulimi lohlelo lokusebenza. Ezilungiselelweni ze-iOS, vula i-lingvichr bese usebenzisa Ulimi olukhethwayo. Uma lungaboniswa, qala ngokwengeza olunye ulimi kokuthi Izilungiselelo > Okuvamile > Ulimi Nesifunda.";
+"settings.language.action.openAppSettings" = "Vula izilungiselelo ze-lingvichr";
 "settings.language.section.supportedLanguages" = "Izilimi ezisekelwayo";
 "settings.language.supported.english" = "IsiNgisi";
 "settings.language.supported.arabic" = "Isi-Arabhu";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "IsiRashiya";
 "settings.language.supported.spanishMexico" = "ISipanishi saseMexico";
 "settings.language.supported.spanishSpain" = "ISipanishi saseSpain";
-"feedback.settings.description" = "Yabelana ngombono, bika okungasebenzi kahle, noma usitshele okungenza i-Nibomo ibe ngcono.";
+"feedback.settings.description" = "Yabelana ngombono, bika okungasebenzi kahle, noma usitshele okungenza i-lingvichr ibe ngcono.";
 "settings.sync.success" = "Kuvumelaniswe ngempumelelo";
 "settings.sync.guestAiActive" = "I-AI yesivakashi iyasebenza";
 "settings.sync.notSyncing" = "Akuvumelaniswa";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Izimvume";
 "settings.access.notifications" = "Izaziso";
 "settings.access.thisDevice" = "Le divayisi";
-"settings.access.footer" = "I-Nibomo icela kuphela imvume edingekayo yokunamathisela nokubhala ngokukhuluma engxoxweni.";
+"settings.access.footer" = "I-lingvichr icela kuphela imvume edingekayo yokunamathisela nokubhala ngokukhuluma engxoxweni.";
 "settings.access.detail.status" = "Isimo";
 "settings.access.kind.photos" = "Izithombe";
 "settings.access.kind.camera" = "Ikhamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Akutholakali";
 "settings.access.action.request" = "Cela imvume";
 "settings.access.action.openSettings" = "Vula Izilungiselelo";
-"settings.access.guidance.photos.limited" = "Kutholakala kuphela izithombe osuvele wabelane ngazo ne-Nibomo. Vula Izilungiselelo ukuze uvumele ukufinyelela ezithombeni ezengeziwe.";
-"settings.access.guidance.photos.blocked" = "Imvume yezithombe ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Izithombe ukuze uyishintshe.";
-"settings.access.guidance.camera.blocked" = "Imvume yekhamera ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Ikhamera ukuze uyishintshe.";
-"settings.access.guidance.microphone.blocked" = "Imvume yemakrofoni ye-Nibomo ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni ukuze uyishintshe.";
+"settings.access.guidance.photos.limited" = "Kutholakala kuphela izithombe osuvele wabelane ngazo ne-lingvichr. Vula Izilungiselelo ukuze uvumele ukufinyelela ezithombeni ezengeziwe.";
+"settings.access.guidance.photos.blocked" = "Imvume yezithombe ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Izithombe ukuze uyishintshe.";
+"settings.access.guidance.camera.blocked" = "Imvume yekhamera ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Ikhamera ukuze uyishintshe.";
+"settings.access.guidance.microphone.blocked" = "Imvume yemakrofoni ye-lingvichr ivaliwe. Vula Izilungiselelo > Ubumfihlo Nokuphepha > Imakrofoni ukuze uyishintshe.";
 "settings.access.guidance.askEveryTime" = "Cela imvume manje, noma uvule Izilungiselelo kamuva ukuze uzilawulele yona.";
 "settings.access.guidance.allowed" = "Vula Izilungiselelo uma ufuna ukuvala le mvume.";
 "settings.access.guidance.limited" = "Vula Izilungiselelo ukuze ubuyekeze noma wandise le mvume.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Ibheji lesithonjana sohlelo";
 "settings.notifications.section.strictReminders" = "Izikhumbuzo zochungechunge";
 "settings.notifications.enableStrictReminders" = "Vula izikhumbuzo zochungechunge";
-"settings.notifications.strictReminders.description" = "Uma ungakabuyekezi endaweni yokusebenza yamanje namuhla, i-Nibomo ikukhumbuza emahoreni angu-4, 3, nangu-2 ngaphambi kwamabili ukuze ugcine uchungechunge lwakho.";
+"settings.notifications.strictReminders.description" = "Uma ungakabuyekezi endaweni yokusebenza yamanje namuhla, i-lingvichr ikukhumbuza emahoreni angu-4, 3, nangu-2 ngaphambi kwamabili ukuze ugcine uchungechunge lwakho.";
 "settings.notifications.section.dailyReminder" = "Kanye ngosuku";
 "settings.notifications.permission.allowed" = "Kuvunyelwe";
 "settings.notifications.permission.notRequested" = "Akukacelwa";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Ngenisa";
 "settings.workspace.import.cloudRequired" = "Ukungenisa i-ZIP yemidiya kudinga i-akhawunti yefu kule nguqulo.";
-"settings.workspace.import.invalidFile" = "Khetha iphakheji ye-ZIP ye-Nibomo.";
+"settings.workspace.import.invalidFile" = "Khetha iphakheji ye-ZIP ye-lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Khetha iphakheji ye-ZIP engadluli ku-%d MB.";
 "settings.workspace.import.missingImportTag" = "Faka ithegi yokungenisa ngaphambi kokungenisa.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Lesi sibalo ngesendawo yokusebenza yonke futhi asibali kabili amakhadi abelana ngamathegi.";
 "settings.row.sendFeedback" = "Thumela impendulo yakho";
 "settings.row.sendFeedback.value" = "Yabelana ngombono";
-"feedback.sheet.title" = "Unombono we-Nibomo?";
+"feedback.sheet.title" = "Unombono we-lingvichr?";
 "feedback.sheet.body" = "Yabelana ngalokho okungenza uhlelo lube ngcono. Umdali uzifundela yena wonke umyalezo.";
 "feedback.sheet.placeholder" = "Bhala umbono wakho lapha";
 "feedback.sheet.send" = "Thumela";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Ukuhlolwa kokusebenza kwe-%@ kubuyise isimo %d ku-%@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Ukuhlolwa kokusebenza kwe-%@ ku-%@ kuqondiswe kwesinye isiphakeli: %@. Kulungise ukuze kuphendule esiphakelini esifanayo, bese uzama futhi.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Isimo se-API ku-%@ asivezi insiza nenkontileka yefu evumelekile. Buyekeza bese uphinde ufake isiphakeli sakho, bese uzama futhi.";
-"settings.account.server.validation.unexpectedApiService" = "Isimo se-API ku-%@ siveza i-%@ esikhundleni sesistimu yesiphakeli ye-Nibomo ehambisanayo. Buyekeza bese uphinde ufake isiphakeli sakho, bese uzama futhi.";
+"settings.account.server.validation.unexpectedApiService" = "Isimo se-API ku-%@ siveza i-%@ esikhundleni sesistimu yesiphakeli ye-lingvichr ehambisanayo. Buyekeza bese uphinde ufake isiphakeli sakho, bese uzama futhi.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Isimo se-API ku-%@ siveza inguqulo yenkontileka yefu %d engasekelwe. Lolu hlelo ludinga inguqulo 1. Buyekeza bese uphinde ufake isiphakeli sakho, bese uzama futhi.";
 "settings.sync.customGuestWorkspacePaused.message" = "Lesi siphakeli sakho asikwazi ukufinyelela kule ndawo yokusebenza yesivakashi. Kungenzeka singahambisani noma simiswe kabi. Ukuvumelanisa kumisiwe, futhi amakhadi akho asendaweni nezinguquko ezilindile kuphephile kule divayisi.";
 "settings.account.status.customGuestPause.title" = "Indawo yokusebenza yefu yesivakashi ayitholakali";

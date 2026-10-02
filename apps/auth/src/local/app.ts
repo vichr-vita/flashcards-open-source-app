@@ -77,7 +77,7 @@ export function createLocalAuthApp(basePath: string): Hono {
       const csrfToken = newToken();
       const nonce = newToken();
       setCookie(c, "local_login_csrf", csrfToken, csrfCookieOptions);
-      c.header("Content-Security-Policy", `default-src 'none'; style-src 'nonce-${nonce}'; script-src 'nonce-${nonce}'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'`);
+      c.header("Content-Security-Policy", `default-src 'none'; img-src data:; style-src 'nonce-${nonce}'; script-src 'nonce-${nonce}'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'`);
       return c.html(renderLocalLoginPage(csrfToken, redirectUri, nonce, enrollment));
     });
   }

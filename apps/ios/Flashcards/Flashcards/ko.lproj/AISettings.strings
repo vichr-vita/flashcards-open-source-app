@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "이미 응답이 진행 중입니다. 완료될 때까지 기다리거나 중지한 후 새 메시지를 보내세요.";
 "ai.dictation.error.microphoneUnavailable" = "이 기기에서는 마이크를 사용할 수 없습니다.";
 "ai.dictation.error.microphoneDenied" = "마이크 접근이 허용되지 않았습니다.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 켜세요.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 켜세요.";
 "ai.dictation.error.invalidRecording" = "녹음한 오디오를 준비하지 못했습니다.";
 "ai.dictation.error.recordingStartFailed" = "마이크 녹음을 시작하지 못했습니다.";
 "ai.dictation.error.emptyRecording" = "녹음된 음성이 없습니다.";
@@ -138,7 +138,7 @@
 "settings.title" = "설정";
 "settings.inviteFriend.button" = "친구 추가";
 "settings.section.share" = "공유";
-"settings.row.shareApp" = "Nibomo 공유";
+"settings.row.shareApp" = "lingvichr 공유";
 "settings.section.feedback" = "피드백";
 "settings.row.reviewInAppStore" = "App Store에서 리뷰 작성";
 "settings.row.sharePrivateFeedback" = "비공개 피드백 보내기";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "앱이 계정과 동기화되면 여기에 요금제가 표시됩니다.";
 "settings.subscription.manage" = "구독 관리";
 "settings.language.title" = "언어";
-"settings.language.systemDescription" = "iOS에서 앱 언어를 관리합니다. iOS 설정에서 Nibomo를 열고 선호하는 언어를 선택하세요. 선호하는 언어가 표시되지 않으면 먼저 설정 > 일반 > 언어 및 지역에서 다른 언어를 추가하세요.";
-"settings.language.action.openAppSettings" = "Nibomo 설정 열기";
+"settings.language.systemDescription" = "iOS에서 앱 언어를 관리합니다. iOS 설정에서 lingvichr를 열고 선호하는 언어를 선택하세요. 선호하는 언어가 표시되지 않으면 먼저 설정 > 일반 > 언어 및 지역에서 다른 언어를 추가하세요.";
+"settings.language.action.openAppSettings" = "lingvichr 설정 열기";
 "settings.language.section.supportedLanguages" = "지원 언어";
 "settings.language.supported.english" = "영어";
 "settings.language.supported.arabic" = "아랍어";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "러시아어";
 "settings.language.supported.spanishMexico" = "스페인어(멕시코)";
 "settings.language.supported.spanishSpain" = "스페인어(스페인)";
-"feedback.settings.description" = "아이디어를 공유하거나 불편한 점을 알리거나 Nibomo를 개선할 방법을 알려 주세요.";
+"feedback.settings.description" = "아이디어를 공유하거나 불편한 점을 알리거나 lingvichr를 개선할 방법을 알려 주세요.";
 "settings.sync.success" = "동기화 완료";
 "settings.sync.guestAiActive" = "게스트 AI 활성";
 "settings.sync.notSyncing" = "동기화 안 됨";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "권한";
 "settings.access.notifications" = "알림";
 "settings.access.thisDevice" = "이 기기";
-"settings.access.footer" = "Nibomo는 첨부 파일과 채팅 받아쓰기에 필요한 접근만 요청합니다.";
+"settings.access.footer" = "lingvichr는 첨부 파일과 채팅 받아쓰기에 필요한 접근만 요청합니다.";
 "settings.access.detail.status" = "상태";
 "settings.access.kind.photos" = "사진";
 "settings.access.kind.camera" = "카메라";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "사용할 수 없음";
 "settings.access.action.request" = "접근 요청";
 "settings.access.action.openSettings" = "설정 열기";
-"settings.access.guidance.photos.limited" = "Nibomo와 이미 공유한 사진만 사용할 수 있습니다. 더 많은 사진에 접근하도록 허용하려면 설정을 여세요.";
-"settings.access.guidance.photos.blocked" = "Nibomo의 사진 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 사진에서 변경하세요.";
-"settings.access.guidance.camera.blocked" = "Nibomo의 카메라 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 카메라에서 변경하세요.";
-"settings.access.guidance.microphone.blocked" = "Nibomo의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 변경하세요.";
+"settings.access.guidance.photos.limited" = "lingvichr와 이미 공유한 사진만 사용할 수 있습니다. 더 많은 사진에 접근하도록 허용하려면 설정을 여세요.";
+"settings.access.guidance.photos.blocked" = "lingvichr의 사진 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 사진에서 변경하세요.";
+"settings.access.guidance.camera.blocked" = "lingvichr의 카메라 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 카메라에서 변경하세요.";
+"settings.access.guidance.microphone.blocked" = "lingvichr의 마이크 접근이 꺼져 있습니다. 설정 > 개인정보 보호 및 보안 > 마이크에서 변경하세요.";
 "settings.access.guidance.askEveryTime" = "지금 접근을 요청하거나 나중에 설정에서 직접 관리하세요.";
 "settings.access.guidance.allowed" = "이 접근을 끄려면 설정을 여세요.";
 "settings.access.guidance.limited" = "이 접근을 확인하거나 확대하려면 설정을 여세요.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "앱 아이콘 배지";
 "settings.notifications.section.strictReminders" = "연속 학습 알림";
 "settings.notifications.enableStrictReminders" = "연속 학습 알림 활성화";
-"settings.notifications.strictReminders.description" = "오늘 현재 작업 공간에서 복습하지 않았다면 Nibomo가 자정 4시간, 3시간, 2시간 전에 알려 연속 학습을 이어갈 수 있게 합니다.";
+"settings.notifications.strictReminders.description" = "오늘 현재 작업 공간에서 복습하지 않았다면 lingvichr가 자정 4시간, 3시간, 2시간 전에 알려 연속 학습을 이어갈 수 있게 합니다.";
 "settings.notifications.section.dailyReminder" = "하루 한 번";
 "settings.notifications.permission.allowed" = "허용됨";
 "settings.notifications.permission.notRequested" = "요청하지 않음";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "가져오기";
 "settings.workspace.import.cloudRequired" = "이 버전에서 미디어 ZIP을 가져오려면 클라우드 계정이 필요합니다.";
-"settings.workspace.import.invalidFile" = "Nibomo ZIP 패키지를 선택하세요.";
+"settings.workspace.import.invalidFile" = "lingvichr ZIP 패키지를 선택하세요.";
 "settings.workspace.import.fileTooLarge" = "최대 %d MB의 ZIP 패키지를 선택하세요.";
 "settings.workspace.import.missingImportTag" = "가져오기 전에 가져오기 태그를 입력하세요.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "이 개수는 작업 공간 전체 기준이며 여러 태그에 속한 카드도 한 번만 집계합니다.";
 "settings.row.sendFeedback" = "피드백 보내기";
 "settings.row.sendFeedback.value" = "아이디어 공유";
-"feedback.sheet.title" = "Nibomo에 대한 아이디어가 있나요?";
+"feedback.sheet.title" = "lingvichr에 대한 아이디어가 있나요?";
 "feedback.sheet.body" = "앱을 개선할 아이디어를 알려 주세요. 제작자가 모든 메시지를 직접 읽습니다.";
 "feedback.sheet.placeholder" = "여기에 아이디어를 적어 주세요";
 "feedback.sheet.send" = "보내기";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ 상태 확인이 상태 %d을(를) %@에 반환했습니다";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ 상태 확인(%@)이 다른 서버로 리디렉션되었습니다: %@. 같은 서버에서 응답하도록 구성한 후 다시 시도하세요.";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@의 API 상태 정보에 올바른 서비스와 클라우드 계약이 명시되어 있지 않습니다. 사용자 지정 서버를 업데이트하고 다시 배포한 후 다시 시도하세요.";
-"settings.account.server.validation.unexpectedApiService" = "%@의 API 상태 정보가 호환되는 Nibomo 백엔드 대신 %@을(를) 나타냅니다. 사용자 지정 서버를 업데이트하고 다시 배포한 후 다시 시도하세요.";
+"settings.account.server.validation.unexpectedApiService" = "%@의 API 상태 정보가 호환되는 lingvichr 백엔드 대신 %@을(를) 나타냅니다. 사용자 지정 서버를 업데이트하고 다시 배포한 후 다시 시도하세요.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@의 API 상태 정보에 지원하지 않는 클라우드 계약 버전 %d이(가) 명시되어 있습니다. 이 앱은 버전 1이 필요합니다. 사용자 지정 서버를 업데이트하고 다시 배포한 후 다시 시도하세요.";
 "settings.sync.customGuestWorkspacePaused.message" = "이 사용자 지정 서버에서 이 게스트 작업 공간에 접근할 수 없습니다. 서버가 호환되지 않거나 잘못 구성되었을 수 있습니다. 동기화는 일시 중지되며 로컬 카드와 대기 중인 변경 사항은 이 기기에 안전하게 유지됩니다.";
 "settings.account.status.customGuestPause.title" = "게스트 클라우드 작업 공간 사용 불가";

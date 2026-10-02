@@ -335,14 +335,14 @@ test("MCP server exposes workspace and SQL tools through the protocol path", asy
     const sqlQueryTool = requireTool(toolList.tools, SQL_QUERY_TOOL_NAME);
     const sqlExecuteTool = requireTool(toolList.tools, SQL_EXECUTE_TOOL_NAME);
     assert.deepEqual(sqlQueryTool.annotations, {
-      title: "Nibomo SQL query (read-only)",
+      title: "lingvichr SQL query (read-only)",
       readOnlyHint: true,
       destructiveHint: false,
       openWorldHint: false,
       idempotentHint: true,
     });
     assert.deepEqual(sqlExecuteTool.annotations, {
-      title: "Nibomo SQL execute (write)",
+      title: "lingvichr SQL execute (write)",
       readOnlyHint: false,
       destructiveHint: true,
       openWorldHint: false,

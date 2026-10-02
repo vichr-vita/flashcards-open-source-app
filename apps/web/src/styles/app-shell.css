@@ -40,6 +40,7 @@
 
 .topbar-brand-row {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   min-width: 0;
@@ -48,12 +49,14 @@
 .topbar-brand {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  direction: ltr;
   width: fit-content;
   max-width: 100%;
   color: var(--text);
   font-size: 30px;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.04em;
   line-height: 1.08;
 }
 
@@ -75,8 +78,14 @@
   align-items: center;
 }
 
-.brand-short {
-  display: none;
+.brand-logo {
+  width: 1.08em;
+  height: 1.08em;
+  flex-shrink: 0;
+}
+
+.brand-wordmark {
+  white-space: nowrap;
 }
 
 .nav {
@@ -462,12 +471,8 @@
     min-height: 0;
   }
 
-  .brand-full {
-    display: none;
-  }
-
-  .brand-short {
-    display: inline;
+  .topbar-brand {
+    font-size: 25px;
   }
 
   .nav {

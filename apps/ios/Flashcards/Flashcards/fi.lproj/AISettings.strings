@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Vastausta muodostetaan jo. Odota sen valmistumista tai pysäytä se ennen uuden viestin lähettämistä.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofoni ei ole käytettävissä tällä laitteella.";
 "ai.dictation.error.microphoneDenied" = "Mikrofonin käyttöoikeutta ei myönnetty.";
-"ai.dictation.error.microphoneBlocked" = "Nibomon mikrofonin käyttöoikeus on poistettu. Ota se käyttöön kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni.";
+"ai.dictation.error.microphoneBlocked" = "lingvichrn mikrofonin käyttöoikeus on poistettu. Ota se käyttöön kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni.";
 "ai.dictation.error.invalidRecording" = "Tallennetun äänen valmistelu epäonnistui.";
 "ai.dictation.error.recordingStartFailed" = "Mikrofonitallennuksen aloittaminen epäonnistui.";
 "ai.dictation.error.emptyRecording" = "Puhetta ei tallennettu.";
@@ -138,7 +138,7 @@
 "settings.title" = "Asetukset";
 "settings.inviteFriend.button" = "Lisää ystävä";
 "settings.section.share" = "Jaa";
-"settings.row.shareApp" = "Jaa Nibomo";
+"settings.row.shareApp" = "Jaa lingvichr";
 "settings.section.feedback" = "Palaute";
 "settings.row.reviewInAppStore" = "Arvioi App Storessa";
 "settings.row.sharePrivateFeedback" = "Lähetä yksityistä palautetta";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Pakettisi näkyy tässä, kun sovellus on synkronoitu tilisi kanssa.";
 "settings.subscription.manage" = "Hallitse tilausta";
 "settings.language.title" = "Kieli";
-"settings.language.systemDescription" = "iOS määrittää sovelluksen kielen. Avaa iOS-asetuksista Nibomo ja valitse ensisijainen kieli. Jos valintaa ei näy, lisää ensin toinen kieli kohdassa Asetukset > Yleiset > Kieli ja alue.";
-"settings.language.action.openAppSettings" = "Avaa Nibomon asetukset";
+"settings.language.systemDescription" = "iOS määrittää sovelluksen kielen. Avaa iOS-asetuksista lingvichr ja valitse ensisijainen kieli. Jos valintaa ei näy, lisää ensin toinen kieli kohdassa Asetukset > Yleiset > Kieli ja alue.";
+"settings.language.action.openAppSettings" = "Avaa lingvichrn asetukset";
 "settings.language.section.supportedLanguages" = "Tuetut kielet";
 "settings.language.supported.english" = "Englanti";
 "settings.language.supported.arabic" = "Arabia";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Venäjä";
 "settings.language.supported.spanishMexico" = "Espanja, Meksiko";
 "settings.language.supported.spanishSpain" = "Espanja, Espanja";
-"feedback.settings.description" = "Jaa idea, ilmoita ongelmasta tai kerro, mikä tekisi Nibomosta paremman.";
+"feedback.settings.description" = "Jaa idea, ilmoita ongelmasta tai kerro, mikä tekisi lingvichrsta paremman.";
 "settings.sync.success" = "Synkronoitu onnistuneesti";
 "settings.sync.guestAiActive" = "Vieraan tekoäly on käytössä";
 "settings.sync.notSyncing" = "Ei synkronoi";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Luvat";
 "settings.access.notifications" = "Ilmoitukset";
 "settings.access.thisDevice" = "Tämä laite";
-"settings.access.footer" = "Nibomo pyytää vain liitteisiin ja keskustelun saneluun tarvittavat käyttöoikeudet.";
+"settings.access.footer" = "lingvichr pyytää vain liitteisiin ja keskustelun saneluun tarvittavat käyttöoikeudet.";
 "settings.access.detail.status" = "Tila";
 "settings.access.kind.photos" = "Kuvat";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Ei saatavilla";
 "settings.access.action.request" = "Pyydä käyttöoikeutta";
 "settings.access.action.openSettings" = "Avaa asetukset";
-"settings.access.guidance.photos.limited" = "Vain Nibomon kanssa jo jakamasi kuvat ovat käytettävissä. Anna laajempi kuvien käyttöoikeus asetuksissa.";
-"settings.access.guidance.photos.blocked" = "Nibomon kuvien käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kuvat.";
-"settings.access.guidance.camera.blocked" = "Nibomon kameran käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kamera.";
-"settings.access.guidance.microphone.blocked" = "Nibomon mikrofonin käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni.";
+"settings.access.guidance.photos.limited" = "Vain lingvichrn kanssa jo jakamasi kuvat ovat käytettävissä. Anna laajempi kuvien käyttöoikeus asetuksissa.";
+"settings.access.guidance.photos.blocked" = "lingvichrn kuvien käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kuvat.";
+"settings.access.guidance.camera.blocked" = "lingvichrn kameran käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Kamera.";
+"settings.access.guidance.microphone.blocked" = "lingvichrn mikrofonin käyttöoikeus on poistettu. Muuta sitä kohdassa Asetukset > Tietosuoja ja suojaus > Mikrofoni.";
 "settings.access.guidance.askEveryTime" = "Pyydä käyttöoikeutta nyt tai hallitse sitä myöhemmin asetuksissa.";
 "settings.access.guidance.allowed" = "Avaa asetukset, jos haluat poistaa tämän käyttöoikeuden.";
 "settings.access.guidance.limited" = "Tarkista käyttöoikeus tai laajenna sitä avaamalla asetukset.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Sovelluskuvakkeen merkki";
 "settings.notifications.section.strictReminders" = "Päiväputkimuistutukset";
 "settings.notifications.enableStrictReminders" = "Ota päiväputkimuistutukset käyttöön";
-"settings.notifications.strictReminders.description" = "Jos et ole kerrannut nykyisessä työtilassa tänään, Nibomo muistuttaa 4, 3 ja 2 tuntia ennen keskiyötä, jotta voit säilyttää päiväputkesi.";
+"settings.notifications.strictReminders.description" = "Jos et ole kerrannut nykyisessä työtilassa tänään, lingvichr muistuttaa 4, 3 ja 2 tuntia ennen keskiyötä, jotta voit säilyttää päiväputkesi.";
 "settings.notifications.section.dailyReminder" = "Kerran päivässä";
 "settings.notifications.permission.allowed" = "Sallittu";
 "settings.notifications.permission.notRequested" = "Ei pyydetty";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Tuonti";
 "settings.workspace.import.cloudRequired" = "Media-ZIP-tiedoston tuonti vaatii pilvitilin tässä versiossa.";
-"settings.workspace.import.invalidFile" = "Valitse Nibomon ZIP-paketti.";
+"settings.workspace.import.invalidFile" = "Valitse lingvichrn ZIP-paketti.";
 "settings.workspace.import.fileTooLarge" = "Valitse enintään %d Mt:n ZIP-paketti.";
 "settings.workspace.import.missingImportTag" = "Anna tuontitunniste ennen tuontia.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Tämä määrä koskee koko työtilaa eikä laske yhteisiä tunnisteita käyttäviä kortteja kahdesti.";
 "settings.row.sendFeedback" = "Lähetä palautetta";
 "settings.row.sendFeedback.value" = "Jaa idea";
-"feedback.sheet.title" = "Onko sinulla idea Nibomolle?";
+"feedback.sheet.title" = "Onko sinulla idea lingvichrlle?";
 "feedback.sheet.body" = "Kerro, mikä tekisi sovelluksesta paremman. Tekijä lukee jokaisen viestin henkilökohtaisesti.";
 "feedback.sheet.placeholder" = "Kirjoita ideasi tähän";
 "feedback.sheet.send" = "Lähetä";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Palvelun %@ terveystarkistus palautti tilan %d osoitteessa %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Palvelun %@ terveystarkistus osoitteessa %@ ohjattiin toiselle palvelimelle: %@. Määritä se vastaamaan samalla palvelimella ja yritä uudelleen.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API:n terveystarkistus osoitteessa %@ ei ilmoita kelvollista palvelua ja pilvisopimusta. Päivitä ja ota mukautettu palvelin uudelleen käyttöön ja yritä sitten uudelleen.";
-"settings.account.server.validation.unexpectedApiService" = "API:n terveystarkistus osoitteessa %@ tunnistaa palveluksi %@ yhteensopivan Nibomo-taustapalvelun sijaan. Päivitä ja ota mukautettu palvelin uudelleen käyttöön ja yritä sitten uudelleen.";
+"settings.account.server.validation.unexpectedApiService" = "API:n terveystarkistus osoitteessa %@ tunnistaa palveluksi %@ yhteensopivan lingvichr-taustapalvelun sijaan. Päivitä ja ota mukautettu palvelin uudelleen käyttöön ja yritä sitten uudelleen.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API:n terveystarkistus osoitteessa %@ ilmoittaa tukemattoman pilvisopimusversion %d. Sovellus vaatii version 1. Päivitä ja ota mukautettu palvelin uudelleen käyttöön ja yritä sitten uudelleen.";
 "settings.sync.customGuestWorkspacePaused.message" = "Tämä mukautettu palvelin ei pääse tähän vierastyötilaan. Palvelin saattaa olla yhteensopimaton tai väärin määritetty. Synkronointi on keskeytetty, ja paikalliset kortit ja odottavat muutokset ovat turvassa laitteella.";
 "settings.account.status.customGuestPause.title" = "Vieraan pilvityötila ei ole saatavilla";

@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Đang có phản hồi được tạo. Chờ hoàn tất hoặc dừng lại trước khi gửi tin nhắn khác.";
 "ai.dictation.error.microphoneUnavailable" = "Micrô không khả dụng trên thiết bị này.";
 "ai.dictation.error.microphoneDenied" = "Chưa được cấp quyền truy cập micrô.";
-"ai.dictation.error.microphoneBlocked" = "Quyền truy cập micrô của Nibomo đang tắt. Bật trong Cài đặt > Quyền riêng tư & Bảo mật > Micrô.";
+"ai.dictation.error.microphoneBlocked" = "Quyền truy cập micrô của lingvichr đang tắt. Bật trong Cài đặt > Quyền riêng tư & Bảo mật > Micrô.";
 "ai.dictation.error.invalidRecording" = "Không thể chuẩn bị âm thanh đã ghi.";
 "ai.dictation.error.recordingStartFailed" = "Không thể bắt đầu ghi âm bằng micrô.";
 "ai.dictation.error.emptyRecording" = "Không ghi được lời nói nào.";
@@ -138,7 +138,7 @@
 "settings.title" = "Cài đặt";
 "settings.inviteFriend.button" = "Thêm bạn";
 "settings.section.share" = "Chia sẻ";
-"settings.row.shareApp" = "Chia sẻ Nibomo";
+"settings.row.shareApp" = "Chia sẻ lingvichr";
 "settings.section.feedback" = "Phản hồi";
 "settings.row.reviewInAppStore" = "Đánh giá trên App Store";
 "settings.row.sharePrivateFeedback" = "Gửi phản hồi riêng tư";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Gói của bạn sẽ hiển thị ở đây sau khi ứng dụng đồng bộ với tài khoản của bạn.";
 "settings.subscription.manage" = "Quản lý gói đăng ký";
 "settings.language.title" = "Ngôn ngữ";
-"settings.language.systemDescription" = "iOS quản lý ngôn ngữ ứng dụng. Trong Cài đặt iOS, mở Nibomo và chọn Ngôn ngữ ưu tiên. Nếu không thấy mục này, trước tiên hãy thêm ngôn ngữ khác trong Cài đặt > Cài đặt chung > Ngôn ngữ & Vùng.";
-"settings.language.action.openAppSettings" = "Mở cài đặt Nibomo";
+"settings.language.systemDescription" = "iOS quản lý ngôn ngữ ứng dụng. Trong Cài đặt iOS, mở lingvichr và chọn Ngôn ngữ ưu tiên. Nếu không thấy mục này, trước tiên hãy thêm ngôn ngữ khác trong Cài đặt > Cài đặt chung > Ngôn ngữ & Vùng.";
+"settings.language.action.openAppSettings" = "Mở cài đặt lingvichr";
 "settings.language.section.supportedLanguages" = "Ngôn ngữ được hỗ trợ";
 "settings.language.supported.english" = "Tiếng Anh";
 "settings.language.supported.arabic" = "Tiếng Ả Rập";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Tiếng Nga";
 "settings.language.supported.spanishMexico" = "Tiếng Tây Ban Nha (Mexico)";
 "settings.language.supported.spanishSpain" = "Tiếng Tây Ban Nha (Tây Ban Nha)";
-"feedback.settings.description" = "Chia sẻ ý tưởng, báo điểm chưa tốt hoặc cho chúng tôi biết cách cải thiện Nibomo.";
+"feedback.settings.description" = "Chia sẻ ý tưởng, báo điểm chưa tốt hoặc cho chúng tôi biết cách cải thiện lingvichr.";
 "settings.sync.success" = "Đã đồng bộ thành công";
 "settings.sync.guestAiActive" = "AI cho khách đang hoạt động";
 "settings.sync.notSyncing" = "Không đồng bộ";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Quyền truy cập";
 "settings.access.notifications" = "Thông báo";
 "settings.access.thisDevice" = "Thiết bị này";
-"settings.access.footer" = "Nibomo chỉ yêu cầu quyền cần cho tệp đính kèm và đọc chính tả trong trò chuyện.";
+"settings.access.footer" = "lingvichr chỉ yêu cầu quyền cần cho tệp đính kèm và đọc chính tả trong trò chuyện.";
 "settings.access.detail.status" = "Trạng thái";
 "settings.access.kind.photos" = "Ảnh";
 "settings.access.kind.camera" = "Camera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Không khả dụng";
 "settings.access.action.request" = "Yêu cầu quyền truy cập";
 "settings.access.action.openSettings" = "Mở Cài đặt";
-"settings.access.guidance.photos.limited" = "Chỉ có các ảnh bạn đã chia sẻ với Nibomo. Mở Cài đặt để cấp quyền truy cập thêm ảnh.";
-"settings.access.guidance.photos.blocked" = "Quyền truy cập ảnh của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Ảnh để thay đổi.";
-"settings.access.guidance.camera.blocked" = "Quyền truy cập camera của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Camera để thay đổi.";
-"settings.access.guidance.microphone.blocked" = "Quyền truy cập micrô của Nibomo đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Micrô để thay đổi.";
+"settings.access.guidance.photos.limited" = "Chỉ có các ảnh bạn đã chia sẻ với lingvichr. Mở Cài đặt để cấp quyền truy cập thêm ảnh.";
+"settings.access.guidance.photos.blocked" = "Quyền truy cập ảnh của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Ảnh để thay đổi.";
+"settings.access.guidance.camera.blocked" = "Quyền truy cập camera của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Camera để thay đổi.";
+"settings.access.guidance.microphone.blocked" = "Quyền truy cập micrô của lingvichr đang tắt. Mở Cài đặt > Quyền riêng tư & Bảo mật > Micrô để thay đổi.";
 "settings.access.guidance.askEveryTime" = "Yêu cầu quyền truy cập ngay hoặc mở Cài đặt sau để tự quản lý.";
 "settings.access.guidance.allowed" = "Mở Cài đặt nếu bạn muốn tắt quyền truy cập này.";
 "settings.access.guidance.limited" = "Mở Cài đặt để xem lại hoặc mở rộng quyền truy cập này.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Biểu tượng thông báo ứng dụng";
 "settings.notifications.section.strictReminders" = "Lời nhắc chuỗi ngày";
 "settings.notifications.enableStrictReminders" = "Bật lời nhắc chuỗi ngày";
-"settings.notifications.strictReminders.description" = "Nếu hôm nay bạn chưa ôn trong không gian làm việc hiện tại, Nibomo nhắc trước nửa đêm 4, 3 và 2 giờ để bạn giữ chuỗi ngày.";
+"settings.notifications.strictReminders.description" = "Nếu hôm nay bạn chưa ôn trong không gian làm việc hiện tại, lingvichr nhắc trước nửa đêm 4, 3 và 2 giờ để bạn giữ chuỗi ngày.";
 "settings.notifications.section.dailyReminder" = "Mỗi ngày một lần";
 "settings.notifications.permission.allowed" = "Đã cho phép";
 "settings.notifications.permission.notRequested" = "Chưa yêu cầu";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Nhập";
 "settings.workspace.import.cloudRequired" = "Phiên bản này cần tài khoản đám mây để nhập ZIP đa phương tiện.";
-"settings.workspace.import.invalidFile" = "Chọn gói ZIP của Nibomo.";
+"settings.workspace.import.invalidFile" = "Chọn gói ZIP của lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Chọn gói ZIP tối đa %d MB.";
 "settings.workspace.import.missingImportTag" = "Nhập nhãn nhập trước khi nhập dữ liệu.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Số lượng này tính cho toàn bộ không gian làm việc và không đếm trùng thẻ có chung nhãn.";
 "settings.row.sendFeedback" = "Gửi phản hồi";
 "settings.row.sendFeedback.value" = "Chia sẻ ý tưởng";
-"feedback.sheet.title" = "Bạn có ý tưởng cho Nibomo?";
+"feedback.sheet.title" = "Bạn có ý tưởng cho lingvichr?";
 "feedback.sheet.body" = "Chia sẻ điều giúp ứng dụng tốt hơn. Người tạo ứng dụng đích thân đọc mọi tin nhắn.";
 "feedback.sheet.placeholder" = "Viết ý tưởng của bạn ở đây";
 "feedback.sheet.send" = "Gửi";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Kiểm tra tình trạng %@ trả về trạng thái %d cho %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Kiểm tra tình trạng %@ cho %@ bị chuyển hướng đến máy chủ khác: %@. Cấu hình để phản hồi trên cùng máy chủ rồi thử lại.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Thông tin tình trạng API tại %@ không công bố dịch vụ và hợp đồng đám mây hợp lệ. Cập nhật và triển khai lại máy chủ tùy chỉnh rồi thử lại.";
-"settings.account.server.validation.unexpectedApiService" = "Thông tin tình trạng API tại %@ xác định %@ thay vì hệ thống Nibomo tương thích. Cập nhật và triển khai lại máy chủ tùy chỉnh rồi thử lại.";
+"settings.account.server.validation.unexpectedApiService" = "Thông tin tình trạng API tại %@ xác định %@ thay vì hệ thống lingvichr tương thích. Cập nhật và triển khai lại máy chủ tùy chỉnh rồi thử lại.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Thông tin tình trạng API tại %@ công bố phiên bản hợp đồng đám mây %d không được hỗ trợ. Ứng dụng này cần phiên bản 1. Cập nhật và triển khai lại máy chủ tùy chỉnh rồi thử lại.";
 "settings.sync.customGuestWorkspacePaused.message" = "Máy chủ tùy chỉnh này không thể truy cập không gian làm việc khách này. Máy chủ có thể không tương thích hoặc cấu hình sai. Đồng bộ đã tạm dừng, thẻ và thay đổi đang chờ trên thiết bị vẫn an toàn.";
 "settings.account.status.customGuestPause.title" = "Không gian làm việc đám mây của khách không khả dụng";

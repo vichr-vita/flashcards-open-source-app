@@ -146,7 +146,7 @@ At minimum, keep these aligned:
 
 `kMDItemKeywords` is a comma-separated Spotlight keyword list.
 The base value lives in [Info.plist](../apps/ios/Flashcards/Config/Info.plist), and every locale's `InfoPlist.strings`, `en.lproj` included, overrides it with terms for that language.
-The app is named Nibomo, so without it on-device search cannot find the app by the user's own word for flashcards.
+The app is named lingvichr, so without it on-device search cannot find the app by the user's own word for flashcards.
 Keep `flashcards` as the first keyword in every locale and follow it with the natural terms in that language, including alternative spellings people actually type.
 The key is undocumented by Apple but recommended by Apple DTS, so do not drop it as unknown.
 

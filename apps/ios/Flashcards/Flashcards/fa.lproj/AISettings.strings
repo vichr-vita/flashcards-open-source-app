@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "یک پاسخ در حال تولید است. پیش از ارسال پیام دیگر، منتظر پایان آن بمانید یا آن را متوقف کنید.";
 "ai.dictation.error.microphoneUnavailable" = "میکروفون در این دستگاه در دسترس نیست.";
 "ai.dictation.error.microphoneDenied" = "دسترسی به میکروفون داده نشد.";
-"ai.dictation.error.microphoneBlocked" = "دسترسی Nibomo به میکروفون غیرفعال است. آن را در تنظیمات > حریم خصوصی و امنیت > میکروفون فعال کنید.";
+"ai.dictation.error.microphoneBlocked" = "دسترسی lingvichr به میکروفون غیرفعال است. آن را در تنظیمات > حریم خصوصی و امنیت > میکروفون فعال کنید.";
 "ai.dictation.error.invalidRecording" = "آماده‌سازی صدای ضبط‌شده ناموفق بود.";
 "ai.dictation.error.recordingStartFailed" = "شروع ضبط میکروفون ناموفق بود.";
 "ai.dictation.error.emptyRecording" = "هیچ گفتاری ضبط نشد.";
@@ -138,7 +138,7 @@
 "settings.title" = "تنظیمات";
 "settings.inviteFriend.button" = "افزودن دوست";
 "settings.section.share" = "اشتراک‌گذاری";
-"settings.row.shareApp" = "اشتراک‌گذاری Nibomo";
+"settings.row.shareApp" = "اشتراک‌گذاری lingvichr";
 "settings.section.feedback" = "بازخورد";
 "settings.row.reviewInAppStore" = "ارزیابی در App Store";
 "settings.row.sharePrivateFeedback" = "ارسال بازخورد خصوصی";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "طرح شما پس از همگام‌سازی برنامه با حسابتان اینجا نمایش داده می‌شود.";
 "settings.subscription.manage" = "مدیریت اشتراک";
 "settings.language.title" = "زبان";
-"settings.language.systemDescription" = "iOS زبان برنامه را کنترل می‌کند. در تنظیمات iOS، بخش Nibomo را باز کنید و از «زبان ترجیحی» استفاده کنید. اگر این گزینه نمایش داده نمی‌شود، ابتدا زبان دیگری در تنظیمات > عمومی > زبان و منطقه اضافه کنید.";
-"settings.language.action.openAppSettings" = "باز کردن تنظیمات Nibomo";
+"settings.language.systemDescription" = "iOS زبان برنامه را کنترل می‌کند. در تنظیمات iOS، بخش lingvichr را باز کنید و از «زبان ترجیحی» استفاده کنید. اگر این گزینه نمایش داده نمی‌شود، ابتدا زبان دیگری در تنظیمات > عمومی > زبان و منطقه اضافه کنید.";
+"settings.language.action.openAppSettings" = "باز کردن تنظیمات lingvichr";
 "settings.language.section.supportedLanguages" = "زبان‌های پشتیبانی‌شده";
 "settings.language.supported.english" = "انگلیسی";
 "settings.language.supported.arabic" = "عربی";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "روسی";
 "settings.language.supported.spanishMexico" = "اسپانیایی مکزیک";
 "settings.language.supported.spanishSpain" = "اسپانیایی اسپانیا";
-"feedback.settings.description" = "ایده‌ای مطرح کنید، مشکلی را گزارش دهید یا بگویید چه چیزی Nibomo را بهتر می‌کند.";
+"feedback.settings.description" = "ایده‌ای مطرح کنید، مشکلی را گزارش دهید یا بگویید چه چیزی lingvichr را بهتر می‌کند.";
 "settings.sync.success" = "همگام‌سازی موفق بود";
 "settings.sync.guestAiActive" = "هوش مصنوعی مهمان فعال است";
 "settings.sync.notSyncing" = "همگام‌سازی نمی‌شود";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "مجوزها";
 "settings.access.notifications" = "اعلان‌ها";
 "settings.access.thisDevice" = "این دستگاه";
-"settings.access.footer" = "Nibomo فقط دسترسی‌های لازم برای پیوست‌ها و دیکته در گفت‌وگو را درخواست می‌کند.";
+"settings.access.footer" = "lingvichr فقط دسترسی‌های لازم برای پیوست‌ها و دیکته در گفت‌وگو را درخواست می‌کند.";
 "settings.access.detail.status" = "وضعیت";
 "settings.access.kind.photos" = "عکس‌ها";
 "settings.access.kind.camera" = "دوربین";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "در دسترس نیست";
 "settings.access.action.request" = "درخواست دسترسی";
 "settings.access.action.openSettings" = "باز کردن تنظیمات";
-"settings.access.guidance.photos.limited" = "فقط عکس‌هایی که قبلاً با Nibomo به اشتراک گذاشته‌اید در دسترس‌اند. برای دسترسی بیشتر به عکس‌ها، تنظیمات را باز کنید.";
-"settings.access.guidance.photos.blocked" = "دسترسی Nibomo به عکس‌ها غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > عکس‌ها را باز کنید.";
-"settings.access.guidance.camera.blocked" = "دسترسی Nibomo به دوربین غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > دوربین را باز کنید.";
-"settings.access.guidance.microphone.blocked" = "دسترسی Nibomo به میکروفون غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > میکروفون را باز کنید.";
+"settings.access.guidance.photos.limited" = "فقط عکس‌هایی که قبلاً با lingvichr به اشتراک گذاشته‌اید در دسترس‌اند. برای دسترسی بیشتر به عکس‌ها، تنظیمات را باز کنید.";
+"settings.access.guidance.photos.blocked" = "دسترسی lingvichr به عکس‌ها غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > عکس‌ها را باز کنید.";
+"settings.access.guidance.camera.blocked" = "دسترسی lingvichr به دوربین غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > دوربین را باز کنید.";
+"settings.access.guidance.microphone.blocked" = "دسترسی lingvichr به میکروفون غیرفعال است. برای تغییر آن، تنظیمات > حریم خصوصی و امنیت > میکروفون را باز کنید.";
 "settings.access.guidance.askEveryTime" = "اکنون درخواست دسترسی دهید یا برای مدیریت دستی آن بعداً تنظیمات را باز کنید.";
 "settings.access.guidance.allowed" = "اگر می‌خواهید این دسترسی را غیرفعال کنید، تنظیمات را باز کنید.";
 "settings.access.guidance.limited" = "برای بررسی یا گسترش این دسترسی، تنظیمات را باز کنید.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "نشان نماد برنامه";
 "settings.notifications.section.strictReminders" = "یادآورهای روزهای پیاپی";
 "settings.notifications.enableStrictReminders" = "فعال کردن یادآورهای روزهای پیاپی";
-"settings.notifications.strictReminders.description" = "اگر امروز در فضای کاری فعلی مرور نکرده باشید، Nibomo در ۴، ۳ و ۲ ساعت پیش از نیمه‌شب یادآوری می‌کند تا روزهای پیاپی خود را حفظ کنید.";
+"settings.notifications.strictReminders.description" = "اگر امروز در فضای کاری فعلی مرور نکرده باشید، lingvichr در ۴، ۳ و ۲ ساعت پیش از نیمه‌شب یادآوری می‌کند تا روزهای پیاپی خود را حفظ کنید.";
 "settings.notifications.section.dailyReminder" = "روزی یک بار";
 "settings.notifications.permission.allowed" = "مجاز";
 "settings.notifications.permission.notRequested" = "درخواست نشده";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "درون‌ریزی";
 "settings.workspace.import.cloudRequired" = "درون‌ریزی ZIP رسانه در این نسخه به حساب ابری نیاز دارد.";
-"settings.workspace.import.invalidFile" = "یک بستهٔ ZIP از Nibomo انتخاب کنید.";
+"settings.workspace.import.invalidFile" = "یک بستهٔ ZIP از lingvichr انتخاب کنید.";
 "settings.workspace.import.fileTooLarge" = "یک بستهٔ ZIP تا %d مگابایت انتخاب کنید.";
 "settings.workspace.import.missingImportTag" = "پیش از درون‌ریزی، یک برچسب درون‌ریزی وارد کنید.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "این تعداد برای کل فضای کاری است و کارت‌هایی با برچسب‌های مشترک را دوباره نمی‌شمارد.";
 "settings.row.sendFeedback" = "ارسال بازخورد";
 "settings.row.sendFeedback.value" = "مطرح کردن ایده";
-"feedback.sheet.title" = "ایده‌ای برای Nibomo دارید؟";
+"feedback.sheet.title" = "ایده‌ای برای lingvichr دارید؟";
 "feedback.sheet.body" = "بگویید چه چیزی برنامه را بهتر می‌کند. سازنده شخصاً هر پیام را می‌خواند.";
 "feedback.sheet.placeholder" = "ایدهٔ خود را اینجا بنویسید";
 "feedback.sheet.send" = "ارسال";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "بررسی سلامت %@ وضعیت %d را برای %@ برگرداند";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "بررسی سلامت %@ برای %@ به سرور دیگری هدایت شد: %@. آن را طوری پیکربندی کنید که از همان سرور پاسخ دهد، سپس دوباره امتحان کنید.";
 "settings.account.server.validation.invalidApiHealthResponse" = "بررسی سلامت API در %@ سرویس و قرارداد ابری معتبری اعلام نمی‌کند. سرور سفارشی را به‌روزرسانی و دوباره مستقر کنید، سپس دوباره امتحان کنید.";
-"settings.account.server.validation.unexpectedApiService" = "بررسی سلامت API در %@، به‌جای بک‌اند سازگار Nibomo، سرویس %@ را شناسایی می‌کند. سرور سفارشی را به‌روزرسانی و دوباره مستقر کنید، سپس دوباره امتحان کنید.";
+"settings.account.server.validation.unexpectedApiService" = "بررسی سلامت API در %@، به‌جای بک‌اند سازگار lingvichr، سرویس %@ را شناسایی می‌کند. سرور سفارشی را به‌روزرسانی و دوباره مستقر کنید، سپس دوباره امتحان کنید.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "بررسی سلامت API در %@ نسخهٔ پشتیبانی‌نشدهٔ %d از قرارداد ابری را اعلام می‌کند. این برنامه به نسخهٔ ۱ نیاز دارد. سرور سفارشی را به‌روزرسانی و دوباره مستقر کنید، سپس دوباره امتحان کنید.";
 "settings.sync.customGuestWorkspacePaused.message" = "این سرور سفارشی به فضای کاری مهمان دسترسی ندارد. ممکن است سرور ناسازگار یا نادرست پیکربندی شده باشد. همگام‌سازی متوقف است و کارت‌های محلی و تغییرات در انتظار شما در این دستگاه محفوظ‌اند.";
 "settings.account.status.customGuestPause.title" = "فضای کاری ابری مهمان در دسترس نیست";

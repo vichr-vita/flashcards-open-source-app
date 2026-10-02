@@ -427,14 +427,14 @@ function readConfirmOptions(): WorkspacePackageImportConfirmOptions {
 }
 
 describe("WorkspaceImportScreen package import", () => {
-  it("presents pasted text as the primary import path and identifies ZIP as a Nibomo package", async () => {
+  it("presents pasted text as the primary import path and identifies ZIP as a lingvichr package", async () => {
     await renderScreen();
 
     expect(requireElement("[data-testid='workspace-text-import-editor']", HTMLElement).textContent).toContain(
       "Paste text",
     );
     expect(requireElement("[data-testid='workspace-package-import-card']", HTMLElement).textContent).toContain(
-      "Nibomo package",
+      "lingvichr package",
     );
   });
 
@@ -913,7 +913,7 @@ describe("WorkspaceImportScreen package import", () => {
     ));
 
     expect(requireElement("[data-testid='workspace-import-error']", HTMLParagraphElement).textContent).toContain(
-      "This file is not a valid flashcards.zip. Choose a package exported from Nibomo.",
+      "This file is not a valid flashcards.zip. Choose a package exported from lingvichr.",
     );
     expect(getContainer().querySelector("[data-testid='workspace-package-import-preview']")).toBeNull();
     expect(document.body.querySelector("[data-testid='app-error-dialog']")).toBeNull();

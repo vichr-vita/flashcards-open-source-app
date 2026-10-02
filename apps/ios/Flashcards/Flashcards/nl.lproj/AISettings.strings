@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Er wordt al een antwoord gemaakt. Wacht tot het klaar is of stop het voordat je een nieuw bericht verstuurt.";
 "ai.dictation.error.microphoneUnavailable" = "Microfoon is niet beschikbaar op dit apparaat.";
 "ai.dictation.error.microphoneDenied" = "Er is geen microfoontoegang verleend.";
-"ai.dictation.error.microphoneBlocked" = "Microfoontoegang is uitgeschakeld voor Nibomo. Schakel deze in via Instellingen > Privacy en beveiliging > Microfoon.";
+"ai.dictation.error.microphoneBlocked" = "Microfoontoegang is uitgeschakeld voor lingvichr. Schakel deze in via Instellingen > Privacy en beveiliging > Microfoon.";
 "ai.dictation.error.invalidRecording" = "De opgenomen audio kon niet worden voorbereid.";
 "ai.dictation.error.recordingStartFailed" = "Microfoonopname kon niet worden gestart.";
 "ai.dictation.error.emptyRecording" = "Er is geen spraak opgenomen.";
@@ -138,7 +138,7 @@
 "settings.title" = "Instellingen";
 "settings.inviteFriend.button" = "Vriend toevoegen";
 "settings.section.share" = "Delen";
-"settings.row.shareApp" = "Nibomo delen";
+"settings.row.shareApp" = "lingvichr delen";
 "settings.section.feedback" = "Feedback";
 "settings.row.reviewInAppStore" = "Beoordelen in de App Store";
 "settings.row.sharePrivateFeedback" = "Privéfeedback delen";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Je plan verschijnt hier zodra de app met je account is gesynchroniseerd.";
 "settings.subscription.manage" = "Abonnement beheren";
 "settings.language.title" = "Taal";
-"settings.language.systemDescription" = "iOS bepaalt de taal van de app. Open Nibomo in de iOS-instellingen en gebruik Voorkeurstaal. Als Voorkeurstaal niet wordt getoond, voeg dan eerst een andere taal toe via Instellingen > Algemeen > Taal en regio.";
-"settings.language.action.openAppSettings" = "Nibomo-instellingen openen";
+"settings.language.systemDescription" = "iOS bepaalt de taal van de app. Open lingvichr in de iOS-instellingen en gebruik Voorkeurstaal. Als Voorkeurstaal niet wordt getoond, voeg dan eerst een andere taal toe via Instellingen > Algemeen > Taal en regio.";
+"settings.language.action.openAppSettings" = "lingvichr-instellingen openen";
 "settings.language.section.supportedLanguages" = "Ondersteunde talen";
 "settings.language.supported.english" = "Engels";
 "settings.language.supported.arabic" = "Arabisch";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Russisch";
 "settings.language.supported.spanishMexico" = "Spaans (Mexico)";
 "settings.language.supported.spanishSpain" = "Spaans (Spanje)";
-"feedback.settings.description" = "Deel een idee, meld een probleem of vertel ons wat Nibomo beter zou maken.";
+"feedback.settings.description" = "Deel een idee, meld een probleem of vertel ons wat lingvichr beter zou maken.";
 "settings.sync.success" = "Synchronisatie geslaagd";
 "settings.sync.guestAiActive" = "AI voor gasten is actief";
 "settings.sync.notSyncing" = "Niet aan het synchroniseren";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Machtigingen";
 "settings.access.notifications" = "Meldingen";
 "settings.access.thisDevice" = "Dit apparaat";
-"settings.access.footer" = "Nibomo vraagt alleen de toegang die nodig is voor bijlagen en dicteren in de chat.";
+"settings.access.footer" = "lingvichr vraagt alleen de toegang die nodig is voor bijlagen en dicteren in de chat.";
 "settings.access.detail.status" = "Status";
 "settings.access.kind.photos" = "Foto's";
 "settings.access.kind.camera" = "Camera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Niet beschikbaar";
 "settings.access.action.request" = "Toegang aanvragen";
 "settings.access.action.openSettings" = "Instellingen openen";
-"settings.access.guidance.photos.limited" = "Alleen de foto's die je al met Nibomo hebt gedeeld, zijn beschikbaar. Open Instellingen om toegang tot meer foto's te geven.";
-"settings.access.guidance.photos.blocked" = "Fototoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Foto's om dit te wijzigen.";
-"settings.access.guidance.camera.blocked" = "Cameratoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Camera om dit te wijzigen.";
-"settings.access.guidance.microphone.blocked" = "Microfoontoegang is uitgeschakeld voor Nibomo. Open Instellingen > Privacy en beveiliging > Microfoon om dit te wijzigen.";
+"settings.access.guidance.photos.limited" = "Alleen de foto's die je al met lingvichr hebt gedeeld, zijn beschikbaar. Open Instellingen om toegang tot meer foto's te geven.";
+"settings.access.guidance.photos.blocked" = "Fototoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Foto's om dit te wijzigen.";
+"settings.access.guidance.camera.blocked" = "Cameratoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Camera om dit te wijzigen.";
+"settings.access.guidance.microphone.blocked" = "Microfoontoegang is uitgeschakeld voor lingvichr. Open Instellingen > Privacy en beveiliging > Microfoon om dit te wijzigen.";
 "settings.access.guidance.askEveryTime" = "Vraag nu toegang aan of open later Instellingen om dit zelf te beheren.";
 "settings.access.guidance.allowed" = "Open Instellingen als je deze toegang wilt uitschakelen.";
 "settings.access.guidance.limited" = "Open Instellingen om deze toegang te bekijken of uit te breiden.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Appicoonbadge";
 "settings.notifications.section.strictReminders" = "Dagreeksherinneringen";
 "settings.notifications.enableStrictReminders" = "Dagreeksherinneringen inschakelen";
-"settings.notifications.strictReminders.description" = "Als je vandaag nog niet hebt herhaald in de huidige werkruimte, herinnert Nibomo je daar 4, 3 en 2 uur vóór middernacht aan, zodat je je dagreeks kunt behouden.";
+"settings.notifications.strictReminders.description" = "Als je vandaag nog niet hebt herhaald in de huidige werkruimte, herinnert lingvichr je daar 4, 3 en 2 uur vóór middernacht aan, zodat je je dagreeks kunt behouden.";
 "settings.notifications.section.dailyReminder" = "Eenmaal per dag";
 "settings.notifications.permission.allowed" = "Toegestaan";
 "settings.notifications.permission.notRequested" = "Niet aangevraagd";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importeren";
 "settings.workspace.import.cloudRequired" = "Voor het importeren van media-ZIP's is in deze versie een cloudaccount nodig.";
-"settings.workspace.import.invalidFile" = "Kies een Nibomo-ZIP-pakket.";
+"settings.workspace.import.invalidFile" = "Kies een lingvichr-ZIP-pakket.";
 "settings.workspace.import.fileTooLarge" = "Kies een ZIP-pakket van maximaal %d MB.";
 "settings.workspace.import.missingImportTag" = "Voer een importtag in voordat je importeert.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Dit aantal geldt voor de hele werkruimte en telt kaarten met gedeelde tags niet dubbel.";
 "settings.row.sendFeedback" = "Feedback versturen";
 "settings.row.sendFeedback.value" = "Een idee delen";
-"feedback.sheet.title" = "Heb je een idee voor Nibomo?";
+"feedback.sheet.title" = "Heb je een idee voor lingvichr?";
 "feedback.sheet.body" = "Deel wat de app beter zou maken. De maker leest elk bericht persoonlijk.";
 "feedback.sheet.placeholder" = "Schrijf je idee hier";
 "feedback.sheet.send" = "Versturen";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Statuscontrole van %@ gaf status %d terug voor %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Statuscontrole van %@ voor %@ is doorgestuurd naar een andere server: %@. Configureer de controle om op dezelfde server te antwoorden en probeer het opnieuw.";
 "settings.account.server.validation.invalidApiHealthResponse" = "De API-status op %@ vermeldt geen geldige dienst en cloudcontract. Werk de aangepaste server bij, implementeer deze opnieuw en probeer het opnieuw.";
-"settings.account.server.validation.unexpectedApiService" = "De API-status op %@ identificeert %@ in plaats van een compatibele Nibomo-backend. Werk de aangepaste server bij, implementeer deze opnieuw en probeer het opnieuw.";
+"settings.account.server.validation.unexpectedApiService" = "De API-status op %@ identificeert %@ in plaats van een compatibele lingvichr-backend. Werk de aangepaste server bij, implementeer deze opnieuw en probeer het opnieuw.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "De API-status op %@ vermeldt de niet-ondersteunde cloudcontractversie %d. Deze app vereist versie 1. Werk de aangepaste server bij, implementeer deze opnieuw en probeer het opnieuw.";
 "settings.sync.customGuestWorkspacePaused.message" = "Deze aangepaste server heeft geen toegang tot deze gastwerkruimte. De server is mogelijk niet compatibel of verkeerd geconfigureerd. Synchronisatie is gepauzeerd en je lokale kaarten en openstaande wijzigingen zijn veilig op dit apparaat.";
 "settings.account.status.customGuestPause.title" = "Cloudgastwerkruimte niet beschikbaar";

@@ -86,7 +86,7 @@ export async function registrationOptions(browserToken: string, grant: string) {
     const keys = (await executor.query<Passkey>("SELECT * FROM auth.local_passkeys WHERE user_id = $1", [account.user_id])).rows;
     if (keys.length >= 16) return { status: "invalid" } as const;
     const options = await generateRegistrationOptions({
-      rpName: "Nibomo", rpID: getLocalAuthConfig().rpId, userName: "Personal", userDisplayName: "Nibomo",
+      rpName: "lingvichr", rpID: getLocalAuthConfig().rpId, userName: "Personal", userDisplayName: "lingvichr",
       userID: new Uint8Array(Buffer.from(account.webauthn_user_handle, "base64url")),
       attestationType: "none", supportedAlgorithmIDs: [-7, -257], timeout: 60000,
       authenticatorSelection: { residentKey: "required", userVerification: "required" },

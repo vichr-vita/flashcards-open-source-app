@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Vastus on juba koostamisel. Enne uue sõnumi saatmist oota selle valmimist või peata see.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofon pole selles seadmes saadaval.";
 "ai.dictation.error.microphoneDenied" = "Mikrofoni juurdepääsu ei antud.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo mikrofoni juurdepääs on välja lülitatud. Luba see asukohas Seaded > Privaatsus ja turvalisus > Mikrofon.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr mikrofoni juurdepääs on välja lülitatud. Luba see asukohas Seaded > Privaatsus ja turvalisus > Mikrofon.";
 "ai.dictation.error.invalidRecording" = "Salvestatud heli ettevalmistamine ebaõnnestus.";
 "ai.dictation.error.recordingStartFailed" = "Mikrofonisalvestuse alustamine ebaõnnestus.";
 "ai.dictation.error.emptyRecording" = "Kõnet ei salvestatud.";
@@ -138,7 +138,7 @@
 "settings.title" = "Seaded";
 "settings.inviteFriend.button" = "Lisa sõber";
 "settings.section.share" = "Jaga";
-"settings.row.shareApp" = "Jaga Nibomot";
+"settings.row.shareApp" = "Jaga lingvichrt";
 "settings.section.feedback" = "Tagasiside";
 "settings.row.reviewInAppStore" = "Hinda App Store’is";
 "settings.row.sharePrivateFeedback" = "Jaga privaatset tagasisidet";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Sinu pakett ilmub siia, kui rakendus on sinu kontoga sünkroonitud.";
 "settings.subscription.manage" = "Halda tellimust";
 "settings.language.title" = "Keel";
-"settings.language.systemDescription" = "iOS määrab rakenduse keele. Ava iOS-i seadetes Nibomo ja vali eelistatud keel. Kui eelistatud keele valikut ei kuvata, lisa esmalt teine keel asukohas Seaded > Üldine > Keel ja piirkond.";
-"settings.language.action.openAppSettings" = "Ava Nibomo seaded";
+"settings.language.systemDescription" = "iOS määrab rakenduse keele. Ava iOS-i seadetes lingvichr ja vali eelistatud keel. Kui eelistatud keele valikut ei kuvata, lisa esmalt teine keel asukohas Seaded > Üldine > Keel ja piirkond.";
+"settings.language.action.openAppSettings" = "Ava lingvichr seaded";
 "settings.language.section.supportedLanguages" = "Toetatud keeled";
 "settings.language.supported.english" = "Inglise";
 "settings.language.supported.arabic" = "Araabia";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Vene";
 "settings.language.supported.spanishMexico" = "Mehhiko hispaania";
 "settings.language.supported.spanishSpain" = "Hispaania hispaania";
-"feedback.settings.description" = "Jaga ideed, teata probleemist või ütle, mis muudaks Nibomo paremaks.";
+"feedback.settings.description" = "Jaga ideed, teata probleemist või ütle, mis muudaks lingvichr paremaks.";
 "settings.sync.success" = "Sünkroonitud";
 "settings.sync.guestAiActive" = "Külalise tehisintellekt on aktiivne";
 "settings.sync.notSyncing" = "Ei sünkrooni";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Load";
 "settings.access.notifications" = "Teavitused";
 "settings.access.thisDevice" = "See seade";
-"settings.access.footer" = "Nibomo küsib ainult manuste ja vestluses dikteerimise jaoks vajalikke pääsuõigusi.";
+"settings.access.footer" = "lingvichr küsib ainult manuste ja vestluses dikteerimise jaoks vajalikke pääsuõigusi.";
 "settings.access.detail.status" = "Olek";
 "settings.access.kind.photos" = "Fotod";
 "settings.access.kind.camera" = "Kaamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Pole saadaval";
 "settings.access.action.request" = "Taotle juurdepääsu";
 "settings.access.action.openSettings" = "Ava seaded";
-"settings.access.guidance.photos.limited" = "Saadaval on ainult fotod, mida oled juba Nibomoga jaganud. Laiema juurdepääsu andmiseks ava seaded.";
-"settings.access.guidance.photos.blocked" = "Nibomo fotodele juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Fotod.";
-"settings.access.guidance.camera.blocked" = "Nibomo kaamerale juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Kaamera.";
-"settings.access.guidance.microphone.blocked" = "Nibomo mikrofoni juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Mikrofon.";
+"settings.access.guidance.photos.limited" = "Saadaval on ainult fotod, mida oled juba lingvichrga jaganud. Laiema juurdepääsu andmiseks ava seaded.";
+"settings.access.guidance.photos.blocked" = "lingvichr fotodele juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Fotod.";
+"settings.access.guidance.camera.blocked" = "lingvichr kaamerale juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Kaamera.";
+"settings.access.guidance.microphone.blocked" = "lingvichr mikrofoni juurdepääs on välja lülitatud. Selle muutmiseks ava Seaded > Privaatsus ja turvalisus > Mikrofon.";
 "settings.access.guidance.askEveryTime" = "Taotle juurdepääsu kohe või ava seaded hiljem, et seda käsitsi hallata.";
 "settings.access.guidance.allowed" = "Kui soovid selle juurdepääsu välja lülitada, ava seaded.";
 "settings.access.guidance.limited" = "Selle juurdepääsu kontrollimiseks või laiendamiseks ava seaded.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Rakenduse ikoonimärk";
 "settings.notifications.section.strictReminders" = "Päevade jada meeldetuletused";
 "settings.notifications.enableStrictReminders" = "Luba päevade jada meeldetuletused";
-"settings.notifications.strictReminders.description" = "Kui sa pole täna praeguses tööruumis korranud, tuletab Nibomo seda meelde 4, 3 ja 2 tundi enne südaööd, et saaksid oma päevade jada säilitada.";
+"settings.notifications.strictReminders.description" = "Kui sa pole täna praeguses tööruumis korranud, tuletab lingvichr seda meelde 4, 3 ja 2 tundi enne südaööd, et saaksid oma päevade jada säilitada.";
 "settings.notifications.section.dailyReminder" = "Kord päevas";
 "settings.notifications.permission.allowed" = "Lubatud";
 "settings.notifications.permission.notRequested" = "Pole küsitud";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Import";
 "settings.workspace.import.cloudRequired" = "Meedia ZIP-faili import nõuab selles versioonis pilvekontot.";
-"settings.workspace.import.invalidFile" = "Vali Nibomo ZIP-pakett.";
+"settings.workspace.import.invalidFile" = "Vali lingvichr ZIP-pakett.";
 "settings.workspace.import.fileTooLarge" = "Vali kuni %d MB suurune ZIP-pakett.";
 "settings.workspace.import.missingImportTag" = "Enne importimist sisesta impordisilt.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "See arv käib kogu tööruumi kohta ja ei loenda samu silte jagavaid kaarte topelt.";
 "settings.row.sendFeedback" = "Saada tagasisidet";
 "settings.row.sendFeedback.value" = "Jaga ideed";
-"feedback.sheet.title" = "Kas sul on Nibomo jaoks idee?";
+"feedback.sheet.title" = "Kas sul on lingvichr jaoks idee?";
 "feedback.sheet.body" = "Jaga, mis muudaks rakenduse paremaks. Looja loeb iga sõnumit isiklikult.";
 "feedback.sheet.placeholder" = "Kirjuta oma idee siia";
 "feedback.sheet.send" = "Saada";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ tervisekontroll tagastas oleku %d aadressil %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ tervisekontroll aadressil %@ suunati teise serverisse: %@. Seadista see vastama samas serveris ja proovi uuesti.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API tervisekontroll aadressil %@ ei esita kehtivat teenuse- ja pilvelepingut. Värskenda kohandatud serverit, juuruta see uuesti ja proovi veel kord.";
-"settings.account.server.validation.unexpectedApiService" = "API tervisekontroll aadressil %@ tuvastab teenusena %@, mitte ühilduva Nibomo taustateenuse. Värskenda kohandatud serverit, juuruta see uuesti ja proovi veel kord.";
+"settings.account.server.validation.unexpectedApiService" = "API tervisekontroll aadressil %@ tuvastab teenusena %@, mitte ühilduva lingvichr taustateenuse. Värskenda kohandatud serverit, juuruta see uuesti ja proovi veel kord.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API tervisekontroll aadressil %@ teatab toetamata pilvelepingu versiooni %d. Rakendus nõuab versiooni 1. Värskenda kohandatud serverit, juuruta see uuesti ja proovi veel kord.";
 "settings.sync.customGuestWorkspacePaused.message" = "See kohandatud server ei pääse sellele külalistööruumile ligi. Server võib olla ühildumatu või valesti seadistatud. Sünkroonimine on peatatud ning kohalikud kaardid ja ootel muudatused säilivad selles seadmes turvaliselt.";
 "settings.account.status.customGuestPause.title" = "Külalise pilvetööruum pole saadaval";

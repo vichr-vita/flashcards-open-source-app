@@ -437,8 +437,8 @@ describe("SettingsScreen navigation", () => {
     await clickButton("settings-share-app-open");
 
     expect(shareMock).toHaveBeenCalledWith({
-      title: "Study with Nibomo",
-      text: "Open Nibomo on iOS, Android, or the web.",
+      title: "Study with lingvichr",
+      text: "Open lingvichr on iOS, Android, or the web.",
       url: `${window.location.origin}${shareRoute}`,
     });
     expect(getContainer().querySelector("[data-testid='settings-share-app-status']")?.textContent).toBe("Share sheet opened.");

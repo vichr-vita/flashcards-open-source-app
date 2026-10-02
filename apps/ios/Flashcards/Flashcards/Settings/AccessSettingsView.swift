@@ -26,7 +26,7 @@ struct AccessSettingsView: View {
                 Text(
                     aiSettingsLocalized(
                         "settings.access.footer",
-                        "Nibomo requests only the access needed for attachments and chat dictation."
+                        "lingvichr requests only the access needed for attachments and chat dictation."
                     )
                 )
                     .foregroundStyle(.secondary)

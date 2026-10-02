@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Atsakymas jau kuriamas. Prieš siųsdami kitą žinutę, palaukite, kol jis bus baigtas, arba sustabdykite jį.";
 "ai.dictation.error.microphoneUnavailable" = "Šiame įrenginyje mikrofonas nepasiekiamas.";
 "ai.dictation.error.microphoneDenied" = "Prieiga prie mikrofono nesuteikta.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo prieiga prie mikrofono išjungta. Įjunkite ją: Nustatymai > Privatumas ir sauga > Mikrofonas.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr prieiga prie mikrofono išjungta. Įjunkite ją: Nustatymai > Privatumas ir sauga > Mikrofonas.";
 "ai.dictation.error.invalidRecording" = "Nepavyko paruošti įrašyto garso.";
 "ai.dictation.error.recordingStartFailed" = "Nepavyko pradėti įrašymo mikrofonu.";
 "ai.dictation.error.emptyRecording" = "Kalba neįrašyta.";
@@ -138,7 +138,7 @@
 "settings.title" = "Nustatymai";
 "settings.inviteFriend.button" = "Pridėti draugą";
 "settings.section.share" = "Bendrinti";
-"settings.row.shareApp" = "Bendrinti Nibomo";
+"settings.row.shareApp" = "Bendrinti lingvichr";
 "settings.section.feedback" = "Atsiliepimai";
 "settings.row.reviewInAppStore" = "Įvertinti App Store";
 "settings.row.sharePrivateFeedback" = "Siųsti privatų atsiliepimą";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Jūsų planas bus rodomas čia, kai programa susinchronizuos su jūsų paskyra.";
 "settings.subscription.manage" = "Tvarkyti prenumeratą";
 "settings.language.title" = "Kalba";
-"settings.language.systemDescription" = "iOS valdo programėlės kalbą. iOS nustatymuose atidarykite Nibomo ir pasirinkite pageidaujamą kalbą. Jei šio pasirinkimo nėra, pirmiausia pridėkite kitą kalbą: Nustatymai > Bendra > Kalba ir regionas.";
-"settings.language.action.openAppSettings" = "Atidaryti Nibomo nustatymus";
+"settings.language.systemDescription" = "iOS valdo programėlės kalbą. iOS nustatymuose atidarykite lingvichr ir pasirinkite pageidaujamą kalbą. Jei šio pasirinkimo nėra, pirmiausia pridėkite kitą kalbą: Nustatymai > Bendra > Kalba ir regionas.";
+"settings.language.action.openAppSettings" = "Atidaryti lingvichr nustatymus";
 "settings.language.section.supportedLanguages" = "Palaikomos kalbos";
 "settings.language.supported.english" = "Anglų";
 "settings.language.supported.arabic" = "Arabų";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Rusų";
 "settings.language.supported.spanishMexico" = "Ispanų (Meksika)";
 "settings.language.supported.spanishSpain" = "Ispanų (Ispanija)";
-"feedback.settings.description" = "Pasidalykite idėja, praneškite apie trūkumą arba papasakokite, kas pagerintų Nibomo.";
+"feedback.settings.description" = "Pasidalykite idėja, praneškite apie trūkumą arba papasakokite, kas pagerintų lingvichr.";
 "settings.sync.success" = "Sėkmingai sinchronizuota";
 "settings.sync.guestAiActive" = "Svečio DI aktyvus";
 "settings.sync.notSyncing" = "Nesinchronizuojama";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Leidimai";
 "settings.access.notifications" = "Pranešimai";
 "settings.access.thisDevice" = "Šis įrenginys";
-"settings.access.footer" = "Nibomo prašo tik priedams ir pokalbio diktavimui reikalingos prieigos.";
+"settings.access.footer" = "lingvichr prašo tik priedams ir pokalbio diktavimui reikalingos prieigos.";
 "settings.access.detail.status" = "Būsena";
 "settings.access.kind.photos" = "Nuotraukos";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Nepasiekiama";
 "settings.access.action.request" = "Prašyti prieigos";
 "settings.access.action.openSettings" = "Atidaryti nustatymus";
-"settings.access.guidance.photos.limited" = "Pasiekiamos tik nuotraukos, kuriomis jau pasidalijote su Nibomo. Norėdami suteikti platesnę prieigą, atidarykite nustatymus.";
-"settings.access.guidance.photos.blocked" = "Nibomo prieiga prie nuotraukų išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Nuotraukos.";
-"settings.access.guidance.camera.blocked" = "Nibomo prieiga prie kameros išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Kamera.";
-"settings.access.guidance.microphone.blocked" = "Nibomo prieiga prie mikrofono išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Mikrofonas.";
+"settings.access.guidance.photos.limited" = "Pasiekiamos tik nuotraukos, kuriomis jau pasidalijote su lingvichr. Norėdami suteikti platesnę prieigą, atidarykite nustatymus.";
+"settings.access.guidance.photos.blocked" = "lingvichr prieiga prie nuotraukų išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Nuotraukos.";
+"settings.access.guidance.camera.blocked" = "lingvichr prieiga prie kameros išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Kamera.";
+"settings.access.guidance.microphone.blocked" = "lingvichr prieiga prie mikrofono išjungta. Norėdami ją pakeisti, atidarykite Nustatymai > Privatumas ir sauga > Mikrofonas.";
 "settings.access.guidance.askEveryTime" = "Prašykite prieigos dabar arba vėliau atidarykite nustatymus ir valdykite ją patys.";
 "settings.access.guidance.allowed" = "Norėdami išjungti šią prieigą, atidarykite nustatymus.";
 "settings.access.guidance.limited" = "Norėdami peržiūrėti arba išplėsti šią prieigą, atidarykite nustatymus.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Programėlės piktogramos ženklelis";
 "settings.notifications.section.strictReminders" = "Serijos priminimai";
 "settings.notifications.enableStrictReminders" = "Įjungti serijos priminimus";
-"settings.notifications.strictReminders.description" = "Jei šiandien dar nekartojote dabartinėje darbo srityje, Nibomo primena likus 4, 3 ir 2 valandoms iki vidurnakčio, kad išlaikytumėte seriją.";
+"settings.notifications.strictReminders.description" = "Jei šiandien dar nekartojote dabartinėje darbo srityje, lingvichr primena likus 4, 3 ir 2 valandoms iki vidurnakčio, kad išlaikytumėte seriją.";
 "settings.notifications.section.dailyReminder" = "Kartą per dieną";
 "settings.notifications.permission.allowed" = "Leidžiama";
 "settings.notifications.permission.notRequested" = "Neprašyta";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importuoti";
 "settings.workspace.import.cloudRequired" = "Šioje versijoje medijos ZIP importui reikia debesijos paskyros.";
-"settings.workspace.import.invalidFile" = "Pasirinkite Nibomo ZIP paketą.";
+"settings.workspace.import.invalidFile" = "Pasirinkite lingvichr ZIP paketą.";
 "settings.workspace.import.fileTooLarge" = "Pasirinkite ne didesnį nei %d MB ZIP paketą.";
 "settings.workspace.import.missingImportTag" = "Prieš importuodami įveskite importo žymą.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Šis skaičius apima visą darbo sritį ir neskaičiuoja kortelių su keliomis žymomis pakartotinai.";
 "settings.row.sendFeedback" = "Siųsti atsiliepimą";
 "settings.row.sendFeedback.value" = "Pasidalyti idėja";
-"feedback.sheet.title" = "Turite idėją Nibomo?";
+"feedback.sheet.title" = "Turite idėją lingvichr?";
 "feedback.sheet.body" = "Pasidalykite, kas pagerintų programėlę. Kūrėjas asmeniškai skaito kiekvieną žinutę.";
 "feedback.sheet.placeholder" = "Čia parašykite savo idėją";
 "feedback.sheet.send" = "Siųsti";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ veikimo patikra grąžino būseną %d adresui %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ veikimo patikra adresu %@ nukreipta į kitą serverį: %@. Sukonfigūruokite atsakymą tame pačiame serveryje ir bandykite dar kartą.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API veikimo patikra adresu %@ nenurodo tinkamos paslaugos ir debesijos sutarties. Atnaujinkite ir iš naujo įdiekite pasirinktinį serverį, tada bandykite dar kartą.";
-"settings.account.server.validation.unexpectedApiService" = "API veikimo patikra adresu %@ nurodo %@ vietoj suderinamo Nibomo serverio. Atnaujinkite ir iš naujo įdiekite pasirinktinį serverį, tada bandykite dar kartą.";
+"settings.account.server.validation.unexpectedApiService" = "API veikimo patikra adresu %@ nurodo %@ vietoj suderinamo lingvichr serverio. Atnaujinkite ir iš naujo įdiekite pasirinktinį serverį, tada bandykite dar kartą.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API veikimo patikra adresu %@ nurodo nepalaikomą debesijos sutarties versiją %d. Šiai programėlei reikia 1 versijos. Atnaujinkite ir iš naujo įdiekite pasirinktinį serverį, tada bandykite dar kartą.";
 "settings.sync.customGuestWorkspacePaused.message" = "Šis pasirinktinis serveris negali pasiekti šios svečio darbo srities. Serveris gali būti nesuderinamas arba netinkamai sukonfigūruotas. Sinchronizavimas pristabdytas, o vietinės kortelės ir laukiantys pakeitimai saugūs šiame įrenginyje.";
 "settings.account.status.customGuestPause.title" = "Svečio debesijos darbo sritis nepasiekiama";

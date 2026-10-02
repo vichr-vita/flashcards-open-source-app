@@ -31,7 +31,7 @@
   }
 
   .app-shell:has(.review-screen-panel) .topbar-brand {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .review-layout {

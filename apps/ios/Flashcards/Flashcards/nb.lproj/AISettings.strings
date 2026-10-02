@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Et svar er allerede underveis. Vent til det er ferdig, eller stopp det før du sender en ny melding.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofon er ikke tilgjengelig på denne enheten.";
 "ai.dictation.error.microphoneDenied" = "Mikrofontilgang ble ikke gitt.";
-"ai.dictation.error.microphoneBlocked" = "Mikrofontilgang er slått av for Nibomo. Aktiver den i Innstillinger > Personvern og sikkerhet > Mikrofon.";
+"ai.dictation.error.microphoneBlocked" = "Mikrofontilgang er slått av for lingvichr. Aktiver den i Innstillinger > Personvern og sikkerhet > Mikrofon.";
 "ai.dictation.error.invalidRecording" = "Kunne ikke klargjøre lydopptaket.";
 "ai.dictation.error.recordingStartFailed" = "Kunne ikke starte mikrofonopptaket.";
 "ai.dictation.error.emptyRecording" = "Ingen tale ble tatt opp.";
@@ -138,7 +138,7 @@
 "settings.title" = "Innstillinger";
 "settings.inviteFriend.button" = "Legg til venn";
 "settings.section.share" = "Del";
-"settings.row.shareApp" = "Del Nibomo";
+"settings.row.shareApp" = "Del lingvichr";
 "settings.section.feedback" = "Tilbakemelding";
 "settings.row.reviewInAppStore" = "Vurder i App Store";
 "settings.row.sharePrivateFeedback" = "Del privat tilbakemelding";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Planen din vises her når appen har synkronisert med kontoen din.";
 "settings.subscription.manage" = "Administrer abonnement";
 "settings.language.title" = "Språk";
-"settings.language.systemDescription" = "iOS styrer appspråket. Åpne Nibomo i iOS-innstillingene og bruk Foretrukket språk. Hvis Foretrukket språk ikke vises, legger du først til et språk i Innstillinger > Generelt > Språk og region.";
-"settings.language.action.openAppSettings" = "Åpne Nibomo-innstillinger";
+"settings.language.systemDescription" = "iOS styrer appspråket. Åpne lingvichr i iOS-innstillingene og bruk Foretrukket språk. Hvis Foretrukket språk ikke vises, legger du først til et språk i Innstillinger > Generelt > Språk og region.";
+"settings.language.action.openAppSettings" = "Åpne lingvichr-innstillinger";
 "settings.language.section.supportedLanguages" = "Støttede språk";
 "settings.language.supported.english" = "Engelsk";
 "settings.language.supported.arabic" = "Arabisk";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Russisk";
 "settings.language.supported.spanishMexico" = "Spansk, Mexico";
 "settings.language.supported.spanishSpain" = "Spansk, Spania";
-"feedback.settings.description" = "Del en idé, meld fra om noe som ikke fungerer godt, eller fortell oss hva som ville gjort Nibomo bedre.";
+"feedback.settings.description" = "Del en idé, meld fra om noe som ikke fungerer godt, eller fortell oss hva som ville gjort lingvichr bedre.";
 "settings.sync.success" = "Synkronisert";
 "settings.sync.guestAiActive" = "Gjeste-AI er aktiv";
 "settings.sync.notSyncing" = "Synkroniserer ikke";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Tillatelser";
 "settings.access.notifications" = "Varslinger";
 "settings.access.thisDevice" = "Denne enheten";
-"settings.access.footer" = "Nibomo ber bare om tilgangen som trengs for vedlegg og diktering i chatten.";
+"settings.access.footer" = "lingvichr ber bare om tilgangen som trengs for vedlegg og diktering i chatten.";
 "settings.access.detail.status" = "Status";
 "settings.access.kind.photos" = "Bilder";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Utilgjengelig";
 "settings.access.action.request" = "Be om tilgang";
 "settings.access.action.openSettings" = "Åpne Innstillinger";
-"settings.access.guidance.photos.limited" = "Bare bildene du allerede har delt med Nibomo, er tilgjengelige. Åpne Innstillinger for å gi tilgang til flere bilder.";
-"settings.access.guidance.photos.blocked" = "Bildetilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Bilder for å endre dette.";
-"settings.access.guidance.camera.blocked" = "Kameratilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Kamera for å endre dette.";
-"settings.access.guidance.microphone.blocked" = "Mikrofontilgang er slått av for Nibomo. Åpne Innstillinger > Personvern og sikkerhet > Mikrofon for å endre dette.";
+"settings.access.guidance.photos.limited" = "Bare bildene du allerede har delt med lingvichr, er tilgjengelige. Åpne Innstillinger for å gi tilgang til flere bilder.";
+"settings.access.guidance.photos.blocked" = "Bildetilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Bilder for å endre dette.";
+"settings.access.guidance.camera.blocked" = "Kameratilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Kamera for å endre dette.";
+"settings.access.guidance.microphone.blocked" = "Mikrofontilgang er slått av for lingvichr. Åpne Innstillinger > Personvern og sikkerhet > Mikrofon for å endre dette.";
 "settings.access.guidance.askEveryTime" = "Be om tilgang nå, eller åpne Innstillinger senere hvis du vil administrere den selv.";
 "settings.access.guidance.allowed" = "Åpne Innstillinger hvis du vil slå av denne tilgangen.";
 "settings.access.guidance.limited" = "Åpne Innstillinger for å se gjennom eller utvide tilgangen.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Merke på appikonet";
 "settings.notifications.section.strictReminders" = "Dagrekkepåminnelser";
 "settings.notifications.enableStrictReminders" = "Aktiver dagrekkepåminnelser";
-"settings.notifications.strictReminders.description" = "Hvis du ikke har repetert i gjeldende arbeidsområde i dag, minner Nibomo deg på det 4, 3 og 2 timer før midnatt, slik at du kan beholde dagrekken.";
+"settings.notifications.strictReminders.description" = "Hvis du ikke har repetert i gjeldende arbeidsområde i dag, minner lingvichr deg på det 4, 3 og 2 timer før midnatt, slik at du kan beholde dagrekken.";
 "settings.notifications.section.dailyReminder" = "Én gang daglig";
 "settings.notifications.permission.allowed" = "Tillatt";
 "settings.notifications.permission.notRequested" = "Ikke forespurt";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Import";
 "settings.workspace.import.cloudRequired" = "Import av medie-ZIP krever en skykonto i denne versjonen.";
-"settings.workspace.import.invalidFile" = "Velg en Nibomo ZIP-pakke.";
+"settings.workspace.import.invalidFile" = "Velg en lingvichr ZIP-pakke.";
 "settings.workspace.import.fileTooLarge" = "Velg en ZIP-pakke på opptil %d MB.";
 "settings.workspace.import.missingImportTag" = "Skriv inn en importtagg før import.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Dette antallet gjelder hele arbeidsområdet og teller ikke kort med felles tagger flere ganger.";
 "settings.row.sendFeedback" = "Send tilbakemelding";
 "settings.row.sendFeedback.value" = "Del en idé";
-"feedback.sheet.title" = "Har du en idé til Nibomo?";
+"feedback.sheet.title" = "Har du en idé til lingvichr?";
 "feedback.sheet.body" = "Del hva som ville gjort appen bedre. Utvikleren leser hver melding personlig.";
 "feedback.sheet.placeholder" = "Skriv ideen din her";
 "feedback.sheet.send" = "Send";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Helsesjekk for %@ returnerte status %d for %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Helsesjekk for %@ på %@ ble omdirigert til en annen server: %@. Konfigurer den til å svare på samme server, og prøv igjen.";
 "settings.account.server.validation.invalidApiHealthResponse" = "API-helsesjekken på %@ oppgir ikke en gyldig tjeneste og skykontrakt. Oppdater og distribuer den egendefinerte serveren på nytt, og prøv igjen.";
-"settings.account.server.validation.unexpectedApiService" = "API-helsesjekken på %@ identifiserer %@ i stedet for en kompatibel Nibomo-backend. Oppdater og distribuer den egendefinerte serveren på nytt, og prøv igjen.";
+"settings.account.server.validation.unexpectedApiService" = "API-helsesjekken på %@ identifiserer %@ i stedet for en kompatibel lingvichr-backend. Oppdater og distribuer den egendefinerte serveren på nytt, og prøv igjen.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "API-helsesjekken på %@ oppgir skykontraktversjon %d, som ikke støttes. Denne appen krever versjon 1. Oppdater og distribuer den egendefinerte serveren på nytt, og prøv igjen.";
 "settings.sync.customGuestWorkspacePaused.message" = "Denne egendefinerte serveren har ikke tilgang til dette gjestearbeidsområdet. Serveren kan være inkompatibel eller feilkonfigurert. Synkronisering er satt på pause, og lokale kort og ventende endringer er trygge på denne enheten.";
 "settings.account.status.customGuestPause.title" = "Gjestearbeidsområde i skyen utilgjengelig";

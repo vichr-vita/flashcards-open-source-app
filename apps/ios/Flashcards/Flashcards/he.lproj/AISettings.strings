@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "כבר מתבצעת יצירת תשובה. יש להמתין לסיומה או לעצור אותה לפני שליחת הודעה נוספת.";
 "ai.dictation.error.microphoneUnavailable" = "המיקרופון אינו זמין במכשיר הזה.";
 "ai.dictation.error.microphoneDenied" = "לא ניתנה הרשאת גישה למיקרופון.";
-"ai.dictation.error.microphoneBlocked" = "הגישה למיקרופון כבויה עבור Nibomo. יש להפעיל אותה בהגדרות > פרטיות ואבטחה > מיקרופון.";
+"ai.dictation.error.microphoneBlocked" = "הגישה למיקרופון כבויה עבור lingvichr. יש להפעיל אותה בהגדרות > פרטיות ואבטחה > מיקרופון.";
 "ai.dictation.error.invalidRecording" = "הכנת השמע שהוקלט נכשלה.";
 "ai.dictation.error.recordingStartFailed" = "הפעלת ההקלטה מהמיקרופון נכשלה.";
 "ai.dictation.error.emptyRecording" = "לא הוקלט דיבור.";
@@ -138,7 +138,7 @@
 "settings.title" = "הגדרות";
 "settings.inviteFriend.button" = "הוספת חבר";
 "settings.section.share" = "שיתוף";
-"settings.row.shareApp" = "שיתוף Nibomo";
+"settings.row.shareApp" = "שיתוף lingvichr";
 "settings.section.feedback" = "משוב";
 "settings.row.reviewInAppStore" = "כתיבת ביקורת ב-App Store";
 "settings.row.sharePrivateFeedback" = "שיתוף משוב פרטי";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "התוכנית שלך תופיע כאן לאחר שהאפליקציה תסתנכרן עם החשבון שלך.";
 "settings.subscription.manage" = "ניהול המינוי";
 "settings.language.title" = "שפה";
-"settings.language.systemDescription" = "iOS קובע את שפת האפליקציה. בהגדרות iOS, יש לפתוח את Nibomo ולבחור שפה מועדפת. אם שפה מועדפת אינה מופיעה, יש להוסיף תחילה שפה נוספת בהגדרות > כללי > שפה ואזור.";
-"settings.language.action.openAppSettings" = "פתיחת הגדרות Nibomo";
+"settings.language.systemDescription" = "iOS קובע את שפת האפליקציה. בהגדרות iOS, יש לפתוח את lingvichr ולבחור שפה מועדפת. אם שפה מועדפת אינה מופיעה, יש להוסיף תחילה שפה נוספת בהגדרות > כללי > שפה ואזור.";
+"settings.language.action.openAppSettings" = "פתיחת הגדרות lingvichr";
 "settings.language.section.supportedLanguages" = "שפות נתמכות";
 "settings.language.supported.english" = "אנגלית";
 "settings.language.supported.arabic" = "ערבית";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "רוסית";
 "settings.language.supported.spanishMexico" = "ספרדית (מקסיקו)";
 "settings.language.supported.spanishSpain" = "ספרדית (ספרד)";
-"feedback.settings.description" = "אפשר לשתף רעיון, לדווח על בעיה או לספר מה ישפר את Nibomo.";
+"feedback.settings.description" = "אפשר לשתף רעיון, לדווח על בעיה או לספר מה ישפר את lingvichr.";
 "settings.sync.success" = "הסנכרון הושלם בהצלחה";
 "settings.sync.guestAiActive" = "AI לאורחים פעיל";
 "settings.sync.notSyncing" = "לא מסתנכרן";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "הרשאות";
 "settings.access.notifications" = "התראות";
 "settings.access.thisDevice" = "המכשיר הזה";
-"settings.access.footer" = "Nibomo מבקש רק גישה הנדרשת לקבצים מצורפים ולהכתבה בצ׳אט.";
+"settings.access.footer" = "lingvichr מבקש רק גישה הנדרשת לקבצים מצורפים ולהכתבה בצ׳אט.";
 "settings.access.detail.status" = "מצב";
 "settings.access.kind.photos" = "תמונות";
 "settings.access.kind.camera" = "מצלמה";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "לא זמין";
 "settings.access.action.request" = "בקשת גישה";
 "settings.access.action.openSettings" = "פתיחת ההגדרות";
-"settings.access.guidance.photos.limited" = "רק התמונות שכבר שותפו עם Nibomo זמינות. יש לפתוח את ההגדרות כדי לאפשר גישה לתמונות נוספות.";
-"settings.access.guidance.photos.blocked" = "הגישה לתמונות כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > תמונות.";
-"settings.access.guidance.camera.blocked" = "הגישה למצלמה כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מצלמה.";
-"settings.access.guidance.microphone.blocked" = "הגישה למיקרופון כבויה עבור Nibomo. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מיקרופון.";
+"settings.access.guidance.photos.limited" = "רק התמונות שכבר שותפו עם lingvichr זמינות. יש לפתוח את ההגדרות כדי לאפשר גישה לתמונות נוספות.";
+"settings.access.guidance.photos.blocked" = "הגישה לתמונות כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > תמונות.";
+"settings.access.guidance.camera.blocked" = "הגישה למצלמה כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מצלמה.";
+"settings.access.guidance.microphone.blocked" = "הגישה למיקרופון כבויה עבור lingvichr. לשינוי, יש לפתוח הגדרות > פרטיות ואבטחה > מיקרופון.";
 "settings.access.guidance.askEveryTime" = "אפשר לבקש גישה כעת, או לפתוח את ההגדרות בהמשך לניהול ידני שלה.";
 "settings.access.guidance.allowed" = "כדי לבטל את הגישה, יש לפתוח את ההגדרות.";
 "settings.access.guidance.limited" = "יש לפתוח את ההגדרות כדי לבדוק או להרחיב את הגישה.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "תג סמל האפליקציה";
 "settings.notifications.section.strictReminders" = "תזכורות רצף";
 "settings.notifications.enableStrictReminders" = "הפעלת תזכורות רצף";
-"settings.notifications.strictReminders.description" = "אם לא בוצעה היום חזרה בסביבת העבודה הנוכחית, Nibomo מזכיר לך 4, 3 ו-2 שעות לפני חצות כדי לשמור על הרצף.";
+"settings.notifications.strictReminders.description" = "אם לא בוצעה היום חזרה בסביבת העבודה הנוכחית, lingvichr מזכיר לך 4, 3 ו-2 שעות לפני חצות כדי לשמור על הרצף.";
 "settings.notifications.section.dailyReminder" = "פעם ביום";
 "settings.notifications.permission.allowed" = "מותרת";
 "settings.notifications.permission.notRequested" = "טרם התבקשה";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "ייבוא";
 "settings.workspace.import.cloudRequired" = "ייבוא ZIP של מדיה דורש חשבון ענן בגרסה הזו.";
-"settings.workspace.import.invalidFile" = "יש לבחור חבילת ZIP של Nibomo.";
+"settings.workspace.import.invalidFile" = "יש לבחור חבילת ZIP של lingvichr.";
 "settings.workspace.import.fileTooLarge" = "יש לבחור חבילת ZIP בגודל של עד %d MB.";
 "settings.workspace.import.missingImportTag" = "יש להזין תגית ייבוא לפני הייבוא.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "הספירה מתייחסת לכל סביבת העבודה ואינה סופרת פעמיים כרטיסיות שחולקות תגיות.";
 "settings.row.sendFeedback" = "שליחת משוב";
 "settings.row.sendFeedback.value" = "שיתוף רעיון";
-"feedback.sheet.title" = "יש לך רעיון ל-Nibomo?";
+"feedback.sheet.title" = "יש לך רעיון ל-lingvichr?";
 "feedback.sheet.body" = "אפשר לשתף מה ישפר את האפליקציה. היוצר קורא כל הודעה באופן אישי.";
 "feedback.sheet.placeholder" = "כתיבת הרעיון שלך כאן";
 "feedback.sheet.send" = "שליחה";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "בדיקת התקינות של %@ החזירה מצב %d עבור %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "בדיקת התקינות של %@ עבור %@ הופנתה לשרת אחר: %@. יש להגדיר מענה מאותו שרת ולנסות שוב.";
 "settings.account.server.validation.invalidApiHealthResponse" = "בדיקת תקינות ה-API ב-%@ אינה מציגה שירות וחוזה ענן תקינים. יש לעדכן ולפרוס מחדש את השרת המותאם אישית ולנסות שוב.";
-"settings.account.server.validation.unexpectedApiService" = "בדיקת תקינות ה-API ב-%@ מזהה %@ במקום שרת Nibomo תואם. יש לעדכן ולפרוס מחדש את השרת המותאם אישית ולנסות שוב.";
+"settings.account.server.validation.unexpectedApiService" = "בדיקת תקינות ה-API ב-%@ מזהה %@ במקום שרת lingvichr תואם. יש לעדכן ולפרוס מחדש את השרת המותאם אישית ולנסות שוב.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "בדיקת תקינות ה-API ב-%@ מציגה גרסת חוזה ענן לא נתמכת %d. האפליקציה דורשת גרסה 1. יש לעדכן ולפרוס מחדש את השרת המותאם אישית ולנסות שוב.";
 "settings.sync.customGuestWorkspacePaused.message" = "השרת המותאם אישית הזה אינו יכול לגשת לסביבת העבודה של האורח. ייתכן שהשרת אינו תואם או שהוגדר בצורה שגויה. הסנכרון מושהה, והכרטיסיות המקומיות והשינויים הממתינים שלך בטוחים במכשיר הזה.";
 "settings.account.status.customGuestPause.title" = "סביבת העבודה של האורח בענן אינה זמינה";

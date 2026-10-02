@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "ಈಗಾಗಲೇ ಉತ್ತರ ಸಿದ್ಧವಾಗುತ್ತಿದೆ. ಮತ್ತೊಂದು ಸಂದೇಶ ಕಳುಹಿಸುವ ಮೊದಲು ಅದು ಮುಗಿಯಲು ಕಾಯಿರಿ ಅಥವಾ ನಿಲ್ಲಿಸಿ.";
 "ai.dictation.error.microphoneUnavailable" = "ಈ ಸಾಧನದಲ್ಲಿ ಮೈಕ್ರೊಫೋನ್ ಲಭ್ಯವಿಲ್ಲ.";
 "ai.dictation.error.microphoneDenied" = "ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶಕ್ಕೆ ಅನುಮತಿ ನೀಡಲಾಗಿಲ್ಲ.";
-"ai.dictation.error.microphoneBlocked" = "Nibomoಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್‌ನಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ.";
+"ai.dictation.error.microphoneBlocked" = "lingvichrಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್‌ನಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ.";
 "ai.dictation.error.invalidRecording" = "ರೆಕಾರ್ಡ್ ಮಾಡಿದ ಆಡಿಯೊ ಸಿದ್ಧಪಡಿಸಲಾಗಲಿಲ್ಲ.";
 "ai.dictation.error.recordingStartFailed" = "ಮೈಕ್ರೊಫೋನ್ ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ.";
 "ai.dictation.error.emptyRecording" = "ಯಾವುದೇ ಮಾತು ರೆಕಾರ್ಡ್ ಆಗಿಲ್ಲ.";
@@ -138,7 +138,7 @@
 "settings.title" = "ಸೆಟ್ಟಿಂಗ್‌ಗಳು";
 "settings.inviteFriend.button" = "ಸ್ನೇಹಿತರನ್ನು ಸೇರಿಸಿ";
 "settings.section.share" = "ಹಂಚಿಕೊಳ್ಳಿ";
-"settings.row.shareApp" = "Nibomo ಹಂಚಿಕೊಳ್ಳಿ";
+"settings.row.shareApp" = "lingvichr ಹಂಚಿಕೊಳ್ಳಿ";
 "settings.section.feedback" = "ಅಭಿಪ್ರಾಯ";
 "settings.row.reviewInAppStore" = "App Storeನಲ್ಲಿ ವಿಮರ್ಶೆ ಬರೆಯಿರಿ";
 "settings.row.sharePrivateFeedback" = "ಖಾಸಗಿ ಅಭಿಪ್ರಾಯ ಹಂಚಿಕೊಳ್ಳಿ";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "ಆ್ಯಪ್ ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸಿಂಕ್ ಆದ ನಂತರ ನಿಮ್ಮ ಯೋಜನೆ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.";
 "settings.subscription.manage" = "ಚಂದಾದಾರಿಕೆಯನ್ನು ನಿರ್ವಹಿಸಿ";
 "settings.language.title" = "ಭಾಷೆ";
-"settings.language.systemDescription" = "ಆ್ಯಪ್ ಭಾಷೆಯನ್ನು iOS ನಿಯಂತ್ರಿಸುತ್ತದೆ. iOS ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ Nibomo ತೆರೆಯಿರಿ ಮತ್ತು ಆದ್ಯತೆಯ ಭಾಷೆ ಬಳಸಿ. ಆದ್ಯತೆಯ ಭಾಷೆ ಕಾಣದಿದ್ದರೆ ಮೊದಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಸಾಮಾನ್ಯ > ಭಾಷೆ ಮತ್ತು ಪ್ರದೇಶದಲ್ಲಿ ಮತ್ತೊಂದು ಭಾಷೆ ಸೇರಿಸಿ.";
-"settings.language.action.openAppSettings" = "Nibomo ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ";
+"settings.language.systemDescription" = "ಆ್ಯಪ್ ಭಾಷೆಯನ್ನು iOS ನಿಯಂತ್ರಿಸುತ್ತದೆ. iOS ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ lingvichr ತೆರೆಯಿರಿ ಮತ್ತು ಆದ್ಯತೆಯ ಭಾಷೆ ಬಳಸಿ. ಆದ್ಯತೆಯ ಭಾಷೆ ಕಾಣದಿದ್ದರೆ ಮೊದಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಸಾಮಾನ್ಯ > ಭಾಷೆ ಮತ್ತು ಪ್ರದೇಶದಲ್ಲಿ ಮತ್ತೊಂದು ಭಾಷೆ ಸೇರಿಸಿ.";
+"settings.language.action.openAppSettings" = "lingvichr ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ";
 "settings.language.section.supportedLanguages" = "ಬೆಂಬಲಿತ ಭಾಷೆಗಳು";
 "settings.language.supported.english" = "ಇಂಗ್ಲಿಷ್";
 "settings.language.supported.arabic" = "ಅರೇಬಿಕ್";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "ರಷ್ಯನ್";
 "settings.language.supported.spanishMexico" = "ಸ್ಪ್ಯಾನಿಷ್ (ಮೆಕ್ಸಿಕೊ)";
 "settings.language.supported.spanishSpain" = "ಸ್ಪ್ಯಾನಿಷ್ (ಸ್ಪೇನ್)";
-"feedback.settings.description" = "ಒಂದು ಕಲ್ಪನೆ ಹಂಚಿಕೊಳ್ಳಿ, ಸಮಸ್ಯೆ ತಿಳಿಸಿ ಅಥವಾ Nibomoವನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಏನು ಬೇಕೆಂದು ಹೇಳಿ.";
+"feedback.settings.description" = "ಒಂದು ಕಲ್ಪನೆ ಹಂಚಿಕೊಳ್ಳಿ, ಸಮಸ್ಯೆ ತಿಳಿಸಿ ಅಥವಾ lingvichrವನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಏನು ಬೇಕೆಂದು ಹೇಳಿ.";
 "settings.sync.success" = "ಯಶಸ್ವಿಯಾಗಿ ಸಿಂಕ್ ಆಗಿದೆ";
 "settings.sync.guestAiActive" = "ಅತಿಥಿ AI ಸಕ್ರಿಯವಾಗಿದೆ";
 "settings.sync.notSyncing" = "ಸಿಂಕ್ ಆಗುತ್ತಿಲ್ಲ";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "ಅನುಮತಿಗಳು";
 "settings.access.notifications" = "ಅಧಿಸೂಚನೆಗಳು";
 "settings.access.thisDevice" = "ಈ ಸಾಧನ";
-"settings.access.footer" = "Nibomo ಲಗತ್ತುಗಳು ಮತ್ತು ಚಾಟ್‌ನಲ್ಲಿ ಹೇಳಿ ಬರೆಯಲು ಬೇಕಾದ ಪ್ರವೇಶವನ್ನು ಮಾತ್ರ ಕೇಳುತ್ತದೆ.";
+"settings.access.footer" = "lingvichr ಲಗತ್ತುಗಳು ಮತ್ತು ಚಾಟ್‌ನಲ್ಲಿ ಹೇಳಿ ಬರೆಯಲು ಬೇಕಾದ ಪ್ರವೇಶವನ್ನು ಮಾತ್ರ ಕೇಳುತ್ತದೆ.";
 "settings.access.detail.status" = "ಸ್ಥಿತಿ";
 "settings.access.kind.photos" = "ಫೋಟೋಗಳು";
 "settings.access.kind.camera" = "ಕ್ಯಾಮೆರಾ";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "ಲಭ್ಯವಿಲ್ಲ";
 "settings.access.action.request" = "ಪ್ರವೇಶ ವಿನಂತಿಸಿ";
 "settings.access.action.openSettings" = "ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ";
-"settings.access.guidance.photos.limited" = "ನೀವು ಈಗಾಗಲೇ Nibomo ಜೊತೆ ಹಂಚಿಕೊಂಡ ಫೋಟೋಗಳು ಮಾತ್ರ ಲಭ್ಯವಿವೆ. ಹೆಚ್ಚಿನ ಫೋಟೋಗಳಿಗೆ ಪ್ರವೇಶ ನೀಡಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.";
-"settings.access.guidance.photos.blocked" = "Nibomoಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಫೋಟೋಗಳು ತೆರೆಯಿರಿ.";
-"settings.access.guidance.camera.blocked" = "Nibomoಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ.";
-"settings.access.guidance.microphone.blocked" = "Nibomoಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್ ತೆರೆಯಿರಿ.";
+"settings.access.guidance.photos.limited" = "ನೀವು ಈಗಾಗಲೇ lingvichr ಜೊತೆ ಹಂಚಿಕೊಂಡ ಫೋಟೋಗಳು ಮಾತ್ರ ಲಭ್ಯವಿವೆ. ಹೆಚ್ಚಿನ ಫೋಟೋಗಳಿಗೆ ಪ್ರವೇಶ ನೀಡಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.";
+"settings.access.guidance.photos.blocked" = "lingvichrಗೆ ಫೋಟೋ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಫೋಟೋಗಳು ತೆರೆಯಿರಿ.";
+"settings.access.guidance.camera.blocked" = "lingvichrಗೆ ಕ್ಯಾಮೆರಾ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ.";
+"settings.access.guidance.microphone.blocked" = "lingvichrಗೆ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ಬದಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು > ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ > ಮೈಕ್ರೊಫೋನ್ ತೆರೆಯಿರಿ.";
 "settings.access.guidance.askEveryTime" = "ಈಗ ಪ್ರವೇಶವನ್ನು ವಿನಂತಿಸಿ ಅಥವಾ ನಂತರ ಕೈಯಾರೆ ನಿರ್ವಹಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.";
 "settings.access.guidance.allowed" = "ಈ ಪ್ರವೇಶವನ್ನು ನಿಲ್ಲಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.";
 "settings.access.guidance.limited" = "ಈ ಪ್ರವೇಶವನ್ನು ಪರಿಶೀಲಿಸಲು ಅಥವಾ ವಿಸ್ತರಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "ಆ್ಯಪ್ ಐಕಾನ್ ಬ್ಯಾಡ್ಜ್";
 "settings.notifications.section.strictReminders" = "ನಿರಂತರತೆ ಜ್ಞಾಪನೆಗಳು";
 "settings.notifications.enableStrictReminders" = "ನಿರಂತರತೆ ಜ್ಞಾಪನೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ";
-"settings.notifications.strictReminders.description" = "ಇಂದು ಪ್ರಸ್ತುತ ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ಪುನರಾವರ್ತನೆ ಮಾಡದಿದ್ದರೆ, ನಿರಂತರತೆ ಉಳಿಸಲು Nibomo ಮಧ್ಯರಾತ್ರಿಗೆ 4, 3 ಮತ್ತು 2 ಗಂಟೆಗಳ ಮೊದಲು ನೆನಪಿಸುತ್ತದೆ.";
+"settings.notifications.strictReminders.description" = "ಇಂದು ಪ್ರಸ್ತುತ ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ಪುನರಾವರ್ತನೆ ಮಾಡದಿದ್ದರೆ, ನಿರಂತರತೆ ಉಳಿಸಲು lingvichr ಮಧ್ಯರಾತ್ರಿಗೆ 4, 3 ಮತ್ತು 2 ಗಂಟೆಗಳ ಮೊದಲು ನೆನಪಿಸುತ್ತದೆ.";
 "settings.notifications.section.dailyReminder" = "ದಿನಕ್ಕೆ ಒಮ್ಮೆ";
 "settings.notifications.permission.allowed" = "ಅನುಮತಿಸಲಾಗಿದೆ";
 "settings.notifications.permission.notRequested" = "ವಿನಂತಿಸಿಲ್ಲ";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "ಆಮದು ಮಾಡಿ";
 "settings.workspace.import.cloudRequired" = "ಈ ಆವೃತ್ತಿಯಲ್ಲಿ ಮಾಧ್ಯಮ ZIP ಆಮದು ಮಾಡಲು ಕ್ಲೌಡ್ ಖಾತೆ ಬೇಕು.";
-"settings.workspace.import.invalidFile" = "Nibomo ZIP ಪ್ಯಾಕೇಜ್ ಆಯ್ಕೆಮಾಡಿ.";
+"settings.workspace.import.invalidFile" = "lingvichr ZIP ಪ್ಯಾಕೇಜ್ ಆಯ್ಕೆಮಾಡಿ.";
 "settings.workspace.import.fileTooLarge" = "%d MBವರೆಗಿನ ZIP ಪ್ಯಾಕೇಜ್ ಆಯ್ಕೆಮಾಡಿ.";
 "settings.workspace.import.missingImportTag" = "ಆಮದು ಮಾಡುವ ಮೊದಲು ಆಮದು ಟ್ಯಾಗ್ ನಮೂದಿಸಿ.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "ಈ ಎಣಿಕೆ ಪೂರ್ಣ ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತದೆ ಮತ್ತು ಟ್ಯಾಗ್‌ಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳುವ ಕಾರ್ಡ್‌ಗಳನ್ನು ಎರಡು ಬಾರಿ ಎಣಿಸುವುದಿಲ್ಲ.";
 "settings.row.sendFeedback" = "ಅಭಿಪ್ರಾಯ ಕಳುಹಿಸಿ";
 "settings.row.sendFeedback.value" = "ಕಲ್ಪನೆ ಹಂಚಿಕೊಳ್ಳಿ";
-"feedback.sheet.title" = "Nibomoಗಾಗಿ ಕಲ್ಪನೆ ಇದೆಯೇ?";
+"feedback.sheet.title" = "lingvichrಗಾಗಿ ಕಲ್ಪನೆ ಇದೆಯೇ?";
 "feedback.sheet.body" = "ಆ್ಯಪ್ ಉತ್ತಮಗೊಳಿಸಲು ಏನು ಬೇಕೆಂದು ಹಂಚಿಕೊಳ್ಳಿ. ರಚನಾಕಾರರು ಪ್ರತಿ ಸಂದೇಶವನ್ನು ಸ್ವತಃ ಓದುತ್ತಾರೆ.";
 "feedback.sheet.placeholder" = "ನಿಮ್ಮ ಕಲ್ಪನೆಯನ್ನು ಇಲ್ಲಿ ಬರೆಯಿರಿ";
 "feedback.sheet.send" = "ಕಳುಹಿಸಿ";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ ಸ್ಥಿತಿ ಪರಿಶೀಲನೆ %d ಸ್ಥಿತಿಯನ್ನು %@ಗಾಗಿ ನೀಡಿದೆ";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ ಸ್ಥಿತಿ ಪರಿಶೀಲನೆ %@ಗಾಗಿ ಮತ್ತೊಂದು ಸರ್ವರ್‌ಗೆ ಮರುನಿರ್ದೇಶಿಸಲಾಗಿದೆ: %@. ಅದೇ ಸರ್ವರ್‌ನಲ್ಲಿ ಪ್ರತಿಕ್ರಿಯಿಸಲು ಸಂರಚಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@ದಲ್ಲಿನ API ಸ್ಥಿತಿ ಮಾನ್ಯ ಸೇವೆ ಮತ್ತು ಕ್ಲೌಡ್ ಒಪ್ಪಂದವನ್ನು ಪ್ರಕಟಿಸುವುದಿಲ್ಲ. ಕಸ್ಟಮ್ ಸರ್ವರ್ ನವೀಕರಿಸಿ ಮತ್ತೆ ನಿಯೋಜಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
-"settings.account.server.validation.unexpectedApiService" = "%@ದಲ್ಲಿನ API ಸ್ಥಿತಿ ಹೊಂದಾಣಿಕೆಯ Nibomo ಬ್ಯಾಕೆಂಡ್ ಬದಲಿಗೆ %@ ಅನ್ನು ಗುರುತಿಸುತ್ತದೆ. ಕಸ್ಟಮ್ ಸರ್ವರ್ ನವೀಕರಿಸಿ ಮತ್ತೆ ನಿಯೋಜಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
+"settings.account.server.validation.unexpectedApiService" = "%@ದಲ್ಲಿನ API ಸ್ಥಿತಿ ಹೊಂದಾಣಿಕೆಯ lingvichr ಬ್ಯಾಕೆಂಡ್ ಬದಲಿಗೆ %@ ಅನ್ನು ಗುರುತಿಸುತ್ತದೆ. ಕಸ್ಟಮ್ ಸರ್ವರ್ ನವೀಕರಿಸಿ ಮತ್ತೆ ನಿಯೋಜಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@ದಲ್ಲಿನ API ಸ್ಥಿತಿ ಬೆಂಬಲವಿಲ್ಲದ ಕ್ಲೌಡ್ ಒಪ್ಪಂದ ಆವೃತ್ತಿ %d ಪ್ರಕಟಿಸುತ್ತದೆ. ಈ ಆ್ಯಪ್‌ಗೆ ಆವೃತ್ತಿ 1 ಬೇಕು. ಕಸ್ಟಮ್ ಸರ್ವರ್ ನವೀಕರಿಸಿ ಮತ್ತೆ ನಿಯೋಜಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.";
 "settings.sync.customGuestWorkspacePaused.message" = "ಈ ಕಸ್ಟಮ್ ಸರ್ವರ್ ಈ ಅತಿಥಿ ಕಾರ್ಯಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಲಾಗುವುದಿಲ್ಲ. ಸರ್ವರ್ ಹೊಂದಾಣಿಕೆಯಾಗದಿರಬಹುದು ಅಥವಾ ತಪ್ಪಾಗಿ ಸಂರಚಿಸಿರಬಹುದು. ಸಿಂಕ್ ವಿರಾಮಗೊಂಡಿದೆ ಮತ್ತು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕಾರ್ಡ್‌ಗಳು ಹಾಗೂ ಬಾಕಿ ಬದಲಾವಣೆಗಳು ಈ ಸಾಧನದಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿವೆ.";
 "settings.account.status.customGuestPause.title" = "ಅತಿಥಿ ಕ್ಲೌಡ್ ಕಾರ್ಯಸ್ಥಳ ಲಭ್ಯವಿಲ್ಲ";

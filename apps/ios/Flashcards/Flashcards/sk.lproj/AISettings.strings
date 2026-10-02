@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Odpoveď sa už pripravuje. Pred odoslaním ďalšej správy počkajte na jej dokončenie alebo ju zastavte.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofón nie je na tomto zariadení dostupný.";
 "ai.dictation.error.microphoneDenied" = "Prístup k mikrofónu nebol povolený.";
-"ai.dictation.error.microphoneBlocked" = "Prístup k mikrofónu je pre Nibomo vypnutý. Povoľte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón.";
+"ai.dictation.error.microphoneBlocked" = "Prístup k mikrofónu je pre lingvichr vypnutý. Povoľte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón.";
 "ai.dictation.error.invalidRecording" = "Nahraný zvuk sa nepodarilo pripraviť.";
 "ai.dictation.error.recordingStartFailed" = "Nahrávanie mikrofónu sa nepodarilo spustiť.";
 "ai.dictation.error.emptyRecording" = "Nebola nahraná žiadna reč.";
@@ -138,7 +138,7 @@
 "settings.title" = "Nastavenia";
 "settings.inviteFriend.button" = "Pridať priateľa";
 "settings.section.share" = "Zdieľať";
-"settings.row.shareApp" = "Zdieľať Nibomo";
+"settings.row.shareApp" = "Zdieľať lingvichr";
 "settings.section.feedback" = "Spätná väzba";
 "settings.row.reviewInAppStore" = "Ohodnotiť v App Store";
 "settings.row.sharePrivateFeedback" = "Poslať súkromnú spätnú väzbu";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Vaša tarifa sa tu zobrazí, keď sa aplikácia zosynchronizuje s vaším účtom.";
 "settings.subscription.manage" = "Spravovať predplatné";
 "settings.language.title" = "Jazyk";
-"settings.language.systemDescription" = "Jazyk aplikácie riadi iOS. V Nastaveniach iOS otvorte Nibomo a použite Preferovaný jazyk. Ak sa Preferovaný jazyk nezobrazuje, najprv pridajte ďalší jazyk v Nastavenia > Všeobecné > Jazyk a región.";
-"settings.language.action.openAppSettings" = "Otvoriť nastavenia Nibomo";
+"settings.language.systemDescription" = "Jazyk aplikácie riadi iOS. V Nastaveniach iOS otvorte lingvichr a použite Preferovaný jazyk. Ak sa Preferovaný jazyk nezobrazuje, najprv pridajte ďalší jazyk v Nastavenia > Všeobecné > Jazyk a región.";
+"settings.language.action.openAppSettings" = "Otvoriť nastavenia lingvichr";
 "settings.language.section.supportedLanguages" = "Podporované jazyky";
 "settings.language.supported.english" = "Angličtina";
 "settings.language.supported.arabic" = "Arabčina";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Ruština";
 "settings.language.supported.spanishMexico" = "Španielčina (Mexiko)";
 "settings.language.supported.spanishSpain" = "Španielčina (Španielsko)";
-"feedback.settings.description" = "Podeľte sa o nápad, nahláste nedostatok alebo nám povedzte, čo by Nibomo zlepšilo.";
+"feedback.settings.description" = "Podeľte sa o nápad, nahláste nedostatok alebo nám povedzte, čo by lingvichr zlepšilo.";
 "settings.sync.success" = "Úspešne synchronizované";
 "settings.sync.guestAiActive" = "AI pre hostí je aktívna";
 "settings.sync.notSyncing" = "Nesynchronizuje sa";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Povolenia";
 "settings.access.notifications" = "Hlásenia";
 "settings.access.thisDevice" = "Toto zariadenie";
-"settings.access.footer" = "Nibomo žiada iba o prístup potrebný na prílohy a diktovanie v chate.";
+"settings.access.footer" = "lingvichr žiada iba o prístup potrebný na prílohy a diktovanie v chate.";
 "settings.access.detail.status" = "Stav";
 "settings.access.kind.photos" = "Fotky";
 "settings.access.kind.camera" = "Fotoaparát";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Nedostupné";
 "settings.access.action.request" = "Požiadať o prístup";
 "settings.access.action.openSettings" = "Otvoriť Nastavenia";
-"settings.access.guidance.photos.limited" = "Dostupné sú iba fotky, ktoré ste už zdieľali s Nibomo. Širší prístup k fotkám povoľte v Nastaveniach.";
-"settings.access.guidance.photos.blocked" = "Prístup k fotkám je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Fotky.";
-"settings.access.guidance.camera.blocked" = "Prístup k fotoaparátu je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Kamera.";
-"settings.access.guidance.microphone.blocked" = "Prístup k mikrofónu je pre Nibomo vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón.";
+"settings.access.guidance.photos.limited" = "Dostupné sú iba fotky, ktoré ste už zdieľali s lingvichr. Širší prístup k fotkám povoľte v Nastaveniach.";
+"settings.access.guidance.photos.blocked" = "Prístup k fotkám je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Fotky.";
+"settings.access.guidance.camera.blocked" = "Prístup k fotoaparátu je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Kamera.";
+"settings.access.guidance.microphone.blocked" = "Prístup k mikrofónu je pre lingvichr vypnutý. Zmeňte ho v Nastavenia > Súkromie a bezpečnosť > Mikrofón.";
 "settings.access.guidance.askEveryTime" = "Požiadajte o prístup teraz alebo ho neskôr spravujte ručne v Nastaveniach.";
 "settings.access.guidance.allowed" = "Ak chcete tento prístup vypnúť, otvorte Nastavenia.";
 "settings.access.guidance.limited" = "Ak chcete tento prístup skontrolovať alebo rozšíriť, otvorte Nastavenia.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Odznak na ikone aplikácie";
 "settings.notifications.section.strictReminders" = "Pripomienky série";
 "settings.notifications.enableStrictReminders" = "Zapnúť pripomienky série";
-"settings.notifications.strictReminders.description" = "Ak ste dnes ešte neopakovali v aktuálnom pracovnom priestore, Nibomo vám to pripomenie 4, 3 a 2 hodiny pred polnocou, aby ste si udržali sériu.";
+"settings.notifications.strictReminders.description" = "Ak ste dnes ešte neopakovali v aktuálnom pracovnom priestore, lingvichr vám to pripomenie 4, 3 a 2 hodiny pred polnocou, aby ste si udržali sériu.";
 "settings.notifications.section.dailyReminder" = "Raz denne";
 "settings.notifications.permission.allowed" = "Povolené";
 "settings.notifications.permission.notRequested" = "Nevyžiadané";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Import";
 "settings.workspace.import.cloudRequired" = "Import ZIP s médiami vyžaduje v tejto verzii cloudový účet.";
-"settings.workspace.import.invalidFile" = "Vyberte ZIP balík Nibomo.";
+"settings.workspace.import.invalidFile" = "Vyberte ZIP balík lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Vyberte ZIP balík do %d MB.";
 "settings.workspace.import.missingImportTag" = "Pred importom zadajte značku importu.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Tento počet platí pre celý pracovný priestor a karty so spoločnými značkami nezapočítava dvakrát.";
 "settings.row.sendFeedback" = "Odoslať spätnú väzbu";
 "settings.row.sendFeedback.value" = "Podeliť sa o nápad";
-"feedback.sheet.title" = "Máte nápad pre Nibomo?";
+"feedback.sheet.title" = "Máte nápad pre lingvichr?";
 "feedback.sheet.body" = "Podeľte sa o to, čo by aplikáciu zlepšilo. Tvorca si každú správu číta osobne.";
 "feedback.sheet.placeholder" = "Sem napíšte svoj nápad";
 "feedback.sheet.send" = "Odoslať";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Kontrola stavu služby %@ vrátila stav %d pre %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Kontrola stavu služby %@ pre %@ bola presmerovaná na iný server: %@. Nastavte ju tak, aby odpovedala na rovnakom serveri, a skúste to znova.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Kontrola stavu API na %@ neuvádza platnú službu a cloudový kontrakt. Aktualizujte a znova nasaďte vlastný server a skúste to znova.";
-"settings.account.server.validation.unexpectedApiService" = "Kontrola stavu API na %@ identifikuje %@ namiesto kompatibilného backendu Nibomo. Aktualizujte a znova nasaďte vlastný server a skúste to znova.";
+"settings.account.server.validation.unexpectedApiService" = "Kontrola stavu API na %@ identifikuje %@ namiesto kompatibilného backendu lingvichr. Aktualizujte a znova nasaďte vlastný server a skúste to znova.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Kontrola stavu API na %@ uvádza nepodporovanú verziu cloudového kontraktu %d. Táto aplikácia vyžaduje verziu 1. Aktualizujte a znova nasaďte vlastný server a skúste to znova.";
 "settings.sync.customGuestWorkspacePaused.message" = "Tento vlastný server nemá prístup k tomuto hosťovskému pracovnému priestoru. Server môže byť nekompatibilný alebo nesprávne nakonfigurovaný. Synchronizácia je pozastavená a vaše miestne karty a čakajúce zmeny sú na tomto zariadení v bezpečí.";
 "settings.account.status.customGuestPause.title" = "Hosťovský cloudový pracovný priestor nie je dostupný";

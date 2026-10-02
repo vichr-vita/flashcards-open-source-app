@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Egy válasz már folyamatban van. Várd meg a végét, vagy állítsd le, mielőtt új üzenetet küldesz.";
 "ai.dictation.error.microphoneUnavailable" = "A mikrofon ezen az eszközön nem érhető el.";
 "ai.dictation.error.microphoneDenied" = "A mikrofonhozzáférés nincs engedélyezve.";
-"ai.dictation.error.microphoneBlocked" = "A Nibomo mikrofonhozzáférése ki van kapcsolva. Engedélyezd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt.";
+"ai.dictation.error.microphoneBlocked" = "A lingvichr mikrofonhozzáférése ki van kapcsolva. Engedélyezd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt.";
 "ai.dictation.error.invalidRecording" = "Nem sikerült előkészíteni a hangfelvételt.";
 "ai.dictation.error.recordingStartFailed" = "Nem sikerült elindítani a mikrofonfelvételt.";
 "ai.dictation.error.emptyRecording" = "Nem rögzült beszéd.";
@@ -138,7 +138,7 @@
 "settings.title" = "Beállítások";
 "settings.inviteFriend.button" = "Barát hozzáadása";
 "settings.section.share" = "Megosztás";
-"settings.row.shareApp" = "Nibomo megosztása";
+"settings.row.shareApp" = "lingvichr megosztása";
 "settings.section.feedback" = "Visszajelzés";
 "settings.row.reviewInAppStore" = "Értékelés az App Store-ban";
 "settings.row.sharePrivateFeedback" = "Privát visszajelzés küldése";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "A csomagod itt jelenik meg, miután az alkalmazás szinkronizált a fiókoddal.";
 "settings.subscription.manage" = "Előfizetés kezelése";
 "settings.language.title" = "Nyelv";
-"settings.language.systemDescription" = "Az alkalmazás nyelvét az iOS kezeli. Az iOS Beállításokban nyisd meg a Nibomót, és válaszd az Előnyben részesített nyelvet. Ha ez nem látható, előbb adj hozzá egy másik nyelvet a Beállítások > Általános > Nyelv és régió alatt.";
-"settings.language.action.openAppSettings" = "Nibomo beállításainak megnyitása";
+"settings.language.systemDescription" = "Az alkalmazás nyelvét az iOS kezeli. Az iOS Beállításokban nyisd meg a lingvichr alkalmazást, és válaszd az Előnyben részesített nyelvet. Ha ez nem látható, előbb adj hozzá egy másik nyelvet a Beállítások > Általános > Nyelv és régió alatt.";
+"settings.language.action.openAppSettings" = "lingvichr beállításainak megnyitása";
 "settings.language.section.supportedLanguages" = "Támogatott nyelvek";
 "settings.language.supported.english" = "Angol";
 "settings.language.supported.arabic" = "Arab";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Orosz";
 "settings.language.supported.spanishMexico" = "Spanyol (Mexikó)";
 "settings.language.supported.spanishSpain" = "Spanyol (Spanyolország)";
-"feedback.settings.description" = "Oszd meg az ötletedet, jelezz egy hibát, vagy mondd el, mitől lenne jobb a Nibomo.";
+"feedback.settings.description" = "Oszd meg az ötletedet, jelezz egy hibát, vagy mondd el, mitől lenne jobb a lingvichr.";
 "settings.sync.success" = "Sikeresen szinkronizálva";
 "settings.sync.guestAiActive" = "Vendég AI aktív";
 "settings.sync.notSyncing" = "Nincs szinkronizálás";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Engedélyek";
 "settings.access.notifications" = "Értesítések";
 "settings.access.thisDevice" = "Ez az eszköz";
-"settings.access.footer" = "A Nibomo csak a mellékletekhez és a csevegési diktáláshoz szükséges hozzáférést kéri.";
+"settings.access.footer" = "A lingvichr csak a mellékletekhez és a csevegési diktáláshoz szükséges hozzáférést kéri.";
 "settings.access.detail.status" = "Állapot";
 "settings.access.kind.photos" = "Fotók";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Nem érhető el";
 "settings.access.action.request" = "Hozzáférés kérése";
 "settings.access.action.openSettings" = "Beállítások megnyitása";
-"settings.access.guidance.photos.limited" = "Csak a Nibomóval már megosztott fotók érhetők el. További fotókhoz a Beállításokban adhatsz hozzáférést.";
-"settings.access.guidance.photos.blocked" = "A Nibomo fotóhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Fotók alatt.";
-"settings.access.guidance.camera.blocked" = "A Nibomo kamerahozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Kamera alatt.";
-"settings.access.guidance.microphone.blocked" = "A Nibomo mikrofonhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt.";
+"settings.access.guidance.photos.limited" = "Csak a lingvichr alkalmazással már megosztott fotók érhetők el. További fotókhoz a Beállításokban adhatsz hozzáférést.";
+"settings.access.guidance.photos.blocked" = "A lingvichr fotóhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Fotók alatt.";
+"settings.access.guidance.camera.blocked" = "A lingvichr kamerahozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Kamera alatt.";
+"settings.access.guidance.microphone.blocked" = "A lingvichr mikrofonhozzáférése ki van kapcsolva. Módosítsd a Beállítások > Adatvédelem és biztonság > Mikrofon alatt.";
 "settings.access.guidance.askEveryTime" = "Kérj hozzáférést most, vagy kezeld később a Beállításokban.";
 "settings.access.guidance.allowed" = "A hozzáférés kikapcsolásához nyisd meg a Beállításokat.";
 "settings.access.guidance.limited" = "A hozzáférés ellenőrzéséhez vagy bővítéséhez nyisd meg a Beállításokat.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Alkalmazásikon-jelvény";
 "settings.notifications.section.strictReminders" = "Sorozatemlékeztetők";
 "settings.notifications.enableStrictReminders" = "Sorozatemlékeztetők engedélyezése";
-"settings.notifications.strictReminders.description" = "Ha ma még nem ismételtél a jelenlegi munkaterületben, a Nibomo éjfél előtt 4, 3 és 2 órával emlékeztet, hogy megőrizhesd a sorozatodat.";
+"settings.notifications.strictReminders.description" = "Ha ma még nem ismételtél a jelenlegi munkaterületben, a lingvichr éjfél előtt 4, 3 és 2 órával emlékeztet, hogy megőrizhesd a sorozatodat.";
 "settings.notifications.section.dailyReminder" = "Naponta egyszer";
 "settings.notifications.permission.allowed" = "Engedélyezve";
 "settings.notifications.permission.notRequested" = "Még nem kérve";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importálás";
 "settings.workspace.import.cloudRequired" = "A médiát tartalmazó ZIP importálásához ebben a verzióban felhőfiók szükséges.";
-"settings.workspace.import.invalidFile" = "Válassz egy Nibomo ZIP-csomagot.";
+"settings.workspace.import.invalidFile" = "Válassz egy lingvichr ZIP-csomagot.";
 "settings.workspace.import.fileTooLarge" = "Válassz legfeljebb %d MB méretű ZIP-csomagot.";
 "settings.workspace.import.missingImportTag" = "Importálás előtt adj meg egy importcímkét.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Ez a szám a teljes munkaterületre vonatkozik, és nem számolja többször a közös címkéjű kártyákat.";
 "settings.row.sendFeedback" = "Visszajelzés küldése";
 "settings.row.sendFeedback.value" = "Ötlet megosztása";
-"feedback.sheet.title" = "Van ötleted a Nibomóhoz?";
+"feedback.sheet.title" = "Van ötleted a lingvichr alkalmazáshoz?";
 "feedback.sheet.body" = "Mondd el, mitől lenne jobb az alkalmazás. A készítő minden üzenetet személyesen olvas el.";
 "feedback.sheet.placeholder" = "Írd ide az ötletedet";
 "feedback.sheet.send" = "Küldés";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ állapotellenőrzése %d állapotot adott vissza itt: %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ állapotellenőrzése erről: %@ másik szerverre lett átirányítva: %@. Állítsd be, hogy ugyanazon a szerveren válaszoljon, majd próbáld újra.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Az API-állapot itt: %@ nem jelez érvényes szolgáltatást és felhőszerződést. Frissítsd és telepítsd újra az egyéni szervert, majd próbáld újra.";
-"settings.account.server.validation.unexpectedApiService" = "Az API-állapot itt: %@ ezt azonosítja: %@, kompatibilis Nibomo-backend helyett. Frissítsd és telepítsd újra az egyéni szervert, majd próbáld újra.";
+"settings.account.server.validation.unexpectedApiService" = "Az API-állapot itt: %@ ezt azonosítja: %@, kompatibilis lingvichr-backend helyett. Frissítsd és telepítsd újra az egyéni szervert, majd próbáld újra.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Az API-állapot itt: %@ nem támogatott, %d verziójú felhőszerződést jelez. Az alkalmazáshoz az 1-es verzió szükséges. Frissítsd és telepítsd újra az egyéni szervert, majd próbáld újra.";
 "settings.sync.customGuestWorkspacePaused.message" = "Ez az egyéni szerver nem fér hozzá ehhez a vendég-munkaterülethez. A szerver inkompatibilis vagy hibásan beállított lehet. A szinkronizálás szünetel, a helyi kártyáid és függő módosításaid biztonságban vannak az eszközön.";
 "settings.account.status.customGuestPause.title" = "A vendég felhőbeli munkaterület nem érhető el";

@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "एक प्रतिसाद आधीच सुरू आहे. दुसरा संदेश पाठवण्यापूर्वी तो पूर्ण होण्याची वाट पाहा किंवा थांबवा.";
 "ai.dictation.error.microphoneUnavailable" = "या उपकरणावर मायक्रोफोन उपलब्ध नाही.";
 "ai.dictation.error.microphoneDenied" = "मायक्रोफोनचा प्रवेश दिलेला नाही.";
-"ai.dictation.error.microphoneBlocked" = "Nibomo साठी मायक्रोफोनचा प्रवेश बंद आहे. सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन येथे तो सुरू करा.";
+"ai.dictation.error.microphoneBlocked" = "lingvichr साठी मायक्रोफोनचा प्रवेश बंद आहे. सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन येथे तो सुरू करा.";
 "ai.dictation.error.invalidRecording" = "रेकॉर्ड केलेला ऑडिओ तयार करता आला नाही.";
 "ai.dictation.error.recordingStartFailed" = "मायक्रोफोन रेकॉर्डिंग सुरू करता आले नाही.";
 "ai.dictation.error.emptyRecording" = "कोणतेही बोलणे रेकॉर्ड झाले नाही.";
@@ -138,7 +138,7 @@
 "settings.title" = "सेटिंग्ज";
 "settings.inviteFriend.button" = "मित्र जोडा";
 "settings.section.share" = "शेअर करा";
-"settings.row.shareApp" = "Nibomo शेअर करा";
+"settings.row.shareApp" = "lingvichr शेअर करा";
 "settings.section.feedback" = "अभिप्राय";
 "settings.row.reviewInAppStore" = "App Store मध्ये अभिप्राय द्या";
 "settings.row.sharePrivateFeedback" = "खाजगी अभिप्राय शेअर करा";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "अॅप तुमच्या खात्याशी सिंक झाल्यानंतर तुमचा प्लॅन इथे दिसेल.";
 "settings.subscription.manage" = "सदस्यता व्यवस्थापित करा";
 "settings.language.title" = "भाषा";
-"settings.language.systemDescription" = "iOS अ‍ॅपची भाषा ठरवते. iOS सेटिंग्जमध्ये Nibomo उघडा आणि पसंतीची भाषा निवडा. पसंतीची भाषा दिसत नसल्यास आधी सेटिंग्ज > सामान्य > भाषा आणि प्रदेश येथे दुसरी भाषा जोडा.";
-"settings.language.action.openAppSettings" = "Nibomo सेटिंग्ज उघडा";
+"settings.language.systemDescription" = "iOS अ‍ॅपची भाषा ठरवते. iOS सेटिंग्जमध्ये lingvichr उघडा आणि पसंतीची भाषा निवडा. पसंतीची भाषा दिसत नसल्यास आधी सेटिंग्ज > सामान्य > भाषा आणि प्रदेश येथे दुसरी भाषा जोडा.";
+"settings.language.action.openAppSettings" = "lingvichr सेटिंग्ज उघडा";
 "settings.language.section.supportedLanguages" = "समर्थित भाषा";
 "settings.language.supported.english" = "इंग्रजी";
 "settings.language.supported.arabic" = "अरबी";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "रशियन";
 "settings.language.supported.spanishMexico" = "स्पॅनिश (मेक्सिको)";
 "settings.language.supported.spanishSpain" = "स्पॅनिश (स्पेन)";
-"feedback.settings.description" = "एखादी कल्पना सांगा, अडचण कळवा किंवा Nibomo अधिक चांगले कसे करता येईल ते सांगा.";
+"feedback.settings.description" = "एखादी कल्पना सांगा, अडचण कळवा किंवा lingvichr अधिक चांगले कसे करता येईल ते सांगा.";
 "settings.sync.success" = "समक्रमण यशस्वी";
 "settings.sync.guestAiActive" = "पाहुण्यांसाठी AI सुरू आहे";
 "settings.sync.notSyncing" = "समक्रमण होत नाही";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "परवानग्या";
 "settings.access.notifications" = "सूचना";
 "settings.access.thisDevice" = "हे उपकरण";
-"settings.access.footer" = "Nibomo फक्त फाइल जोडण्यासाठी आणि चॅटमध्ये बोलून लिहिण्यासाठी आवश्यक प्रवेश मागते.";
+"settings.access.footer" = "lingvichr फक्त फाइल जोडण्यासाठी आणि चॅटमध्ये बोलून लिहिण्यासाठी आवश्यक प्रवेश मागते.";
 "settings.access.detail.status" = "स्थिती";
 "settings.access.kind.photos" = "फोटो";
 "settings.access.kind.camera" = "कॅमेरा";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "अनुपलब्ध";
 "settings.access.action.request" = "प्रवेशाची विनंती करा";
 "settings.access.action.openSettings" = "सेटिंग्ज उघडा";
-"settings.access.guidance.photos.limited" = "तुम्ही Nibomo सोबत आधी शेअर केलेले फोटोच उपलब्ध आहेत. अधिक फोटोंचा प्रवेश देण्यासाठी सेटिंग्ज उघडा.";
-"settings.access.guidance.photos.blocked" = "Nibomo साठी फोटोंचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > फोटो उघडा.";
-"settings.access.guidance.camera.blocked" = "Nibomo साठी कॅमेऱ्याचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > कॅमेरा उघडा.";
-"settings.access.guidance.microphone.blocked" = "Nibomo साठी मायक्रोफोनचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन उघडा.";
+"settings.access.guidance.photos.limited" = "तुम्ही lingvichr सोबत आधी शेअर केलेले फोटोच उपलब्ध आहेत. अधिक फोटोंचा प्रवेश देण्यासाठी सेटिंग्ज उघडा.";
+"settings.access.guidance.photos.blocked" = "lingvichr साठी फोटोंचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > फोटो उघडा.";
+"settings.access.guidance.camera.blocked" = "lingvichr साठी कॅमेऱ्याचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > कॅमेरा उघडा.";
+"settings.access.guidance.microphone.blocked" = "lingvichr साठी मायक्रोफोनचा प्रवेश बंद आहे. बदलण्यासाठी सेटिंग्ज > गोपनीयता आणि सुरक्षा > मायक्रोफोन उघडा.";
 "settings.access.guidance.askEveryTime" = "आता प्रवेशाची विनंती करा किंवा स्वतः व्यवस्थापित करण्यासाठी नंतर सेटिंग्ज उघडा.";
 "settings.access.guidance.allowed" = "हा प्रवेश बंद करायचा असल्यास सेटिंग्ज उघडा.";
 "settings.access.guidance.limited" = "हा प्रवेश पाहण्यासाठी किंवा वाढवण्यासाठी सेटिंग्ज उघडा.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "अ‍ॅप चिन्ह बॅज";
 "settings.notifications.section.strictReminders" = "सलग दिवसांच्या आठवणी";
 "settings.notifications.enableStrictReminders" = "सलग दिवसांच्या आठवणी सुरू करा";
-"settings.notifications.strictReminders.description" = "आज सध्याच्या कार्यक्षेत्रात उजळणी केली नसेल तर तुमची सलग दिवसांची मालिका टिकवण्यासाठी Nibomo मध्यरात्रीच्या 4, 3 आणि 2 तास आधी आठवण करून देते.";
+"settings.notifications.strictReminders.description" = "आज सध्याच्या कार्यक्षेत्रात उजळणी केली नसेल तर तुमची सलग दिवसांची मालिका टिकवण्यासाठी lingvichr मध्यरात्रीच्या 4, 3 आणि 2 तास आधी आठवण करून देते.";
 "settings.notifications.section.dailyReminder" = "दिवसातून एकदा";
 "settings.notifications.permission.allowed" = "परवानगी दिली";
 "settings.notifications.permission.notRequested" = "विनंती केलेली नाही";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "आयात";
 "settings.workspace.import.cloudRequired" = "या आवृत्तीत माध्यम ZIP आयात करण्यासाठी क्लाउड खाते आवश्यक आहे.";
-"settings.workspace.import.invalidFile" = "Nibomo ZIP पॅकेज निवडा.";
+"settings.workspace.import.invalidFile" = "lingvichr ZIP पॅकेज निवडा.";
 "settings.workspace.import.fileTooLarge" = "%d MB पर्यंतचे ZIP पॅकेज निवडा.";
 "settings.workspace.import.missingImportTag" = "आयात करण्यापूर्वी आयात टॅग प्रविष्ट करा.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "ही मोजणी संपूर्ण कार्यक्षेत्राची आहे आणि समान टॅग असलेली कार्डे दोनदा मोजत नाही.";
 "settings.row.sendFeedback" = "अभिप्राय पाठवा";
 "settings.row.sendFeedback.value" = "कल्पना शेअर करा";
-"feedback.sheet.title" = "Nibomo साठी एखादी कल्पना आहे?";
+"feedback.sheet.title" = "lingvichr साठी एखादी कल्पना आहे?";
 "feedback.sheet.body" = "अ‍ॅप अधिक चांगले कसे होईल ते सांगा. निर्माता प्रत्येक संदेश स्वतः वाचतो.";
 "feedback.sheet.placeholder" = "तुमची कल्पना येथे लिहा";
 "feedback.sheet.send" = "पाठवा";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ सेवास्थिती तपासणीने स्थिती %d परत दिली, URL: %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ सेवास्थिती तपासणी %@ साठी दुसऱ्या सर्व्हरवर वळवली गेली: %@. त्याच सर्व्हरवर प्रतिसाद देण्यासाठी संरचना करा, नंतर पुन्हा प्रयत्न करा.";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@ येथील API सेवास्थिती वैध सेवा आणि क्लाउड करार दर्शवत नाही. सानुकूल सर्व्हर अद्यतनित करून पुन्हा उपयोजित करा, नंतर पुन्हा प्रयत्न करा.";
-"settings.account.server.validation.unexpectedApiService" = "%@ येथील API सेवास्थिती सुसंगत Nibomo बॅकएंडऐवजी %@ दर्शवते. सानुकूल सर्व्हर अद्यतनित करून पुन्हा उपयोजित करा, नंतर पुन्हा प्रयत्न करा.";
+"settings.account.server.validation.unexpectedApiService" = "%@ येथील API सेवास्थिती सुसंगत lingvichr बॅकएंडऐवजी %@ दर्शवते. सानुकूल सर्व्हर अद्यतनित करून पुन्हा उपयोजित करा, नंतर पुन्हा प्रयत्न करा.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@ येथील API सेवास्थिती असमर्थित क्लाउड करार आवृत्ती %d दर्शवते. या अ‍ॅपला आवृत्ती 1 आवश्यक आहे. सानुकूल सर्व्हर अद्यतनित करून पुन्हा उपयोजित करा, नंतर पुन्हा प्रयत्न करा.";
 "settings.sync.customGuestWorkspacePaused.message" = "या सानुकूल सर्व्हरला या पाहुणे कार्यक्षेत्रात प्रवेश नाही. सर्व्हर विसंगत असू शकतो किंवा चुकीची संरचना असू शकते. समक्रमण थांबलेले आहे आणि तुमची स्थानिक कार्डे व प्रलंबित बदल या उपकरणावर सुरक्षित आहेत.";
 "settings.account.status.customGuestPause.title" = "पाहुणे क्लाउड कार्यक्षेत्र उपलब्ध नाही";

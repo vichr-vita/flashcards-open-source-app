@@ -3,6 +3,7 @@ import { BrowserRouter, Link, NavLink, Navigate, Route, Routes as RouterRoutes, 
 import { AccountAccentTheme } from "./premium/accentColor";
 import { PremiumProvider } from "./premium/PremiumProvider";
 import { AccountMenu } from "./AccountMenu";
+import { Brand } from "./Brand";
 import { AccountDeletionRecoveryGate } from "./accountDeletionRecovery";
 import {
   AnalyticsConsentBanner,
@@ -862,8 +863,7 @@ export function AppShell(): ReactElement {
             <div className="topbar-brand-block">
               <div className="topbar-brand-row">
                 <Link className="topbar-brand" to={workspacePath(reviewRoute)}>
-                  <span className="brand-full">Nibomo</span>
-                  <span className="brand-short">Nibomo</span>
+                  <Brand />
                 </Link>
                 {isSyncing ? <span className="topbar-sync-status">{t("app.syncing")}</span> : null}
                 {!isSyncing && sessionRestoringMessage !== "" ? <span className="topbar-sync-status">{sessionRestoringMessage}</span> : null}

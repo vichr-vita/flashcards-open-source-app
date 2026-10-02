@@ -1,7 +1,8 @@
 import { useState, type ReactElement } from "react";
 import { createRoot } from "react-dom/client";
-import { MemoryRouter } from "react-router";
+import { Link, MemoryRouter } from "react-router";
 import { UserRound } from "lucide-react";
+import { Brand } from "../../src/Brand";
 import { I18nProvider, useI18n } from "../../src/i18n";
 import { initializeTheme, setThemePreference } from "../../src/theme";
 import type { Card, ReviewFilter, ReviewRating } from "../../src/types";
@@ -84,13 +85,20 @@ function ReviewUiFixture(): ReactElement {
       <header className="header-sticky">
         <div className="topbar-shell">
           <div className="topbar">
-            <div className="topbar-brand-block"><span className="topbar-brand">Nibomo</span></div>
+            <div className="topbar-brand-block"><Link className="topbar-brand" to="/"><Brand /></Link></div>
             <nav className="nav">
               {["Review", "Progress", "AI chat", "Cards", "Settings"].map((label, index) => (
                 <a key={label} className={`nav-link${index === 0 ? " nav-link-active" : ""}`} href="#">{label}</a>
               ))}
             </nav>
-            <div className="topbar-actions"><button className="account-menu-button" aria-label="Account"><UserRound size={20} /></button></div>
+            <div className="topbar-actions">
+              <button className="mobile-nav-toggle" type="button" aria-label={t("shell.primaryNavigation")}>
+                <span className="mobile-nav-toggle-line" aria-hidden="true" />
+                <span className="mobile-nav-toggle-line" aria-hidden="true" />
+                <span className="mobile-nav-toggle-line" aria-hidden="true" />
+              </button>
+              <button className="account-menu-button" aria-label="Account"><UserRound size={20} /></button>
+            </div>
           </div>
         </div>
       </header>

@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Odgovor je već u tijeku. Pričekajte da završi ili ga zaustavite prije slanja nove poruke.";
 "ai.dictation.error.microphoneUnavailable" = "Mikrofon nije dostupan na ovom uređaju.";
 "ai.dictation.error.microphoneDenied" = "Pristup mikrofonu nije dopušten.";
-"ai.dictation.error.microphoneBlocked" = "Pristup mikrofonu isključen je za Nibomo. Uključite ga u Postavke > Privatnost i sigurnost > Mikrofon.";
+"ai.dictation.error.microphoneBlocked" = "Pristup mikrofonu isključen je za lingvichr. Uključite ga u Postavke > Privatnost i sigurnost > Mikrofon.";
 "ai.dictation.error.invalidRecording" = "Priprema snimljenog zvuka nije uspjela.";
 "ai.dictation.error.recordingStartFailed" = "Pokretanje snimanja mikrofona nije uspjelo.";
 "ai.dictation.error.emptyRecording" = "Govor nije snimljen.";
@@ -138,7 +138,7 @@
 "settings.title" = "Postavke";
 "settings.inviteFriend.button" = "Dodaj prijatelja";
 "settings.section.share" = "Podijeli";
-"settings.row.shareApp" = "Podijeli Nibomo";
+"settings.row.shareApp" = "Podijeli lingvichr";
 "settings.section.feedback" = "Povratne informacije";
 "settings.row.reviewInAppStore" = "Napiši recenziju u App Storeu";
 "settings.row.sharePrivateFeedback" = "Podijeli privatnu povratnu informaciju";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "Tvoj paket prikazat će se ovdje nakon što se aplikacija sinkronizira s tvojim računom.";
 "settings.subscription.manage" = "Upravljaj pretplatom";
 "settings.language.title" = "Jezik";
-"settings.language.systemDescription" = "iOS upravlja jezikom aplikacije. U Postavkama iOS-a otvorite Nibomo i odaberite Željeni jezik. Ako se ta opcija ne prikazuje, najprije dodajte drugi jezik u Postavke > Općenito > Jezik i regija.";
-"settings.language.action.openAppSettings" = "Otvori postavke aplikacije Nibomo";
+"settings.language.systemDescription" = "iOS upravlja jezikom aplikacije. U Postavkama iOS-a otvorite lingvichr i odaberite Željeni jezik. Ako se ta opcija ne prikazuje, najprije dodajte drugi jezik u Postavke > Općenito > Jezik i regija.";
+"settings.language.action.openAppSettings" = "Otvori postavke aplikacije lingvichr";
 "settings.language.section.supportedLanguages" = "Podržani jezici";
 "settings.language.supported.english" = "Engleski";
 "settings.language.supported.arabic" = "Arapski";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "Ruski";
 "settings.language.supported.spanishMexico" = "Španjolski (Meksiko)";
 "settings.language.supported.spanishSpain" = "Španjolski (Španjolska)";
-"feedback.settings.description" = "Podijelite ideju, prijavite poteškoću ili nam recite što bi poboljšalo Nibomo.";
+"feedback.settings.description" = "Podijelite ideju, prijavite poteškoću ili nam recite što bi poboljšalo lingvichr.";
 "settings.sync.success" = "Uspješno sinkronizirano";
 "settings.sync.guestAiActive" = "AI za goste je aktivan";
 "settings.sync.notSyncing" = "Ne sinkronizira se";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "Dopuštenja";
 "settings.access.notifications" = "Obavijesti";
 "settings.access.thisDevice" = "Ovaj uređaj";
-"settings.access.footer" = "Nibomo traži samo pristup potreban za privitke i diktiranje u razgovoru.";
+"settings.access.footer" = "lingvichr traži samo pristup potreban za privitke i diktiranje u razgovoru.";
 "settings.access.detail.status" = "Stanje";
 "settings.access.kind.photos" = "Fotografije";
 "settings.access.kind.camera" = "Kamera";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "Nedostupno";
 "settings.access.action.request" = "Zatraži pristup";
 "settings.access.action.openSettings" = "Otvori Postavke";
-"settings.access.guidance.photos.limited" = "Dostupne su samo fotografije koje ste već podijelili s aplikacijom Nibomo. Otvorite Postavke da biste dopustili širi pristup fotografijama.";
-"settings.access.guidance.photos.blocked" = "Pristup fotografijama isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Fotografije.";
-"settings.access.guidance.camera.blocked" = "Pristup kameri isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Kamera.";
-"settings.access.guidance.microphone.blocked" = "Pristup mikrofonu isključen je za Nibomo. Za promjenu otvorite Postavke > Privatnost i sigurnost > Mikrofon.";
+"settings.access.guidance.photos.limited" = "Dostupne su samo fotografije koje ste već podijelili s aplikacijom lingvichr. Otvorite Postavke da biste dopustili širi pristup fotografijama.";
+"settings.access.guidance.photos.blocked" = "Pristup fotografijama isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Fotografije.";
+"settings.access.guidance.camera.blocked" = "Pristup kameri isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Kamera.";
+"settings.access.guidance.microphone.blocked" = "Pristup mikrofonu isključen je za lingvichr. Za promjenu otvorite Postavke > Privatnost i sigurnost > Mikrofon.";
 "settings.access.guidance.askEveryTime" = "Zatražite pristup sada ili otvorite Postavke kasnije da biste njime upravljali ručno.";
 "settings.access.guidance.allowed" = "Otvorite Postavke ako želite isključiti ovaj pristup.";
 "settings.access.guidance.limited" = "Otvorite Postavke da biste pregledali ili proširili ovaj pristup.";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "Značka ikone aplikacije";
 "settings.notifications.section.strictReminders" = "Podsjetnici za niz";
 "settings.notifications.enableStrictReminders" = "Omogući podsjetnike za niz";
-"settings.notifications.strictReminders.description" = "Ako danas niste ponavljali u trenutačnom radnom prostoru, Nibomo vas podsjeća 4, 3 i 2 sata prije ponoći kako biste održali niz.";
+"settings.notifications.strictReminders.description" = "Ako danas niste ponavljali u trenutačnom radnom prostoru, lingvichr vas podsjeća 4, 3 i 2 sata prije ponoći kako biste održali niz.";
 "settings.notifications.section.dailyReminder" = "Jednom dnevno";
 "settings.notifications.permission.allowed" = "Dopušteno";
 "settings.notifications.permission.notRequested" = "Nije zatraženo";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Uvoz";
 "settings.workspace.import.cloudRequired" = "Uvoz medijskog ZIP-a u ovoj verziji zahtijeva račun u oblaku.";
-"settings.workspace.import.invalidFile" = "Odaberite Nibomo ZIP paket.";
+"settings.workspace.import.invalidFile" = "Odaberite lingvichr ZIP paket.";
 "settings.workspace.import.fileTooLarge" = "Odaberite ZIP paket veličine do %d MB.";
 "settings.workspace.import.missingImportTag" = "Unesite oznaku uvoza prije uvoza.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "Ovaj se broj odnosi na cijeli radni prostor i ne broji dvaput kartice koje dijele oznake.";
 "settings.row.sendFeedback" = "Pošalji povratne informacije";
 "settings.row.sendFeedback.value" = "Podijeli ideju";
-"feedback.sheet.title" = "Imate ideju za Nibomo?";
+"feedback.sheet.title" = "Imate ideju za lingvichr?";
 "feedback.sheet.body" = "Podijelite što bi aplikaciju učinilo boljom. Autor osobno čita svaku poruku.";
 "feedback.sheet.placeholder" = "Ovdje napišite svoju ideju";
 "feedback.sheet.send" = "Pošalji";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "Provjera stanja za %@ vratila je status %d za %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "Provjera stanja za %@ na %@ preusmjerena je na drugi poslužitelj: %@. Podesite odgovor s istog poslužitelja pa pokušajte ponovno.";
 "settings.account.server.validation.invalidApiHealthResponse" = "Stanje API-ja na %@ ne navodi valjanu uslugu i ugovor oblaka. Ažurirajte i ponovno implementirajte prilagođeni poslužitelj pa pokušajte ponovno.";
-"settings.account.server.validation.unexpectedApiService" = "Stanje API-ja na %@ identificira %@ umjesto kompatibilnog Nibomo pozadinskog sustava. Ažurirajte i ponovno implementirajte prilagođeni poslužitelj pa pokušajte ponovno.";
+"settings.account.server.validation.unexpectedApiService" = "Stanje API-ja na %@ identificira %@ umjesto kompatibilnog lingvichr pozadinskog sustava. Ažurirajte i ponovno implementirajte prilagođeni poslužitelj pa pokušajte ponovno.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "Stanje API-ja na %@ navodi nepodržanu verziju ugovora oblaka %d. Ova aplikacija zahtijeva verziju 1. Ažurirajte i ponovno implementirajte prilagođeni poslužitelj pa pokušajte ponovno.";
 "settings.sync.customGuestWorkspacePaused.message" = "Ovaj prilagođeni poslužitelj ne može pristupiti ovom radnom prostoru gosta. Poslužitelj je možda nekompatibilan ili pogrešno konfiguriran. Sinkronizacija je pauzirana, a vaše lokalne kartice i promjene na čekanju sigurne su na ovom uređaju.";
 "settings.account.status.customGuestPause.title" = "Radni prostor gosta u oblaku nije dostupan";

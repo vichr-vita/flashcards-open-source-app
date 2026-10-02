@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "ਇੱਕ ਜਵਾਬ ਪਹਿਲਾਂ ਹੀ ਤਿਆਰ ਹੋ ਰਿਹਾ ਹੈ। ਅਗਲਾ ਸੁਨੇਹਾ ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ ਇਸਦੇ ਮੁਕੰਮਲ ਹੋਣ ਦੀ ਉਡੀਕ ਕਰੋ ਜਾਂ ਇਸਨੂੰ ਰੋਕੋ।";
 "ai.dictation.error.microphoneUnavailable" = "ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।";
 "ai.dictation.error.microphoneDenied" = "ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਨਹੀਂ ਦਿੱਤੀ ਗਈ।";
-"ai.dictation.error.microphoneBlocked" = "Nibomo ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਵਿੱਚ ਚਾਲੂ ਕਰੋ।";
+"ai.dictation.error.microphoneBlocked" = "lingvichr ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਵਿੱਚ ਚਾਲੂ ਕਰੋ।";
 "ai.dictation.error.invalidRecording" = "ਰਿਕਾਰਡ ਕੀਤੀ ਆਡੀਓ ਤਿਆਰ ਨਹੀਂ ਹੋ ਸਕੀ।";
 "ai.dictation.error.recordingStartFailed" = "ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋ ਸਕੀ।";
 "ai.dictation.error.emptyRecording" = "ਕੋਈ ਬੋਲੀ ਰਿਕਾਰਡ ਨਹੀਂ ਹੋਈ।";
@@ -138,7 +138,7 @@
 "settings.title" = "ਸੈਟਿੰਗਾਂ";
 "settings.inviteFriend.button" = "ਦੋਸਤ ਸ਼ਾਮਲ ਕਰੋ";
 "settings.section.share" = "ਸਾਂਝਾ ਕਰੋ";
-"settings.row.shareApp" = "Nibomo ਸਾਂਝਾ ਕਰੋ";
+"settings.row.shareApp" = "lingvichr ਸਾਂਝਾ ਕਰੋ";
 "settings.section.feedback" = "ਸੁਝਾਅ ਅਤੇ ਰਾਏ";
 "settings.row.reviewInAppStore" = "App Store ਵਿੱਚ ਸਮੀਖਿਆ ਲਿਖੋ";
 "settings.row.sharePrivateFeedback" = "ਨਿੱਜੀ ਰਾਏ ਸਾਂਝੀ ਕਰੋ";
@@ -223,8 +223,8 @@
 "settings.subscription.planUnknown" = "ਐਪ ਦੇ ਤੁਹਾਡੇ ਖਾਤੇ ਨਾਲ ਸਿੰਕ ਹੋਣ ਤੋਂ ਬਾਅਦ ਤੁਹਾਡਾ ਪਲਾਨ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗਾ।";
 "settings.subscription.manage" = "ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ";
 "settings.language.title" = "ਭਾਸ਼ਾ";
-"settings.language.systemDescription" = "iOS ਐਪ ਦੀ ਭਾਸ਼ਾ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ। iOS ਸੈਟਿੰਗਾਂ ਵਿੱਚ Nibomo ਖੋਲ੍ਹੋ ਅਤੇ ਤਰਜੀਹੀ ਭਾਸ਼ਾ ਵਰਤੋ। ਜੇ ਤਰਜੀਹੀ ਭਾਸ਼ਾ ਨਹੀਂ ਦਿਸਦੀ ਤਾਂ ਪਹਿਲਾਂ ਸੈਟਿੰਗਾਂ > ਆਮ > ਭਾਸ਼ਾ ਅਤੇ ਖੇਤਰ ਵਿੱਚ ਹੋਰ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰੋ।";
-"settings.language.action.openAppSettings" = "Nibomo ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
+"settings.language.systemDescription" = "iOS ਐਪ ਦੀ ਭਾਸ਼ਾ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ। iOS ਸੈਟਿੰਗਾਂ ਵਿੱਚ lingvichr ਖੋਲ੍ਹੋ ਅਤੇ ਤਰਜੀਹੀ ਭਾਸ਼ਾ ਵਰਤੋ। ਜੇ ਤਰਜੀਹੀ ਭਾਸ਼ਾ ਨਹੀਂ ਦਿਸਦੀ ਤਾਂ ਪਹਿਲਾਂ ਸੈਟਿੰਗਾਂ > ਆਮ > ਭਾਸ਼ਾ ਅਤੇ ਖੇਤਰ ਵਿੱਚ ਹੋਰ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰੋ।";
+"settings.language.action.openAppSettings" = "lingvichr ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
 "settings.language.section.supportedLanguages" = "ਸਮਰਥਿਤ ਭਾਸ਼ਾਵਾਂ";
 "settings.language.supported.english" = "ਅੰਗਰੇਜ਼ੀ";
 "settings.language.supported.arabic" = "ਅਰਬੀ";
@@ -237,7 +237,7 @@
 "settings.language.supported.russian" = "ਰੂਸੀ";
 "settings.language.supported.spanishMexico" = "ਸਪੇਨੀ (ਮੈਕਸੀਕੋ)";
 "settings.language.supported.spanishSpain" = "ਸਪੇਨੀ (ਸਪੇਨ)";
-"feedback.settings.description" = "ਕੋਈ ਵਿਚਾਰ ਸਾਂਝਾ ਕਰੋ, ਸਮੱਸਿਆ ਦੱਸੋ ਜਾਂ ਸਾਨੂੰ ਦੱਸੋ ਕਿ Nibomo ਨੂੰ ਹੋਰ ਵਧੀਆ ਕਿਵੇਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ ਹੈ।";
+"feedback.settings.description" = "ਕੋਈ ਵਿਚਾਰ ਸਾਂਝਾ ਕਰੋ, ਸਮੱਸਿਆ ਦੱਸੋ ਜਾਂ ਸਾਨੂੰ ਦੱਸੋ ਕਿ lingvichr ਨੂੰ ਹੋਰ ਵਧੀਆ ਕਿਵੇਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ ਹੈ।";
 "settings.sync.success" = "ਸਿੰਕ ਸਫਲ ਰਿਹਾ";
 "settings.sync.guestAiActive" = "ਮਹਿਮਾਨ AI ਚਾਲੂ ਹੈ";
 "settings.sync.notSyncing" = "ਸਿੰਕ ਨਹੀਂ ਹੋ ਰਿਹਾ";
@@ -396,7 +396,7 @@
 "settings.access.section.permissions" = "ਇਜਾਜ਼ਤਾਂ";
 "settings.access.notifications" = "ਸੂਚਨਾਵਾਂ";
 "settings.access.thisDevice" = "ਇਹ ਡਿਵਾਈਸ";
-"settings.access.footer" = "Nibomo ਸਿਰਫ਼ ਅਟੈਚਮੈਂਟਾਂ ਅਤੇ ਚੈਟ ਵਿੱਚ ਬੋਲ ਕੇ ਲਿਖਣ ਲਈ ਲੋੜੀਂਦੀ ਪਹੁੰਚ ਮੰਗਦਾ ਹੈ।";
+"settings.access.footer" = "lingvichr ਸਿਰਫ਼ ਅਟੈਚਮੈਂਟਾਂ ਅਤੇ ਚੈਟ ਵਿੱਚ ਬੋਲ ਕੇ ਲਿਖਣ ਲਈ ਲੋੜੀਂਦੀ ਪਹੁੰਚ ਮੰਗਦਾ ਹੈ।";
 "settings.access.detail.status" = "ਸਥਿਤੀ";
 "settings.access.kind.photos" = "ਫ਼ੋਟੋਆਂ";
 "settings.access.kind.camera" = "ਕੈਮਰਾ";
@@ -411,10 +411,10 @@
 "settings.access.status.unavailable" = "ਉਪਲਬਧ ਨਹੀਂ";
 "settings.access.action.request" = "ਪਹੁੰਚ ਮੰਗੋ";
 "settings.access.action.openSettings" = "ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
-"settings.access.guidance.photos.limited" = "ਸਿਰਫ਼ ਉਹ ਫ਼ੋਟੋਆਂ ਉਪਲਬਧ ਹਨ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ Nibomo ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਹਨ। ਹੋਰ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।";
-"settings.access.guidance.photos.blocked" = "Nibomo ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਫ਼ੋਟੋਆਂ ਖੋਲ੍ਹੋ।";
-"settings.access.guidance.camera.blocked" = "Nibomo ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਕੈਮਰਾ ਖੋਲ੍ਹੋ।";
-"settings.access.guidance.microphone.blocked" = "Nibomo ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਖੋਲ੍ਹੋ।";
+"settings.access.guidance.photos.limited" = "ਸਿਰਫ਼ ਉਹ ਫ਼ੋਟੋਆਂ ਉਪਲਬਧ ਹਨ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ lingvichr ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਹਨ। ਹੋਰ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਦੇਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।";
+"settings.access.guidance.photos.blocked" = "lingvichr ਲਈ ਫ਼ੋਟੋਆਂ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਫ਼ੋਟੋਆਂ ਖੋਲ੍ਹੋ।";
+"settings.access.guidance.camera.blocked" = "lingvichr ਲਈ ਕੈਮਰੇ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਕੈਮਰਾ ਖੋਲ੍ਹੋ।";
+"settings.access.guidance.microphone.blocked" = "lingvichr ਲਈ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਪਹੁੰਚ ਬੰਦ ਹੈ। ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ > ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ > ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਖੋਲ੍ਹੋ।";
 "settings.access.guidance.askEveryTime" = "ਹੁਣੇ ਪਹੁੰਚ ਮੰਗੋ ਜਾਂ ਇਸਨੂੰ ਖੁਦ ਸੰਭਾਲਣ ਲਈ ਬਾਅਦ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।";
 "settings.access.guidance.allowed" = "ਇਹ ਪਹੁੰਚ ਬੰਦ ਕਰਨ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।";
 "settings.access.guidance.limited" = "ਇਸ ਪਹੁੰਚ ਨੂੰ ਦੇਖਣ ਜਾਂ ਵਧਾਉਣ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।";
@@ -652,7 +652,7 @@
 "settings.notifications.section.appIconBadge" = "ਐਪ ਆਈਕਨ ਬੈਜ";
 "settings.notifications.section.strictReminders" = "ਲੜੀ ਦੀਆਂ ਯਾਦ-ਦਹਾਨੀਆਂ";
 "settings.notifications.enableStrictReminders" = "ਲੜੀ ਦੀਆਂ ਯਾਦ-ਦਹਾਨੀਆਂ ਚਾਲੂ ਕਰੋ";
-"settings.notifications.strictReminders.description" = "ਜੇ ਤੁਸੀਂ ਅੱਜ ਮੌਜੂਦਾ ਵਰਕਸਪੇਸ ਵਿੱਚ ਦੁਹਰਾਈ ਨਹੀਂ ਕੀਤੀ ਤਾਂ Nibomo ਅੱਧੀ ਰਾਤ ਤੋਂ 4, 3 ਅਤੇ 2 ਘੰਟੇ ਪਹਿਲਾਂ ਯਾਦ ਕਰਾਉਂਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਲੜੀ ਜਾਰੀ ਰੱਖ ਸਕੋ।";
+"settings.notifications.strictReminders.description" = "ਜੇ ਤੁਸੀਂ ਅੱਜ ਮੌਜੂਦਾ ਵਰਕਸਪੇਸ ਵਿੱਚ ਦੁਹਰਾਈ ਨਹੀਂ ਕੀਤੀ ਤਾਂ lingvichr ਅੱਧੀ ਰਾਤ ਤੋਂ 4, 3 ਅਤੇ 2 ਘੰਟੇ ਪਹਿਲਾਂ ਯਾਦ ਕਰਾਉਂਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਲੜੀ ਜਾਰੀ ਰੱਖ ਸਕੋ।";
 "settings.notifications.section.dailyReminder" = "ਦਿਨ ਵਿੱਚ ਇੱਕ ਵਾਰ";
 "settings.notifications.permission.allowed" = "ਮਨਜ਼ੂਰ";
 "settings.notifications.permission.notRequested" = "ਬੇਨਤੀ ਨਹੀਂ ਕੀਤੀ";
@@ -705,7 +705,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "ਆਯਾਤ";
 "settings.workspace.import.cloudRequired" = "ਇਸ ਵਰਜਨ ਵਿੱਚ ਮੀਡੀਆ ZIP ਆਯਾਤ ਲਈ ਕਲਾਊਡ ਖਾਤਾ ਲੋੜੀਂਦਾ ਹੈ।";
-"settings.workspace.import.invalidFile" = "Nibomo ZIP ਪੈਕੇਜ ਚੁਣੋ।";
+"settings.workspace.import.invalidFile" = "lingvichr ZIP ਪੈਕੇਜ ਚੁਣੋ।";
 "settings.workspace.import.fileTooLarge" = "%d MB ਤੱਕ ਦਾ ZIP ਪੈਕੇਜ ਚੁਣੋ।";
 "settings.workspace.import.missingImportTag" = "ਆਯਾਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਯਾਤ ਟੈਗ ਦਾਖ਼ਲ ਕਰੋ।";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -780,7 +780,7 @@
 "settings.workspace.tags.totalCardsDescription" = "ਇਹ ਗਿਣਤੀ ਪੂਰੇ ਵਰਕਸਪੇਸ ਲਈ ਹੈ ਅਤੇ ਸਾਂਝੇ ਟੈਗ ਵਾਲੇ ਕਾਰਡਾਂ ਨੂੰ ਦੋ ਵਾਰ ਨਹੀਂ ਗਿਣਦੀ।";
 "settings.row.sendFeedback" = "ਰਾਏ ਭੇਜੋ";
 "settings.row.sendFeedback.value" = "ਵਿਚਾਰ ਸਾਂਝਾ ਕਰੋ";
-"feedback.sheet.title" = "Nibomo ਲਈ ਕੋਈ ਵਿਚਾਰ ਹੈ?";
+"feedback.sheet.title" = "lingvichr ਲਈ ਕੋਈ ਵਿਚਾਰ ਹੈ?";
 "feedback.sheet.body" = "ਦੱਸੋ ਕਿ ਐਪ ਨੂੰ ਹੋਰ ਵਧੀਆ ਕਿਵੇਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ ਹੈ। ਬਣਾਉਣ ਵਾਲਾ ਹਰ ਸੁਨੇਹਾ ਖੁਦ ਪੜ੍ਹਦਾ ਹੈ।";
 "feedback.sheet.placeholder" = "ਆਪਣਾ ਵਿਚਾਰ ਇੱਥੇ ਲਿਖੋ";
 "feedback.sheet.send" = "ਭੇਜੋ";
@@ -795,7 +795,7 @@
 "settings.account.server.validation.invalidStatusCode" = "%@ ਸਿਹਤ ਜਾਂਚ ਨੇ ਸਥਿਤੀ %d ਦਿੱਤੀ, %@ ਲਈ";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "%@ ਸਿਹਤ ਜਾਂਚ %@ ਲਈ ਹੋਰ ਸਰਵਰ ਵੱਲ ਮੋੜੀ ਗਈ: %@। ਇਸਨੂੰ ਉਸੇ ਸਰਵਰ ਉੱਤੇ ਜਵਾਬ ਦੇਣ ਲਈ ਸੰਰਚਿਤ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।";
 "settings.account.server.validation.invalidApiHealthResponse" = "%@ ਉੱਤੇ API ਸਿਹਤ ਜਾਣਕਾਰੀ ਵੈਧ ਸੇਵਾ ਅਤੇ ਕਲਾਊਡ ਕਰਾਰ ਨਹੀਂ ਦੱਸਦੀ। ਕਸਟਮ ਸਰਵਰ ਅੱਪਡੇਟ ਕਰਕੇ ਮੁੜ ਤੈਨਾਤ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।";
-"settings.account.server.validation.unexpectedApiService" = "%@ ਉੱਤੇ API ਸਿਹਤ ਜਾਣਕਾਰੀ ਅਨੁਕੂਲ Nibomo ਬੈਕਐਂਡ ਦੀ ਥਾਂ %@ ਦੀ ਪਛਾਣ ਕਰਦੀ ਹੈ। ਕਸਟਮ ਸਰਵਰ ਅੱਪਡੇਟ ਕਰਕੇ ਮੁੜ ਤੈਨਾਤ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।";
+"settings.account.server.validation.unexpectedApiService" = "%@ ਉੱਤੇ API ਸਿਹਤ ਜਾਣਕਾਰੀ ਅਨੁਕੂਲ lingvichr ਬੈਕਐਂਡ ਦੀ ਥਾਂ %@ ਦੀ ਪਛਾਣ ਕਰਦੀ ਹੈ। ਕਸਟਮ ਸਰਵਰ ਅੱਪਡੇਟ ਕਰਕੇ ਮੁੜ ਤੈਨਾਤ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "%@ ਉੱਤੇ API ਸਿਹਤ ਜਾਣਕਾਰੀ ਗੈਰ-ਸਮਰਥਿਤ ਕਲਾਊਡ ਕਰਾਰ ਵਰਜਨ %d ਦੱਸਦੀ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਵਰਜਨ 1 ਚਾਹੀਦਾ ਹੈ। ਕਸਟਮ ਸਰਵਰ ਅੱਪਡੇਟ ਕਰਕੇ ਮੁੜ ਤੈਨਾਤ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।";
 "settings.sync.customGuestWorkspacePaused.message" = "ਇਹ ਕਸਟਮ ਸਰਵਰ ਇਸ ਮਹਿਮਾਨ ਵਰਕਸਪੇਸ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚ ਸਕਦਾ। ਸਰਵਰ ਅਨੁਕੂਲ ਨਾ ਹੋਵੇ ਜਾਂ ਗਲਤ ਸੰਰਚਿਤ ਹੋ ਸਕਦਾ ਹੈ। ਸਿੰਕ ਰੁਕਿਆ ਹੋਇਆ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਸਥਾਨਕ ਕਾਰਡ ਅਤੇ ਬਕਾਇਆ ਬਦਲਾਅ ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਸੁਰੱਖਿਅਤ ਹਨ।";
 "settings.account.status.customGuestPause.title" = "ਮਹਿਮਾਨ ਕਲਾਊਡ ਵਰਕਸਪੇਸ ਉਪਲਬਧ ਨਹੀਂ";

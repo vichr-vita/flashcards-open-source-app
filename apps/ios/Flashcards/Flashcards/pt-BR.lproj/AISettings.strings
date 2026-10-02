@@ -67,7 +67,7 @@
 "ai.run.error.activeRunInProgress" = "Já há uma resposta em andamento. Espere terminar ou pare antes de enviar outra mensagem.";
 "ai.dictation.error.microphoneUnavailable" = "O microfone não está disponível neste dispositivo.";
 "ai.dictation.error.microphoneDenied" = "O acesso ao microfone não foi concedido.";
-"ai.dictation.error.microphoneBlocked" = "O acesso ao microfone está desativado para o Nibomo. Ative em Ajustes > Privacidade e Segurança > Microfone.";
+"ai.dictation.error.microphoneBlocked" = "O acesso ao microfone está desativado para o lingvichr. Ative em Ajustes > Privacidade e Segurança > Microfone.";
 "ai.dictation.error.invalidRecording" = "Não foi possível preparar o áudio gravado.";
 "ai.dictation.error.recordingStartFailed" = "Não foi possível iniciar a gravação pelo microfone.";
 "ai.dictation.error.emptyRecording" = "Nenhuma fala foi gravada.";
@@ -141,7 +141,7 @@
 "settings.title" = "Ajustes";
 "settings.inviteFriend.button" = "Adicionar amigo";
 "settings.section.share" = "Compartilhar";
-"settings.row.shareApp" = "Compartilhar o Nibomo";
+"settings.row.shareApp" = "Compartilhar o lingvichr";
 "settings.section.feedback" = "Feedback";
 "settings.row.reviewInAppStore" = "Avaliar na App Store";
 "settings.row.sharePrivateFeedback" = "Enviar feedback privado";
@@ -226,8 +226,8 @@
 "settings.subscription.planUnknown" = "Seu plano aparecerá aqui depois que o app sincronizar com a sua conta.";
 "settings.subscription.manage" = "Gerenciar assinatura";
 "settings.language.title" = "Idioma";
-"settings.language.systemDescription" = "O iOS controla o idioma do app. Nos Ajustes do iOS, abra o Nibomo e use Idioma Preferido. Se Idioma Preferido não aparecer, primeiro adicione outro idioma em Ajustes > Geral > Idioma e Região.";
-"settings.language.action.openAppSettings" = "Abrir ajustes do Nibomo";
+"settings.language.systemDescription" = "O iOS controla o idioma do app. Nos Ajustes do iOS, abra o lingvichr e use Idioma Preferido. Se Idioma Preferido não aparecer, primeiro adicione outro idioma em Ajustes > Geral > Idioma e Região.";
+"settings.language.action.openAppSettings" = "Abrir ajustes do lingvichr";
 "settings.language.section.supportedLanguages" = "Idiomas compatíveis";
 "settings.language.supported.english" = "Inglês";
 "settings.language.supported.arabic" = "Árabe";
@@ -240,7 +240,7 @@
 "settings.language.supported.russian" = "Russo";
 "settings.language.supported.spanishMexico" = "Espanhol México";
 "settings.language.supported.spanishSpain" = "Espanhol Espanha";
-"feedback.settings.description" = "Compartilhe uma ideia, relate um problema ou conte o que deixaria o Nibomo melhor.";
+"feedback.settings.description" = "Compartilhe uma ideia, relate um problema ou conte o que deixaria o lingvichr melhor.";
 "settings.sync.success" = "Sincronizado com sucesso";
 "settings.sync.guestAiActive" = "IA de convidado ativa";
 "settings.sync.notSyncing" = "Sem sincronizar";
@@ -405,7 +405,7 @@
 "settings.access.section.permissions" = "Permissões";
 "settings.access.notifications" = "Notificações";
 "settings.access.thisDevice" = "Este dispositivo";
-"settings.access.footer" = "O Nibomo pede apenas o acesso necessário para anexos e para o ditado no chat.";
+"settings.access.footer" = "O lingvichr pede apenas o acesso necessário para anexos e para o ditado no chat.";
 "settings.access.detail.status" = "Status";
 "settings.access.kind.photos" = "Fotos";
 "settings.access.kind.camera" = "Câmera";
@@ -420,10 +420,10 @@
 "settings.access.status.unavailable" = "Indisponível";
 "settings.access.action.request" = "Solicitar acesso";
 "settings.access.action.openSettings" = "Abrir Ajustes";
-"settings.access.guidance.photos.limited" = "Somente as fotos que você já compartilhou com o Nibomo estão disponíveis. Abra os Ajustes para conceder um acesso mais amplo às fotos.";
-"settings.access.guidance.photos.blocked" = "O acesso às fotos está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Fotos para alterar.";
-"settings.access.guidance.camera.blocked" = "O acesso à câmera está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Câmera para alterar.";
-"settings.access.guidance.microphone.blocked" = "O acesso ao microfone está desativado para o Nibomo. Abra Ajustes > Privacidade e Segurança > Microfone para alterar.";
+"settings.access.guidance.photos.limited" = "Somente as fotos que você já compartilhou com o lingvichr estão disponíveis. Abra os Ajustes para conceder um acesso mais amplo às fotos.";
+"settings.access.guidance.photos.blocked" = "O acesso às fotos está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Fotos para alterar.";
+"settings.access.guidance.camera.blocked" = "O acesso à câmera está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Câmera para alterar.";
+"settings.access.guidance.microphone.blocked" = "O acesso ao microfone está desativado para o lingvichr. Abra Ajustes > Privacidade e Segurança > Microfone para alterar.";
 "settings.access.guidance.askEveryTime" = "Solicite o acesso agora ou abra os Ajustes depois, se quiser gerenciá-lo manualmente.";
 "settings.access.guidance.allowed" = "Abra os Ajustes se quiser desativar esse acesso.";
 "settings.access.guidance.limited" = "Abra os Ajustes para revisar ou ampliar esse acesso.";
@@ -675,7 +675,7 @@
 "settings.notifications.section.appIconBadge" = "Selo do ícone do app";
 "settings.notifications.section.strictReminders" = "Lembretes de sequência";
 "settings.notifications.enableStrictReminders" = "Ativar lembretes de sequência";
-"settings.notifications.strictReminders.description" = "Se você ainda não revisou hoje no espaço de trabalho atual, o Nibomo avisa 4, 3 e 2 horas antes da meia-noite para você manter sua sequência.";
+"settings.notifications.strictReminders.description" = "Se você ainda não revisou hoje no espaço de trabalho atual, o lingvichr avisa 4, 3 e 2 horas antes da meia-noite para você manter sua sequência.";
 "settings.notifications.section.dailyReminder" = "Uma vez por dia";
 "settings.notifications.permission.allowed" = "Permitido";
 "settings.notifications.permission.notRequested" = "Não solicitado";
@@ -729,7 +729,7 @@
 "settings.row.import.value" = "ZIP";
 "settings.workspace.import.title" = "Importar";
 "settings.workspace.import.cloudRequired" = "Importar um ZIP com mídia exige uma conta na nuvem nesta versão.";
-"settings.workspace.import.invalidFile" = "Escolha um pacote ZIP do Nibomo.";
+"settings.workspace.import.invalidFile" = "Escolha um pacote ZIP do lingvichr.";
 "settings.workspace.import.fileTooLarge" = "Escolha um pacote ZIP de até %d MB.";
 "settings.workspace.import.missingImportTag" = "Digite uma etiqueta de importação antes de importar.";
 "settings.workspace.import.warningWithPath" = "%@: %@";
@@ -807,7 +807,7 @@
 
 "settings.row.sendFeedback" = "Enviar feedback";
 "settings.row.sendFeedback.value" = "Compartilhar uma ideia";
-"feedback.sheet.title" = "Tem uma ideia para o Nibomo?";
+"feedback.sheet.title" = "Tem uma ideia para o lingvichr?";
 "feedback.sheet.body" = "Conte o que deixaria o app melhor. O criador lê cada mensagem pessoalmente.";
 "feedback.sheet.placeholder" = "Escreva sua ideia aqui";
 "feedback.sheet.send" = "Enviar";
@@ -823,7 +823,7 @@
 "settings.account.server.validation.invalidStatusCode" = "A verificação de integridade do %@ retornou o status %d para %@";
 "settings.account.server.validation.redirectedToDifferentOrigin" = "A verificação de integridade do %@ para %@ foi redirecionada para outro servidor: %@. Configure-o para responder no mesmo servidor e tente novamente.";
 "settings.account.server.validation.invalidApiHealthResponse" = "A verificação de integridade da API em %@ não informa um serviço e um contrato de nuvem válidos. Atualize e reimplante o servidor personalizado e tente novamente.";
-"settings.account.server.validation.unexpectedApiService" = "A verificação de integridade da API em %@ identifica %@ em vez de um backend Nibomo compatível. Atualize e reimplante o servidor personalizado e tente novamente.";
+"settings.account.server.validation.unexpectedApiService" = "A verificação de integridade da API em %@ identifica %@ em vez de um backend lingvichr compatível. Atualize e reimplante o servidor personalizado e tente novamente.";
 "settings.account.server.validation.unsupportedCloudContractVersion" = "A verificação de integridade da API em %@ informa a versão %d do contrato de nuvem, que não é compatível. Este app exige a versão 1. Atualize e reimplante o servidor personalizado e tente novamente.";
 "settings.sync.customGuestWorkspacePaused.message" = "Este servidor personalizado não consegue acessar este espaço de trabalho de convidado. O servidor pode ser incompatível ou estar mal configurado. A sincronização está pausada, e seus cartões locais e alterações pendentes estão seguros neste dispositivo.";
 "settings.account.status.customGuestPause.title" = "Espaço de trabalho de convidado na nuvem indisponível";
