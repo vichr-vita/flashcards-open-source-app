@@ -118,20 +118,6 @@ internal fun NavGraphBuilder.registerReviewNavGraph(
                             reviewedAtMillis = reviewedAtMillis,
                             nowMillis = System.currentTimeMillis()
                         )
-                        appGraph.guestSignInAfterReviewPromptController.requestReevaluation()
-                    },
-                    onStoreReviewOpportunity = {
-                        val currentActivity = appGraph.storeReviewActivityProvider.currentActivity()
-                        if (currentActivity == null) {
-                            false
-                        } else {
-                            appGraph.storeReviewRequestManager.requestStoreReviewIfEligible(
-                                activity = currentActivity
-                            )
-                        }
-                    },
-                    onAutomaticFeedbackPromptCandidate = {
-                        appGraph.feedbackPromptController.requestAutomaticReevaluation()
                     },
                     onNotificationPermissionGranted = ::handleNotificationPermissionGranted,
                     reviewPreferencesStore = appGraph.reviewPreferencesStore,
@@ -286,20 +272,6 @@ internal fun NavGraphBuilder.registerReviewNavGraph(
                             reviewedAtMillis = reviewedAtMillis,
                             nowMillis = System.currentTimeMillis()
                         )
-                        appGraph.guestSignInAfterReviewPromptController.requestReevaluation()
-                    },
-                    onStoreReviewOpportunity = {
-                        val currentActivity = appGraph.storeReviewActivityProvider.currentActivity()
-                        if (currentActivity == null) {
-                            false
-                        } else {
-                            appGraph.storeReviewRequestManager.requestStoreReviewIfEligible(
-                                activity = currentActivity
-                            )
-                        }
-                    },
-                    onAutomaticFeedbackPromptCandidate = {
-                        appGraph.feedbackPromptController.requestAutomaticReevaluation()
                     },
                     onNotificationPermissionGranted = ::handleNotificationPermissionGranted,
                     reviewPreferencesStore = appGraph.reviewPreferencesStore,

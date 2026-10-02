@@ -15,11 +15,6 @@ import com.flashcardsopensourceapp.app.observability.renderSanitizedThrowableLog
 import com.flashcardsopensourceapp.app.prompts.feedback.FeedbackPromptController
 import com.flashcardsopensourceapp.app.prompts.feedback.SharedPreferencesFeedbackPromptStore
 import com.flashcardsopensourceapp.app.prompts.feedback.feedbackPromptIdentityKey
-import com.flashcardsopensourceapp.app.prompts.guestreview.GuestSignInAfterReviewPromptController
-import com.flashcardsopensourceapp.app.prompts.guestreview.SharedPreferencesGuestSignInAfterReviewPromptStore
-import com.flashcardsopensourceapp.app.store.NoOpStoreReviewAnalyticsReporter
-import com.flashcardsopensourceapp.app.store.StoreReviewActivityProvider
-import com.flashcardsopensourceapp.app.store.StoreReviewRequestManager
 import com.flashcardsopensourceapp.app.analytics.AppAnalyticsCredentialProvider
 import com.flashcardsopensourceapp.app.analytics.currentAppUiLocaleTag
 import com.flashcardsopensourceapp.app.analytics.analyticsSyncFailureReason
@@ -75,8 +70,6 @@ import com.flashcardsopensourceapp.data.local.model.cloud.CloudSettings
 import com.flashcardsopensourceapp.data.local.model.sync.isProductAnalyticsEnabled
 import com.flashcardsopensourceapp.data.local.review.ReviewPreferencesStore
 import com.flashcardsopensourceapp.data.local.review.SharedPreferencesReviewPreferencesStore
-import com.flashcardsopensourceapp.data.local.review.SharedPreferencesStoreReviewRequestStore
-import com.flashcardsopensourceapp.data.local.review.StoreReviewRequestStore
 import com.flashcardsopensourceapp.data.local.repository.AiChatRepository
 import com.flashcardsopensourceapp.data.local.repository.sync.AutoSyncEventRepository
 import com.flashcardsopensourceapp.data.local.repository.CardsRepository
@@ -196,7 +189,6 @@ class AppGraph(
     val testTechnicalErrorDialogPreviewController = TestTechnicalErrorDialogPreviewController()
     val testModeStore = TestModeStore(context = context.applicationContext)
     val visibleAppScreenController = VisibleAppScreenController()
-    val storeReviewActivityProvider = StoreReviewActivityProvider()
     val cloudCredentialRecoveryGateViewModelStoreOwner: ViewModelStoreOwner =
         object : ViewModelStoreOwner {
             override val viewModelStore: ViewModelStore = ViewModelStore()
@@ -276,10 +268,6 @@ class AppGraph(
      */
     val pendingSignOutReport = PendingSignOutReport()
     val reviewPreferencesStore: ReviewPreferencesStore = SharedPreferencesReviewPreferencesStore(context = context)
-    val storeReviewRequestStore: StoreReviewRequestStore = SharedPreferencesStoreReviewRequestStore(context = context)
-    private val guestSignInAfterReviewPromptStore = SharedPreferencesGuestSignInAfterReviewPromptStore(
-        context = context
-    )
     private val feedbackPromptStore = SharedPreferencesFeedbackPromptStore(context = context)
     private val notificationsStore = SharedPreferencesReviewNotificationsStore(context = context)
     val reviewNotificationsStore: ReviewNotificationsStore = notificationsStore
@@ -335,20 +323,6 @@ class AppGraph(
         analytics = analytics,
         appVersion = appPackageInfo.versionName,
         versionCode = appPackageInfo.longVersionCode.toInt()
-    )
-    val storeReviewRequestManager = StoreReviewRequestManager(
-        context = context,
-        reviewLogDao = database.reviewLogDao(),
-        storeReviewRequestStore = storeReviewRequestStore,
-        appVersion = appPackageInfo.versionName,
-        installationIdProvider = {
-            cloudPreferencesStore.currentCloudSettings().installationId
-        },
-        analyticsReporter = NoOpStoreReviewAnalyticsReporter,
-        zoneIdProvider = ZoneId::systemDefault,
-        currentTimeMillisProvider = {
-            System.currentTimeMillis()
-        }
     )
     private val cloudIdentityResetCoordinator = CloudIdentityResetCoordinator(
         database = database,
@@ -514,23 +488,12 @@ class AppGraph(
         appVersion = appPackageInfo.versionName,
         currentUiLocaleTag = { currentAppUiLocaleTag(context = context) ?: "und" }
     )
-    val guestSignInAfterReviewPromptController = GuestSignInAfterReviewPromptController(
-        appScope = appScope,
-        cloudAccountRepository = cloudAccountRepository,
-        reviewRepository = reviewRepository,
-        promptStore = guestSignInAfterReviewPromptStore,
-        analytics = analytics
-    )
     val feedbackPromptController = FeedbackPromptController(
         appScope = appScope,
         context = context,
         feedbackRepository = feedbackRepository,
-        reviewRepository = reviewRepository,
         promptStore = feedbackPromptStore,
         messageController = appMessageBus,
-        observability = observability,
-        appVersion = appPackageInfo.versionName,
-        versionCode = appPackageInfo.longVersionCode.toInt(),
         feedbackPromptIdentityKeyProvider = {
             feedbackPromptIdentityKey(cloudSettings = cloudPreferencesStore.currentCloudSettings())
         }

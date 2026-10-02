@@ -2,29 +2,15 @@ package com.flashcardsopensourceapp.app.prompts.feedback
 
 import android.content.Context
 import com.flashcardsopensourceapp.app.R
-import com.flashcardsopensourceapp.core.observability.AndroidExceptionIssueEvent
-import com.flashcardsopensourceapp.core.observability.AndroidFeedbackPromptAction
-import com.flashcardsopensourceapp.core.observability.AndroidFeedbackPromptTrigger
-import com.flashcardsopensourceapp.core.observability.AppObservability
 import com.flashcardsopensourceapp.core.ui.TransientMessageController
-import com.flashcardsopensourceapp.data.local.cloud.remote.CloudRemoteException
-import com.flashcardsopensourceapp.data.local.model.cloud.CloudCredentialRecoveryRequiredException
-import com.flashcardsopensourceapp.data.local.model.feedback.CloudFeedbackState
 import com.flashcardsopensourceapp.data.local.model.feedback.CloudFeedbackTrigger
 import com.flashcardsopensourceapp.data.local.model.feedback.cloudFeedbackMessageMaximumLength
 import com.flashcardsopensourceapp.data.local.repository.FeedbackRepository
-import com.flashcardsopensourceapp.data.local.repository.ReviewRepository
-import java.io.IOException
-import java.time.ZoneId
-import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -40,12 +26,8 @@ class FeedbackPromptController(
     private val appScope: CoroutineScope,
     context: Context,
     private val feedbackRepository: FeedbackRepository,
-    private val reviewRepository: ReviewRepository,
     private val promptStore: FeedbackPromptStore,
     private val messageController: TransientMessageController,
-    private val observability: AppObservability,
-    private val appVersion: String,
-    private val versionCode: Int,
     private val feedbackPromptIdentityKeyProvider: () -> FeedbackPromptIdentityKey
 ) {
     private val applicationContext = context.applicationContext
@@ -60,55 +42,9 @@ class FeedbackPromptController(
             errorMessage = null
         )
     )
-    private val contextMutable = MutableStateFlow(
-        FeedbackPromptContext(
-            isAppResumed = false,
-            isAuthFlowActive = false,
-            isAppModalActive = false
-        )
-    )
-    private val automaticReevaluationRequests = Channel<Unit>(capacity = Channel.CONFLATED)
-    private val automaticPromptShownEventRecorded = AtomicBoolean(false)
-
-    init {
-        appScope.launch {
-            automaticReevaluationRequests.receiveAsFlow().collect {
-                reevaluateAutomaticPrompt()
-            }
-        }
-    }
 
     fun observeUiState(): StateFlow<FeedbackPromptUiState> {
         return uiStateMutable.asStateFlow()
-    }
-
-    fun updateAppContext(context: FeedbackPromptContext) {
-        contextMutable.value = context
-        if (isAutomaticPromptContextBlocked(context = context).not()) {
-            return
-        }
-
-        val currentUiState = uiStateMutable.value
-        if (
-            currentUiState.isVisible.not() ||
-            currentUiState.trigger != CloudFeedbackTrigger.AUTOMATIC ||
-            currentUiState.isSubmitting
-        ) {
-            return
-        }
-
-        promptStore.saveDraftMessage(
-            identityKey = activeFeedbackPromptIdentityKeyMutable.value,
-            message = currentUiState.message
-        )
-        uiStateMutable.value = currentUiState.copy(
-            isVisible = false,
-            errorMessage = null
-        )
-    }
-
-    fun requestAutomaticReevaluation() {
-        automaticReevaluationRequests.trySend(Unit)
     }
 
     fun openSettingsFeedback() {
@@ -158,31 +94,6 @@ class FeedbackPromptController(
             isVisible = false,
             errorMessage = null
         )
-    }
-
-    fun markVisibleDialogShown() {
-        val currentUiState = uiStateMutable.value
-        if (currentUiState.isVisible.not() || currentUiState.trigger != CloudFeedbackTrigger.AUTOMATIC) {
-            return
-        }
-        if (isAutomaticPromptContextBlocked(context = contextMutable.value)) {
-            return
-        }
-        if (automaticPromptShownEventRecorded.compareAndSet(false, true).not()) {
-            return
-        }
-
-        val nowMillis = System.currentTimeMillis()
-        val identityKey = activeFeedbackPromptIdentityKeyMutable.value
-        promptStore.recordAutomaticPromptShown(identityKey = identityKey, nowMillis = nowMillis)
-        appScope.launch {
-            val feedbackState = recordAutomaticPromptShownOrNull() ?: return@launch
-            promptStore.recordFetchedFeedbackState(
-                identityKey = identityKey,
-                feedbackState = feedbackState,
-                nowMillis = System.currentTimeMillis()
-            )
-        }
     }
 
     fun submit() {
@@ -243,140 +154,6 @@ class FeedbackPromptController(
         }
     }
 
-    private suspend fun reevaluateAutomaticPrompt() {
-        val nowMillis = System.currentTimeMillis()
-        val context = contextMutable.value
-        if (uiStateMutable.value.isVisible) {
-            return
-        }
-
-        val identityKey = feedbackPromptIdentityKeyProvider()
-        val localDayWindow = feedbackPromptLocalDayWindow(
-            nowMillis = nowMillis,
-            zoneId = ZoneId.systemDefault()
-        )
-        val reviewActivity = reviewRepository.loadFeedbackPromptReviewActivity(
-            currentLocalDayStartMillis = localDayWindow.startMillis,
-            nextLocalDayStartMillis = localDayWindow.endMillis
-        )
-        var promptState = promptStore.loadState(identityKey = identityKey)
-        if (
-            isAutomaticFeedbackPromptLocallyEligible(
-                reviewActivity = reviewActivity,
-                promptState = promptState,
-                nowMillis = nowMillis,
-                context = context
-            ).not()
-        ) {
-            return
-        }
-
-        if (shouldFetchFeedbackState(promptState = promptState, nowMillis = nowMillis)) {
-            if (canAttemptFeedbackStateFetch(promptState = promptState, nowMillis = nowMillis).not()) {
-                return
-            }
-            when (val result = loadFeedbackStateForAutomaticPrompt()) {
-                FeedbackStateFetchResult.Failed -> {
-                    promptStore.recordFeedbackStateFetchAttempt(
-                        identityKey = identityKey,
-                        nowMillis = System.currentTimeMillis()
-                    )
-                    return
-                }
-                FeedbackStateFetchResult.NoExistingCloudSession -> Unit
-                is FeedbackStateFetchResult.Loaded -> {
-                    promptStore.recordFetchedFeedbackState(
-                        identityKey = identityKey,
-                        feedbackState = result.feedbackState,
-                        nowMillis = System.currentTimeMillis()
-                    )
-                    promptState = promptStore.loadState(identityKey = identityKey)
-                }
-            }
-        }
-
-        if (
-            isAutomaticFeedbackPromptLocallyEligible(
-                reviewActivity = reviewActivity,
-                promptState = promptState,
-                nowMillis = System.currentTimeMillis(),
-                context = contextMutable.value
-            ).not()
-        ) {
-            return
-        }
-        if (uiStateMutable.value.isVisible) {
-            return
-        }
-
-        showAutomaticPrompt(identityKey = identityKey)
-    }
-
-    private fun showAutomaticPrompt(identityKey: FeedbackPromptIdentityKey) {
-        automaticPromptShownEventRecorded.set(false)
-        activeFeedbackPromptIdentityKeyMutable.value = identityKey
-        uiStateMutable.value = FeedbackPromptUiState(
-            isVisible = true,
-            trigger = CloudFeedbackTrigger.AUTOMATIC,
-            message = promptStore.loadState(identityKey = identityKey).draftMessage,
-            isSubmitting = false,
-            errorMessage = null
-        )
-    }
-
-    private suspend fun loadFeedbackStateForAutomaticPrompt(): FeedbackStateFetchResult {
-        return try {
-            val feedbackState = feedbackRepository.loadFeedbackStateForExistingCloudSession()
-            if (feedbackState == null) {
-                FeedbackStateFetchResult.NoExistingCloudSession
-            } else {
-                FeedbackStateFetchResult.Loaded(feedbackState = feedbackState)
-            }
-        } catch (error: CancellationException) {
-            throw error
-        } catch (error: Exception) {
-            captureAutomaticFeedbackPromptException(
-                error = error,
-                promptAction = AndroidFeedbackPromptAction.AUTOMATIC_FEEDBACK_STATE_LOAD_FAILED
-            )
-            FeedbackStateFetchResult.Failed
-        }
-    }
-
-    private suspend fun recordAutomaticPromptShownOrNull(): CloudFeedbackState? {
-        return try {
-            feedbackRepository.recordAutomaticPromptShownForExistingCloudSession()
-        } catch (error: CancellationException) {
-            throw error
-        } catch (error: Exception) {
-            captureAutomaticFeedbackPromptException(
-                error = error,
-                promptAction = AndroidFeedbackPromptAction.AUTOMATIC_PROMPT_SHOWN_RECORD_FAILED
-            )
-            null
-        }
-    }
-
-    private fun captureAutomaticFeedbackPromptException(
-        error: Exception,
-        promptAction: AndroidFeedbackPromptAction
-    ) {
-        if (shouldSkipAutomaticFeedbackPromptExceptionCapture(error = error)) {
-            return
-        }
-
-        observability.captureException(
-            event = AndroidExceptionIssueEvent.FeedbackPromptException(
-                throwable = error,
-                promptAction = promptAction,
-                trigger = AndroidFeedbackPromptTrigger.AUTOMATIC,
-                appVersion = appVersion,
-                clientVersion = appVersion,
-                versionCode = versionCode
-            )
-        )
-    }
-
     private fun validateFeedbackMessage(message: String): String? {
         if (message.isEmpty()) {
             return applicationContext.getString(R.string.feedback_prompt_empty_message)
@@ -391,30 +168,4 @@ class FeedbackPromptController(
 
         return null
     }
-}
-
-private fun shouldSkipAutomaticFeedbackPromptExceptionCapture(error: Throwable): Boolean {
-    var currentError: Throwable? = error
-    while (currentError != null) {
-        if (
-            currentError is CloudRemoteException ||
-            currentError is CloudCredentialRecoveryRequiredException ||
-            currentError is IOException
-        ) {
-            return true
-        }
-        currentError = currentError.cause
-    }
-
-    return false
-}
-
-private fun isAutomaticPromptContextBlocked(context: FeedbackPromptContext): Boolean {
-    return context.isAppResumed.not() || context.isAuthFlowActive || context.isAppModalActive
-}
-
-private sealed interface FeedbackStateFetchResult {
-    data class Loaded(val feedbackState: CloudFeedbackState) : FeedbackStateFetchResult
-    data object NoExistingCloudSession : FeedbackStateFetchResult
-    data object Failed : FeedbackStateFetchResult
 }

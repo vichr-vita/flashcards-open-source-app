@@ -763,9 +763,6 @@ extension FlashcardsStore {
         guard self.canPersistAccountPreferences, let identityKey = self.accountPreferencesIdentityKey else {
             throw LocalStoreError.uninitialized("Cloud account is unavailable")
         }
-        guard color == .defaultColor || self.canUseCustomAccentColor else {
-            throw LocalStoreError.validation("A custom accent color requires Premium")
-        }
         if self.pendingAccentColor?.color == color {
             return
         }
@@ -813,9 +810,6 @@ extension FlashcardsStore {
         await self.serializedAccountPreferencesUpdate {
             do {
                 guard self.pendingAccentColor?.id == selection.id else { return }
-                guard selection.color == .defaultColor || self.canUseCustomAccentColor else {
-                    throw LocalStoreError.validation("A custom accent color requires Premium")
-                }
                 let updateGeneration = self.accountPreferencesRefreshGeneration
                 let updateResult = try await self.updateCloudAccountPreferences(
                     patch: AccountPreferencesPatchRequest(accentColor: selection.color),

@@ -61,9 +61,7 @@ private val accentPresets: List<AccentPreset> = listOf(
 @Composable
 fun AccentColorRoute(
     uiState: AccentColorUiState,
-    isPremiumRequired: Boolean,
     onSelectColor: (String) -> Unit,
-    onRequestCustom: (() -> Unit) -> Unit,
     onBack: () -> Unit
 ) {
     var isCustomDialogVisible by rememberSaveable { mutableStateOf(false) }
@@ -80,14 +78,6 @@ fun AccentColorRoute(
         ) {
             item {
                 Text(stringResource(R.string.settings_accent_selected, uiState.selectedColor))
-            }
-            if (isPremiumRequired) {
-                item {
-                    Text(
-                        text = stringResource(R.string.settings_accent_premium_note),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
             }
             uiState.errorMessage?.let { message ->
                 item {
@@ -131,7 +121,7 @@ fun AccentColorRoute(
                             selected = selected,
                             enabled = isEnabled,
                             role = Role.RadioButton,
-                            onClick = { onRequestCustom { isCustomDialogVisible = true } }
+                            onClick = { isCustomDialogVisible = true }
                         )
                 ) {
                     ListItem(

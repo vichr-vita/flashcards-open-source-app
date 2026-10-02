@@ -19,7 +19,7 @@ What is still open is listed in
 
 ## Premium sells AI
 
-Server-enforced limits are the paid AI axis. Accent color is the local premium cosmetic specified below.
+Premium covers server-provided AI usage. Local customization, including accent colors, is free.
 
 ## The AI limit counts messages
 
@@ -48,8 +48,8 @@ platform key raises a Sentry warning.
 
 - Any person, guest included, may enter their own key on each client.
 - The key is sent with each request and never stored by the backend.
-- It unlocks AI usage only — chat, dictation, and card images, for guests too — and never unlocks
-  premium features.
+- It provides AI usage for chat, dictation, and card images, for guests too. It does not change
+  the subscription tier.
 - Card images made with it have one anti-abuse ceiling of 1000 per workspace per month.
 - It is not offered on MCP or the Agent API.
 - Usage made with it is still recorded, and excluded from limits.
@@ -88,16 +88,14 @@ Apple first, then Google, then Stripe on the web.
 
 ## Accent color
 
-General settings opens an Accent color subscreen. Premium and lifetime (effective rank at least 20)
+General settings opens an Accent color subscreen. Everyone, including guests and free accounts,
 can choose Default `#C44B2D`, Blue `#4D8DFF`, Purple `#A78BFA`, Pink `#F472B6`, Teal `#2DD4BF`,
 Gold `#EAB308`, or an arbitrary opaque RGB color with explicit HEX entry. The exact chosen RGB is
-used without contrast correction; alpha is unsupported. Default remains available to everyone.
-Free users see a premium note and the shared coming-soon paywall.
+used without contrast correction; alpha is unsupported. There is no cosmetic paywall.
 
-The selection is account-wide, stored independently of entitlement, and distinct from the displayed
-color. A confirmed downgrade displays Default while retaining the selection; resubscription restores
-it. Unknown or offline entitlement follows the [cached local-feature policy](premium-entitlements.md#offline-behaviour).
-Client setting and theme boundaries gate usage; the backend adds no billing gate for storing it.
+The selection is account-wide and independent of entitlement. Clients display the saved selection,
+including after a downgrade or while the entitlement is unknown. Pending selections use the existing
+optimistic save behavior. The backend adds no billing gate for storing colors.
 
 The wire contract lives in [account preference parsing](../apps/backend/src/routes/system/support.ts)
 and [persistence](../apps/backend/src/routes/system/account/accountPreferences.ts): `accentColor` is

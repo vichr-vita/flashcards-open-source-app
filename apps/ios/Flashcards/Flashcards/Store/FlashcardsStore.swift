@@ -127,7 +127,6 @@ final class FlashcardsStore {
     var cloudSignInAttempt: CloudSignInAttemptState
     var accountDeletionState: AccountDeletionState
     var accountDeletionSuccessMessage: String?
-    var pendingStoreReviewRequestAttempt: StoreReviewRequestAttempt?
     var uiTestLaunchPreparationStatus: FlashcardsUITestLaunchPreparationStatus
     var localReadVersion: Int
 
@@ -231,8 +230,6 @@ final class FlashcardsStore {
     @ObservationIgnored var progressReviewScheduleLocalRevision: Int
     @ObservationIgnored var progressReviewedAtClientCache: ProgressReviewedAtClientCacheEntry?
     @ObservationIgnored var progressReviewScheduleLocalCache: ProgressReviewScheduleLocalCacheEntry?
-    @ObservationIgnored var activeAutomaticFeedbackPromptTask: Task<Void, Never>?
-    @ObservationIgnored var nextAutomaticFeedbackPromptRetryAt: Date?
     @ObservationIgnored var capturedTechnicalErrorCaptureContextIDs: Set<String>
     @ObservationIgnored var customGuestWorkspaceRetrySession: CloudLinkedSession?
 
@@ -248,7 +245,6 @@ final class FlashcardsStore {
 
     func shutdownForTests() {
         self.cachedAIChatStore?.shutdownForTests()
-        self.activeAutomaticFeedbackPromptTask?.cancel()
         self.reviewRuntime.cancelForAccountDeletion()
         self.cloudRuntime.cancelForAccountDeletion()
     }
@@ -531,7 +527,6 @@ final class FlashcardsStore {
         self.cloudSignInAttempt = CloudSignInAttemptState()
         self.accountDeletionState = .hidden
         self.accountDeletionSuccessMessage = nil
-        self.pendingStoreReviewRequestAttempt = nil
         self.uiTestLaunchPreparationStatus = .hidden
         self.localReadVersion = 0
         self.database = database
@@ -613,8 +608,6 @@ final class FlashcardsStore {
         self.progressReviewScheduleLocalRevision = 0
         self.progressReviewedAtClientCache = nil
         self.progressReviewScheduleLocalCache = nil
-        self.activeAutomaticFeedbackPromptTask = nil
-        self.nextAutomaticFeedbackPromptRetryAt = nil
         self.capturedTechnicalErrorCaptureContextIDs = []
         self.customGuestWorkspaceRetrySession = nil
 

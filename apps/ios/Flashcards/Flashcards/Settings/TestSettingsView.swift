@@ -91,16 +91,6 @@ struct TestSettingsView: View {
                 }
                 .accessibilityIdentifier(UITestIdentifier.testSettingsAILimitPreview)
 
-                Button {
-                    store.clearStoreReviewPromptStateForTests()
-                } label: {
-                    SettingsNavigationRow(
-                        title: aiSettingsLocalized("settings.test.storeReviewPromptReset", "Reset App Store review prompt"),
-                        value: aiSettingsLocalized("settings.test.storeReviewPromptReset.value", "Local state"),
-                        systemImage: "star.bubble",
-                        attentionCount: nil
-                    )
-                }
             }
         }
         .listStyle(.insetGrouped)

@@ -6,9 +6,6 @@ import { markIndexedDbOpenRecoveryFailureAndCheckActive, useAppErrorDialog } fro
 import { useI18n } from "../../i18n";
 import { captureAppOperationError } from "../../observability/appOperationObservation";
 import { accentPresets, useAccountAccentColor } from "../../premium/accentColor";
-import { usePremiumPresenter } from "../../premium/PremiumProvider";
-import { readEntitlementIdentityGeneration } from "../../premium/entitlementStore";
-import { defaultAccentColor } from "../../types/account";
 import { SettingsGroup, SettingsShell } from "./SettingsShared";
 
 export function AccentColorSettingsScreen(): ReactElement {
@@ -20,8 +17,7 @@ function AccentColorEditor(): ReactElement {
   const { session, activeWorkspace, cloudSettings, isSessionVerified, setAccountPreferences, refreshAccountPreferences } = useAppData();
   const { indexedDbOpenRecoveryState, showCapturedTechnicalError } = useAppErrorDialog();
   const { t } = useI18n();
-  const presentPremium = usePremiumPresenter();
-  const { selectedColor, effectiveColor, canCustomize } = useAccountAccentColor();
+  const { selectedColor, effectiveColor } = useAccountAccentColor();
   const [customColor, setCustomColor] = useState(selectedColor);
   const [errorMessage, setErrorMessage] = useState("");
   const mountedRef = useRef(false);
@@ -104,32 +100,11 @@ function AccentColorEditor(): ReactElement {
     if (isDisabled) {
       return;
     }
-    if (color === defaultAccentColor || canCustomize) {
-      persistColor(color);
-      return;
-    }
-    const generation = readEntitlementIdentityGeneration();
-    presentPremium?.({
-      reason: "feature",
-      requiredRank: 20,
-      onResult: (result): void => {
-        if (result === "granted" && mountedRef.current && generation === readEntitlementIdentityGeneration()) {
-          persistColor(color);
-        }
-      },
-    });
+    persistColor(color);
   }
 
   return (
     <SettingsShell title={t("accentColorSettings.title")} subtitle={t("accentColorSettings.subtitle")} activeTab="general">
-      {!canCustomize ? (
-        <SettingsGroup>
-          <p className="subtitle" data-testid="accent-premium-note">{t("accentColorSettings.premiumNote")}</p>
-          <button className="primary-btn" type="button" data-testid="accent-premium-open" onClick={() => presentPremium?.({ reason: "offer" })}>
-            {t("premium.offer")}
-          </button>
-        </SettingsGroup>
-      ) : null}
       <SettingsGroup>
         <fieldset className="accent-presets" disabled={isDisabled}>
           <legend>{t("accentColorSettings.title")}</legend>

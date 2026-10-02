@@ -61,7 +61,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.flashcardsopensourceapp.app.analytics.analyticsSurfaceForRoute
 import com.flashcardsopensourceapp.app.analytics.analyticsSyncFailureReason
-import com.flashcardsopensourceapp.app.premium.hasPremiumAccess
 import com.flashcardsopensourceapp.app.premium.PremiumPresenter
 import com.flashcardsopensourceapp.app.premium.PremiumPresentationHost
 import com.flashcardsopensourceapp.app.di.AppGraph
@@ -83,15 +82,11 @@ import com.flashcardsopensourceapp.app.navigation.topLevelDestinations
 import com.flashcardsopensourceapp.app.prompts.feedback.FeedbackPromptContext
 import com.flashcardsopensourceapp.app.prompts.feedback.FeedbackPromptDialog
 import com.flashcardsopensourceapp.app.prompts.feedback.FeedbackPromptUiState
-import com.flashcardsopensourceapp.app.prompts.guestreview.GuestSignInAfterReviewPromptContext
-import com.flashcardsopensourceapp.app.prompts.guestreview.GuestSignInAfterReviewPromptDialog
-import com.flashcardsopensourceapp.app.prompts.guestreview.GuestSignInAfterReviewPromptUiState
 import com.flashcardsopensourceapp.data.local.model.cloud.AccountDeletionState
 import com.flashcardsopensourceapp.data.local.model.cloud.CloudAccountState
 import com.flashcardsopensourceapp.data.local.model.cloud.CloudCredentialRecoveryState
 import com.flashcardsopensourceapp.data.local.model.feedback.CloudFeedbackTrigger
 import com.flashcardsopensourceapp.data.local.model.cloud.CloudSettings
-import com.flashcardsopensourceapp.data.local.model.sync.defaultAccentColor
 import com.flashcardsopensourceapp.data.local.model.sync.AccountPreferences
 import com.flashcardsopensourceapp.feature.settings.accent.AccentColorViewModel
 import com.flashcardsopensourceapp.data.local.model.sync.SyncStatusSnapshot
@@ -147,12 +142,7 @@ fun FlashcardsApp(
         val accentColorState by accentColorViewModel.uiState.collectAsStateWithLifecycle()
         val entitlement by appGraph.cloudAccountRepository.observeEntitlement()
             .collectAsStateWithLifecycle(initialValue = null)
-        val effectiveAccentColor = if (entitlement == null || hasPremiumAccess(entitlement)) {
-            accentColorState.selectedColor
-        } else {
-            defaultAccentColor
-        }
-        FlashcardsTheme(accentColor = Color(android.graphics.Color.parseColor(effectiveAccentColor))) {
+        FlashcardsTheme(accentColor = Color(android.graphics.Color.parseColor(accentColorState.selectedColor))) {
         val startupState by appGraph.startupState.collectAsStateWithLifecycle(
             initialValue = AppStartupState.Loading
         )
@@ -331,14 +321,6 @@ fun FlashcardsApp(
                 premiumPresenter.dismiss()
             }
         }
-        val guestSignInAfterReviewPromptUiState by appGraph.guestSignInAfterReviewPromptController
-            .observeUiState()
-            .collectAsStateWithLifecycle(
-                initialValue = GuestSignInAfterReviewPromptUiState(
-                    isVisible = false,
-                    reviewCount = 0
-                )
-            )
         val feedbackPromptUiState by appGraph.feedbackPromptController
             .observeUiState()
             .collectAsStateWithLifecycle(
@@ -387,28 +369,11 @@ fun FlashcardsApp(
         val currentCanRunImmediateAutoSync by rememberUpdatedState(newValue = canRunImmediateAutoSync)
         val currentCanRefreshCloudAccountContext by rememberUpdatedState(newValue = canRefreshCloudAccountContext)
         val currentVisibleAppScreenState by rememberUpdatedState(newValue = currentVisibleAppScreen)
-        val guestSignInAfterReviewPromptContext = GuestSignInAfterReviewPromptContext(
-            isAuthFlowActive = isGuestSignInAfterReviewPromptAuthRoute(route = currentRoute),
-            isAppModalActive = premiumPresenter.reason != null || isGuestSignInAfterReviewPromptModalActive(
-                accountDeletionState = accountDeletionState,
-                isFeedbackPromptVisible = feedbackPromptUiState.isVisible,
-                isTechnicalErrorVisible = displayedTechnicalError != null
-            )
-        )
-        // The single render condition for the after-review guest prompt, read both by the surface
-        // tracker below and by the dialog itself so the surface can never disagree with what is on
-        // screen.
-        val isGuestSignInAfterReviewPromptShown: Boolean =
-            BuildConfig.BUILD_TYPE != "marketingScreenshot" &&
-                guestSignInAfterReviewPromptUiState.isVisible &&
-                guestSignInAfterReviewPromptContext.isAuthFlowActive.not() &&
-                guestSignInAfterReviewPromptContext.isAppModalActive.not()
         val feedbackPromptContext = FeedbackPromptContext(
             isAppResumed = isAppResumed,
             isAuthFlowActive = isFeedbackPromptAuthRoute(route = currentRoute),
             isAppModalActive = premiumPresenter.reason != null || isFeedbackPromptModalActive(
                 accountDeletionState = accountDeletionState,
-                isGuestSignInAfterReviewPromptVisible = guestSignInAfterReviewPromptUiState.isVisible,
                 isTechnicalErrorVisible = displayedTechnicalError != null
             )
         )
@@ -419,17 +384,7 @@ fun FlashcardsApp(
             )
         }
 
-        // The after-review guest prompt is a screen of its own in the catalog, not decoration over
-        // the destination it is drawn on: a person has to answer it before anything else continues.
-        // It takes over the current surface rather than adding an event beside it, which is what
-        // gives both edges for free — showing it reports the prompt, answering it reports whatever
-        // the person lands back on, and neither edge can double-fire across a rotation because the
-        // slot below is saved.
-        val currentAnalyticsSurface: AnalyticsSurface? = if (isGuestSignInAfterReviewPromptShown) {
-            AnalyticsSurface.SIGNIN_AFTER_REVIEW_PROMPT
-        } else {
-            analyticsSurfaceForRoute(route = currentRoute)
-        }
+        val currentAnalyticsSurface = analyticsSurfaceForRoute(route = currentRoute)
 
         LaunchedEffect(currentAnalyticsSurface, currentRoute) {
             val visitedSurface: AnalyticsSurface? = currentAnalyticsSurface
@@ -458,24 +413,6 @@ fun FlashcardsApp(
 
             appGraph.reviewReminderAttentionController.reloadFromStore()
             appGraph.reviewReminderAttentionController.reconcileWithReviewHistory()
-        }
-
-        LaunchedEffect(
-            guestSignInAfterReviewPromptContext,
-            cloudSettings.cloudState,
-            isAppResumed
-        ) {
-            if (isAppResumed.not()) {
-                return@LaunchedEffect
-            }
-
-            appGraph.guestSignInAfterReviewPromptController.updateAppContext(
-                context = guestSignInAfterReviewPromptContext
-            )
-        }
-
-        LaunchedEffect(feedbackPromptContext) {
-            appGraph.feedbackPromptController.updateAppContext(context = feedbackPromptContext)
         }
 
         LaunchedEffect(shouldHideNavigationSuite) {
@@ -757,23 +694,6 @@ fun FlashcardsApp(
                         )
                     }
                 )
-                if (isGuestSignInAfterReviewPromptShown) {
-                    GuestSignInAfterReviewPromptDialog(
-                        onSignIn = {
-                            appGraph.guestSignInAfterReviewPromptController.acceptPrompt()
-                            // The prompt belongs to the review flow, so `review` is its origin no
-                            // matter which tab the dialog happened to be drawn over.
-                            navController.navigate(
-                                route = SettingsAccountSignInEmailDestination.createRoute(
-                                    origin = AnalyticsSurface.REVIEW
-                                )
-                            )
-                        },
-                        onLater = {
-                            appGraph.guestSignInAfterReviewPromptController.dismissForLater()
-                        }
-                    )
-                }
                 if (
                     feedbackPromptUiState.isVisible &&
                     feedbackPromptContext.isAppResumed &&
@@ -783,7 +703,6 @@ fun FlashcardsApp(
                     FeedbackPromptDialog(
                         uiState = feedbackPromptUiState,
                         onMessageChange = appGraph.feedbackPromptController::updateMessage,
-                        onShown = appGraph.feedbackPromptController::markVisibleDialogShown,
                         onSubmit = appGraph.feedbackPromptController::submit,
                         onDismiss = appGraph.feedbackPromptController::dismiss
                     )
@@ -851,31 +770,15 @@ private fun isProgressContextRefreshBroadcastAction(action: String?): Boolean {
     }
 }
 
-private fun isGuestSignInAfterReviewPromptAuthRoute(route: String?): Boolean {
-    return route?.isWithinRoutePrefix(routePrefix = SettingsAccountSignInEmailDestination.routePrefix) == true
-}
-
-private fun isGuestSignInAfterReviewPromptModalActive(
-    accountDeletionState: AccountDeletionState,
-    isFeedbackPromptVisible: Boolean,
-    isTechnicalErrorVisible: Boolean
-): Boolean {
-    return accountDeletionState != AccountDeletionState.Hidden ||
-        isFeedbackPromptVisible ||
-        isTechnicalErrorVisible
-}
-
 private fun isFeedbackPromptAuthRoute(route: String?): Boolean {
     return route?.isWithinRoutePrefix(routePrefix = SettingsAccountSignInEmailDestination.routePrefix) == true
 }
 
 private fun isFeedbackPromptModalActive(
     accountDeletionState: AccountDeletionState,
-    isGuestSignInAfterReviewPromptVisible: Boolean,
     isTechnicalErrorVisible: Boolean
 ): Boolean {
     return accountDeletionState != AccountDeletionState.Hidden ||
-        isGuestSignInAfterReviewPromptVisible ||
         isTechnicalErrorVisible
 }
 

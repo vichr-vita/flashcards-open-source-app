@@ -1,67 +1,14 @@
 import Foundation
-import StoreKit
 import SwiftUI
 
 private let rootTabUITestLaunchScenarioEnvironmentKey: String = "FLASHCARDS_UI_TEST_LAUNCH_SCENARIO"
 
-private struct StoreReviewRequestTaskID: Hashable {
-    let isSceneActive: Bool
-    let isPresentationBlocked: Bool
-    let requestAttemptId: String?
-}
-
-private struct GuestSignInAfterReviewPromptRecheckTaskID: Hashable {
-    let isSceneActive: Bool
-    let cloudState: CloudAccountState?
-    let reviewedCount: Int
-    let promptState: GuestSignInAfterReviewPromptState
-    let isModalOrAuthFlowActive: Bool
-}
-
 struct RootTabView: View {
-    @Environment(\.requestReview) private var requestReview
     @Environment(\.scenePhase) private var scenePhase
     @Environment(FlashcardsStore.self) private var store: FlashcardsStore
     @Environment(AppNavigationModel.self) private var navigation: AppNavigationModel
 
     @State private var premiumPresenter: PremiumPresenter = PremiumPresenter()
-    @State private var isGuestSignInCloudSignInPresented: Bool = false
-
-    private var isGuestSignInAfterReviewPromptBlockedByModal: Bool {
-        self.isGuestSignInCloudSignInPresented
-            || self.premiumPresenter.request != nil
-            || store.feedbackPresentation != nil
-            || store.activeCloudSignInSheetCount > 0
-            || store.accountDeletionState != .hidden
-            || store.accountDeletionSuccessMessage != nil
-            || store.reviewSubmissionFailure != nil
-            || store.isReviewNotificationPrePromptPresented
-            || store.isReviewHardReminderPresented
-    }
-
-    private var isStoreReviewRequestBlockedByPresentation: Bool {
-        self.isGuestSignInAfterReviewPromptBlockedByModal
-            || store.isGuestSignInAfterReviewPromptPresented
-    }
-
-    private var guestSignInAfterReviewPromptRecheckTaskID: GuestSignInAfterReviewPromptRecheckTaskID {
-        GuestSignInAfterReviewPromptRecheckTaskID(
-            isSceneActive: self.scenePhase == .active,
-            cloudState: store.cloudSettings?.cloudState,
-            reviewedCount: store.homeSnapshot.reviewedCount,
-            promptState: store.guestSignInAfterReviewPromptState,
-            isModalOrAuthFlowActive: self.isGuestSignInAfterReviewPromptBlockedByModal
-        )
-    }
-
-    private var storeReviewRequestTaskID: StoreReviewRequestTaskID {
-        StoreReviewRequestTaskID(
-            isSceneActive: self.scenePhase == .active,
-            isPresentationBlocked: self.isStoreReviewRequestBlockedByPresentation,
-            requestAttemptId: store.pendingStoreReviewRequestAttempt?.id
-        )
-    }
-
     private var settingsAttentionSummary: SettingsAttentionSummary {
         makeSettingsAttentionSummary(
             issues: makeSettingsAttentionIssues(cloudState: store.cloudSettings?.cloudState)
@@ -77,19 +24,6 @@ struct RootTabView: View {
 
     private var shouldExposeReviewReminderAttentionBadgeMarker: Bool {
         ProcessInfo.processInfo.environment[rootTabUITestLaunchScenarioEnvironmentKey] != nil
-    }
-
-    private var guestSignInAfterReviewPromptPresentation: Binding<Bool> {
-        Binding<Bool>(
-            get: {
-                store.isGuestSignInAfterReviewPromptPresented
-            },
-            set: { isPresented in
-                if isPresented == false {
-                    store.dismissGuestSignInAfterReviewPrompt()
-                }
-            }
-        )
     }
 
     private var accountDeletionSuccessPresentation: Binding<Bool> {
@@ -110,9 +44,7 @@ struct RootTabView: View {
             get: {
                 guard store.feedbackPresentation == nil,
                       store.presentedTechnicalError == nil,
-                      store.activeCloudSignInSheetCount == 0,
-                      self.isGuestSignInCloudSignInPresented == false,
-                      store.isGuestSignInAfterReviewPromptPresented == false else {
+                      store.activeCloudSignInSheetCount == 0 else {
                     return nil
                 }
                 return self.premiumPresenter.request
@@ -145,42 +77,6 @@ struct RootTabView: View {
         )
     }
 
-    private var guestSignInAfterReviewPromptTitle: String {
-        String(
-            localized: "root_tab.guest_sign_in_after_review_prompt.title",
-            defaultValue: "Save your progress",
-            table: "Foundation",
-            comment: "Guest sign-in prompt title after reviewing enough cards"
-        )
-    }
-
-    private var guestSignInAfterReviewPromptMessage: String {
-        String(
-            localized: "root_tab.guest_sign_in_after_review_prompt.message",
-            defaultValue: "Sign in with email so these cards and review progress are not lost.",
-            table: "Foundation",
-            comment: "Guest sign-in prompt body after reviewing enough cards"
-        )
-    }
-
-    private var guestSignInAfterReviewPromptLaterTitle: String {
-        String(
-            localized: "root_tab.guest_sign_in_after_review_prompt.later",
-            defaultValue: "Later",
-            table: "Foundation",
-            comment: "Guest sign-in prompt secondary button"
-        )
-    }
-
-    private var guestSignInAfterReviewPromptSignInTitle: String {
-        String(
-            localized: "root_tab.guest_sign_in_after_review_prompt.sign_in",
-            defaultValue: "Sign in",
-            table: "Foundation",
-            comment: "Guest sign-in prompt primary button"
-        )
-    }
-
     private var accountDeletedTitle: String {
         String(
             localized: "root_tab.account_deleted.title",
@@ -195,95 +91,6 @@ struct RootTabView: View {
             table: "Foundation",
             comment: "Confirmation button title"
         )
-    }
-
-    @MainActor
-    private func reconcileGuestSignInAfterReviewPrompt() {
-        self.store.reconcileGuestSignInAfterReviewPrompt(
-            isModalOrAuthFlowActive: self.isGuestSignInAfterReviewPromptBlockedByModal,
-            now: Date()
-        )
-    }
-
-    @MainActor
-    private func waitForGuestSignInAfterReviewPromptRecheckIfNeeded() async {
-        guard self.scenePhase == .active else {
-            return
-        }
-
-        let now = Date()
-        guard let recheckDate = nextGuestSignInAfterReviewPromptRecheckDate(
-            cloudState: store.cloudSettings?.cloudState,
-            reviewedCount: store.homeSnapshot.reviewedCount,
-            promptState: store.guestSignInAfterReviewPromptState,
-            now: now,
-            isModalOrAuthFlowActive: self.isGuestSignInAfterReviewPromptBlockedByModal
-        ) else {
-            return
-        }
-
-        let secondsUntilRecheck = recheckDate.timeIntervalSince(now)
-        guard secondsUntilRecheck > 0 else {
-            self.reconcileGuestSignInAfterReviewPrompt()
-            return
-        }
-
-        let nanosecondsPerSecond: Double = 1_000_000_000
-        let maximumSleepSeconds = Double(UInt64.max) / nanosecondsPerSecond
-        let sleepNanoseconds = UInt64(min(secondsUntilRecheck, maximumSleepSeconds) * nanosecondsPerSecond)
-
-        do {
-            try await Task.sleep(nanoseconds: sleepNanoseconds)
-        } catch is CancellationError {
-            return
-        } catch {
-            FlashcardsObservability.captureSilentFailure(
-                error: error,
-                scope: IOSObservationScope(
-                    feature: .prompts,
-                    userId: store.cloudSettings?.linkedUserId,
-                    workspaceId: store.workspace?.workspaceId,
-                    requestId: nil,
-                    clientRequestId: nil,
-                    sessionId: nil,
-                    runId: nil,
-                    cloudState: store.cloudSettings?.cloudState,
-                    configurationMode: try? store.currentCloudServiceConfiguration().mode
-                ),
-                action: "guest_sign_in_after_review_prompt_recheck_sleep",
-                stage: "sleep",
-                statusCode: nil,
-                backendCode: nil,
-                requestId: nil
-            )
-            assertionFailure("Unexpected guest sign-in prompt recheck sleep failure: \(error)")
-            return
-        }
-
-        guard Task.isCancelled == false else {
-            return
-        }
-
-        self.reconcileGuestSignInAfterReviewPrompt()
-    }
-
-    @MainActor
-    private func requestStoreReviewIfNeeded() async {
-        guard self.scenePhase == .active else {
-            return
-        }
-        guard self.isStoreReviewRequestBlockedByPresentation == false else {
-            return
-        }
-        guard let requestAttempt = store.pendingStoreReviewRequestAttempt else {
-            return
-        }
-        guard store.recordStoreReviewRequestAttempt(requestAttempt: requestAttempt, now: Date()) else {
-            return
-        }
-
-        self.requestReview()
-        store.consumeStoreReviewRequestAttempt(attemptId: requestAttempt.id)
     }
 
     @MainActor
@@ -406,13 +213,6 @@ struct RootTabView: View {
                 isRecoveryGateActive: self.store.cloudCredentialRecoveryState != nil,
                 now: Date()
             )
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .task(id: self.guestSignInAfterReviewPromptRecheckTaskID) {
-            await self.waitForGuestSignInAfterReviewPromptRecheckIfNeeded()
-        }
-        .task(id: self.storeReviewRequestTaskID) {
-            await self.requestStoreReviewIfNeeded()
         }
         .overlay {
             ZStack {
@@ -452,56 +252,10 @@ struct RootTabView: View {
                 )
             )
         }
-        .onChange(of: store.cloudSettings?.cloudState) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: self.premiumPresenter.request) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.guestSignInAfterReviewPromptReconciliationToken) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.feedbackPresentation) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.activeCloudSignInSheetCount) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: self.scenePhase) { _, nextPhase in
-            if nextPhase == .active {
-                self.reconcileGuestSignInAfterReviewPrompt()
-            }
-        }
-        .onChange(of: store.accountDeletionState) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.accountDeletionSuccessMessage) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.reviewSubmissionFailure != nil) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.isReviewNotificationPrePromptPresented) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: store.isReviewHardReminderPresented) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
-        .onChange(of: self.isGuestSignInCloudSignInPresented) { _, _ in
-            self.reconcileGuestSignInAfterReviewPrompt()
-        }
     }
 
     private var tabRootSheets: some View {
         self.tabRootChangeHandlers
-        // The origin is the surface that owns the control the person tapped, not the tab the alert
-        // happens to float over. This prompt belongs to the review flow, so it stays Review: it is a
-        // distinct entry point with its own conversion, and following the visible tab would scatter
-        // its failures across the other tabs' own sign-in buttons and make all of them unreadable.
-        .cloudSignInSheet(
-            isPresented: self.$isGuestSignInCloudSignInPresented,
-            presentationContext: .standard(originSurface: .review)
-        )
         .sheet(item: self.premiumPresentation) { request in
             PremiumComingSoon(request: request)
                 .environment(store)
@@ -515,28 +269,6 @@ struct RootTabView: View {
 
     private var tabRootAlerts: some View {
         self.tabRootSheets
-        .alert(
-            self.guestSignInAfterReviewPromptTitle,
-            isPresented: self.guestSignInAfterReviewPromptPresentation
-        ) {
-            Button(
-                self.guestSignInAfterReviewPromptLaterTitle,
-                role: .cancel
-            ) {
-                store.snoozeGuestSignInAfterReviewPrompt(
-                    reviewedCount: store.homeSnapshot.reviewedCount,
-                    now: Date()
-                )
-            }
-            Button(
-                self.guestSignInAfterReviewPromptSignInTitle
-            ) {
-                store.acceptGuestSignInAfterReviewPrompt(now: Date())
-                self.isGuestSignInCloudSignInPresented = true
-            }
-        } message: {
-            Text(self.guestSignInAfterReviewPromptMessage)
-        }
         .alert(
             self.accountDeletedTitle,
             isPresented: self.accountDeletionSuccessPresentation

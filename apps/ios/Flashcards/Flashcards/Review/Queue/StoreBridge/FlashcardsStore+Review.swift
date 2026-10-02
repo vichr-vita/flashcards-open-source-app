@@ -652,16 +652,9 @@ extension FlashcardsStore {
             rating: request.rating,
             now: now
         )
-        let didShowReviewNotificationPrePrompt = self.isReviewHardReminderPresented == false
-            && shouldShowReviewNotificationPrePrompt
-            && self.presentReviewNotificationPrePromptIfAllowed()
-        if didShowReviewNotificationPrePrompt == false
-            && self.isReviewNotificationPrePromptPresented == false
-            && self.isReviewHardReminderPresented == false
-            && self.pendingStoreReviewRequestAttempt == nil {
-            self.prepareStoreReviewRequestAttemptAfterSuccessfulReview(now: now)
+        if self.isReviewHardReminderPresented == false && shouldShowReviewNotificationPrePrompt {
+            _ = self.presentReviewNotificationPrePromptIfAllowed()
         }
-        self.startAutomaticFeedbackPromptCheckAfterSuccessfulReview(now: now)
         triggerSuccessfulReviewCloudSync()
     }
 

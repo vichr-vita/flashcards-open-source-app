@@ -19,7 +19,6 @@ import {
   type SessionLoadState,
 } from "./appData";
 import { AppErrorDialogProvider } from "./appError/AppErrorContext";
-import { HeaderStoreButtons } from "./appPlatformLinks";
 import { buildLoginUrl, buildLogoutUrl } from "./api";
 import { ChatDraftProvider } from "./chat/composer/drafts/ChatDraftContext";
 import { ChatLayoutProvider, useChatLayout } from "./chat/layout/ChatLayoutContext";
@@ -871,7 +870,6 @@ export function AppShell(): ReactElement {
                   <span className="brand-full">Nibomo</span>
                   <span className="brand-short">Nibomo</span>
                 </a>
-                <HeaderStoreButtons />
                 {isSyncing ? <span className="topbar-sync-status">{t("app.syncing")}</span> : null}
                 {!isSyncing && sessionRestoringMessage !== "" ? <span className="topbar-sync-status">{sessionRestoringMessage}</span> : null}
               </div>

@@ -8,9 +8,7 @@ type UseReviewKeyboardShortcutsParams = Readonly<{
   handleReview: (card: Card, rating: 0 | 1 | 2 | 3) => Promise<void>;
   isAnswerVisible: boolean;
   isEditorPresented: boolean;
-  isFeedbackDialogOpen: boolean;
   isHardReminderVisible: boolean;
-  isMobileAppPromotionDialogOpen: boolean;
   isReviewFilterMenuOpen: boolean;
   isSubmitting: boolean;
   onShortcutInputStart: () => void;
@@ -41,9 +39,7 @@ export function useReviewKeyboardShortcuts(params: UseReviewKeyboardShortcutsPar
     handleReview,
     isAnswerVisible,
     isEditorPresented,
-    isFeedbackDialogOpen,
     isHardReminderVisible,
-    isMobileAppPromotionDialogOpen,
     isReviewFilterMenuOpen,
     isSubmitting,
     onShortcutInputStart,
@@ -53,9 +49,7 @@ export function useReviewKeyboardShortcuts(params: UseReviewKeyboardShortcutsPar
   const isImeCompositionActiveRef = useRef<boolean>(false);
   const areShortcutsSuppressed = isSubmitting
     || isEditorPresented
-    || isFeedbackDialogOpen
     || isHardReminderVisible
-    || isMobileAppPromotionDialogOpen
     || isReviewFilterMenuOpen;
 
   const handleDocumentKeyDown = useEffectEvent((event: KeyboardEvent) => {

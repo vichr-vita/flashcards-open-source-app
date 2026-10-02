@@ -7,7 +7,6 @@ import {
   useAppErrorDialog,
 } from "../../appError/AppErrorContext";
 import { ALL_CARDS_REVIEW_FILTER, currentReviewCard } from "../../appData/domain";
-import type { FeedbackDialogProps } from "../../feedback/FeedbackDialog";
 import { useI18n } from "../../i18n";
 import { normalizeCaughtError } from "../../observability/webObservability";
 import { useAiCardHandoff } from "../../chat/handoff/useAiCardHandoff";
@@ -33,18 +32,14 @@ import {
   shouldShowReviewHardReminder,
 } from "./hardReminder/reviewHardReminder";
 import { useReviewKeyboardShortcuts } from "./input/useReviewKeyboardShortcuts";
-import type { MobileAppPromotionDialogProps } from "./mobileAppPromo/MobileAppPromotionDialog";
-import { usePostReviewPrompts } from "./usePostReviewPrompts";
 import { useReviewRatingReactions, type UseReviewRatingReactionsResult } from "./reactions/useReviewRatingReactions";
 import { makeReviewSpeakableText, useReviewSpeech } from "./speech/reviewSpeech";
 
 export type UseReviewScreenControllerResult = Readonly<{
   dismissReviewReactions: UseReviewRatingReactionsResult["dismissReactions"];
   editorModalProps: ReviewEditorModalProps;
-  feedbackDialogProps: FeedbackDialogProps;
   hardReminderDialogProps: ReviewHardReminderDialogProps;
   headerProps: ReviewScreenHeaderProps;
-  mobileAppPromotionDialogProps: MobileAppPromotionDialogProps;
   paneProps: ReviewPaneProps;
   queuePanelProps: ReviewQueuePanelProps;
   reviewReactionFallbackHandler: UseReviewRatingReactionsResult["handleReactionEventFallback"];
@@ -92,7 +87,6 @@ export function useReviewScreenController(
   const revealedCardIdRef = useRef<string | null>(null);
   const lastCapturedReviewButtonErrorKeyRef = useRef<string>("");
   const { message: reviewSpeechMessage, showMessage: showReviewSpeechMessage } = useTransientMessage(3000);
-  const { message: reviewFeedbackMessage, showMessage: showReviewFeedbackMessage } = useTransientMessage(3000);
   const {
     dismissReactions: dismissReviewReactions,
     emitReaction: emitReviewReaction,
@@ -202,24 +196,6 @@ export function useReviewScreenController(
     workspaceId: activeWorkspace?.workspaceId ?? null,
   });
   const handoffCardToAi = useAiCardHandoff();
-  const {
-    feedbackDialogProps,
-    isFeedbackDialogOpen,
-    isMobileAppPromotionDialogOpen,
-    maybeOpenPostReviewPrompt,
-    mobileAppPromotionDialogProps,
-  } = usePostReviewPrompts({
-    indexedDbOpenRecoveryState,
-    installationId: cloudSettings?.installationId ?? null,
-    isEditorPresented,
-    isHardReminderVisible,
-    isReviewFilterMenuOpen,
-    linkedUserId: cloudSettings?.linkedUserId ?? null,
-    locale,
-    onFeedbackSubmitted: showReviewFeedbackMessage,
-    userId: session?.userId ?? null,
-    workspaceId: activeWorkspace?.workspaceId ?? null,
-  });
   const nowTimestamp = Date.now();
   const selectedFrontSpeakableText = selectedCard === null ? "" : makeReviewSpeakableText(selectedCard.frontText);
   const selectedBackSpeakableText = selectedCard === null ? "" : makeReviewSpeakableText(selectedCard.backText);
@@ -288,19 +264,13 @@ export function useReviewScreenController(
       const nextRecentReviewRatings = appendRecentReviewRatings(recentReviewRatingsRef.current, rating);
       recentReviewRatingsRef.current = nextRecentReviewRatings;
 
-      let didShowHardReminder = false;
       if (rating === 1) {
         const nowMillis = Date.now();
         if (shouldShowReviewHardReminder(nextRecentReviewRatings, hardReminderLastShownAt, nowMillis)) {
           setHardReminderLastShownAt(nowMillis);
           saveReviewHardReminderLastShownAt(nowMillis);
           setIsHardReminderVisible(true);
-          didShowHardReminder = true;
         }
-      }
-
-      if (didShowHardReminder === false) {
-        void maybeOpenPostReviewPrompt();
       }
     } finally {
       if (reviewSubmissionOutcome !== "cancelled" && indexedDbOpenRecoveryState.hasFailed() === false) {
@@ -466,9 +436,7 @@ export function useReviewScreenController(
     },
     isAnswerVisible,
     isEditorPresented,
-    isFeedbackDialogOpen,
     isHardReminderVisible,
-    isMobileAppPromotionDialogOpen,
     isReviewFilterMenuOpen,
     isSubmitting,
     onShortcutInputStart: dismissReviewReactions,
@@ -554,12 +522,10 @@ export function useReviewScreenController(
       onSave: handleEditorSave,
       tagSuggestions,
     },
-    feedbackDialogProps,
     hardReminderDialogProps: {
       isOpen: isHardReminderVisible,
       onDismiss: handleDismissHardReminder,
     },
-    mobileAppPromotionDialogProps,
     headerProps: {
       filterMenuProps: {
         activeReviewFilterOptionId,
@@ -595,7 +561,7 @@ export function useReviewScreenController(
       reviewLoadErrorMessage,
       reviewLeaderboardBadge,
       reviewProgressBadge,
-      reviewSpeechMessage: reviewFeedbackMessage !== "" ? reviewFeedbackMessage : reviewSpeechMessage,
+      reviewSpeechMessage,
     },
     paneProps: {
       activeSpeechSide,

@@ -1,8 +1,6 @@
 import { useLayoutEffect, type ReactElement } from "react";
 import { useAppData } from "../appData";
 import { defaultAccentColor } from "../types/account";
-import { hasPremiumAccess } from "./PremiumProvider";
-import { useEntitlementSnapshot } from "./entitlementStore";
 
 export const accentPresets = [
   { name: "default", color: defaultAccentColor },
@@ -13,13 +11,10 @@ export const accentPresets = [
   { name: "gold", color: "#EAB308" },
 ] as const;
 
-export function useAccountAccentColor(): Readonly<{ selectedColor: string; effectiveColor: string; canCustomize: boolean }> {
+export function useAccountAccentColor(): Readonly<{ selectedColor: string; effectiveColor: string }> {
   const session = useAppData().session;
-  const entitlement = useEntitlementSnapshot(session?.userId ?? null);
   const selectedColor = session?.preferences.accentColor ?? defaultAccentColor;
-  // Unknown access follows the cosmetic fail-open policy; a known free snapshot always gates it.
-  const canCustomize = entitlement === null || hasPremiumAccess(entitlement, 20);
-  return { selectedColor, effectiveColor: canCustomize ? selectedColor : defaultAccentColor, canCustomize };
+  return { selectedColor, effectiveColor: selectedColor };
 }
 
 export function AccountAccentTheme(): ReactElement | null {

@@ -1,13 +1,11 @@
 import { useEffect, type ReactElement } from "react";
 import { useAppData } from "../../appData";
 import { useAppErrorDialog } from "../../appError/AppErrorContext";
-import { FeedbackDialog } from "../../feedback/FeedbackDialog";
 import { ReviewEditorModal } from "./components/card/ReviewEditorModal";
 import { ReviewPane } from "./components/ReviewPane";
 import { ReviewQueuePanel } from "./components/ReviewQueuePanel";
 import { ReviewScreenHeader } from "./components/ReviewScreenHeader";
 import { ReviewHardReminderDialog } from "./hardReminder/ReviewHardReminderDialog";
-import { MobileAppPromotionDialog } from "./mobileAppPromo/MobileAppPromotionDialog";
 import { ReviewRatingReactionLayer } from "./reactions/ReviewRatingReactionLayer";
 import { startReviewReactionLottiePrewarm } from "./reactions/lottie/reviewReactionLottie";
 import { useReviewScreenController } from "./useReviewScreenController";
@@ -21,10 +19,8 @@ export function ReviewScreen(): ReactElement {
   const {
     dismissReviewReactions,
     editorModalProps,
-    feedbackDialogProps,
     hardReminderDialogProps,
     headerProps,
-    mobileAppPromotionDialogProps,
     paneProps,
     queuePanelProps,
     reviewReactionFallbackHandler,
@@ -63,9 +59,7 @@ export function ReviewScreen(): ReactElement {
       </section>
 
       <ReviewEditorModal {...editorModalProps} />
-      <FeedbackDialog {...feedbackDialogProps} />
       <ReviewHardReminderDialog {...hardReminderDialogProps} />
-      <MobileAppPromotionDialog {...mobileAppPromotionDialogProps} />
     </main>
   );
 }

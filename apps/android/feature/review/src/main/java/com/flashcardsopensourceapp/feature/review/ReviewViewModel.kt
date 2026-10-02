@@ -72,8 +72,6 @@ class ReviewViewModel(
     private val shouldShowNotificationPermissionPrePrompt: () -> Boolean,
     private val onReviewNotificationsChanged: (ReviewNotificationsReconcileTrigger) -> Unit,
     private val onSuccessfulReviewRecorded: suspend (Long) -> Unit,
-    private val onStoreReviewOpportunity: suspend () -> Boolean,
-    private val onAutomaticFeedbackPromptCandidate: () -> Unit,
     private val onNotificationPermissionGranted: () -> Unit,
     private val reviewPreferencesStore: ReviewPreferencesStore,
     private val analytics: Analytics,
@@ -651,11 +649,6 @@ class ReviewViewModel(
             return
         }
 
-        val didStartStoreReviewRequest = onStoreReviewOpportunity()
-        if (didStartStoreReviewRequest) {
-            return
-        }
-
         val promptState = reviewNotificationsStore.loadPromptState()
         if (
             hasEnoughReviewHistoryForNotificationPrompt(reviewCount = reviewCount) &&
@@ -679,8 +672,6 @@ class ReviewViewModel(
             )
             return
         }
-
-        onAutomaticFeedbackPromptCandidate()
     }
 
     private fun isReviewPromptVisible(): Boolean {
@@ -1000,8 +991,6 @@ fun createReviewViewModelFactory(
     shouldShowNotificationPermissionPrePrompt: () -> Boolean,
     onReviewNotificationsChanged: (ReviewNotificationsReconcileTrigger) -> Unit,
     onSuccessfulReviewRecorded: suspend (Long) -> Unit,
-    onStoreReviewOpportunity: suspend () -> Boolean,
-    onAutomaticFeedbackPromptCandidate: () -> Unit,
     onNotificationPermissionGranted: () -> Unit,
     reviewPreferencesStore: ReviewPreferencesStore,
     analytics: Analytics,
@@ -1021,8 +1010,6 @@ fun createReviewViewModelFactory(
                 shouldShowNotificationPermissionPrePrompt = shouldShowNotificationPermissionPrePrompt,
                 onReviewNotificationsChanged = onReviewNotificationsChanged,
                 onSuccessfulReviewRecorded = onSuccessfulReviewRecorded,
-                onStoreReviewOpportunity = onStoreReviewOpportunity,
-                onAutomaticFeedbackPromptCandidate = onAutomaticFeedbackPromptCandidate,
                 onNotificationPermissionGranted = onNotificationPermissionGranted,
                 reviewPreferencesStore = reviewPreferencesStore,
                 analytics = analytics,

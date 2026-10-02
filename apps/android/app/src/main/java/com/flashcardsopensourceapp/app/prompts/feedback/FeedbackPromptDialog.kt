@@ -11,7 +11,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -28,15 +27,10 @@ const val feedbackPromptDismissButtonTag: String = "feedback_prompt_dismiss_butt
 internal fun FeedbackPromptDialog(
     uiState: FeedbackPromptUiState,
     onMessageChange: (String) -> Unit,
-    onShown: () -> Unit,
     onSubmit: () -> Unit,
     onDismiss: () -> Unit
 ) {
     val trimmedMessage = uiState.message.trim()
-    LaunchedEffect(uiState.trigger) {
-        onShown()
-    }
-
     AlertDialog(
         onDismissRequest = {
             if (uiState.isSubmitting.not()) {

@@ -1,4 +1,4 @@
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { startChatGPTFixture, checkChatGPTConnection } from "./chatgpt.js";
@@ -243,6 +243,22 @@ try {
   const afterRestart = await second.api(pullPath, { ...pull, installationId: randomUUID() }, secondMe.csrfToken);
   assert.equal(afterRestart.status, 200); assert.ok((await afterRestart.text()).includes(cardId));
   console.log("Passed backend CSRF, disabled alternate auth, card creation, review scheduling, cross-session sync, and restart persistence.");
+
+  if (process.env.LOCAL_AUTH_BROWSER_SMOKE === "true") {
+    // Hand only this disposable account's session to the real browser flow.
+    const statePath = join(connectionDirectory, "browser-session.json");
+    await writeFile(statePath, JSON.stringify({ cookies: [...first.cookies].map(([name, value]) => ({
+      name, value, domain: "localhost", path: "/", expires: -1,
+      httpOnly: true, secure: false, sameSite: "Lax",
+    })), origins: [] }), { mode: 0o600 });
+    const browser = spawn(process.execPath, ["node_modules/@playwright/test/cli.js", "test", "--config=playwright.local-account.config.ts"], {
+      cwd: join(root, "apps/web"), env: { ...process.env, LOCAL_AUTH_BROWSER_STATE: statePath }, stdio: "inherit",
+    });
+    children.add(browser);
+    const [code] = await once(browser, "exit");
+    children.delete(browser);
+    assert.equal(code, 0, "Local-account Playwright smoke failed");
+  }
 
   await checkChatGPTConnection(first, me.csrfToken, me.selectedWorkspaceId, connectionDirectory, fixture);
 

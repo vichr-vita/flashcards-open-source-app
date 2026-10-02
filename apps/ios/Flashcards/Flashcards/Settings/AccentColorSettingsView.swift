@@ -11,12 +11,6 @@ private struct AccentColorPreset: Identifiable {
     var id: String { self.color.hex }
 }
 
-private struct PendingAccentColorSelection {
-    let requestId: UUID
-    let identityKey: String?
-    let color: AccountAccentColor
-}
-
 private func accentColorPresets() -> [AccentColorPreset] {
     [
         AccentColorPreset(name: aiSettingsLocalized("settings.accentColor.default", "Default"), color: .defaultColor),
@@ -30,12 +24,10 @@ private func accentColorPresets() -> [AccentColorPreset] {
 
 struct AccentColorSettingsView: View {
     @Environment(FlashcardsStore.self) private var store: FlashcardsStore
-    @Environment(PremiumPresenter.self) private var premiumPresenter: PremiumPresenter
 
     @State private var customColor: AccountAccentColor = .defaultColor
     @State private var hexText: String = AccountAccentColor.defaultColor.hex
     @State private var guidanceMessage: String = ""
-    @State private var pendingSelection: PendingAccentColorSelection? = nil
 
     private var isUnavailable: Bool {
         self.store.canPersistAccountPreferences == false
@@ -43,17 +35,6 @@ struct AccentColorSettingsView: View {
 
     var body: some View {
         List {
-            if self.store.canUseCustomAccentColor == false {
-                Section {
-                    Text(aiSettingsLocalized(
-                        "settings.accentColor.premiumNote",
-                        "Custom accent colors are available with Premium. Your saved color returns when Premium is active."
-                    ))
-                    .foregroundStyle(.secondary)
-                    .accessibilityIdentifier(UITestIdentifier.accentColorPremiumNote)
-                }
-            }
-
             Section {
                 ForEach(accentColorPresets()) { preset in
                     Button {
@@ -133,24 +114,8 @@ struct AccentColorSettingsView: View {
             }
         }
         .onChange(of: self.store.accountPreferencesIdentityKey) { _, _ in
-            self.pendingSelection = nil
             self.guidanceMessage = ""
             self.resetDraft()
-        }
-        .onChange(of: self.premiumPresenter.result) { _, result in
-            guard let pending = self.pendingSelection, let result,
-                  result.requestId == pending.requestId else {
-                return
-            }
-            self.pendingSelection = nil
-            if result.outcome == .accessGranted,
-               pending.identityKey == self.store.accountPreferencesIdentityKey,
-               self.store.canUseCustomAccentColor {
-                self.selectColor(pending.color)
-            }
-        }
-        .onDisappear {
-            self.pendingSelection = nil
         }
     }
 
@@ -210,20 +175,6 @@ struct AccentColorSettingsView: View {
     private func selectColor(_ color: AccountAccentColor) {
         guard self.isUnavailable == false else { return }
         self.guidanceMessage = ""
-        if color != .defaultColor && self.store.canUseCustomAccentColor == false {
-            self.resetDraft()
-            guard self.pendingSelection == nil else { return }
-            let requestId = self.premiumPresenter.present(
-                reason: .premiumFeature(requiredTierRank: premiumTierRank),
-                entitlement: self.store.cloudEntitlement
-            )
-            self.pendingSelection = PendingAccentColorSelection(
-                requestId: requestId,
-                identityKey: self.store.accountPreferencesIdentityKey,
-                color: color
-            )
-            return
-        }
         self.customColor = color
         do {
             try self.store.selectAccentColor(color)

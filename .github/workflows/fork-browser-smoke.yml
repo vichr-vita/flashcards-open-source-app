@@ -1,0 +1,66 @@
+name: Fork browser smoke
+
+on:
+  push:
+    branches: [vichr-fork]
+    paths:
+      - apps/web/**
+      - apps/auth/**
+      - apps/backend/**
+      - db/**
+      - scripts/deploy/migrate.sh
+      - .github/workflows/fork-browser-smoke.yml
+
+permissions:
+  contents: read
+
+jobs:
+  local-account-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.21.0
+          cache: npm
+          cache-dependency-path: |
+            apps/auth/package-lock.json
+            apps/backend/package-lock.json
+            apps/web/package-lock.json
+      - name: Install and build the disposable browser stack
+        run: |
+          npm --prefix apps/auth ci
+          npm --prefix apps/backend ci
+          npm --prefix apps/web ci
+          npm --prefix apps/auth run build
+          npm --prefix apps/backend run build
+          VITE_APP_BASE_URL=http://localhost:19411 VITE_API_BASE_URL=http://localhost:19400/v1 VITE_AUTH_BASE_URL=http://localhost:19401 npm --prefix apps/web run build
+          cd apps/web
+          npx playwright install --with-deps chromium
+      - name: Create the isolated database
+        run: |
+          docker run -d --name nibomo-local-auth-test \
+            -p 127.0.0.1:19432:5432 \
+            -e POSTGRES_USER=flashcards_owner -e POSTGRES_DB=flashcards \
+            -e POSTGRES_HOST_AUTH_METHOD=trust \
+            -v "$PWD:/workspace:ro" postgres:16
+          for attempt in $(seq 1 60); do
+            if docker exec nibomo-local-auth-test pg_isready -U flashcards_owner -d flashcards; then break; fi
+            sleep 1
+          done
+          docker exec -e MIGRATION_DATABASE_URL=postgresql://flashcards_owner@localhost/flashcards \
+            nibomo-local-auth-test bash /workspace/scripts/deploy/migrate.sh
+      - name: Run HTTP integration and Playwright against the disposable account
+        env:
+          LOCAL_AUTH_BROWSER_SMOKE: "true"
+        run: npm --prefix apps/auth run test:local-integration
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: fork-browser-results
+          path: apps/web/test-results
+          retention-days: 7
+      - name: Remove the disposable database
+        if: always()
+        run: docker rm -f nibomo-local-auth-test || true

@@ -32,8 +32,7 @@ internal fun NavGraphBuilder.registerSettingsNavGraph(
         )
         registerAccentColorDestination(
             appGraph = appGraph,
-            navController = navController,
-            premiumPresenter = premiumPresenter
+            navController = navController
         )
         registerSettingsNotificationsDestination(
             appGraph = appGraph,
