@@ -123,7 +123,6 @@ function ReviewLoadingPane(props: ReviewLoadingPaneProps): ReactElement {
   const {
     localReadVersion,
     loadingReviewCurrentCard,
-    reviewLoadingSnapshot,
     workspaceId,
   } = props;
   const { t } = useI18n();
@@ -200,7 +199,7 @@ function ReviewLoadingPane(props: ReviewLoadingPaneProps): ReactElement {
         )}
       </div>
       <div className="review-meta review-meta-loading">
-        <span>{reviewLoadingSnapshot === null ? t("reviewScreen.loading.reviewQueue") : t("reviewScreen.loading.snapshot")}</span>
+        <span>{t("reviewScreen.loading.reviewQueue")}</span>
       </div>
       <div className="review-actions-dock">
         <button
