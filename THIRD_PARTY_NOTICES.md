@@ -2,6 +2,15 @@
 
 This file lists third-party software, assets, and runtime libraries used by the product.
 
+## Appearance icons
+
+- Component: `lucide-react` 1.49.0
+- Copyright: Copyright (c) 2026 Lucide Icons and Contributors
+- Source: https://github.com/lucide-icons/lucide
+- License: ISC, with MIT attribution for icons derived from Feather
+- Local license text: [third_party_licenses/lucide-react-1.49.0-ISC.txt](third_party_licenses/lucide-react-1.49.0-ISC.txt)
+- Changes: The web Appearance setting uses the Monitor, Sun, and Moon icons without modifying their paths.
+
 ## FSRS scheduler adaptations
 
 The scheduler adaptations covered by the notices below are carried in these paths:
