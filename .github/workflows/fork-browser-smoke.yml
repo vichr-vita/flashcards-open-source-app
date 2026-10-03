@@ -9,6 +9,23 @@ on:
       - apps/backend/**
       - db/**
       - scripts/deploy/migrate.sh
+      - scripts/check.sh
+      - scripts/with-test-db.sh
+      - scripts/test-hooks.sh
+      - .githooks/**
+      - .github/workflows/fork-browser-smoke.yml
+  pull_request:
+    branches: [vichr-fork]
+    paths:
+      - apps/web/**
+      - apps/auth/**
+      - apps/backend/**
+      - db/**
+      - scripts/deploy/migrate.sh
+      - scripts/check.sh
+      - scripts/with-test-db.sh
+      - scripts/test-hooks.sh
+      - .githooks/**
       - .github/workflows/fork-browser-smoke.yml
 
 permissions:
@@ -28,14 +45,11 @@ jobs:
             apps/auth/package-lock.json
             apps/backend/package-lock.json
             apps/web/package-lock.json
-      - name: Install and build the disposable browser stack
+      - name: Install the disposable browser stack
         run: |
           npm --prefix apps/auth ci
           npm --prefix apps/backend ci
           npm --prefix apps/web ci
-          npm --prefix apps/auth run build
-          npm --prefix apps/backend run build
-          VITE_APP_BASE_URL=http://localhost:19411 VITE_API_BASE_URL=http://localhost:19400/v1 VITE_AUTH_BASE_URL=http://localhost:19401 npm --prefix apps/web run build -- --outDir /tmp/nibomo-local-web
           cd apps/web
           npx playwright install --with-deps chromium
       - name: Create the isolated database
@@ -45,18 +59,14 @@ jobs:
             -e POSTGRES_USER=flashcards_owner -e POSTGRES_DB=flashcards \
             -e POSTGRES_HOST_AUTH_METHOD=trust \
             -v "$PWD:/workspace:ro" postgres:16
-          for attempt in $(seq 1 60); do
+          for _attempt in $(seq 1 60); do
             if docker exec nibomo-local-auth-test pg_isready -U flashcards_owner -d flashcards; then break; fi
             sleep 1
           done
           docker exec -e MIGRATION_DATABASE_URL=postgresql://flashcards_owner@localhost/flashcards \
             nibomo-local-auth-test bash /workspace/scripts/deploy/migrate.sh
-      - name: Run HTTP integration and Playwright against the disposable account
-        env:
-          LOCAL_AUTH_BROWSER_SMOKE: "true"
-        run: npm --prefix apps/auth run test:local-integration
-      - name: Test review UI in both themes
-        run: npm --prefix apps/web run test:e2e:review-ui
+      - name: Verify the disposable account and review UI
+        run: bash scripts/check.sh --ci
       - uses: actions/upload-artifact@v4
         if: always()
         with:

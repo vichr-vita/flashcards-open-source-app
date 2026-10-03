@@ -58,3 +58,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 - [Kirill Markin](https://github.com/kirill-markin)
+
+## Local fork verification
+
+Install the pre-push hook and run the disposable browser stack with [local verification](docs/local-checks.md).
