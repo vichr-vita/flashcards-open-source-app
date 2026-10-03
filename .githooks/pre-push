@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Check the outgoing commit, including annotated tags, before Git sends it.
+needs_check=false
+head=$(git rev-parse HEAD)
+while read -r _local_ref local_sha _remote_ref _remote_sha; do
+  [[ $local_sha =~ ^0+$ ]] && continue
+  commit=$(git rev-parse "$local_sha^{commit}")
+  if [[ $commit != "$head" ]]; then
+    echo "Push rejected: check out the commit you are pushing and retry." >&2
+    exit 1
+  fi
+  needs_check=true
+done
+[[ $needs_check == true ]] || exit 0
+
+if [[ -n $(git status --porcelain) ]]; then
+  echo "Push rejected: commit your changes or use a clean worktree before checking." >&2
+  exit 1
+fi
+
+hook_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+bash "$hook_dir/../scripts/check.sh" </dev/null
+
+if [[ $(git rev-parse HEAD) != "$head" || -n $(git status --porcelain) ]]; then
+  echo "Push rejected: verification changed the checkout. Review and commit the changes, then retry." >&2
+  exit 1
+fi
