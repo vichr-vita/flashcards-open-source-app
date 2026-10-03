@@ -26,9 +26,14 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: auto;
+  scrollbar-width: none;
   scroll-padding-bottom: 132px;
   background: transparent;
   gap: 20px;
+}
+
+.review-pane::-webkit-scrollbar {
+  display: none;
 }
 
 :root[data-theme="light"] .review-pane {
@@ -285,6 +290,7 @@
 .review-card-content {
   width: 100%;
   min-width: 0;
+  overflow-wrap: anywhere;
   color: var(--text);
 }
 

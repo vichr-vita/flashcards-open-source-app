@@ -51,7 +51,7 @@ jobs:
           npm --prefix apps/backend ci
           npm --prefix apps/web ci
           cd apps/web
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium webkit
       - name: Create the isolated database
         run: |
           docker run -d --name nibomo-local-auth-test \

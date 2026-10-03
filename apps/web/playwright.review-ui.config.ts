@@ -8,6 +8,10 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: "list",
   outputDir: "test-results/review-ui",
+  projects: [
+    { name: "chromium", use: { browserName: "chromium" } },
+    { name: "webkit-mobile", testMatch: "review-overflow.spec.ts", use: { browserName: "webkit", isMobile: true, hasTouch: true } },
+  ],
   use: {
     baseURL: "http://127.0.0.1:4318",
     browserName: "chromium",

@@ -88,7 +88,9 @@ The local smoke preflight fails fast if local auth or backend is unavailable, or
 `npm run test:e2e:review-ui` runs a focused Chromium integration flow against the real review
 components and keyboard handlers with an in-memory card queue. It checks dark and light themes,
 desktop and mobile layouts, the reveal flip, reduced motion, rating advancement, and long markdown
-answers. It needs no auth or backend and runs in the web PR checks. Its isolated Vite server uses
+answers. It also checks source URL wrapping, filter overlays, and long-answer scrolling in
+Chromium and WebKit at narrow mobile widths. It needs no auth or backend and runs in the web PR
+checks. Its isolated Vite server uses
 port `4318`; it does not use the usual local app preview or any production account.
 
 `npm run test:e2e` and `npm run test:e2e:prod` remain the production/deployed smoke entrypoints. They must not point at localhost and are the paths used by CI/CD and post-deploy verification.

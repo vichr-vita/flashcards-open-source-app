@@ -279,9 +279,9 @@ jobs:
       - name: Test web app
         run: npm test --prefix apps/web
 
-      - name: Install Chromium for review UI smoke
+      - name: Install Chromium and WebKit for review UI smoke
         working-directory: apps/web
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Test review UI in both themes
         run: npm run test:e2e:review-ui --prefix apps/web

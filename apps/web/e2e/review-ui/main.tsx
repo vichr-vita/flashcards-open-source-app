@@ -18,12 +18,15 @@ import "../../src/styles/index.css";
 const createdAt = "2026-10-02T09:00:00.000Z";
 const parameters = new URLSearchParams(location.search);
 const longContent = parameters.has("long");
+const sourceContent = parameters.has("source");
 const sampleCard: Card = {
   cardId: "latin-agreement",
   frontText: "Adjective agreement · which features?",
   backText: longContent
     ? Array.from({ length: 24 }, (_, index) => `### Example ${index + 1}\n\nAn adjective agrees with its noun in gender, number, and case.\n\n\`\`\`text\nbona puella\n\`\`\``).join("\n\n")
-    : "Gender, number, and case.",
+    : sourceContent
+      ? "rosa\n\nrosa: rose. Vocative singular.\n\nSource:\nhttps://dcc.dickinson.edu/grammar/latin/number-and-case."
+      : "Gender, number, and case.",
   cardType: "basic",
   metadata: { version: 1, source: null },
   tags: ["latin-ranieri-dowling", "latin-foundations", "latin-concept", "latin-start"],
