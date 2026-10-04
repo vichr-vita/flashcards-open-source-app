@@ -25,6 +25,7 @@ import {
 } from "../cards/cards";
 import {
   closeDatabaseAfter,
+  closeDatabaseAfterReadonlyWithCursorRecovery,
   closeDatabaseAfterWrite,
   getAllFromStore,
   getFromStore,
@@ -44,6 +45,7 @@ import {
   createEmptyProgressDailyCountRecord,
 } from "../progress/progress";
 import { decodeCursor, encodeCursor } from "../core/queryShared";
+import { isIndexedDbMissingCursorError } from "../core/indexedDbCursorRecovery";
 
 type ReviewFilterResolution = Readonly<{
   resolvedReviewFilter: ReviewFilter;
@@ -666,10 +668,10 @@ export async function loadReviewQueueSnapshot(
   reviewFilter: ReviewFilter,
   limit: number,
 ): Promise<ReviewQueueSnapshot> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const nowTimestamp = Date.now();
     const filterResolution = await resolveReviewFilterFromIndexedDb(database, workspaceId, reviewFilter);
-    const [queuePage, reviewCounts] = await Promise.all([
+    const [queuePageResult, reviewCountsResult] = await Promise.allSettled([
       loadActiveReviewQueuePage(
         database,
         workspaceId,
@@ -682,11 +684,22 @@ export async function loadReviewQueueSnapshot(
       makeReviewCountsFromIndexedDb(database, workspaceId, filterResolution, nowTimestamp),
     ]);
 
+    // Wait for both transactions and prefer a non-recoverable failure over retrying either read.
+    if (reviewCountsResult.status === "rejected" && isIndexedDbMissingCursorError(reviewCountsResult.reason) === false) {
+      throw reviewCountsResult.reason;
+    }
+    if (queuePageResult.status === "rejected") {
+      throw queuePageResult.reason;
+    }
+    if (reviewCountsResult.status === "rejected") {
+      throw reviewCountsResult.reason;
+    }
+
     return {
       resolvedReviewFilter: filterResolution.resolvedReviewFilter,
-      cards: queuePage.cards,
-      nextCursor: queuePage.nextCursor,
-      reviewCounts,
+      cards: queuePageResult.value.cards,
+      nextCursor: queuePageResult.value.nextCursor,
+      reviewCounts: reviewCountsResult.value,
     };
   });
 }
@@ -698,7 +711,7 @@ export async function loadReviewQueueChunk(
   limit: number,
   excludedCardIds: ReadonlySet<string>,
 ): Promise<Readonly<{ cards: ReadonlyArray<Card>; nextCursor: string | null }>> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const cursorState = cursor === null ? null : decodeReviewQueueCursor(cursor);
     const nowTimestamp = cursorState === null ? Date.now() : cursorState.asOfTimestamp;
     const filterResolution = await resolveReviewFilterFromIndexedDb(database, workspaceId, reviewFilter);
@@ -720,7 +733,7 @@ export async function loadReviewTimelinePage(
   limit: number,
   offset: number,
 ): Promise<ReviewTimelinePage> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const nowTimestamp = Date.now();
     const filterResolution = await resolveReviewFilterFromIndexedDb(database, workspaceId, reviewFilter);
     let matchingIndex = 0;

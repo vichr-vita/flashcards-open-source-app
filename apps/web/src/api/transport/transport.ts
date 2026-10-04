@@ -1,6 +1,7 @@
 import { parseSessionInfoResponse } from "../../apiContracts/account";
 import { getAppConfig } from "../../config";
 import type { SessionInfo } from "../../types";
+import { serverQueryClient } from "../queryClient";
 import {
   ApiNetworkError,
   AuthRedirectError,
@@ -48,6 +49,8 @@ const apiNetworkRetryMaximumDelayMs = 2000;
 const uuidPathSegmentPattern = /\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?=\/|$)/giu;
 
 const sessionRecovery = createSessionRecovery(loadSessionInfo);
+let serverReadScope = 0;
+let serverReadCsrfToken: string | null = null;
 
 export function bindIndexedDbOpenRecoverySignal(signal: AbortSignal): () => void {
   return sessionRecovery.bindIndexedDbOpenRecoverySignal(signal);
@@ -75,6 +78,9 @@ export function setNavigationHandlerForTests(handler: NavigateToUrl | null): voi
  */
 export function resetApiClientStateForTests(): void {
   sessionRecovery.resetApiClientStateForTests();
+  serverQueryClient.clear();
+  serverReadScope += 1;
+  serverReadCsrfToken = null;
 }
 
 export function getCachedSessionCsrfToken(): string | null {
@@ -289,6 +295,41 @@ async function requestResponse(
 }
 
 export async function requestJson(
+  pathname: string,
+  init: RequestInit,
+  options: RequestOptions,
+): Promise<ParsedResponsePayload> {
+  // Readers with their own cancellation signal keep exclusive ownership of that request.
+  // Shared reads deduplicate only within the same known browser session and retry contract.
+  if (getMethod(init) === "GET" && init.signal == null && init.body === undefined) {
+    const csrfToken = sessionRecovery.getCachedSessionCsrfToken();
+    if (csrfToken === null) {
+      return performJsonRequest(pathname, init, options);
+    }
+    if (csrfToken !== serverReadCsrfToken) {
+      serverReadCsrfToken = csrfToken;
+      serverReadScope += 1;
+    }
+    return serverQueryClient.fetchQuery({
+      queryKey: [
+        "server-read",
+        getAppConfig().apiBaseUrl,
+        serverReadScope,
+        options.expectedUserId,
+        pathname,
+        options.authRecoveryMode,
+        options.networkRetryMode,
+        Array.from(new Headers(init.headers).entries()),
+      ],
+      queryFn: ({ signal }) => performJsonRequest(pathname, { ...init, signal }, options),
+      staleTime: 0,
+      gcTime: 0,
+    });
+  }
+  return performJsonRequest(pathname, init, options);
+}
+
+async function performJsonRequest(
   pathname: string,
   init: RequestInit,
   options: RequestOptions,

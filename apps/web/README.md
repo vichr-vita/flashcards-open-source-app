@@ -13,6 +13,38 @@ The top-level product scope matches the other clients:
 - AI
 - Settings
 
+## Private browser fork
+
+The private browser installation uses React 19, TypeScript, Vite, TanStack Router, and TanStack
+Query. Install dependencies with `pnpm install` at the repository root. The code-based route tree
+in `src/App.tsx` preserves public URLs, workspace-scoped URLs, and legacy redirects. Navigation
+adapters in `src/routing` preserve encoded query strings and fragment targets.
+
+TanStack Query manages account settings and deduplicates server reads within a verified cookie
+session. Query data stays in memory. IndexedDB, the durable outbox, and the existing push/pull
+sync flow remain the offline source of truth. Requests with an explicit cancellation signal keep
+their existing cancellation ownership, and the transport still owns refresh, CSRF recovery, and
+network retries.
+
+Effect Schema validates the shared contract primitives and JSON decoding. Tailwind CSS 4 uses the
+`tw:` prefix and omits Preflight so utilities cannot override the shipped CSS classes. The shadcn
+button in `src/components/ui/button.tsx` uses Radix Slot and the existing button styles.
+
+Rust generates wire types in `src/generated` with `cargo run --bin lingvichr -- generate-types`.
+Card, scheduler, streak-freeze, and review-watermark types derive from those contracts. Runtime
+parsers retain the existing stricter enums, metadata validation, and readonly browser collections.
+
+Build the private browser and passkey assets with `pnpm build:web` at the repository root. The Rust
+CLI serves those files from `apps/web/dist`; `lingvichr serve --service backend` and
+`lingvichr serve --service auth` run the two services with the existing private-host environment
+settings. Use a disposable local database for development. The setup and migration commands are
+documented in [`apps/server/README.md`](../server/README.md).
+
+`pnpm check` at the repository root runs the private-stack checks with a disposable PostgreSQL
+database, real Rust API and passkey authentication, and the browser flows. It does not use production
+credentials or the production database. The browser fixture serves `apps/web/dist` at port `19411`
+and the Rust backend and auth services at `19400` and `19401`.
+
 ## Localization
 
 When adding a new web language, follow [docs/web-localization.md](../../docs/web-localization.md).
@@ -54,7 +86,7 @@ browser says an account owns it: a signed-in person reporting `app_opened` only 
 would be read as an actor with no `app_opened` at all, and auto-excluded from every person-level
 report until a human restores them.
 
-## Native Test Stack
+## Browser tests and upstream reference
 
 The web app uses the browser-native test stack already present in this package:
 
@@ -68,7 +100,9 @@ The live smoke scenario intentionally mirrors the mobile clients:
 - iOS equivalent: `apps/ios/Flashcards/FlashcardsUITests/LiveSmokeUITests.swift`
 - Android equivalent: `apps/android/app/src/androidTest/java/com/flashcardsopensourceapp/app/livesmoke/LiveSmokeTest.kt`
 
-For local web work, `npm run test:e2e:local` in `apps/web` runs the same Playwright smoke against the local browser stack:
+The upstream Cognito smoke remains as reference for the supported upstream clients. It is separate
+from the private Rust-stack checks above. `pnpm test:e2e:local` in `apps/web` runs that upstream
+Playwright smoke against its local browser stack:
 
 1. local auth on `http://localhost:8081`
 2. local backend on `http://localhost:8080`
@@ -85,7 +119,7 @@ Local smoke prerequisites:
 
 The local smoke preflight fails fast if local auth or backend is unavailable, or if the Playwright target is misconfigured to mix localhost with deployed origins.
 
-`npm run test:e2e:review-ui` runs a focused Chromium integration flow against the real review
+`pnpm test:e2e:review-ui` runs a focused Chromium integration flow against the real review
 components and keyboard handlers with an in-memory card queue. It checks dark and light themes,
 desktop and mobile layouts, the reveal flip, reduced motion, rating advancement, and long markdown
 answers. It also checks source URL wrapping, filter overlays, and long-answer scrolling in
@@ -93,7 +127,17 @@ Chromium and WebKit at narrow mobile widths. It needs no auth or backend and run
 checks. Its isolated Vite server uses
 port `4318`; it does not use the usual local app preview or any production account.
 
-`npm run test:e2e` and `npm run test:e2e:prod` remain the production/deployed smoke entrypoints. They must not point at localhost and are the paths used by CI/CD and post-deploy verification.
+The same suite exercises the real IndexedDB card and review queries in Chromium and WebKit.
+It injects a lost cursor after records have been read, then checks the single retry, accurate
+counts and pagination, retained offline operations, and transaction abort handling.
+
+The navigation/server-query smoke runs in Chromium and WebKit at 320px. It checks repeated query
+parameters, encoded fragments, browser Back/Forward, account-scoped server reads, duplicate-read
+deduplication, mutation CSRF headers, retry, and the existing error dialog with long details. Its
+server responses are isolated Playwright fixtures, with no production requests.
+
+`pnpm test:e2e` and `pnpm test:e2e:prod` remain upstream deployed smoke entrypoints. Run them only
+when explicitly testing that upstream deployment.
 
 ## Respect Existing Code
 
@@ -111,6 +155,10 @@ If you are unsure how something is done, read two or three existing screens or h
 Error messages reach Sentry verbatim, so never interpolate user-authored content into one: no card text, deck names, email addresses, or chat messages. Identifiers, endpoints, field names, sizes, and status codes are fine.
 
 ## CI/CD
+
+The private rewrite uses `.github/workflows/pr-checks.yml` and `pnpm check`. The workflow tests the
+Rust and browser stack without deploying it. The AWS release notes below describe the preserved
+upstream deployment reference.
 
 Web build and deploy details are documented in [`docs/backend-web-deployment.md`](../../docs/backend-web-deployment.md).
 

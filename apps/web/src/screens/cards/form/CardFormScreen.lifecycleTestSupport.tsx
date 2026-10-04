@@ -2,7 +2,7 @@
 
 import { act, type ReactNode } from "react";
 import ReactDOM from "react-dom/client";
-import { MemoryRouter, Route, Routes } from "react-router";
+import { MemoryRouter, Route, Routes } from "../../../routing/testRouter";
 import { afterEach, beforeEach, vi } from "vitest";
 import { createStorageMock } from "../../../api/ApiTestSupport";
 import { I18nProvider } from "../../../i18n";

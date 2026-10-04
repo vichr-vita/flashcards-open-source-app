@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactElement } from "react";
-import { useParams } from "react-router";
+import { useParams } from "../../routing";
 import {
   ApiError,
   acceptFriendInvitation,

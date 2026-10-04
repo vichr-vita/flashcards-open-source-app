@@ -1,5 +1,5 @@
 import { type ReactElement } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing";
 import { buildLoginUrl } from "../../../api";
 import { useI18n, type PluralCountLabels } from "../../../i18n";
 import { settingsLeaderboardParticipationRoute } from "../../../routes";

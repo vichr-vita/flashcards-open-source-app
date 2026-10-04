@@ -1,41 +1,28 @@
-COMPOSE_FILE=infra/docker/compose.yml
+COMPOSE_FILE=infra/private/compose.yml
 
 up:
 	docker compose -f $(COMPOSE_FILE) up -d --build
 
-db-up:
-	docker compose -f $(COMPOSE_FILE) up -d postgres migrate
-
 down:
-	docker compose -f $(COMPOSE_FILE) down
-
-db-down:
 	docker compose -f $(COMPOSE_FILE) down
 
 dev:
 	docker compose -f $(COMPOSE_FILE) up --build
 
 build:
-	npm ci --prefix apps/auth
-	npm run build --prefix apps/auth
-	npm ci --prefix apps/backend
-	npm run build --prefix apps/backend
-	npm ci --prefix apps/web
-	npm run build --prefix apps/web
-	npm ci --prefix apps/admin
-	npm run build --prefix apps/admin
-	npm ci --prefix infra/aws
-	npm run build --prefix infra/aws
+	pnpm install --frozen-lockfile
+	cargo build --locked --release
+	pnpm build:web
+	pnpm build:docs
 
 lint:
-	npm run build --prefix apps/auth
-	npm run lint --prefix apps/backend
-	npm run build --prefix apps/web
-	npm run build --prefix apps/admin
-	npm run build --prefix infra/aws
+	cargo fmt --all -- --check
+	cargo clippy --locked --all-targets -- -D warnings
+	pnpm --dir apps/web exec tsc --noEmit
+	pnpm --dir apps/docs check
 
 migrate:
-	bash scripts/deploy/migrate.sh
+	cargo run --locked -- migrate
 
 migrate-aws:
 	bash scripts/deploy/migrate-aws.sh
@@ -47,13 +34,13 @@ check-public-endpoints:
 	bash scripts/checks/check-public-endpoints.sh
 
 auth-dev:
-	cd apps/auth && node --env-file=../../.env ./node_modules/tsx/dist/cli.mjs watch src/index.ts
+	cargo run --locked -- serve --service auth --bind 127.0.0.1:19401
 
 backend-dev:
-	npm run dev --prefix apps/backend
+	cargo run --locked -- serve --service backend --bind 127.0.0.1:19400
 
 web-dev:
-	cd apps/web && node --env-file=../../.env ./node_modules/vite/bin/vite.js
+	pnpm --dir apps/web dev
 
 admin-dev:
 	cd apps/admin && node --env-file=../../.env ./node_modules/vite/bin/vite.js

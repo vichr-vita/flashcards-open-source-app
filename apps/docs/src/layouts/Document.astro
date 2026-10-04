@@ -1,0 +1,27 @@
+---
+interface Props { title?: string; frontmatter?: { title: string } }
+const title = Astro.props.title ?? Astro.props.frontmatter?.title ?? "Documentation";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} | lingvichr</title>
+  </head>
+  <body>
+    <a href="/">lingvichr documentation</a>
+    <main><slot /></main>
+  </body>
+</html>
+<style is:global>
+  html { color-scheme: dark; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+  body { max-width: 58rem; margin: auto; padding: 1.5rem; line-height: 1.6; }
+  a { color: #c4b5fd; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 1rem; border: 1px solid #333; }
+  :not(pre) > code { overflow-wrap: anywhere; }
+  img { max-width: 100%; }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+  th, td { border-bottom: 1px solid #333; padding: .5rem; overflow-wrap: anywhere; text-align: left; }
+</style>

@@ -1,5 +1,5 @@
 import { useState, type ReactElement } from "react";
-import { Link, Navigate, useParams } from "react-router";
+import { Link, Navigate, useParams } from "../../../routing";
 import {
   FriendInviteErrorPanel,
   FriendInviteInactivePanel,

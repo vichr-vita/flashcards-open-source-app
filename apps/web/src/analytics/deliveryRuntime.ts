@@ -967,7 +967,7 @@ export function createAnalyticsDeliveryRuntime(
    *
    * "Can ever become sendable" is true of those routes only because every link out of the public
    * screens is a full-document `<a href>`, so no client-side navigation reaches `AuthenticatedApp`
-   * within one document. Add a react-router `<Link>` from `/share`, `/invite/:token` or
+   * within one document. Add a router `<Link>` from `/share`, `/invite/:token` or
    * `/catalog/import/:id` into the app and that stops holding: a flush taken on the public route
    * spends a signed-in refused person's `app_opened` on the collector irreversibly, where waiting a
    * moment would have shipped it under their account. Either keep those links full-document, or

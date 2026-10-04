@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { act } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing/testRouter";
 import { describe, expect, it, vi } from "vitest";
 import type { Card, UpdateCardInput } from "../../../types";
 import {

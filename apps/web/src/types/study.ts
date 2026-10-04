@@ -1,3 +1,6 @@
+import type { Card as CardWire } from "../generated/Card";
+import type { SchedulerConfig as SchedulerConfigWire } from "../generated/SchedulerConfig";
+
 /**
  * Web FSRS types mirror the backend scheduler contract and the iOS/Android data models.
  * The web app does not contain a standalone FSRS scheduler implementation in
@@ -43,28 +46,11 @@ export type CardMetadata = Readonly<{
 }>;
 
 // Keep in sync with apps/backend/src/cards/types.ts::Card, apps/ios/Flashcards/Flashcards/Cards/Model/CardDeckTypes.swift::Card, and apps/android/data/local/src/main/java/com/flashcardsopensourceapp/data/local/model/cards/CardModels.kt::CardSummary.
-export type Card = Readonly<{
-  cardId: string;
-  frontText: string;
-  backText: string;
-  cardType: string;
+// parseCard converts the server's legacy effortLevel field to tags before local persistence.
+export type Card = Readonly<Omit<CardWire, "effortLevel" | "metadata" | "tags" | "fsrsCardState"> & {
   metadata: CardMetadata;
   tags: ReadonlyArray<string>;
-  dueAt: string | null;
-  createdAt: string;
-  reps: number;
-  lapses: number;
   fsrsCardState: FsrsCardState;
-  fsrsStepIndex: number | null;
-  fsrsStability: number | null;
-  fsrsDifficulty: number | null;
-  fsrsLastReviewedAt: string | null;
-  fsrsScheduledDays: number | null;
-  clientUpdatedAt: string;
-  lastModifiedByReplicaId: string;
-  lastOperationId: string;
-  updatedAt: string;
-  deletedAt: string | null;
 }>;
 
 export type CardQuerySortKey =
@@ -163,13 +149,10 @@ export type TagSuggestion =
   }>;
 
 // Keep in sync with apps/ios/Flashcards/Flashcards/Review/Scheduling/FsrsTypes.swift::WorkspaceSchedulerSettings and apps/backend/src/scheduling/workspaceConfig.ts::WorkspaceSchedulerSettings.
-export type WorkspaceSchedulerSettings = Readonly<{
+export type WorkspaceSchedulerSettings = Readonly<Omit<SchedulerConfigWire, "algorithm" | "learningStepsMinutes" | "relearningStepsMinutes"> & {
   algorithm: "fsrs-6";
-  desiredRetention: number;
   learningStepsMinutes: ReadonlyArray<number>;
   relearningStepsMinutes: ReadonlyArray<number>;
-  maximumIntervalDays: number;
-  enableFuzz: boolean;
   clientUpdatedAt: string;
   lastModifiedByReplicaId: string;
   lastOperationId: string;

@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing";
 import { AnchoredFloatingOverlay } from "../../../floating";
 import { useI18n } from "../../../i18n";
 import type { ReviewFilter } from "../../../types";

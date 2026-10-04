@@ -1,7 +1,8 @@
 import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { isAbsolute, join } from "node:path";
 import { startChatGPTFixture, checkChatGPTConnection } from "./chatgpt.js";
+import { verifyBrowserCors, verifyCookieDomains } from "./browserCors.js";
 /** Real HTTP/PostgreSQL integration. Run only against the disposable container in the self-hosting guide. */
 import assert from "node:assert/strict";
 import { spawn, type ChildProcess } from "node:child_process";
@@ -10,34 +11,44 @@ import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import pg from "pg";
 import type { AuthenticationResponseJSON, PublicKeyCredentialCreationOptionsJSON, PublicKeyCredentialRequestOptionsJSON } from "@simplewebauthn/server";
+import { isoCBOR } from "@simplewebauthn/server/helpers";
 import { TestPasskey } from "./passkey.js";
-import { closeDatabase, query } from "../src/db.js";
+import { closeDatabase, query, transaction } from "../src/db.js";
 import { bootstrapAccount, issueEnrollment, revokePasskey, revokeAllSessions } from "../src/local/admin.js";
 import { hashToken, newToken } from "../src/local/credentials.js";
+import { registrationOptions, registerPasskey } from "../src/local/webauthn.js";
+import { createSession } from "../src/local/store.js";
 
 const connectionDirectory = await mkdtemp(join(tmpdir(), "nibomo-chatgpt-integration-"));
 const fixture = await startChatGPTFixture();
-const ownerUrl = "postgresql://flashcards_owner@127.0.0.1:19432/flashcards";
+const rustBinary = process.env.RUST_STACK_BINARY;
+const databasePort = rustBinary === undefined ? 19432 : 29432;
+const ownerUrl = `postgresql://flashcards_owner@127.0.0.1:${databasePort}/flashcards`;
 const authOrigin = "http://localhost:19401";
 const webOrigin = "http://localhost:19411";
 const apiOrigin = "http://localhost:19400";
 const root = fileURLToPath(new URL("../../../", import.meta.url));
 Object.assign(process.env, {
   CHATGPT_CONNECTION_DIR: connectionDirectory, LOCAL_CHATGPT_FIXTURE: "true", CHAT_LIVE_URL: "http://localhost:19400/v1/chat/live",
-  COOKIE_DOMAIN: "localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
+  COOKIE_DOMAIN: "vichr-rbpi5.tailb8724c.ts.net,flashcards.vichr.me,localhost,auth.localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
   DATABASE_URL: ownerUrl, WEBAUTHN_RP_ID: "localhost",
   PUBLIC_AUTH_BASE_URL: authOrigin, ALLOWED_REDIRECT_URIS: webOrigin,
   PUBLIC_APP_BASE_URL: webOrigin, BACKEND_ALLOWED_ORIGINS: webOrigin,
   BACKEND_CSRF_SECRET: newToken(), AWS_EC2_METADATA_DISABLED: "true",
+  DB_POOL_MAX_CONNECTIONS: "3",
 });
-for (const name of ["DB_SECRET_ARN", "COGNITO_USER_POOL_ID", "COGNITO_CLIENT_ID", "COGNITO_REGION", "DEMO_EMAIL_DOSTIP", "DEMO_PASSWORD_DOSTIP", "SENTRY_DSN", "LANGFUSE_SECRET_KEY"]) delete process.env[name];
+for (const name of ["OPENAI_API_KEY", "DB_SECRET_ARN", "COGNITO_USER_POOL_ID", "COGNITO_CLIENT_ID", "COGNITO_REGION", "DEMO_EMAIL_DOSTIP", "DEMO_PASSWORD_DOSTIP", "SENTRY_DSN", "LANGFUSE_SECRET_KEY"]) delete process.env[name];
 
 const children = new Set<ChildProcess>();
 let logs = "";
 let unexpectedOutboundDetected = false;
 function start(entrypoint: string, username: string, port: number): ChildProcess {
   const url = new URL(ownerUrl); url.username = username;
-  const child = spawn(process.execPath, ["--import", "./apps/auth/integration/noEgress.ts", entrypoint], { cwd: root, env: { ...process.env, DATABASE_URL: url.toString(), PORT: String(port) }, stdio: ["ignore", "pipe", "pipe"] });
+  const binary = rustBinary === undefined ? process.execPath : isAbsolute(rustBinary) ? rustBinary : join(root, rustBinary);
+  const arguments_ = rustBinary === undefined
+    ? ["--import", "./apps/auth/integration/noEgress.ts", entrypoint]
+    : ["serve", "--service", username === "auth_app" ? "auth" : "backend", "--bind", `127.0.0.1:${port}`, "--database-url", url.toString()];
+  const child = spawn(binary, arguments_, { cwd: root, env: { ...process.env, DATABASE_URL: url.toString(), PORT: String(port) }, stdio: ["ignore", "pipe", "pipe"] });
   children.add(child);
   for (const stream of [child.stdout, child.stderr]) stream?.on("data", data => {
     const chunk = String(data);
@@ -50,6 +61,68 @@ async function stop(child: ChildProcess): Promise<void> {
   if (child.exitCode === null && child.signalCode === null) { child.kill(); await once(child, "exit"); }
   children.delete(child);
 }
+
+/** Keep private enrollment links in process memory while exercising the CLI's real TTY requirement. */
+async function rustAccount(command: string, ...arguments_: string[]): Promise<{ code: number | null; output: string }> {
+  assert.ok(rustBinary);
+  const binary = isAbsolute(rustBinary) ? rustBinary : join(root, rustBinary);
+  const terminal = `import os, pty, subprocess, sys
+master, slave = pty.openpty()
+process = subprocess.Popen(sys.argv[1:], stdin=slave, stdout=slave, stderr=slave, close_fds=True)
+os.close(slave)
+output = bytearray()
+while True:
+    try:
+        chunk = os.read(master, 8192)
+    except OSError:
+        break
+    if not chunk:
+        break
+    output.extend(chunk)
+os.close(master)
+sys.stdout.buffer.write(output)
+sys.exit(process.wait())
+`;
+  const child = spawn("python3", ["-c", terminal, binary, "account", "--database-url", ownerUrl, command, ...arguments_], {
+    cwd: root, env: process.env, stdio: ["ignore", "pipe", "pipe"],
+  });
+  children.add(child);
+  let output = "";
+  for (const stream of [child.stdout, child.stderr]) stream?.on("data", data => { output += String(data); });
+  const [code] = await once(child, "exit") as [number | null];
+  children.delete(child);
+  return { code, output };
+}
+
+async function cliEnrollment(command: "bootstrap" | "add-passkey" | "reset-passkeys"): Promise<string> {
+  const result = await rustAccount(command);
+  assert.equal(result.code, 0, `Rust account ${command} failed`);
+  const url = result.output.match(/http:\/\/localhost:19401\/enroll#enroll=[A-Za-z0-9_-]+/u)?.[0];
+  assert.ok(url, `Rust account ${command} must issue an enrollment link`);
+  return url;
+}
+
+async function verifyMigrationPreservesLegacyAuth(): Promise<void> {
+  assert.ok(rustBinary);
+  const binary = isAbsolute(rustBinary) ? rustBinary : join(root, rustBinary);
+  const snapshot = async () => Promise.all([
+    query("SELECT user_id,webauthn_user_handle FROM auth.local_account ORDER BY user_id", []).then(result => result.rows),
+    query("SELECT credential_id,user_id,public_key,counter,transports,device_type,backed_up FROM auth.local_passkeys ORDER BY credential_id", []).then(result => result.rows),
+    query("SELECT session_hash,refresh_hash,user_id,expires_at,refresh_expires_at FROM auth.local_sessions ORDER BY session_hash", []).then(result => result.rows),
+  ]);
+  const before = await snapshot();
+  for (let run = 0; run < 2; run += 1) {
+    const child = spawn(binary, ["migrate", "--database-url", ownerUrl], { cwd: root, env: process.env, stdio: ["ignore", "pipe", "pipe"] });
+    children.add(child);
+    let output = "";
+    for (const stream of [child.stdout, child.stderr]) stream?.on("data", chunk => { output += String(chunk); });
+    const [code] = await once(child, "exit");
+    children.delete(child);
+    assert.equal(code, 0, `Rust migration failed: ${output}`);
+    assert.deepEqual(await snapshot(), before, "Repeated migrations preserve imported COSE keys, counters, transports, handles and opaque session hashes/deadlines");
+  }
+}
+
 async function ready(url: string): Promise<void> {
   for (let attempt = 0; attempt < 100; attempt++) {
     try { if ((await fetch(url)).ok) return; } catch { /* Wait for the child server. */ }
@@ -59,6 +132,7 @@ async function ready(url: string): Promise<void> {
 }
 
 class BrowserSession {
+  restartBackend?: () => Promise<void>;
   readonly cookies = new Map<string, string>();
   csrf = "";
   cookieHeader(): string { return [...this.cookies].map(([key, value]) => `${key}=${value}`).join("; "); }
@@ -123,6 +197,52 @@ class BrowserSession {
   }
 }
 
+async function verifyNewRSARegistration(): Promise<TestPasskey[]> {
+  const keys: TestPasskey[] = [];
+  const invalidRSA = (modulus: number | Uint8Array | string, exponent = Uint8Array.of(1, 0, 1), algorithm = -257) =>
+    isoCBOR.encode(new Map<number, number | Uint8Array | string>([[1, 3], [3, algorithm], [-1, modulus], [-2, exponent]]));
+  const rejectedKeys = [
+    invalidRSA(new Uint8Array(64).fill(1)),
+    invalidRSA(new Uint8Array(128).fill(1)),
+    invalidRSA(new Uint8Array(320).fill(1)),
+    invalidRSA(new Uint8Array()),
+    invalidRSA("invalid modulus"),
+    invalidRSA(new Uint8Array(256).fill(1), new Uint8Array()),
+    invalidRSA(new Uint8Array(256).fill(1), Uint8Array.of(1, 0, 1), -37),
+    Uint8Array.of(0xff),
+  ];
+  const invalidBrowser = new BrowserSession();
+  await invalidBrowser.openLogin(true);
+  const invalidGrant = new URLSearchParams(new URL(await issueEnrollment(false)).hash.slice(1)).get("enroll");
+  assert.ok(invalidGrant);
+  const rejectedKey = new TestPasskey(false, 3072);
+  for (const publicKey of rejectedKeys) {
+    const offered = await invalidBrowser.ceremony("registration/options", { grant: invalidGrant });
+    assert.equal(offered.status, 200);
+    const options = await offered.json() as PublicKeyCredentialCreationOptionsJSON;
+    const result = await invalidBrowser.ceremony("registration/verify", { grant: invalidGrant, credential: rejectedKey.registration(options, { publicKey }) });
+    assert.equal(result.status, 401, "Weak, malformed and unsupported RSA keys must fail enrollment");
+    assert.equal((await query("SELECT 1 FROM auth.local_passkeys WHERE credential_id=$1", [rejectedKey.id])).rows.length, 0);
+    assert.equal((await query("SELECT 1 FROM auth.local_webauthn_challenges WHERE challenge_hash=$1", [hashToken(options.challenge)])).rows.length, 0, "Rejected keys still consume their challenge");
+    assert.equal((await query<{ failed_attempts: number }>("SELECT failed_attempts FROM auth.local_account", [])).rows[0]?.failed_attempts, 1, "Invalid key attempts use the persisted throttle");
+    await query("UPDATE auth.local_account SET failed_attempts=0,locked_until=NULL", []);
+  }
+  for (const bits of [3072, 4096] as const) {
+    const key = new TestPasskey(false, bits);
+    const browser = new BrowserSession();
+    await browser.enroll(await issueEnrollment(false), key);
+    assert.equal((await browser.request(`${apiOrigin}/v1/me`)).status, 401, "New RSA registration cannot create a session");
+    const before = await query<{ public_key: Buffer }>("SELECT public_key FROM auth.local_passkeys WHERE credential_id=$1", [key.id]);
+    await browser.openLogin();
+    assert.equal((await browser.ceremony("authentication/verify", key.assertion(await browser.options(), { wrongSignature: true }))).status, 401);
+    assert.equal((await browser.login(key)).status, 200);
+    const after = await query<{ public_key: Buffer }>("SELECT public_key FROM auth.local_passkeys WHERE credential_id=$1", [key.id]);
+    assert.deepEqual(after.rows[0]?.public_key, before.rows[0]?.public_key);
+    keys.push(key);
+  }
+  return keys;
+}
+
 const key = new TestPasskey();
 const syncedKey = new TestPasskey(true);
 const first = new BrowserSession();
@@ -135,7 +255,84 @@ try {
   await assert.rejects(bootstrapAccount(), /already exists/);
   let auth = start("apps/auth/dist/index.js", "auth_app", 19401);
   let backend = start("apps/backend/dist/entrypoints/index.js", "backend_app", 19400);
+  first.restartBackend = async () => {
+    await stop(backend);
+    backend = start("apps/backend/dist/entrypoints/index.js", "backend_app", 19400);
+    await ready(`${apiOrigin}/health`);
+  };
   await Promise.all([ready(`${authOrigin}/health`), ready(`${apiOrigin}/v1/health`)]);
+  await verifyBrowserCors(apiOrigin, webOrigin);
+  await verifyCookieDomains(apiOrigin, authOrigin, webOrigin);
+  if (rustBinary !== undefined) {
+    await Promise.all(Array.from({ length: 40 }, async () => {
+      assert.equal((await fetch(`${apiOrigin}/v1/health`)).status, 200);
+      assert.equal((await fetch(`${authOrigin}/health`)).status, 200);
+    }));
+    const pools = await query<{ usename: string; connections: string }>(
+      "SELECT usename,count(*)::text AS connections FROM pg_stat_activity WHERE datname=current_database() AND usename IN ('backend_app','auth_app') GROUP BY usename", [],
+    );
+    assert.equal(pools.rows.length, 2, "Both split services use their restricted database roles");
+    for (const pool of pools.rows) {
+      assert.ok(Number(pool.connections) > 0 && Number(pool.connections) <= 3, `${pool.usename} stays within DB_POOL_MAX_CONNECTIONS=3`);
+    }
+  }
+  if (rustBinary !== undefined) {
+    // Use the old implementation to create a credential and opaque session before checking Rust.
+    // This proves byte-format compatibility rather than only a Rust-to-Rust round trip.
+    const legacyKey = new TestPasskey(true);
+    const legacyBrowserToken = newToken();
+    const grant = new URLSearchParams(new URL(createdAccount.enrollmentUrl).hash.slice(1)).get("enroll");
+    assert.ok(grant);
+    const options = await registrationOptions(legacyBrowserToken, grant);
+    assert.equal(options.status, "valid");
+    if (options.status !== "valid") throw new Error("Legacy registration options failed");
+    assert.equal((await registerPasskey(legacyBrowserToken, grant, legacyKey.registration(options.options))).status, "valid");
+    const originalKey = await query<{ public_key: Buffer; webauthn_user_handle: string }>("SELECT p.public_key,a.webauthn_user_handle FROM auth.local_passkeys p JOIN auth.local_account a USING(user_id) WHERE credential_id=$1", [legacyKey.id]);
+    const oldTokens = await transaction(executor => createSession(executor, createdAccount.userId));
+    const legacyBrowser = new BrowserSession();
+    legacyBrowser.cookies.set("session", oldTokens.sessionToken);
+    legacyBrowser.cookies.set("refresh", oldTokens.refreshToken);
+    const oldIdentity = await legacyBrowser.me();
+    assert.equal(oldIdentity.userId, createdAccount.userId);
+    const { createHmac } = await import("node:crypto");
+    assert.equal(oldIdentity.csrfToken, createHmac("sha256", process.env.BACKEND_CSRF_SECRET ?? "").update(oldTokens.sessionToken).digest("base64url"));
+    assert.equal((await legacyBrowser.request(`${authOrigin}/api/refresh-session`, { method: "POST", headers: { Origin: webOrigin } })).status, 200);
+    // Obtain a fresh login CSRF page without taking the already-authenticated redirect.
+    legacyBrowser.cookies.clear();
+    await legacyBrowser.openLogin();
+    assert.equal((await legacyBrowser.login(legacyKey)).status, 200);
+    assert.equal((await legacyBrowser.me()).userId, createdAccount.userId);
+    const currentKey = await query<{ public_key: Buffer; webauthn_user_handle: string }>("SELECT p.public_key,a.webauthn_user_handle FROM auth.local_passkeys p JOIN auth.local_account a USING(user_id) WHERE credential_id=$1", [legacyKey.id]);
+    assert.deepEqual(currentKey.rows[0]?.public_key, originalKey.rows[0]?.public_key);
+    assert.equal(currentKey.rows[0]?.webauthn_user_handle, originalKey.rows[0]?.webauthn_user_handle);
+    const importedRSAKeys = [];
+    for (const modulusBits of [3072, 4096] as const) {
+      const rsaKey = new TestPasskey(false, modulusBits);
+      const rsaGrant = new URLSearchParams(new URL(await issueEnrollment(false)).hash.slice(1)).get("enroll");
+      assert.ok(rsaGrant);
+      const rsaOptions = await registrationOptions(legacyBrowserToken, rsaGrant);
+      assert.equal(rsaOptions.status, "valid");
+      if (rsaOptions.status !== "valid") throw new Error("Legacy RSA registration options failed");
+      assert.equal((await registerPasskey(legacyBrowserToken, rsaGrant, rsaKey.registration(rsaOptions.options))).status, "valid");
+      importedRSAKeys.push(rsaKey);
+    }
+    const rsaRows = await query<{ credential_id: string; public_key: Buffer }>("SELECT credential_id,public_key FROM auth.local_passkeys WHERE user_id=$1", [createdAccount.userId]);
+    await verifyMigrationPreservesLegacyAuth();
+    const enrolledRSAKeys = await verifyNewRSARegistration();
+    for (const imported of [legacyKey, ...importedRSAKeys]) {
+      const importedBrowser = new BrowserSession();
+      await importedBrowser.openLogin();
+      assert.equal((await importedBrowser.ceremony("authentication/verify", imported.assertion(await importedBrowser.options(), { wrongSignature: true }))).status, 401);
+      assert.equal((await importedBrowser.login(imported)).status, 200);
+      assert.equal((await importedBrowser.me()).userId, createdAccount.userId);
+      const row = await query<{ public_key: Buffer }>("SELECT public_key FROM auth.local_passkeys WHERE credential_id=$1", [imported.id]);
+      assert.deepEqual(row.rows[0]?.public_key, rsaRows.rows.find(row => row.credential_id === imported.id)?.public_key, "Login preserves the original COSE bytes");
+    }
+    for (const imported of [...importedRSAKeys, ...enrolledRSAKeys]) await revokePasskey(imported.id);
+    await revokePasskey(legacyKey.id);
+    createdAccount.enrollmentUrl = await issueEnrollment(false);
+    console.log("Passed imported ECDSA/RSA credentials, new 3072/4096-bit RSA enrollment, weak/malformed key rejection, real signatures, two migrations preserving credentials/sessions, synced zero counter, original COSE bytes/user handle, old session hash, refresh, and byte-identical CSRF compatibility.");
+  }
   await first.openLogin();
   assert.equal((await first.request(`${apiOrigin}/v1/me`)).status, 401);
   assert.equal((await first.ceremony("registration/options", { grant: newToken() })).status, 401);
@@ -199,6 +396,9 @@ try {
   const secondMe = await second.me();
   assert.equal(secondMe.userId, me.userId); assert.equal(secondMe.selectedWorkspaceId, me.selectedWorkspaceId);
   console.log("Passed owner-only enrollment, device verification, real signature/origin/RP checks, single-use browser-bound challenges, replay rejection, persistent throttling, and stable identity.");
+  if (process.env.RUST_AI_SETTINGS_ONLY === "true") {
+    await checkChatGPTConnection(first, me.csrfToken, me.selectedWorkspaceId, connectionDirectory, fixture);
+  }
 
   for (const scheme of ["Bearer", "Guest", "ApiKey"]) {
     assert.equal((await first.request(`${apiOrigin}/v1/me`, { headers: { Authorization: `${scheme} ${newToken()}` } })).status, 401);
@@ -211,6 +411,7 @@ try {
   }
   assert.equal((await first.api("/me/delete", { confirmationText: "delete my account" }, me.csrfToken)).status, 409);
 
+  if (process.env.RUST_AUTH_ONLY !== "true") {
   const installationId = randomUUID(); const cardId = randomUUID(); const timestamp = new Date().toISOString();
   const pushPath = `/workspaces/${me.selectedWorkspaceId}/sync/push`;
   const card = { cardId, frontText: "What is the capital of Czechia?", backText: "Prague", cardType: "basic", tags: [], effortLevel: "fast", dueAt: null, createdAt: timestamp, reps: 0, lapses: 0, fsrsCardState: "new", fsrsStepIndex: null, fsrsStability: null, fsrsDifficulty: null, fsrsLastReviewedAt: null, fsrsScheduledDays: null, deletedAt: null };
@@ -222,8 +423,8 @@ try {
   assert.equal(created.status, 200, await created.clone().text());
   const reviewId = randomUUID(); const reviewedAt = new Date().toISOString();
   // The web client syncs the review event together with a snapshot computed by the shared scheduler.
-  const scheduler = await import("../../backend/dist/scheduling/index.js");
-  const { defaultWorkspaceSchedulerConfig } = await import("../../backend/dist/scheduling/workspaceConfig.js");
+  const scheduler = await import("../../backend/src/scheduling/index.js");
+  const { defaultWorkspaceSchedulerConfig } = await import("../../backend/src/scheduling/workspaceConfig.js");
   const nextSchedule = scheduler.computeReviewSchedule(scheduler.createEmptyReviewableCardScheduleState(cardId), defaultWorkspaceSchedulerConfig, 3, new Date(reviewedAt));
   const reviewedCard = { ...card, ...nextSchedule, dueAt: nextSchedule.dueAt.toISOString(), fsrsLastReviewedAt: nextSchedule.fsrsLastReviewedAt.toISOString() };
   const reviewed = await first.api(pushPath, { ...push, operations: [
@@ -261,6 +462,7 @@ try {
   }
 
   await checkChatGPTConnection(first, me.csrfToken, me.selectedWorkspaceId, connectionDirectory, fixture);
+  }
 
   const savedSession = first.cookies.get("session"); assert.ok(savedSession);
   await query("UPDATE auth.local_sessions SET expires_at = now() - interval '1 second' WHERE session_hash = $1", [hashToken(savedSession)]);
@@ -324,6 +526,38 @@ try {
   await assert.rejects(issueEnrollment(true), /does not exist/);
   assert.ok(!unexpectedOutboundDetected, "Browser auth must not attempt Cognito/email-service calls");
   console.log("Passed expiry, concurrent refresh, logout, absolute expiry, recovery/reset revocation, deletion cascade, and runtime-role isolation.");
+  if (rustBinary !== undefined) {
+    const cliBrowser = new BrowserSession();
+    const cliKey = new TestPasskey(true);
+    const bootstrapUrl = await cliEnrollment("bootstrap");
+    const account = await query<{ user_id: string; webauthn_user_handle: string }>("SELECT user_id,webauthn_user_handle FROM auth.local_account", []);
+    userId = account.rows[0]?.user_id ?? null;
+    assert.ok(userId);
+    assert.equal(Buffer.from(account.rows[0]?.webauthn_user_handle ?? "", "base64url").length, 32);
+    const originalHandle = account.rows[0]?.webauthn_user_handle;
+    await cliBrowser.enroll(bootstrapUrl, cliKey);
+    await cliBrowser.openLogin(); assert.equal((await cliBrowser.login(cliKey)).status, 200);
+    const cliIdentity = await cliBrowser.me();
+    const status = await rustAccount("status");
+    assert.equal(status.code, 0); assert.ok(status.output.includes(userId)); assert.ok(status.output.includes(cliKey.id));
+    assert.notEqual((await rustAccount("bootstrap")).code, 0, "CLI must refuse replacement account creation");
+    const added = new TestPasskey();
+    await cliBrowser.enroll(await cliEnrollment("add-passkey"), added);
+    assert.equal((await rustAccount("revoke-passkey", added.id)).code, 0);
+    assert.equal((await cliBrowser.request(`${apiOrigin}/v1/me`)).status, 401);
+    await cliBrowser.openLogin(); assert.equal((await cliBrowser.login(cliKey)).status, 200);
+    assert.equal((await rustAccount("revoke-sessions")).code, 0);
+    assert.equal((await cliBrowser.request(`${apiOrigin}/v1/me`)).status, 401);
+    const resetKey = new TestPasskey(true);
+    await cliBrowser.enroll(await cliEnrollment("reset-passkeys"), resetKey);
+    await cliBrowser.openLogin(); assert.equal((await cliBrowser.login(resetKey)).status, 200);
+    const resetIdentity = await cliBrowser.me();
+    assert.equal(resetIdentity.userId, cliIdentity.userId);
+    assert.equal(resetIdentity.selectedWorkspaceId, cliIdentity.selectedWorkspaceId);
+    const handle = await query<{ webauthn_user_handle: string }>("SELECT webauthn_user_handle FROM auth.local_account", []);
+    assert.equal(handle.rows[0]?.webauthn_user_handle, originalHandle);
+    console.log("Passed real Rust CLI bootstrap, status, enrollment, credential/session revocation, and recovery while preserving UUIDs and the 32-byte user handle.");
+  }
 } finally {
   await Promise.all([...children].map(stop));
   // Only this fixture's account is cleaned up; this script refuses a pre-existing account.

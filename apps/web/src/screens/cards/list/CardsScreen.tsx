@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing";
 import { track } from "../../../analytics";
 import { useAppData } from "../../../appData";
 import { normalizeTagKey } from "../../../appData/domain";

@@ -13,6 +13,7 @@ import {
 import { iterateCardsByCreatedAtDesc } from "../cards";
 import {
   closeDatabaseAfter,
+  closeDatabaseAfterReadonlyWithCursorRecovery,
   closeDatabaseAfterWrite,
   describeIndexedDbError,
   getFromStore,
@@ -151,7 +152,7 @@ export async function loadAllActiveDecksForSql(workspaceId: string): Promise<Rea
 }
 
 export async function loadDecksListSnapshot(workspaceId: string): Promise<DecksListSnapshot> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const nowTimestamp = Date.now();
     const decks = await loadActiveDecksWithDatabase(database, workspaceId);
     let allCardsStats = emptyDeckStatsAccumulator();

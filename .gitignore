@@ -1,5 +1,8 @@
 # Node dependencies and build outputs
+/target/
+/apps/docs/.astro/
 **/node_modules/
+**/node_modules
 **/dist/
 **/build/
 **/coverage/

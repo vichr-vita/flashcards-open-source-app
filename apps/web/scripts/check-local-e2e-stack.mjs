@@ -14,7 +14,7 @@ async function assertEndpointHealthy(url, label) {
   if (response.ok === false) {
     throw new Error(
       `${label} health check failed at ${url} with status ${String(response.status)}. `
-      + "Start the local stack before running npm run test:e2e:local.",
+      + "Start the local stack before running pnpm test:e2e:local.",
     );
   }
 }

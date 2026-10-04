@@ -1,0 +1,17 @@
+.git
+.env*
+.codex-tmp-run
+**/node_modules
+**/dist
+**/test-results
+**/playwright-report
+target
+apps/ios
+apps/android
+apps/admin
+apps/backend/**
+!apps/backend/src
+!apps/backend/src/scheduling
+!apps/backend/src/scheduling/index.ts
+!apps/backend/src/scheduling/workspaceConfig.ts
+infra/aws

@@ -8,6 +8,7 @@ import { iterateAllCardTags } from "../tags";
 import { loadActiveCardCountWithDatabase, putCardInTransaction } from "../cards";
 import {
   closeDatabaseAfter,
+  closeDatabaseAfterReadonlyWithCursorRecovery,
   closeDatabaseAfterWrite,
   type DatabaseStores,
   getFromStore,
@@ -149,7 +150,7 @@ export async function hasHydratedReviewHistory(workspaceId: string): Promise<boo
 }
 
 export async function loadWorkspaceTagsSummary(workspaceId: string): Promise<WorkspaceTagsSummary> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const tagStatsByKey = new Map<string, Readonly<{
       tag: string;
       cardIds: Set<string>;

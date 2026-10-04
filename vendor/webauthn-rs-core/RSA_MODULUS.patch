@@ -1,0 +1,20 @@
+--- a/src/crypto.rs
++++ b/src/crypto.rs
+@@ -332,7 +332,7 @@
+             // -37 -> PS256
+             // -257 -> RS256 aka RSASSA-PKCS1-v1_5 with SHA-256
+ 
+-            // -1 -> n 256 bytes
++            // -1 -> n, a 2048-, 3072-, or 4096-bit unsigned big-endian RSA modulus
+             // -2 -> e 3 bytes
+ 
+             let n_value = m
+@@ -345,7 +345,7 @@
+                 .ok_or(WebauthnError::COSEKeyInvalidCBORValue)?;
+             let e = cbor_try_bytes!(e_value)?;
+ 
+-            if n.len() != 256 || e.len() != 3 {
++            if !matches!(n.len(), 256 | 384 | 512) || e.len() != 3 {
+                 return Err(WebauthnError::COSEKeyRSANEInvalid);
+             }
+ 

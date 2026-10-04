@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { act, StrictMode, useEffect, type ReactElement } from "react";
 import ReactDOM from "react-dom/client";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter } from "../../../routing/testRouter";
 import { afterEach, beforeEach, vi } from "vitest";
 import { I18nProvider } from "../../../i18n";
 import { AppErrorDialogProvider } from "../../../appError/AppErrorContext";

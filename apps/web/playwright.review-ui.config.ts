@@ -10,7 +10,7 @@ export default defineConfig({
   outputDir: "test-results/review-ui",
   projects: [
     { name: "chromium", use: { browserName: "chromium" } },
-    { name: "webkit-mobile", testMatch: "review-overflow.spec.ts", use: { browserName: "webkit", isMobile: true, hasTouch: true } },
+    { name: "webkit-mobile", testMatch: ["review-overflow.spec.ts", "indexed-db.spec.ts", "router-query.spec.ts"], use: { browserName: "webkit", isMobile: true, hasTouch: true } },
   ],
   use: {
     baseURL: "http://127.0.0.1:4318",
@@ -19,7 +19,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
   },
   webServer: {
-    command: "npm run dev -- --config e2e/review-ui/vite.config.ts",
+    command: "pnpm dev --config e2e/review-ui/vite.config.ts",
     url: "http://127.0.0.1:4318/",
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

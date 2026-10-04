@@ -1,13 +1,7 @@
 import * as Sentry from "@sentry/react";
-import { createElement, useEffect, type ReactElement, type ReactNode } from "react";
+import { createElement, type ReactElement, type ReactNode } from "react";
 import type { RootOptions } from "react-dom/client";
-import {
-  createRoutesFromChildren,
-  matchRoutes,
-  useLocation,
-  useNavigationType,
-  type Routes,
-} from "react-router";
+import type { AnyRouter } from "@tanstack/react-router";
 import webPackageInfo from "../../package.json";
 import { getAppConfig } from "../config";
 
@@ -448,15 +442,7 @@ if (sentryDsn !== null) {
     dsn: sentryDsn,
     release: webSentryRelease,
     environment: resolveSentryEnvironment(),
-    integrations: [
-      Sentry.reactRouterV7BrowserTracingIntegration({
-        useEffect,
-        useLocation,
-        useNavigationType,
-        createRoutesFromChildren,
-        matchRoutes,
-      }),
-    ],
+    integrations: [],
     tracesSampleRate: resolveTracesSampleRate(),
     tracePropagationTargets: buildTracePropagationTargets(),
     sendDefaultPii: false,
@@ -484,6 +470,8 @@ export function AppErrorBoundary(props: AppErrorBoundaryProps): ReactElement {
   return createElement(Sentry.ErrorBoundary, { fallback }, children);
 }
 
-export function wrapRoutesComponent(routes: typeof Routes): typeof Routes {
-  return Sentry.withSentryReactRouterV7Routing(routes);
+export function instrumentAppRouter(router: AnyRouter): void {
+  if (isWebSentryEnabled) {
+    Sentry.addIntegration(Sentry.tanstackRouterBrowserTracingIntegration(router));
+  }
 }

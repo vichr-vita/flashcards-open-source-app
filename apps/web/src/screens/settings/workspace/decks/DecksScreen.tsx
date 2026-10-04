@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactElement } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../../routing";
 import { useAppData } from "../../../../appData";
 import {
   markIndexedDbOpenRecoveryFailureAndCheckActive,

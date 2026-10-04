@@ -1,0 +1,67 @@
+[workspace]
+members = ["apps/server"]
+exclude = ["vendor/webauthn-rs-core"]
+resolver = "3"
+
+[patch.crates-io]
+webauthn-rs-core = { path = "vendor/webauthn-rs-core" }
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.96"
+license = "MIT"
+publish = false
+
+[workspace.dependencies]
+axum = { version = "0.8", features = ["macros", "multipart"] }
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+chrono-tz = "0.10"
+clap = { version = "4.6.6", features = ["derive", "env"] }
+color-eyre = "0.6.5"
+fs2 = "0.4"
+futures-util = "0.3"
+hmac = "0.12"
+icu_locale = "2.2"
+icu_collator = "2.2"
+percent-encoding = "2"
+rand = "0.8"
+regex = "1"
+pulldown-cmark = "0.13"
+rustix = { version = "1", features = ["process", "fs"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream", "multipart"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+serde_cbor_2 = "0.13"
+sha2 = "0.10"
+sqlx = { version = "=0.9.0", default-features = false, features = ["postgres", "runtime-tokio", "tls-rustls-ring", "migrate", "macros", "uuid", "chrono", "json"] }
+subtle = "2.6.1"
+tokio = { version = "=1.53.1", features = ["rt-multi-thread", "macros", "time", "net", "signal", "sync", "fs", "io-util"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tower-http = { version = "0.7.1", features = ["fs", "cors", "trace", "request-id", "limit"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+ts-rs = { version = "12", features = ["no-serde-warnings", "serde-json-impl", "uuid-impl", "chrono-impl"] }
+url = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+unicode-normalization = "0.1"
+webauthn-rs = "0.5.5"
+webauthn-rs-core = "0.5.5"
+zip = { version = "6", default-features = false, features = ["deflate"] }
+
+[workspace.lints.clippy]
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+indexing_slicing = "deny"
+arithmetic_side_effects = "deny"
+unreachable = "deny"
+unimplemented = "deny"
+unchecked_time_subtraction = "deny"
+todo = "deny"
+string_slice = "deny"
+panic_in_result_fn = "deny"
+panic = "deny"
+exit = "deny"
+as_conversions = "deny"

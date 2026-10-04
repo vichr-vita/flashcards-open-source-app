@@ -1,6 +1,6 @@
 import { useState, type ReactElement } from "react";
 import { createRoot } from "react-dom/client";
-import { Link, MemoryRouter } from "react-router";
+import { Link, MemoryRouter } from "../../src/routing/testRouter";
 import { UserRound } from "lucide-react";
 import { Brand } from "../../src/Brand";
 import { I18nProvider, useI18n } from "../../src/i18n";

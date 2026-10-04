@@ -1,3 +1,6 @@
+import type { ReviewHistoryWatermark as ReviewHistoryWatermarkWire } from "../generated/ReviewHistoryWatermark";
+import type { StreakFreeze as StreakFreezeWire } from "../generated/StreakFreeze";
+
 export type ProgressSeriesInput = Readonly<{
   timeZone: string;
   from: string;
@@ -34,15 +37,7 @@ export const streakDayStates = [
 
 export type StreakDayState = typeof streakDayStates[number];
 
-export type StreakFreeze = Readonly<{
-  availableCredits: number;
-  capacity: number;
-  balanceUnits: number;
-  unitsPerCredit: number;
-  earnedUnitsPerStreakDay: number;
-  nextCreditProgressUnits: number;
-  nextCreditRequiredUnits: number;
-}>;
+export type StreakFreeze = Readonly<StreakFreezeWire>;
 
 export type StreakDay = Readonly<{
   date: string;
@@ -58,10 +53,7 @@ export type ProgressSummary = Readonly<{
   streakFreeze: StreakFreeze;
 }>;
 
-export type ProgressReviewHistoryWatermark = Readonly<{
-  workspaceId: string;
-  reviewSequenceId: number;
-}>;
+export type ProgressReviewHistoryWatermark = Readonly<ReviewHistoryWatermarkWire>;
 
 export type ReviewProgressBadgeState = Readonly<{
   streakDays: number;
