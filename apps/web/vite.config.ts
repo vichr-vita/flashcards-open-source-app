@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import webPackageInfo from "./package.json";
 import { offlineShellPlugin } from "./pwa.build";
@@ -86,6 +87,7 @@ export default defineConfig(({ command }) => {
   return {
     plugins: [
       react(),
+      tailwindcss(),
       offlineShellPlugin(),
       ...(sentrySourceMapUploadConfig !== undefined
         ? sentryVitePlugin({
@@ -101,6 +103,7 @@ export default defineConfig(({ command }) => {
           })
         : []),
     ],
+    resolve: { alias: { "@": new URL("./src", import.meta.url).pathname } },
     server: {
       host: "0.0.0.0",
       port: 3000,

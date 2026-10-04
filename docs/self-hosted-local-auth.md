@@ -8,7 +8,7 @@ This guide describes the fork. The installation runbook remains the authority fo
 
 ## Configure the services
 
-Use Node 24.21.0 and PostgreSQL 16. Build `apps/auth`, `apps/backend`, and `apps/web` with their existing `npm ci` and `npm run build` commands. The auth Dockerfile also builds independently from `apps/auth`.
+Use PostgreSQL 16, the repository Rust toolchain, Node 24, and pnpm 12.5.1. Build the private runtime with `cargo build --locked --release` and the browser with `pnpm build:web`. The [private stack guide](private-rust-stack.md) documents the Rust services and isolated container build.
 
 Keep secret environment files outside the checkout, readable only by the administrator. Use different database URLs for the auth runtime, backend runtime, and administrative commands. The administrative URL must use the database owner; neither runtime role can bootstrap or change credentials.
 
@@ -31,7 +31,7 @@ Generate the backend CSRF secret with `node -e 'console.log(require("node:crypto
 
 Set `WEBAUTHN_RP_ID` to the hostname of `PUBLIC_AUTH_BASE_URL`. The verifier checks the exact origin, including its port. Use a stable DNS hostname with HTTPS. Changing the hostname requires new passkeys; changing a port requires changing the expected origin but preserves the RP hostname. IP-address relying parties are rejected. `localhost` is the explicit development exception.
 
-Unset `DB_SECRET_ARN`, Cognito settings, Cognito CSRF-secret ARN settings, and demo-account credentials. Local authentication does not call AWS or an email service. Existing upstream dependencies remain for the Cognito mode. Unconfigured AI, object storage, billing, and other unrelated integrations do not become available through this auth change.
+Unset `DB_SECRET_ARN`, Cognito settings, Cognito CSRF-secret ARN settings, and demo-account credentials. Local authentication does not call AWS or an email service. The upstream Cognito sources remain reference code and are outside this private runtime. Unconfigured AI, object storage, billing, and other unrelated integrations do not become available through this auth change.
 
 For subscription-backed chat, follow [ChatGPT subscriptions on a private server](self-hosted-chatgpt.md). It adds a dedicated AI settings page and requires a private persistent credential directory.
 
@@ -41,14 +41,14 @@ Plain HTTP is allowed only for explicit loopback development with both `NODE_ENV
 
 ## Bootstrap and enroll over SSH
 
-Apply `0165_local_password_totp.sql` and then `0166_local_webauthn.sql` through the installation's existing migration process. Preserve database isolation and role-name remapping. Migration 0166 preserves any existing account UUID, removes password/TOTP columns, and invalidates all previous sessions. Enrollment grants, challenges, and passkey public keys are separate tables. Backend runtime access cannot read them or session tables. The auth runtime cannot issue grants, delete passkeys, or replace stored public keys.
+Run `target/release/lingvichr migrate` with the owner `MIGRATION_DATABASE_URL` and the installation's actual runtime role names. It preserves the existing filename ledger and skips installed migrations. Never replay migration 0166 on an existing passkey installation: that historical migration invalidates sessions. The Rust addition is a nullable library challenge-state column. Enrollment grants, challenges, and passkey public keys remain separate tables. Backend runtime access cannot read them or session tables. The auth runtime cannot issue grants, delete passkeys, or replace stored public keys.
 
 Open an interactive administrator SSH terminal. Load a protected administrative environment file containing `AUTH_MODE=local`, the owner `DATABASE_URL`, `WEBAUTHN_RP_ID`, and the auth/redirect origins. If it contains shell-compatible assignments, load it with `set -a`, `source /path/to/local-auth-admin.env`, then `set +a`. Use the installation's existing secret-file conventions.
 
-From the built `apps/auth` directory, run:
+From the repository root, run:
 
 ```sh
-npm run local-account -- bootstrap
+target/release/lingvichr account bootstrap
 ```
 
 The command creates the stable account and workspace, then prints a private, single-use enrollment link valid for ten minutes. Open it in a browser that can reach the private auth hostname and select **Create passkey**. Confirm with your device's biometric prompt, device PIN, or a compatible security key with user verification. The browser controls which authenticator choices appear. You do not need to create a Google account or configure an email address.
@@ -62,11 +62,11 @@ Opening the link and saving a passkey never establishes a session. Select **Sign
 Use the same administrative environment and interactive SSH terminal:
 
 ```sh
-npm run local-account -- status
-npm run local-account -- add-passkey
-npm run local-account -- revoke-passkey CREDENTIAL_ID
-npm run local-account -- revoke-sessions
-npm run local-account -- reset-passkeys
+target/release/lingvichr account status
+target/release/lingvichr account add-passkey
+target/release/lingvichr account revoke-passkey CREDENTIAL_ID
+target/release/lingvichr account revoke-sessions
+target/release/lingvichr account reset-passkeys
 ```
 
 `status` prints the account UUID, session count, and public credential IDs with creation and last-use dates. `add-passkey` issues a fresh enrollment link and preserves existing passkeys and sessions. Each new link invalidates any earlier outstanding enrollment link. Up to 16 passkeys can belong to the same account.
@@ -80,7 +80,7 @@ Sessions use random opaque HttpOnly cookies, with only SHA-256 token hashes stor
 
 The non-HttpOnly `logged_in` cookie is an existing browser hint, not proof of authentication. `/v1/me` verifies the server session and supplies the existing CSRF token. Mutations still require a trusted origin and CSRF token. Five failed attempts lock the single account for 60 seconds; the lock, credential counters, and pending challenges survive service restarts. The lock applies to every caller, so an attacker with network access can temporarily delay login. Keep access private as already configured.
 
-Local mode accepts only browser session cookies. Bearer tokens, guest credentials, API keys, demo login, native email OTP, OAuth/MCP issuance, and agent/admin routes cannot bypass passkey verification. Do not expose separate upstream Lambda/MCP entrypoints in this deployment. Native clients are outside this fork's supported scope.
+Browser APIs accept only browser session cookies. Guest credentials, demo login, native email OTP, and upstream OAuth routes cannot bypass passkey verification. Optional local MCP uses separately issued owner agent keys and explicit host/owner configuration; read the private stack guide before enabling it. Native clients are outside this installation's scope.
 
 ## Mobile web and offline use
 
@@ -105,36 +105,33 @@ Record failures and actual iOS version. Photo/media availability offline depends
 
 ## Run the isolated integration check
 
-Use only a disposable database. The script is intentionally fixed to loopback port `19432`, database `flashcards`, and the standard repository role names. It refuses a pre-existing local account and generates its own throwaway software authenticator keys. Never forward that port to a live database.
+Read [local verification](local-checks.md), install its fixture dependencies, then
+run `bash scripts/check.sh`. It creates a fresh PostgreSQL 16 container on
+loopback port 29432, applies the installed SQL history, runs the Rust migration
+command, and exercises real Rust auth/backend HTTP processes. It refuses an
+occupied database port and removes its own container on exit.
 
-From the repository root, after installing dependencies and building auth/backend:
+The existing fixture checks signed WebAuthn registration/login, device
+verification, signatures, origin/RP checks, browser binding, expiry/replay,
+persisted throttling, login and backend CSRF, stable identity, card creation,
+review scheduling, sync, restart, concurrent refresh, logout, passkey recovery,
+and runtime database permissions. It imports a credential written by the old
+SimpleWebAuthn implementation and uses its existing opaque session cookies.
 
-```sh
-docker run -d --name nibomo-local-auth-test \
-  -p 127.0.0.1:19432:5432 \
-  -e POSTGRES_USER=flashcards_owner -e POSTGRES_DB=flashcards \
-  -e POSTGRES_HOST_AUTH_METHOD=trust \
-  -v "$PWD:/workspace:ro" postgres:16
-docker exec -e MIGRATION_DATABASE_URL=postgresql://flashcards_owner@localhost/flashcards \
-  nibomo-local-auth-test bash /workspace/scripts/deploy/migrate.sh
-npm --prefix apps/auth run test:local-integration
-docker rm -f nibomo-local-auth-test
-```
-
-Wait for PostgreSQL to report readiness before migrating. Trust authentication above is for this disposable loopback fixture only. It is not a deployment example. The integration command starts real auth/backend HTTP processes on ports `19401` and `19400`, plus a simulated OpenAI provider on `19402`. Those ports must be free. Run with Node 24.21.0. Optional browser review uses a separate web process on `19411`.
-
-The check covers signed WebAuthn registration/login, missing device verification, wrong signature/origin/RP, browser binding, expiry/replay, persisted throttling, login and backend CSRF, stable identity, card creation and review scheduling, cross-session sync, service restart, expiry, concurrent refresh, logout, passkey addition/reset/revocation, deleted-account behavior, disabled alternate authentication, and database role permissions. It also exercises subscription chat through the simulated provider. Its server-process preload redirects the fixed OpenAI hosts to that fixture and blocks other outbound HTTP calls to detect an unexpected Cognito or email dependency. It does not verify paid services or a real phone.
+The chat tests use a fixed loopback provider and throwaway credentials. Browser
+checks run Chromium and WebKit. They do not verify a paid provider or a real
+phone. The phone checklist above remains a manual deployment check.
 
 ## Prepare deployment and rollback
 
 Live deployment needs separate authorization. Follow the inspected installation runbook for the actual target and migration-copy process. Do not run the repository's generic Compose/migration commands against the shared production database; its role names differ.
 
-Before deploying, review both migrations and their role remapping, build the three browser-stack artifacts, confirm protected secret files, and take a restorable backup using the installation's existing procedure. Preserve the private access boundary, unrelated Tailscale services, and database isolation. Configure both runtime modes and web build URLs together, issue an enrollment link over SSH, then enable the auth service through the existing Compose layout. Do not run upstream AWS or native release workflows.
+Before deploying, review the additive Rust migration and role mapping, build the private binary and browser, confirm protected configuration, and take a restorable backup through the installation's existing procedure. Preserve the private access boundary, unrelated Tailscale services, and database isolation. Keep both services' public origins and web build URLs aligned. Preserve existing account rows, passkeys, and sessions. Issue an enrollment link only when adding a credential, then use the installation's existing Compose layout for cutover. Do not run upstream AWS or native release workflows.
 
 Check login, `/v1/me`, CSRF, refresh, logout, and card/review sync against the private URLs. Verify restart persistence and run the phone checklist. Retain the old images and configuration for rollback.
 
-For rollback, stop the affected services, revoke local sessions with the administrative command, and restore the previous images/configuration through the runbook. Migration 0166 removes old credential columns. Rolling back to the password/TOTP image requires a separately authorized database restore; an image-only rollback to that implementation will not work. Preserve the new tables during any Cognito-image rollback. Reverting to the previous Cognito configuration also restores its previous sign-in limitation. Restore a database backup only through the runbook's separately authorized restore process.
+For rollback, restore the previous passkey-service images and configuration through the runbook. The nullable Rust challenge-state column is compatible with the previous Node passkey service, and existing credential/session formats remain usable. Do not reset passkeys or replay historical migrations during an image rollback. Migration 0166 removes old credential columns. Rolling back to the password/TOTP image requires a separately authorized database restore; an image-only rollback to that implementation will not work. Preserve the new tables during any Cognito-image rollback. Reverting to the previous Cognito configuration also restores its previous sign-in limitation. Restore a database backup only through the runbook's separately authorized restore process.
 
 ## Library references
 
-Registration and assertion verification use pinned [SimpleWebAuthn server](https://simplewebauthn.dev/docs/packages/server) `14.0.3`; the bundled [browser helper](https://simplewebauthn.dev/docs/packages/browser) is `14.0.0`. Both ceremonies require user verification. The request asks for a discoverable credential without restricting authenticator attachment. One-use, browser-bound challenges expire after two minutes, independent of whether a synced passkey uses a zero counter. The implementation is in `apps/auth/src/local`; the backend session boundary remains in `apps/backend/src/auth/local.ts`.
+Registration and assertion verification use pinned [webauthn-rs-core](https://docs.rs/webauthn-rs-core/0.5.5/webauthn_rs_core/) `0.5.5`. The bundled [SimpleWebAuthn browser helper](https://simplewebauthn.dev/docs/packages/browser) is `14.0.0`. Both ceremonies require user verification and request a discoverable credential without restricting authenticator attachment. One-use, browser-bound challenges expire after two minutes, including for synced passkeys with a zero counter. The Rust implementation and session boundary are in `apps/server/src/auth`.

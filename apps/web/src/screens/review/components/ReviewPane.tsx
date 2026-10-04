@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, type ReactElement } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing";
 import type { ReviewRating } from "../../../../../backend/src/scheduling";
 import { track } from "../../../analytics";
 import { useI18n } from "../../../i18n";

@@ -1,0 +1,8 @@
+packages:
+  - apps/web
+  - apps/docs
+allowBuilds:
+  '@sentry/cli': true
+  '@tailwindcss/oxide': true
+  esbuild: true
+  sharp: true

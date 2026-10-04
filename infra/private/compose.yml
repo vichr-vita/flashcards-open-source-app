@@ -1,0 +1,28 @@
+name: lingvichr-rust-preview
+services:
+  server:
+    build:
+      context: ../..
+      dockerfile: infra/private/Dockerfile
+      args:
+        PUBLIC_APP_BASE_URL: ${PUBLIC_APP_BASE_URL:-http://localhost:19410}
+        PUBLIC_API_BASE_URL: ${PUBLIC_API_BASE_URL:-http://localhost:19410/v1}
+        PUBLIC_AUTH_BASE_URL: ${PUBLIC_AUTH_BASE_URL:-http://localhost:19410}
+    ports:
+      - "127.0.0.1:19410:19410"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      DATABASE_URL: ${PRIVATE_BACKEND_DATABASE_URL:?Set the isolated backend-role database URL}
+      AUTH_DATABASE_URL: ${PRIVATE_AUTH_DATABASE_URL:?Set the isolated auth-role database URL}
+      NODE_ENV: development
+      AUTH_MODE: local
+      LOCAL_AUTH_ALLOW_HTTP: "true"
+      PUBLIC_APP_BASE_URL: ${PUBLIC_APP_BASE_URL:-http://localhost:19410}
+      PUBLIC_AUTH_BASE_URL: ${PUBLIC_AUTH_BASE_URL:-http://localhost:19410}
+      ALLOWED_REDIRECT_URIS: ${PUBLIC_APP_BASE_URL:-http://localhost:19410}
+      COOKIE_DOMAIN: localhost
+      BACKEND_CSRF_SECRET: ${BACKEND_CSRF_SECRET:?Set a preview secret of at least 32 bytes}
+    read_only: true
+    tmpfs:
+      - /tmp

@@ -1,0 +1,42 @@
+---
+layout: ../layouts/Document.astro
+title: Authentication
+---
+
+# Authentication
+
+Passkey enrollment and login are separate ceremonies. Enrollment requires a
+one-use private grant issued by an administrator. Saving a passkey does not
+create a session. Login requires a signed WebAuthn assertion and device
+verification.
+
+The Rust verifier reads the existing COSE public keys and counters from
+PostgreSQL. It preserves the account's WebAuthn user handle. Existing passkeys
+must remain usable on the same RP hostname.
+
+Opaque session and refresh cookies keep their existing names and SHA-256 token
+hashes. The backend checks the database on each authenticated request. Mutations
+also require the trusted app origin and the CSRF token returned by `/v1/me`.
+Preserving `BACKEND_CSRF_SECRET` keeps that token compatible across the cutover.
+
+Set the owner connection in `DATABASE_URL` for administrative commands:
+
+```sh
+lingvichr account status
+lingvichr account add-passkey
+lingvichr account revoke-passkey CREDENTIAL_ID
+lingvichr account revoke-sessions
+lingvichr account reset-passkeys
+```
+
+Run enrollment commands in an interactive administrator terminal. Enrollment
+links are credentials. Keep them out of logs and shared messages.
+
+`reset-passkeys` preserves the account, workspace, cards, and review history. It
+revokes sessions and old credentials before issuing a new enrollment grant.
+`bootstrap` is only for a new installation with no local account. Never use
+deletion and bootstrap to recover access to an existing account.
+
+Offline browser data remains available without contacting the server. Revoking
+a session cannot erase a device's offline copy. The client verifies its session
+before syncing again after reconnecting.

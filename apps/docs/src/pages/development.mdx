@@ -1,0 +1,49 @@
+---
+layout: ../layouts/Document.astro
+title: Development
+---
+
+# Development
+
+Install the nightly Rust toolchain with Clippy and rustfmt, Node 24, pnpm 12.5.1,
+and Docker. Use a separate checkout and a disposable PostgreSQL database.
+
+```sh
+pnpm install --frozen-lockfile
+cargo build --locked
+pnpm build:web
+pnpm build:docs
+```
+
+`apps/server` contains the Axum and Tokio runtime. `apps/web` contains the React
+client. The frontend writes cards and reviews to IndexedDB and keeps pending
+operations in its durable outbox. TanStack Query manages remote requests; it does
+not replace offline storage.
+
+Keep `PUBLIC_AUTH_BASE_URL`, `PUBLIC_APP_BASE_URL`, `WEBAUTHN_RP_ID`,
+`COOKIE_DOMAIN`, and `ALLOWED_REDIRECT_URIS` aligned. For local development only,
+set `NODE_ENV=development` and `LOCAL_AUTH_ALLOW_HTTP=true` and use `localhost`.
+Set `BACKEND_CSRF_SECRET` to a throwaway development secret of at least 32 bytes.
+
+The server takes separate `DATABASE_URL` and `AUTH_DATABASE_URL` connections.
+Use the existing backend and auth runtime roles. Migrations use the owner
+connection in `MIGRATION_DATABASE_URL`. Account and agent-key commands use an
+explicit owner connection in `DATABASE_URL`.
+
+```sh
+cargo run --locked -- serve --bind 127.0.0.1:19400 --service all
+```
+
+The combined service serves the built web app, HTTP API, and passkey pages.
+`--service backend` and `--service auth` support the installation's existing
+separate proxy targets. The server never applies migrations during startup.
+
+The isolated review fixture uses synthetic cards and requires no API or account:
+
+```sh
+pnpm --dir apps/web test:e2e:review-ui
+```
+
+These browser checks include Chromium, WebKit, long card values, and narrow
+mobile viewports. A desktop WebKit run does not establish iPhone Home Screen
+behavior. Keep the installed-device checks in the existing deployment runbook.

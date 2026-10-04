@@ -119,15 +119,12 @@ function hasOneSegmentUnder(prefix: string, path: string): boolean {
 }
 
 /**
- * Normalizes a path the way React Router matches one: `<Route path>` is case-insensitive by
- * default, and repeated trailing slashes are tolerated. Without both, `/Share` or `/share//` would
+ * Normalizes the established case-insensitive URL contract, with repeated trailing slashes
+ * tolerated. Without both, `/Share` or `/share//` would
  * read as an authenticated path here while `App.tsx` actually serves `ShareAppScreen`, and the two
  * definitions of "above `AuthenticatedApp`" would drift on a single capital letter.
  *
- * Both halves were read off `compilePath` in the react-router 8.3.1 sources: the pattern regexp is
- * built with the `i` flag unless a route opts into `caseSensitive`, and an `end` match appends
- * `\/*$`. This package.json asks for `^8.4.0`, so the installed minor is a step past the one that
- * could be checked here; treat the two claims as v8 behaviour rather than as pinned facts.
+ * The TanStack route tree keeps case-sensitive matching disabled to preserve those URLs.
  *
  * Exported because the analytics surface classifier (apps/web/src/analytics/surfaces.ts) compares
  * paths against the same route constants and has to agree with this one.

@@ -11,16 +11,20 @@ export default defineConfig({
   timeout: 60_000,
   workers: 1,
   reporter: "list",
+  outputDir: "test-results/local-account",
   use: {
     baseURL: "http://localhost:19411",
     storageState,
-    browserName: "chromium",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     serviceWorkers: "block",
   },
+  projects: [
+    { name: "chromium", use: { browserName: "chromium" } },
+    { name: "webkit", use: { browserName: "webkit" } },
+  ],
   webServer: {
-    command: "npm exec -- vite preview --outDir /tmp/nibomo-local-web --host 127.0.0.1 --port 19411 --strictPort",
+    command: "pnpm exec vite preview --outDir dist --host 127.0.0.1 --port 19411 --strictPort",
     url: "http://localhost:19411",
     reuseExistingServer: false,
   },

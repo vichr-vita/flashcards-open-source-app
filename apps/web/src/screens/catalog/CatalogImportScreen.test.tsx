@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, type ReactNode } from "react";
 import ReactDOM from "react-dom/client";
-import { MemoryRouter, Route, Routes } from "react-router";
+import { MemoryRouter, Route, Routes } from "../../routing/testRouter";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { publishAnalyticsConsentJurisdiction } from "../../analytics/consent";
 import { ApiError } from "../../api";

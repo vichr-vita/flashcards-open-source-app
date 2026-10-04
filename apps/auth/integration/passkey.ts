@@ -1,19 +1,25 @@
-/** Software authenticator fixture: real ES256 signatures, not a mocked server verifier. */
-import { createHash, generateKeyPairSync, randomBytes, sign } from "node:crypto";
+/** Software authenticator fixture with real ES256 and legacy RS256 signatures. */
+import { createHash, generateKeyPairSync, randomBytes, sign, type KeyObject } from "node:crypto";
 import { isoCBOR } from "@simplewebauthn/server/helpers";
 import type { AuthenticationResponseJSON, RegistrationResponseJSON, PublicKeyCredentialCreationOptionsJSON, PublicKeyCredentialRequestOptionsJSON } from "@simplewebauthn/server";
 
 function hash(value: string | Buffer): Buffer { return createHash("sha256").update(value).digest(); }
 export class TestPasskey {
   readonly id = randomBytes(32).toString("base64url");
-  private readonly pair = generateKeyPairSync("ec", { namedCurve: "prime256v1" });
+  private readonly pair: { publicKey: KeyObject; privateKey: KeyObject };
   private counter = 0;
   private userHandle = "";
-  constructor(private readonly synced = false) {}
-  registration(options: PublicKeyCredentialCreationOptionsJSON, override: { origin?: string; rpId?: string; flags?: number; crossOrigin?: boolean } = {}): RegistrationResponseJSON {
+  constructor(private readonly synced = false, rsaBits?: 3072 | 4096) {
+    this.pair = rsaBits === undefined
+      ? generateKeyPairSync("ec", { namedCurve: "prime256v1" })
+      : generateKeyPairSync("rsa", { modulusLength: rsaBits });
+  }
+  registration(options: PublicKeyCredentialCreationOptionsJSON, override: { origin?: string; rpId?: string; flags?: number; crossOrigin?: boolean; publicKey?: Uint8Array } = {}): RegistrationResponseJSON {
     this.userHandle = options.user.id;
     const key = this.pair.publicKey.export({ format: "jwk" });
-    const publicKey = isoCBOR.encode(new Map<number, number | Uint8Array>([[1, 2], [3, -7], [-1, 1], [-2, new Uint8Array(Buffer.from(key.x!, "base64url"))], [-3, new Uint8Array(Buffer.from(key.y!, "base64url"))]]));
+    const publicKey = override.publicKey ?? isoCBOR.encode(key.kty === "RSA"
+      ? new Map<number, number | Uint8Array>([[1, 3], [3, -257], [-1, new Uint8Array(Buffer.from(key.n!, "base64url"))], [-2, new Uint8Array(Buffer.from(key.e!, "base64url"))]])
+      : new Map<number, number | Uint8Array>([[1, 2], [3, -7], [-1, 1], [-2, new Uint8Array(Buffer.from(key.x!, "base64url"))], [-3, new Uint8Array(Buffer.from(key.y!, "base64url"))]]));
     const id = Buffer.from(this.id, "base64url");
     const length = Buffer.alloc(2); length.writeUInt16BE(id.length);
     const authData = Buffer.concat([hash(override.rpId ?? options.rp.id!), Buffer.from([override.flags ?? (this.synced ? 0x5d : 0x45)]), Buffer.alloc(4), Buffer.alloc(16), length, id, publicKey]);

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type MouseEvent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
+import { Button } from "../components/ui/button";
 import { useI18n } from "../i18n";
 import type { AppErrorAction, AppErrorPresentation } from "./appErrorPresentation";
 
@@ -158,7 +159,7 @@ export function AppErrorDialog(props: AppErrorDialogProps): ReactElement | null 
 
         <div className="screen-actions">
           {presentation.kind === "indexeddb-reload-recovery" ? (
-            <button
+            <Button
               ref={initialFocusButtonRef}
               type="button"
               className="primary-btn"
@@ -166,9 +167,9 @@ export function AppErrorDialog(props: AppErrorDialogProps): ReactElement | null 
               data-testid="app-error-dialog-reload"
             >
               {presentation.action.label}
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
               ref={initialFocusButtonRef}
               type="button"
               className="primary-btn"
@@ -176,7 +177,7 @@ export function AppErrorDialog(props: AppErrorDialogProps): ReactElement | null 
               data-testid="app-error-dialog-close"
             >
               {presentation.action.label}
-            </button>
+            </Button>
           )}
         </div>
       </section>

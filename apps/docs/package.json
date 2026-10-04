@@ -1,0 +1,19 @@
+{
+  "name": "lingvichr-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 14320",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 14320"
+  },
+  "dependencies": {
+    "astro": "7.3.5",
+    "@astrojs/mdx": "8.0.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "typescript": "5.9.3"
+  }
+}

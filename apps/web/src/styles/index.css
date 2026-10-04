@@ -1,4 +1,7 @@
-@layer tokens, base, shell, ui, features;
+@layer theme, tokens, base, shell, ui, features, utilities;
+
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
 
 @import "./tokens.css" layer(tokens);
 @import "./base.css" layer(base);
@@ -19,3 +22,14 @@
 @import "./features/dev-previews.css" layer(features);
 @import "./features/premium.css" layer(features);
 @import "./light.css" layer(features);
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--text-primary);
+  --color-muted: var(--surface-muted);
+  --color-muted-foreground: var(--text-secondary);
+  --color-border: var(--panel-border);
+  --color-destructive: var(--danger);
+}

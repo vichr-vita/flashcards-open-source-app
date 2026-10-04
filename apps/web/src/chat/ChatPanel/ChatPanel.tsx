@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "../../routing";
 import { buildWorkspaceRoute, settingsAIRoute } from "../../routes";
 import { useAISettings } from "../preferences/useAISettings";
 import { useEffect, useRef, type ReactElement } from "react";

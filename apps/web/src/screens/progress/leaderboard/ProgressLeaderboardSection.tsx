@@ -1,5 +1,5 @@
 import { type ReactElement, type Ref } from "react";
-import { Link } from "react-router";
+import { Link } from "../../../routing";
 import { buildLoginUrl } from "../../../api";
 import { resolveBestLeaderboardPlacement } from "../../../appData/progress/leaderboardPlacement";
 import { useI18n } from "../../../i18n";

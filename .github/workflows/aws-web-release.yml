@@ -181,6 +181,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.5.1
+
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -188,7 +192,6 @@ jobs:
           cache-dependency-path: |
             apps/auth/package-lock.json
             apps/backend/package-lock.json
-            apps/web/package-lock.json
             apps/admin/package-lock.json
             infra/aws/package-lock.json
 
@@ -201,7 +204,7 @@ jobs:
 
       - name: Install web dependencies
         if: ${{ needs.changes.outputs.deploy_web == 'true' }}
-        run: npm ci --prefix apps/web
+        run: pnpm install --frozen-lockfile
 
       - name: Install admin dependencies
         if: ${{ needs.changes.outputs.deploy_admin == 'true' }}
@@ -235,7 +238,7 @@ jobs:
 
       - name: Build web app
         if: ${{ needs.changes.outputs.deploy_web == 'true' }}
-        run: npm run build --prefix apps/web
+        run: pnpm --dir apps/web build
 
       - name: Build admin app
         if: ${{ needs.changes.outputs.deploy_admin == 'true' }}
@@ -324,6 +327,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.5.1
+
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -331,7 +338,6 @@ jobs:
           cache-dependency-path: |
             apps/auth/package-lock.json
             apps/backend/package-lock.json
-            apps/web/package-lock.json
             apps/admin/package-lock.json
             infra/aws/package-lock.json
 
@@ -344,7 +350,7 @@ jobs:
 
       - name: Install web dependencies
         if: ${{ needs.changes.outputs.deploy_web == 'true' }}
-        run: npm ci --prefix apps/web
+        run: pnpm install --frozen-lockfile
 
       - name: Install admin dependencies
         if: ${{ needs.changes.outputs.deploy_admin == 'true' }}
@@ -361,7 +367,7 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ vars.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ vars.SENTRY_WEB_PROJECT }}
-        run: npm run build --prefix apps/web
+        run: pnpm --dir apps/web build
 
       - name: Build admin app
         if: ${{ needs.changes.outputs.deploy_admin == 'true' }}
@@ -640,16 +646,20 @@ jobs:
       - uses: actions/checkout@v7
         timeout-minutes: 5
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.5.1
+
       - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: 24
-          cache: npm
-          cache-dependency-path: apps/web/package-lock.json
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install web dependencies
         timeout-minutes: 5
-        run: npm ci --prefix apps/web
+        run: pnpm install --frozen-lockfile
 
       - name: Build web app for live smoke
         timeout-minutes: 5
@@ -657,7 +667,7 @@ jobs:
           VITE_APP_BASE_URL: https://app.nibomo.com
           VITE_API_BASE_URL: https://api.nibomo.com/v1
           VITE_AUTH_BASE_URL: https://auth.nibomo.com
-        run: npm run build --prefix apps/web
+        run: pnpm --dir apps/web build
 
       - name: Run live web smoke test
         id: live_smoke

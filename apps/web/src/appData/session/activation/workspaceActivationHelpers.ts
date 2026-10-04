@@ -44,7 +44,7 @@ export function findEntryWorkspace(workspaces: ReadonlyArray<WorkspaceSummary>):
  * - `activating`: the run that arrived first is awaiting the activation, and its promise is held so
  *   an overlapping run joins that one instead of firing a second activation of the same workspace.
  *   React 19 `StrictMode` double-invokes the mount effect that calls `initialize()`, so overlapping
- *   runs are every `npm run dev` session rather than an edge case.
+ *   runs are every `pnpm dev` session rather than an edge case.
  * - `activated`: the address put this account in the workspace it names. A second
  *   `resolveInitialWorkspace` — the `sessionLoadState === "error"` retry, `AccountDeletionRecovery-
  *   Gate`, a non-overlapping `StrictMode` remount — resolves to that same workspace again, so it

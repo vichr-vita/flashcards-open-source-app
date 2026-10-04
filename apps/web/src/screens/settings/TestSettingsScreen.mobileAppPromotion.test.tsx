@@ -2,7 +2,7 @@
 
 import { act } from "react";
 import ReactDOM from "react-dom/client";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter } from "../../routing/testRouter";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AppErrorDialogProvider } from "../../appError/AppErrorContext";
 import { createStorageMock } from "../../api/ApiTestSupport";

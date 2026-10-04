@@ -1,44 +1,57 @@
 # Local verification
 
-Run `bash scripts/check.sh` before pushing to your fork. Install the pre-push hook to run it automatically. Hosted fork browser checks remain enabled.
+Run `bash scripts/check.sh` before pushing this private fork. It uses the same
+Rust, PostgreSQL, WebAuthn, and browser flows as the Private Rust stack workflow.
 
 ## Setup
 
-Install Node 24, npm, Python 3, and PostgreSQL server and client tools. Put `initdb`, `pg_ctl`, `createdb`, and `psql` on your PATH.
+Install Docker, Rust through rustup, Node 24, pnpm 12.5.1, and Python 3. The Rust
+toolchain and Clippy configuration match `~/projects/workout`.
 
 ```sh
-npm --prefix apps/auth ci
-npm --prefix apps/backend ci
-npm --prefix apps/web ci
-cd apps/web
-npx playwright install chromium
-cd ../..
-bash scripts/install-hooks.sh
+pnpm install --frozen-lockfile
+npm ci --prefix apps/auth
+npm ci --prefix apps/backend
+pnpm --dir apps/web exec playwright install --with-deps chromium webkit
 bash scripts/check.sh
 ```
 
-On Linux, install Playwright's Chromium system dependencies once.
+The two npm installs support the existing compatibility fixtures. The private
+browser and documentation dependencies use the root pnpm lockfile. The private
+runtime is Rust and does not launch either Node service.
 
-The command requires Node 24. If another version is active and mise is installed, it runs through mise's Node 24.21.0 without changing your global runtime configuration.
-
-The installer sets this clone's local `core.hooksPath` to the absolute path of its tracked `.githooks` directory. Linked worktrees share that setting, including older branches without the scripts. Keep the source checkout available. Rerun the installer after moving it or merging these scripts into your usual checkout. The hook checks the caller's checkout.
+If Node 24 is not active and mise is installed, the check command uses mise's
+Node 24.21.0 without changing the global runtime.
 
 ## What runs
 
-The command runs hook integration checks, builds the disposable auth/backend/web stack, runs the real HTTP/PostgreSQL and local-account browser flows, and checks the review UI in both themes. It uses the same command as Fork browser smoke CI.
+The command checks formatting and strict Clippy, builds the Rust binary, runs
+the migration command twice, and tests real HTTP and PostgreSQL contracts under
+the restricted runtime roles. It checks generated TypeScript types, builds the
+browser and Astro/MDX docs, then exercises passkey account management, chat,
+offline sync, and browser review flows. Playwright covers Chromium and narrow
+WebKit layouts with populated screens and open dialogs.
 
-Hosted checks run on matching changes pushed to vichr-fork and on PRs targeting that branch. Feature pushes do not also run the fork workflow.
+Each run starts a fresh PostgreSQL 16 container on loopback port 29432. It first
+applies the installed SQL history, then tests the Rust runner against the same
+filename ledger. An occupied port fails startup. The script never connects to
+an existing database and removes its own container on exit. Inherited production
+database URLs do not select the fixture database.
 
-Local checks create a fresh PostgreSQL cluster on loopback port 19432, apply migrations to that isolated database, and remove it on success or failure. They ignore inherited PostgreSQL connection settings and migration credentials. An occupied port makes startup fail; the command never reuses an existing database. Run it as your ordinary user with PostgreSQL server binaries installed.
+The HTTP fixture also needs ports 19400, 19401, 19402, 19411, and 4318. Its
+software authenticator and ChatGPT provider contain throwaway credentials.
+These checks contact no production services and run no AWS deployment commands.
 
-The existing fixture also uses ports 19400, 19401, 19411, and 4318. Its disposable web build goes to `/tmp/nibomo-local-web`. These checks do not use development accounts, deployed services, or AWS deployment commands.
+## Push hook
 
-CI uses `bash scripts/check.sh --ci` after creating and migrating its disposable PostgreSQL container.
+```sh
+bash scripts/install-hooks.sh
+```
 
-## Push behavior
+The installer sets this repository's local `core.hooksPath`. Linked worktrees
+share it, so keep the checkout containing the hook available. The hook checks
+the caller's checkout, refuses dirty work or an outgoing revision other than
+HEAD, and verifies it again after the checks. It never stashes or resets files.
 
-The hook rejects pushes from a dirty checkout, including untracked files, and rejects outgoing revisions other than the checked-out commit. Failed verification blocks the push. Annotated tags pointing to the checked-out commit are checked too; deletions skip verification.
-
-It checks the checkout again afterward and never stashes or resets changes. Hooks are local and do not run when a PR is opened or merged on GitHub. `git push --no-verify` deliberately bypasses them.
-
-Run `bash scripts/test-hooks.sh` to test push behavior against disposable local Git repositories.
+`bash scripts/test-hooks.sh` exercises push behavior against disposable Git
+repositories. `git push --no-verify` deliberately bypasses the hook.

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "../routing";
 import { restoreCurrentAnalyticsSurface, trackScreenViewed } from "./client";
 import type { AnalyticsSurface } from "./events";
 import { resolveAnalyticsSurface } from "./surfaces";

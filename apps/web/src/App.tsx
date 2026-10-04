@@ -1,5 +1,8 @@
 import { Suspense, lazy, useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactElement } from "react";
-import { BrowserRouter, Link, NavLink, Navigate, Route, Routes as RouterRoutes, useLocation, useNavigate, useParams } from "react-router";
+import { createRootRoute, createRoute, createRouter, Outlet, RouterProvider } from "@tanstack/react-router";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Link, NavLink, Navigate, routeSearchOptions, toTanStackPath, useLocation, useNavigate, useParams } from "./routing";
+import { serverQueryClient } from "./api/queryClient";
 import { AccountAccentTheme } from "./premium/accentColor";
 import { PremiumProvider } from "./premium/PremiumProvider";
 import { AccountMenu } from "./AccountMenu";
@@ -28,7 +31,7 @@ import { ChatToggle } from "./chat/layout/ChatToggle";
 import { AnchoredFloatingOverlay, useAnchoredFloatingOutsidePointerDismiss, type AnchoredFloatingOverlayMinimumWidth } from "./floating";
 import { useAppErrorDialog } from "./appError/AppErrorContext";
 import { type TranslationKey, useI18n } from "./i18n";
-import { AppErrorBoundary, wrapRoutesComponent } from "./observability/instrument";
+import { AppErrorBoundary, instrumentAppRouter } from "./observability/instrument";
 import {
   accountAgentConnectionsRoute,
   accountDangerZoneRoute,
@@ -92,8 +95,6 @@ import { FriendInviteScreen } from "./screens/invite/FriendInviteScreen";
 import { ProgressScreen } from "./screens/progress/ProgressScreen";
 import { ReviewScreen } from "./screens/review/ReviewScreen";
 import { ShareAppScreen } from "./screens/share/ShareAppScreen";
-
-const SentryRoutes = wrapRoutesComponent(RouterRoutes);
 
 type PrimaryNavigationItem = {
   readonly route: string;
@@ -996,110 +997,7 @@ export function RoutedShell(): ReactElement {
         </Suspense>
       ) : null}
       <div ref={contentRef} className={contentClassName}>
-        <SentryRoutes>
-          <Route path={workspaceRoutePattern} element={<Navigate replace to={reviewRoute} />} />
-          <Route path={`${workspaceRoutePattern}${cardsRoute}`} element={<CardsScreen />} />
-          <Route path={`${workspaceRoutePattern}${cardsRoute}/new`} element={<CardFormScreen />} />
-          <Route path={`${workspaceRoutePattern}${cardsRoute}/:cardId`} element={<CardFormScreen />} />
-          <Route path={`${workspaceRoutePattern}/decks`} element={<Navigate replace to={settingsDecksRoute} />} />
-          <Route path={`${workspaceRoutePattern}/decks/new`} element={<Navigate replace to={settingsDeckNewRoute} />} />
-          <Route path={`${workspaceRoutePattern}/decks/:deckId/edit`} element={<LegacyDeckEditRedirect />} />
-          <Route path={`${workspaceRoutePattern}/decks/:deckId`} element={<LegacyDeckDetailRedirect />} />
-          <Route path={`${workspaceRoutePattern}/tags`} element={<Navigate replace to={settingsTagsRoute} />} />
-          <Route path={`${workspaceRoutePattern}${reviewRoute}`} element={<ReviewScreen />} />
-          <Route path={`${workspaceRoutePattern}${progressRoute}`} element={<ProgressScreen />} />
-          <Route path={`${workspaceRoutePattern}${settingsHubRoute}`} element={renderDeferredRoute(<SettingsScreen />, "loading.settings")} />
-          <Route
-            path={`${workspaceRoutePattern}${settingsCurrentWorkspaceRoute}`}
-            element={renderDeferredRoute(<CurrentWorkspaceScreen />, "loading.currentWorkspace")}
-          />
-          <Route path={`${workspaceRoutePattern}${settingsFeedbackRoute}`} element={renderDeferredRoute(<FeedbackSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsLanguageRoute}`} element={renderDeferredRoute(<LanguageSettingsScreen />, "loading.deviceDetails")} />
-          <Route path={`${workspaceRoutePattern}${settingsLeaderboardParticipationRoute}`} element={renderDeferredRoute(<LeaderboardParticipationSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsServerRoute}`} element={renderDeferredRoute(<ServerSettingsInfoScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAccessRoute}`} element={renderDeferredRoute(<AccessSettingsScreen />, "loading.accessSettings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAccessDetailRoutePattern}`} element={renderDeferredRoute(<AccessPermissionDetailScreen />, "loading.accessDetails")} />
-          <Route path={`${workspaceRoutePattern}${settingsNotificationsRoute}`} element={renderDeferredRoute(<NotificationsSettingsScreen />, "loading.notificationSettings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAccentColorRoute}`} element={renderDeferredRoute(<AccentColorSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAppearanceRoute}`} element={renderDeferredRoute(<AppearanceSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsReviewAnimationsRoute}`} element={renderDeferredRoute(<ReviewAnimationsSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAIChatSuggestionsRoute}`} element={renderDeferredRoute(<AIChatSuggestionsSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsSubscriptionRoute}`} element={renderDeferredRoute(<SubscriptionSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAIRoute}`} element={renderDeferredRoute(<AISettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsOwnOpenAIKeyRoute}`} element={renderDeferredRoute(<OwnOpenAIKeySettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsAnalyticsRoute}`} element={renderDeferredRoute(<AnalyticsSettingsScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsSchedulerRoute}`} element={renderDeferredRoute(<WorkspaceSchedulerScreen />, "loading.schedulerSettings")} />
-          <Route path={`${workspaceRoutePattern}${settingsImportRoute}`} element={renderDeferredRoute(<WorkspaceImportScreen />, "loading.importSettings")} />
-          <Route path={`${workspaceRoutePattern}${settingsExportRoute}`} element={renderDeferredRoute(<WorkspaceExportScreen />, "loading.exportSettings")} />
-          <Route path={`${workspaceRoutePattern}${settingsResetStudyProgressRoute}`} element={renderDeferredRoute(<ResetStudyProgressScreen />, "loading.settings")} />
-          <Route path={`${workspaceRoutePattern}${settingsDeleteCurrentWorkspaceRoute}`} element={renderDeferredRoute(<DeleteCurrentWorkspaceScreen />, "loading.currentWorkspace")} />
-          <Route path={`${workspaceRoutePattern}${settingsDecksRoute}`} element={renderDeferredRoute(<DecksScreen />, "loading.decks")} />
-          <Route path={`${workspaceRoutePattern}${settingsDeckNewRoute}`} element={renderDeferredRoute(<DeckFormScreen />, "loading.deckEditor")} />
-          <Route path={`${workspaceRoutePattern}${settingsDecksRoute}/:deckId/edit`} element={renderDeferredRoute(<DeckFormScreen />, "loading.deckEditor")} />
-          <Route path={`${workspaceRoutePattern}${settingsDecksRoute}/:deckId`} element={renderDeferredRoute(<DeckDetailScreen />, "loading.deckDetails")} />
-          <Route path={`${workspaceRoutePattern}${settingsTagsRoute}`} element={renderDeferredRoute(<TagsScreen />, "loading.tags")} />
-          <Route path={`${workspaceRoutePattern}${settingsDeviceRoute}`} element={renderDeferredRoute(<ThisDeviceSettingsScreen />, "loading.deviceDetails")} />
-          <Route
-            path={`${workspaceRoutePattern}${settingsTestRoute}`}
-            element={renderDeferredRoute((
-              <TestModeRouteGuard>
-                <TestSettingsScreen />
-              </TestModeRouteGuard>
-            ), "loading.testSettings")}
-          />
-          <Route
-            path={`${workspaceRoutePattern}${settingsTestAnimationsRoute}`}
-            element={renderDeferredRoute((
-              <TestModeRouteGuard>
-                <TestAnimationsScreen />
-              </TestModeRouteGuard>
-            ), "loading.testAnimations")}
-          />
-          <Route
-            path={`${workspaceRoutePattern}${settingsTestAppPlatformLinksRoute}`}
-            element={renderDeferredRoute((
-              <TestModeRouteGuard>
-                <TestAppPlatformLinksScreen />
-              </TestModeRouteGuard>
-            ), "loading.testAppPlatformLinks")}
-          />
-          <Route
-            path={`${workspaceRoutePattern}${settingsTestCatalogImportSuccessRoute}`}
-            element={renderDeferredRoute((
-              <TestModeRouteGuard>
-                <TestCatalogImportSuccessScreen />
-              </TestModeRouteGuard>
-            ), "loading.testCatalogImportSuccess")}
-          />
-          <Route
-            path={`${workspaceRoutePattern}${settingsTestLocalSyncDiagnosticsRoute}`}
-            element={renderDeferredRoute((
-              <TestModeRouteGuard>
-                <TestLocalSyncDiagnosticsScreen />
-              </TestModeRouteGuard>
-            ), "loading.testSettings")}
-          />
-          <Route path={`${workspaceRoutePattern}${accountStatusRoute}`} element={renderDeferredRoute(<AccountStatusScreen />, "loading.accountStatus")} />
-          <Route path={`${workspaceRoutePattern}${accountOpenSourceRoute}`} element={renderDeferredRoute(<OpenSourceSettingsScreen />, "loading.openSourceSettings")} />
-          <Route path={`${workspaceRoutePattern}${accountAgentConnectionsRoute}`} element={renderDeferredRoute(<AgentConnectionsScreen />, "loading.agentConnections")} />
-          <Route path={`${workspaceRoutePattern}${accountDangerZoneRoute}`} element={renderDeferredRoute(<DangerZoneScreen />, "loading.dangerZone")} />
-          <Route
-            path={`${workspaceRoutePattern}${chatRoute}`}
-            element={(
-              <Suspense fallback={(
-                <main className="container chat-page">
-                  <FullscreenChatFallback />
-                </main>
-              )}
-              >
-                <main className="container chat-page">
-                  <ChatPanel mode="fullscreen" />
-                </main>
-              </Suspense>
-            )}
-          />
-          <Route path="/*" element={<LegacyFlatPathRedirect />} />
-        </SentryRoutes>
+        <Outlet />
       </div>
       {!isFullscreenChat && !isOpen ? <ChatToggle /> : null}
     </div>
@@ -1127,39 +1025,100 @@ function AuthenticatedApp(): ReactElement {
   );
 }
 
+function AppRouterLayout(): ReactElement {
+  return (
+    <>
+      <AnalyticsLifecycle />
+      <AnalyticsConsentBanner />
+      <PublicAnalyticsConsentLink />
+      <AppErrorDialogProvider>
+        <TestModeProvider>
+          <Outlet />
+        </TestModeProvider>
+      </AppErrorDialogProvider>
+    </>
+  );
+}
+
+const rootRoute = createRootRoute({ component: AppRouterLayout });
+const authenticatedRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  id: "authenticated",
+  component: AuthenticatedApp,
+});
+
+// Keep the established HTTP/bookmark paths while TanStack owns route matching and history.
+const authenticatedRoutes = [
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(workspaceRoutePattern), component: () => (<Navigate replace to={reviewRoute} />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${cardsRoute}`), component: () => (<CardsScreen />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${cardsRoute}/new`), component: () => (<CardFormScreen />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${cardsRoute}/:cardId`), component: () => (<CardFormScreen />), remountDeps: ({ params }) => params }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}/decks`), component: () => (<Navigate replace to={settingsDecksRoute} />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}/decks/new`), component: () => (<Navigate replace to={settingsDeckNewRoute} />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}/decks/:deckId/edit`), component: () => (<LegacyDeckEditRedirect />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}/decks/:deckId`), component: () => (<LegacyDeckDetailRedirect />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}/tags`), component: () => (<Navigate replace to={settingsTagsRoute} />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${reviewRoute}`), component: () => (<ReviewScreen />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${progressRoute}`), component: () => (<ProgressScreen />) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsHubRoute}`), component: () => (renderDeferredRoute(<SettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsFeedbackRoute}`), component: () => (renderDeferredRoute(<FeedbackSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsLanguageRoute}`), component: () => (renderDeferredRoute(<LanguageSettingsScreen />, "loading.deviceDetails")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsLeaderboardParticipationRoute}`), component: () => (renderDeferredRoute(<LeaderboardParticipationSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsServerRoute}`), component: () => (renderDeferredRoute(<ServerSettingsInfoScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAccessRoute}`), component: () => (renderDeferredRoute(<AccessSettingsScreen />, "loading.accessSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAccessDetailRoutePattern}`), component: () => (renderDeferredRoute(<AccessPermissionDetailScreen />, "loading.accessDetails")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsNotificationsRoute}`), component: () => (renderDeferredRoute(<NotificationsSettingsScreen />, "loading.notificationSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAccentColorRoute}`), component: () => (renderDeferredRoute(<AccentColorSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAppearanceRoute}`), component: () => (renderDeferredRoute(<AppearanceSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsReviewAnimationsRoute}`), component: () => (renderDeferredRoute(<ReviewAnimationsSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAIChatSuggestionsRoute}`), component: () => (renderDeferredRoute(<AIChatSuggestionsSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsSubscriptionRoute}`), component: () => (renderDeferredRoute(<SubscriptionSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAIRoute}`), component: () => (renderDeferredRoute(<AISettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsOwnOpenAIKeyRoute}`), component: () => (renderDeferredRoute(<OwnOpenAIKeySettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsAnalyticsRoute}`), component: () => (renderDeferredRoute(<AnalyticsSettingsScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsSchedulerRoute}`), component: () => (renderDeferredRoute(<WorkspaceSchedulerScreen />, "loading.schedulerSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsImportRoute}`), component: () => (renderDeferredRoute(<WorkspaceImportScreen />, "loading.importSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsExportRoute}`), component: () => (renderDeferredRoute(<WorkspaceExportScreen />, "loading.exportSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsResetStudyProgressRoute}`), component: () => (renderDeferredRoute(<ResetStudyProgressScreen />, "loading.settings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDeleteCurrentWorkspaceRoute}`), component: () => (renderDeferredRoute(<DeleteCurrentWorkspaceScreen />, "loading.currentWorkspace")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDecksRoute}`), component: () => (renderDeferredRoute(<DecksScreen />, "loading.decks")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDeckNewRoute}`), component: () => (renderDeferredRoute(<DeckFormScreen />, "loading.deckEditor")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDecksRoute}/:deckId/edit`), component: () => (renderDeferredRoute(<DeckFormScreen />, "loading.deckEditor")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDecksRoute}/:deckId`), component: () => (renderDeferredRoute(<DeckDetailScreen />, "loading.deckDetails")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsTagsRoute}`), component: () => (renderDeferredRoute(<TagsScreen />, "loading.tags")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${settingsDeviceRoute}`), component: () => (renderDeferredRoute(<ThisDeviceSettingsScreen />, "loading.deviceDetails")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${accountStatusRoute}`), component: () => (renderDeferredRoute(<AccountStatusScreen />, "loading.accountStatus")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${accountOpenSourceRoute}`), component: () => (renderDeferredRoute(<OpenSourceSettingsScreen />, "loading.openSourceSettings")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${accountAgentConnectionsRoute}`), component: () => (renderDeferredRoute(<AgentConnectionsScreen />, "loading.agentConnections")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: toTanStackPath(`${workspaceRoutePattern}${accountDangerZoneRoute}`), component: () => (renderDeferredRoute(<DangerZoneScreen />, "loading.dangerZone")) }),
+  createRoute({ getParentRoute: () => authenticatedRoute, path: "$", component: () => (<LegacyFlatPathRedirect />) }),
+ ];
+const publicRoutes = [
+  createRoute({ getParentRoute: () => rootRoute, path: toTanStackPath(friendInviteRoutePattern), component: () => (<FriendInviteScreen />) }),
+  createRoute({ getParentRoute: () => rootRoute, path: toTanStackPath(shareRoute), component: () => (<ShareAppScreen />) }),
+ ];
+
+export const appRouter = createRouter({
+  ...routeSearchOptions,
+  routeTree: rootRoute.addChildren([
+    ...publicRoutes,
+    authenticatedRoute.addChildren(authenticatedRoutes),
+  ]),
+  caseSensitive: false,
+  trailingSlash: "preserve",
+  defaultPendingMs: 0,
+  defaultPendingMinMs: 0,
+  defaultErrorComponent: AppCrashFallback,
+});
+
+instrumentAppRouter(appRouter);
+
 export default function App(): ReactElement {
   return (
     <AppErrorBoundary fallback={<AppCrashFallback />}>
-      <BrowserRouter>
-        <AnalyticsLifecycle />
-        {/* Outside the routes, so every surface a visitor can land on asks on the same terms. */}
-        <AnalyticsConsentBanner />
-        {/* The answer given on a public route has to be takeable back there too, so the withdrawal
-            control sits beside the strip that asked. It renders itself only on the routes below,
-            and only once the question has been answered. */}
-        <PublicAnalyticsConsentLink />
-        <AppErrorDialogProvider>
-          <TestModeProvider>
-            <SentryRoutes>
-              <Route
-                path={friendInvitePreviewIndexRoute}
-                element={renderDeferredRoute(<FriendInvitePreviewScreen />, "friendInvite.loading")}
-              />
-              <Route
-                path={friendInvitePreviewRoutePattern}
-                element={renderDeferredRoute(<FriendInvitePreviewScreen />, "friendInvite.loading")}
-              />
-              <Route path={friendInviteRoutePattern} element={<FriendInviteScreen />} />
-              <Route
-                path={catalogImportRoutePattern}
-                element={renderDeferredRoute(<CatalogImportScreen />, "catalogImport.loading")}
-              />
-              <Route path={shareRoute} element={<ShareAppScreen />} />
-              <Route path="/*" element={<AuthenticatedApp />} />
-            </SentryRoutes>
-          </TestModeProvider>
-        </AppErrorDialogProvider>
-      </BrowserRouter>
+      <QueryClientProvider client={serverQueryClient}>
+        <RouterProvider router={appRouter} />
+      </QueryClientProvider>
     </AppErrorBoundary>
   );
 }

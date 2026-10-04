@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactElement } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "../routing";
 import { updateAccountPreferences } from "../api";
 import { AnchoredFloatingOverlay, useAnchoredFloatingOutsidePointerDismiss } from "../floating";
 import { useI18n } from "../i18n";

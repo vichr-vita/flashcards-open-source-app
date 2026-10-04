@@ -23,7 +23,7 @@ else
 fi
 
 if [[ ! -d "$RESOLVED_DIST_DIR" ]]; then
-  echo "ERROR: Build output not found at $RESOLVED_DIST_DIR. Run npm run build --prefix apps/web first." >&2
+  echo "ERROR: Build output not found at $RESOLVED_DIST_DIR. Run pnpm --dir apps/web build first." >&2
   exit 1
 fi
 

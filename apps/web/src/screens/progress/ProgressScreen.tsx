@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "../../routing";
 import { useAppData } from "../../appData";
 import { useAppErrorDialog } from "../../appError/AppErrorContext";
 import {

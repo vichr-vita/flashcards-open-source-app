@@ -1,6 +1,6 @@
 import { act } from "react";
 import ReactDOM from "react-dom/client";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter } from "../../routing/testRouter";
 import { afterEach, beforeEach, vi } from "vitest";
 import type { AppDataContextValue } from "../../appData";
 import { AppErrorDialogProvider } from "../../appError/AppErrorContext";

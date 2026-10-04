@@ -1,0 +1,36 @@
+---
+layout: ../layouts/Document.astro
+title: Database migrations
+---
+
+# Database migrations
+
+The Rust migration command reads the existing SQL files through SQLx and keeps
+`public.schema_migrations`. That table tracks full filenames. Some historical
+files share numeric prefixes, so the standard SQLx numeric-version migrator
+cannot interpret this history safely.
+
+```sh
+cargo run --locked -- migrate --directory db
+```
+
+Set the owner connection in `MIGRATION_DATABASE_URL`. The command takes an
+advisory lock, skips installed filenames, and runs each pending file and its
+ledger insert in one transaction. It then applies the existing SQL views.
+It reads `db/migrations` first and additive Rust files in `db/rust-migrations`
+second. Keep historical migrations unchanged.
+
+The Raspberry Pi uses isolated runtime roles. Supply its actual names with
+`--backend-role`, `--auth-role`, and `--reporting-role`. The command substitutes
+those reviewed identifiers in SQL at execution time. It does not rotate role
+passwords, create an account, reset passkeys, or recreate card data.
+
+Before a production cutover, restore a backup into an isolated PostgreSQL 16
+database, run this command on the restored copy, and compare IDs, cards, reviews,
+replicas, cursor sequences, credentials, and session behavior. Then run the
+browser flows against that isolated copy. A production deployment and any
+database restore need their own authorization.
+
+Retain the Pi's database volume, protected configuration, passkey RP hostname,
+CSRF secret, and ChatGPT connection directory during a cutover. Keep the old
+images and release metadata available for rollback.

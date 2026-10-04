@@ -1,3 +1,4 @@
+import { Schema } from "effect";
 import {
   ApiContractError,
   enrichApiContractError,
@@ -8,6 +9,8 @@ import {
   createApiNetworkError,
   type ApiResponseBodyKind,
 } from "./errors";
+
+const decodeJson = Schema.decodeUnknownSync(Schema.parseJson(Schema.Unknown));
 
 type JsonObject = Readonly<{
   readonly [key: string]: unknown;
@@ -133,7 +136,7 @@ export async function readJsonResponse(response: Response): Promise<ParsedRespon
   }
 
   try {
-    const value = JSON.parse(text) as unknown;
+    const value = decodeJson(text);
     return {
       value,
       bodyKind: "json",

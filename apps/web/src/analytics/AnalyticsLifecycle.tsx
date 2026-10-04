@@ -1,5 +1,5 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "../routing";
 import {
   endAnalyticsScreenVisit,
   setCurrentAnalyticsSurface,

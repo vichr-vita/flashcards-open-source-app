@@ -1,3 +1,9 @@
+import { Schema } from "effect";
+const isString = Schema.is(Schema.String);
+const isFiniteNumber = Schema.is(Schema.Number.pipe(Schema.finite()));
+const isNonNegativeInteger = Schema.is(Schema.Number.pipe(Schema.int(), Schema.nonNegative()));
+const isBoolean = Schema.is(Schema.Boolean);
+
 export type JsonObject = Readonly<Record<string, unknown>>;
 export type LiteralValue = string | number | boolean | null;
 export type ValueParser<ParsedValue> = (value: unknown, endpoint: string, path: string) => ParsedValue;
@@ -59,7 +65,7 @@ function hasOwn(objectValue: JsonObject, key: string): boolean {
 }
 
 export function parseString(value: unknown, endpoint: string, path: string): string {
-  if (typeof value !== "string") {
+  if (!isString(value)) {
     throw new ApiContractError(endpoint, describePath(path), "string");
   }
 
@@ -75,7 +81,7 @@ export function parseNullableString(value: unknown, endpoint: string, path: stri
 }
 
 export function parseNumber(value: unknown, endpoint: string, path: string): number {
-  if (typeof value !== "number" || Number.isFinite(value) === false) {
+  if (!isFiniteNumber(value)) {
     throw new ApiContractError(endpoint, describePath(path), "number");
   }
 
@@ -84,7 +90,7 @@ export function parseNumber(value: unknown, endpoint: string, path: string): num
 
 export function parseNonNegativeInteger(value: unknown, endpoint: string, path: string): number {
   const parsedValue = parseNumber(value, endpoint, path);
-  if (Number.isInteger(parsedValue) === false || parsedValue < 0) {
+  if (!isNonNegativeInteger(parsedValue)) {
     throw new ApiContractError(endpoint, describePath(path), "non-negative integer");
   }
 
@@ -100,7 +106,7 @@ export function parseNullableNumber(value: unknown, endpoint: string, path: stri
 }
 
 export function parseBoolean(value: unknown, endpoint: string, path: string): boolean {
-  if (typeof value !== "boolean") {
+  if (!isBoolean(value)) {
     throw new ApiContractError(endpoint, describePath(path), "boolean");
   }
 

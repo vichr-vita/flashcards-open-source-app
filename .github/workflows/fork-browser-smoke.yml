@@ -1,85 +1,67 @@
-name: Fork browser smoke
+name: Private Rust stack
 
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
     branches: [vichr-fork]
     paths:
+      - apps/server/**
       - apps/web/**
-      - apps/auth/**
-      - apps/backend/**
+      - apps/auth/browser/**
+      - apps/auth/integration/**
+      - apps/docs/**
+      - apps/backend/src/scheduling/**
+      - vendor/**
+      - infra/private/**
+      - .dockerignore
       - db/**
-      - scripts/deploy/migrate.sh
-      - scripts/check.sh
-      - scripts/with-test-db.sh
-      - scripts/test-hooks.sh
-      - .githooks/**
-      - .github/workflows/fork-browser-smoke.yml
-  pull_request:
-    branches: [vichr-fork]
-    paths:
-      - apps/web/**
-      - apps/auth/**
-      - apps/backend/**
-      - db/**
-      - scripts/deploy/migrate.sh
-      - scripts/check.sh
-      - scripts/with-test-db.sh
-      - scripts/test-hooks.sh
-      - .githooks/**
+      - Cargo.toml
+      - Cargo.lock
+      - rust-toolchain.toml
+      - clippy.toml
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - scripts/check*.sh
+      - scripts/with*test-db.sh
+      - scripts/build-passkey.mjs
       - .github/workflows/fork-browser-smoke.yml
 
 permissions:
   contents: read
 
 jobs:
-  local-account-browser:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+  private-stack:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 24.21.0
-          cache: npm
-          cache-dependency-path: |
-            apps/auth/package-lock.json
-            apps/backend/package-lock.json
-            apps/web/package-lock.json
-      - name: Install the disposable browser stack
+          version: 12.5.1
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install the repository Rust toolchain
+        run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@v2
+      - name: Install browser and compatibility-fixture dependencies
         run: |
-          npm --prefix apps/auth ci
-          npm --prefix apps/backend ci
-          npm --prefix apps/web ci
-          cd apps/web
-          npx playwright install --with-deps chromium webkit
-      - name: Create the isolated database
-        run: |
-          docker run -d --name nibomo-local-auth-test \
-            -p 127.0.0.1:19432:5432 \
-            -e POSTGRES_USER=flashcards_owner -e POSTGRES_DB=flashcards \
-            -e POSTGRES_HOST_AUTH_METHOD=trust \
-            -v "$PWD:/workspace:ro" postgres:16
-          for _attempt in $(seq 1 60); do
-            if docker exec nibomo-local-auth-test pg_isready -U flashcards_owner -d flashcards; then break; fi
-            sleep 1
-          done
-          docker exec -e MIGRATION_DATABASE_URL=postgresql://flashcards_owner@localhost/flashcards \
-            nibomo-local-auth-test bash /workspace/scripts/deploy/migrate.sh
-      - name: Verify the disposable account and review UI
-        run: bash scripts/check.sh --ci
-      - uses: actions/upload-artifact@v4
+          pnpm install --frozen-lockfile
+          npm ci --prefix apps/auth
+          npm ci --prefix apps/backend
+          pnpm --dir apps/web exec playwright install --with-deps chromium webkit
+      - name: Build the private browser Docker stage
+        run: docker build --target browser --file infra/private/Dockerfile --tag lingvichr-private-browser-check .
+      - name: Verify Rust, preserved database contracts, and browser flows
+        run: bash scripts/check-rust-stack.sh
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: review-ui-results
-          path: apps/web/test-results/review-ui
+          name: private-stack-browser-results
+          path: apps/web/test-results
           if-no-files-found: ignore
           retention-days: 7
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: fork-browser-results
-          path: apps/web/test-results
-          retention-days: 7
-      - name: Remove the disposable database
-        if: always()
-        run: docker rm -f nibomo-local-auth-test || true

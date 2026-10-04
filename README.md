@@ -1,6 +1,6 @@
 # Nibomo
 
-This fork adds a single-account, browser-only self-hosted mode with WebAuthn passkeys. See the [local authentication guide](docs/self-hosted-local-auth.md) for setup, recovery, PWA behavior, and isolated verification. Native clients and external agent authentication are disabled in local mode. The upstream product information follows.
+This private fork uses Rust, Axum, Tokio, and SQLx with the existing PostgreSQL data model. Its React 19 browser preserves the current UI and offline behavior. Read the [private stack guide](docs/private-rust-stack.md) and [passkey guide](docs/self-hosted-local-auth.md) for setup, recovery, and verification. Local MCP is available through explicitly enabled owner agent keys. Native clients remain outside this installation's scope. The upstream product information follows.
 
 AI-powered open-source flashcards app for iOS, Android, and web.
 
