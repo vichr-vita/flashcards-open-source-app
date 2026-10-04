@@ -129,7 +129,7 @@ async fn owner_binding(state: &AppState, key: &str) -> Result<()> {
     Ok(())
 }
 
-async fn transport_contract(mcp: &Mcp) -> Result<()> {
+async fn initialize_and_list(mcp: &Mcp) -> Result<()> {
     let initialize = mcp.rpc("initialize",&json!({"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"integration","version":"1"}})).await?;
     ensure!(
         initialize.pointer("/result/protocolVersion") == Some(&json!("2025-06-18"))
@@ -149,6 +149,17 @@ async fn transport_contract(mcp: &Mcp) -> Result<()> {
                     && tool.get("outputSchema").is_some_and(Value::is_object)),
         "Shared tool contracts missing"
     );
+    Ok(())
+}
+
+async fn transport_contract(mcp: &Mcp) -> Result<()> {
+    initialize_and_list(mcp).await?;
+    let alias = Mcp {
+        client: mcp.client.clone(),
+        url: format!("{}/", mcp.url),
+        key: mcp.key.clone(),
+    };
+    initialize_and_list(&alias).await?;
     let notification = mcp
         .request()
         .json(&json!({"jsonrpc":"2.0","method":"notifications/initialized"}))

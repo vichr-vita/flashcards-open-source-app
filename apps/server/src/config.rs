@@ -17,6 +17,27 @@ pub struct Config {
 }
 
 impl Config {
+    /// Resolve the most specific configured cookie domain for this request host.
+    ///
+    /// # Errors
+    /// Returns an error when the request host is absent or outside the configured candidates.
+    pub fn cookie_domain_for_host(&self, request_host: Option<&str>) -> Result<String> {
+        let host = request_host
+            .and_then(normalize_host)
+            .ok_or_else(|| eyre!("Request carries no usable Host header for COOKIE_DOMAIN"))?;
+        self.cookie_domain
+            .split(',')
+            .filter_map(normalize_host)
+            .filter(|candidate| {
+                host == *candidate
+                    || host
+                        .strip_suffix(candidate)
+                        .is_some_and(|prefix| prefix.ends_with('.'))
+            })
+            .max_by_key(String::len)
+            .ok_or_else(|| eyre!("Request host is outside the configured COOKIE_DOMAIN candidates"))
+    }
+
     /// Read and validate a backend or combined service configuration.
     ///
     /// # Errors
@@ -68,8 +89,18 @@ impl Config {
         }
         let cookie_domain = env::var("COOKIE_DOMAIN")
             .unwrap_or_else(|_| parsed_auth.host_str().unwrap_or_default().to_owned());
-        if cookie_domain.contains(['/', ':', ' ', ';']) || cookie_domain.is_empty() {
-            return Err(eyre!("COOKIE_DOMAIN must contain a hostname"));
+        let cookie_candidates = cookie_domain
+            .split(',')
+            .filter_map(normalize_host)
+            .collect::<Vec<_>>();
+        if cookie_candidates.is_empty()
+            || cookie_candidates
+                .iter()
+                .any(|candidate| candidate.contains(['/', ':', ' ', ';']))
+        {
+            return Err(eyre!(
+                "COOKIE_DOMAIN must contain comma-separated hostnames"
+            ));
         }
         let local_mcp_user_id = match env::var("LOCAL_MCP_ENABLED").ok().as_deref() {
             None | Some("false") => None,
@@ -101,6 +132,24 @@ impl Config {
             local_mcp_user_id,
         })
     }
+}
+
+fn normalize_host(value: &str) -> Option<String> {
+    let value = value.trim().to_lowercase();
+    let without_port = value
+        .rsplit_once(':')
+        .map_or(value.as_str(), |(host, port)| {
+            if !port.is_empty()
+                && port.bytes().all(|byte| byte.is_ascii_digit())
+                && (!value.starts_with('[') || host.ends_with(']'))
+            {
+                host
+            } else {
+                &value
+            }
+        });
+    let host = without_port.strip_suffix('.').unwrap_or(without_port);
+    (!host.is_empty()).then(|| host.to_owned())
 }
 
 fn origin(value: &str, allow_http: bool) -> Result<String> {

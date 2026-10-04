@@ -56,7 +56,7 @@ async fn verify(state: AppState, owner: &PgPool, user: Uuid, token: &str) -> Res
         .await
         .map_err(|error| eyre!("{}", error.message))?;
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await?;
-    let base = format!("http://{}", listener.local_addr()?);
+    let base = format!("http://localhost:{}", listener.local_addr()?.port());
     let server = tokio::spawn(
         axum::serve(
             listener,

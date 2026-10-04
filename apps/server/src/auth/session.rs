@@ -253,21 +253,27 @@ pub(super) fn redirect_response(url: &Url) -> Result<Response, ApiError> {
     Ok(response)
 }
 
+#[derive(Clone, Copy)]
+pub(super) enum CookieScope<'a> {
+    Login,
+    Browser(Option<&'a str>),
+}
+
 pub(super) fn set_cookie(
     response: &mut Response,
     config: &Config,
     name: &str,
     token: &str,
     http_only: bool,
-    login: bool,
+    scope: CookieScope<'_>,
     clear: bool,
 ) -> Result<(), ApiError> {
     let secure = if config.allow_http { "" } else { "; Secure" };
     let private = if http_only { "; HttpOnly" } else { "" };
-    let domain = if login || config.cookie_domain.is_empty() {
-        String::new()
-    } else {
-        format!("; Domain={}", config.cookie_domain)
+    let login = matches!(scope, CookieScope::Login);
+    let domain = match scope {
+        CookieScope::Browser(Some(domain)) => format!("; Domain={domain}"),
+        CookieScope::Browser(None) | CookieScope::Login => String::new(),
     };
     let same_site = if login { "Strict" } else { "Lax" };
     let max_age = if clear {
@@ -290,19 +296,30 @@ pub(super) fn set_cookie(
 pub(super) fn browser_cookies(
     response: &mut Response,
     config: &Config,
+    headers: &HeaderMap,
     session: &str,
     refresh: &str,
     clear: bool,
 ) -> Result<(), ApiError> {
-    set_cookie(response, config, "session", session, true, false, clear)?;
-    set_cookie(response, config, "refresh", refresh, true, false, clear)?;
+    let domain = if config.cookie_domain.is_empty() {
+        None
+    } else {
+        Some(
+            config
+                .cookie_domain_for_host(header_text(headers, "host"))
+                .map_err(unavailable)?,
+        )
+    };
+    let scope = CookieScope::Browser(domain.as_deref());
+    set_cookie(response, config, "session", session, true, scope, clear)?;
+    set_cookie(response, config, "refresh", refresh, true, scope, clear)?;
     set_cookie(
         response,
         config,
         "logged_in",
         if clear { "" } else { "1" },
         false,
-        false,
+        scope,
         clear,
     )
 }
@@ -357,6 +374,7 @@ pub(super) async fn refresh(
     browser_cookies(
         &mut response,
         &state.config,
+        &headers,
         session.unwrap_or_default(),
         refresh.unwrap_or_default(),
         !valid,
@@ -414,14 +432,14 @@ async fn logout_response(
         url.query_pairs_mut().append_pair("account_deleted", "1");
     }
     let mut response = redirect_response(&url)?;
-    browser_cookies(&mut response, &state.config, "", "", true)?;
+    browser_cookies(&mut response, &state.config, headers, "", "", true)?;
     set_cookie(
         &mut response,
         &state.config,
         "local_login_csrf",
         "",
         true,
-        true,
+        CookieScope::Login,
         true,
     )?;
     secure_headers(&mut response);

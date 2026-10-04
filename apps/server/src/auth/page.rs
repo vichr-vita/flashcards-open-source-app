@@ -66,7 +66,7 @@ async fn render(
         "local_login_csrf",
         &browser,
         true,
-        true,
+        super::session::CookieScope::Login,
         false,
     )?;
     let csp = format!(

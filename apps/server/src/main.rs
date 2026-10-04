@@ -10,7 +10,7 @@ use clap::{Parser, Subcommand, ValueEnum};
 use color_eyre::eyre::Result;
 use lingvichr::{AppState, Config, auth, core, error::ApiError, migrations};
 use sqlx::postgres::PgPoolOptions;
-use std::{net::SocketAddr, path::PathBuf, sync::Arc};
+use std::{net::SocketAddr, path::PathBuf, sync::Arc, time::Duration};
 use tower_http::{
     cors::CorsLayer,
     request_id::{MakeRequestUuid, PropagateRequestIdLayer, SetRequestIdLayer},
@@ -166,23 +166,30 @@ async fn serve(
     } else {
         Config::from_env(web_dir)?
     });
+    let max_connections = database_pool_limit()?;
     let pool = PgPoolOptions::new()
-        .max_connections(6)
+        .max_connections(max_connections)
+        .acquire_timeout(Duration::from_secs(5))
         .connect(&database_url)
         .await?;
     let auth_url = match auth_database_url {
         Some(url) => url,
-        None if !matches!(service, Service::All) => database_url,
+        None if !matches!(service, Service::All) => database_url.clone(),
         None => {
             return Err(color_eyre::eyre::eyre!(
                 "Combined service requires a separate AUTH_DATABASE_URL"
             ));
         }
     };
-    let auth_pool = PgPoolOptions::new()
-        .max_connections(3)
-        .connect(&auth_url)
-        .await?;
+    let auth_pool = if auth_url == database_url {
+        pool.clone()
+    } else {
+        PgPoolOptions::new()
+            .max_connections(max_connections)
+            .acquire_timeout(Duration::from_secs(5))
+            .connect(&auth_url)
+            .await?
+    };
     let state = AppState {
         pool,
         auth_pool,
@@ -203,6 +210,21 @@ async fn serve(
     .with_graceful_shutdown(shutdown())
     .await?;
     Ok(())
+}
+
+fn database_pool_limit() -> Result<u32> {
+    match std::env::var("DB_POOL_MAX_CONNECTIONS") {
+        Err(std::env::VarError::NotPresent) => Ok(3),
+        Ok(value) if value.is_empty() => Ok(3),
+        Ok(value) => value
+            .parse::<u32>()
+            .ok()
+            .filter(|value| *value >= 3)
+            .ok_or_else(|| {
+                color_eyre::eyre::eyre!("DB_POOL_MAX_CONNECTIONS must be an integer of at least 3")
+            }),
+        Err(error) => Err(error.into()),
+    }
 }
 
 fn cors(config: &Config) -> Result<CorsLayer> {
@@ -230,8 +252,30 @@ fn cors(config: &Config) -> Result<CorsLayer> {
             HeaderName::from_static("x-client-version"),
             HeaderName::from_static("sentry-trace"),
             HeaderName::from_static("baggage"),
+            HeaderName::from_static("x-chat-request-id"),
+            HeaderName::from_static("x-chat-resume-attempt-id"),
+            HeaderName::from_static("x-chat-live-client-id"),
+            HeaderName::from_static("x-media-asset-id"),
+            HeaderName::from_static("x-media-source-url"),
+            HeaderName::from_static("x-media-created-at"),
+            HeaderName::from_static("x-media-client-updated-at"),
+            HeaderName::from_static("x-media-last-modified-by-replica-id"),
+            HeaderName::from_static("x-media-last-operation-id"),
+            HeaderName::from_static("x-package-media-key"),
+            HeaderName::from_static("x-openai-api-key"),
         ])
-        .expose_headers([HeaderName::from_static("x-request-id")]);
+        .expose_headers([
+            header::CACHE_CONTROL,
+            header::CONTENT_DISPOSITION,
+            header::CONTENT_ENCODING,
+            header::CONTENT_LENGTH,
+            header::CONTENT_TYPE,
+            HeaderName::from_static("x-request-id"),
+            HeaderName::from_static("x-amz-apigw-id"),
+            HeaderName::from_static("x-amzn-requestid"),
+            HeaderName::from_static("x-chat-request-id"),
+            header::RETRY_AFTER,
+        ]);
 
     Ok(cors)
 }

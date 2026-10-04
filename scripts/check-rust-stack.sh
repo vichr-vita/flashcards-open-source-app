@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export CARGO_BUILD_JOBS="${CARGO_BUILD_JOBS:-2}"
 
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 cd -- "$(git rev-parse --show-toplevel)"

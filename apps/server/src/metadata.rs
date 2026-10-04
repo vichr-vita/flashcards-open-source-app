@@ -64,6 +64,7 @@ fn visitor_id(headers: &HeaderMap) -> Option<Uuid> {
 
 fn visitor_response(
     state: &AppState,
+    headers: &HeaderMap,
     consent: bool,
     id: Option<Uuid>,
     clear: bool,
@@ -80,9 +81,19 @@ fn visitor_response(
         } else {
             "; Secure"
         };
+        let domain = state
+            .config
+            .cookie_domain_for_host(
+                headers
+                    .get(header::HOST)
+                    .and_then(|value| value.to_str().ok()),
+            )
+            .map_err(|error| {
+                tracing::error!(%error, "Analytics cookie domain could not be resolved");
+                ApiError::internal()
+            })?;
         let cookie = format!(
-            "analytics_visitor={value}; Domain={}; Path=/; Max-Age={max_age}; SameSite=Lax{secure}",
-            state.config.cookie_domain
+            "analytics_visitor={value}; Domain={domain}; Path=/; Max-Age={max_age}; SameSite=Lax{secure}"
         );
         response.headers_mut().insert(
             header::SET_COOKIE,
@@ -99,7 +110,7 @@ async fn visitor(
     allowed_browser(&state, &headers)?;
     let id = visitor_id(&headers);
     // This private installation has no GeoLite source; preserve the deployed unresolved-country rule.
-    visitor_response(&state, id.is_none(), id, false)
+    visitor_response(&state, &headers, id.is_none(), id, false)
 }
 
 async fn visitor_consent(
@@ -113,7 +124,7 @@ async fn visitor_consent(
         .and_then(Value::as_bool)
         .ok_or_else(|| ApiError::bad_request("granted must be a boolean"))?;
     let id = granted.then(|| visitor_id(&headers).unwrap_or_else(Uuid::new_v4));
-    visitor_response(&state, true, id, !granted)
+    visitor_response(&state, &headers, true, id, !granted)
 }
 
 fn invalid_feedback() -> ApiError {

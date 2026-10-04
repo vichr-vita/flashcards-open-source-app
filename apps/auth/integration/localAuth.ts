@@ -2,6 +2,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { isAbsolute, join } from "node:path";
 import { startChatGPTFixture, checkChatGPTConnection } from "./chatgpt.js";
+import { verifyBrowserCors, verifyCookieDomains } from "./browserCors.js";
 /** Real HTTP/PostgreSQL integration. Run only against the disposable container in the self-hosting guide. */
 import assert from "node:assert/strict";
 import { spawn, type ChildProcess } from "node:child_process";
@@ -29,11 +30,12 @@ const apiOrigin = "http://localhost:19400";
 const root = fileURLToPath(new URL("../../../", import.meta.url));
 Object.assign(process.env, {
   CHATGPT_CONNECTION_DIR: connectionDirectory, LOCAL_CHATGPT_FIXTURE: "true", CHAT_LIVE_URL: "http://localhost:19400/v1/chat/live",
-  COOKIE_DOMAIN: "localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
+  COOKIE_DOMAIN: "vichr-rbpi5.tailb8724c.ts.net,flashcards.vichr.me,localhost,auth.localhost", AUTH_MODE: "local", NODE_ENV: "development", LOCAL_AUTH_ALLOW_HTTP: "true",
   DATABASE_URL: ownerUrl, WEBAUTHN_RP_ID: "localhost",
   PUBLIC_AUTH_BASE_URL: authOrigin, ALLOWED_REDIRECT_URIS: webOrigin,
   PUBLIC_APP_BASE_URL: webOrigin, BACKEND_ALLOWED_ORIGINS: webOrigin,
   BACKEND_CSRF_SECRET: newToken(), AWS_EC2_METADATA_DISABLED: "true",
+  DB_POOL_MAX_CONNECTIONS: "3",
 });
 for (const name of ["OPENAI_API_KEY", "DB_SECRET_ARN", "COGNITO_USER_POOL_ID", "COGNITO_CLIENT_ID", "COGNITO_REGION", "DEMO_EMAIL_DOSTIP", "DEMO_PASSWORD_DOSTIP", "SENTRY_DSN", "LANGFUSE_SECRET_KEY"]) delete process.env[name];
 
@@ -42,12 +44,10 @@ let logs = "";
 let unexpectedOutboundDetected = false;
 function start(entrypoint: string, username: string, port: number): ChildProcess {
   const url = new URL(ownerUrl); url.username = username;
-  const backendUrl = new URL(ownerUrl); backendUrl.username = "backend_app";
-  const authUrl = new URL(ownerUrl); authUrl.username = "auth_app";
   const binary = rustBinary === undefined ? process.execPath : isAbsolute(rustBinary) ? rustBinary : join(root, rustBinary);
   const arguments_ = rustBinary === undefined
     ? ["--import", "./apps/auth/integration/noEgress.ts", entrypoint]
-    : ["serve", "--service", username === "auth_app" ? "auth" : "backend", "--bind", `127.0.0.1:${port}`, "--database-url", backendUrl.toString(), "--auth-database-url", authUrl.toString()];
+    : ["serve", "--service", username === "auth_app" ? "auth" : "backend", "--bind", `127.0.0.1:${port}`, "--database-url", url.toString()];
   const child = spawn(binary, arguments_, { cwd: root, env: { ...process.env, DATABASE_URL: url.toString(), PORT: String(port) }, stdio: ["ignore", "pipe", "pipe"] });
   children.add(child);
   for (const stream of [child.stdout, child.stderr]) stream?.on("data", data => {
@@ -261,6 +261,21 @@ try {
     await ready(`${apiOrigin}/health`);
   };
   await Promise.all([ready(`${authOrigin}/health`), ready(`${apiOrigin}/v1/health`)]);
+  await verifyBrowserCors(apiOrigin, webOrigin);
+  await verifyCookieDomains(apiOrigin, authOrigin, webOrigin);
+  if (rustBinary !== undefined) {
+    await Promise.all(Array.from({ length: 40 }, async () => {
+      assert.equal((await fetch(`${apiOrigin}/v1/health`)).status, 200);
+      assert.equal((await fetch(`${authOrigin}/health`)).status, 200);
+    }));
+    const pools = await query<{ usename: string; connections: string }>(
+      "SELECT usename,count(*)::text AS connections FROM pg_stat_activity WHERE datname=current_database() AND usename IN ('backend_app','auth_app') GROUP BY usename", [],
+    );
+    assert.equal(pools.rows.length, 2, "Both split services use their restricted database roles");
+    for (const pool of pools.rows) {
+      assert.ok(Number(pool.connections) > 0 && Number(pool.connections) <= 3, `${pool.usename} stays within DB_POOL_MAX_CONNECTIONS=3`);
+    }
+  }
   if (rustBinary !== undefined) {
     // Use the old implementation to create a credential and opaque session before checking Rust.
     // This proves byte-format compatibility rather than only a Rust-to-Rust round trip.

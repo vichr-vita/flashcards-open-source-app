@@ -556,14 +556,21 @@ pub(super) async fn authentication_verify(
     ) {
         Ok((session, refresh)) => {
             let mut response = Json(json!({"ok":true})).into_response();
-            browser_cookies(&mut response, &state.config, &session, &refresh, false)?;
+            browser_cookies(
+                &mut response,
+                &state.config,
+                &headers,
+                &session,
+                &refresh,
+                false,
+            )?;
             set_cookie(
                 &mut response,
                 &state.config,
                 "local_login_csrf",
                 "",
                 true,
-                true,
+                super::session::CookieScope::Login,
                 true,
             )?;
             secure_headers(&mut response);

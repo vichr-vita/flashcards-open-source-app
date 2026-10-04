@@ -1,4 +1,4 @@
-FROM node:24.21.0-bookworm-slim AS browser
+FROM --platform=$BUILDPLATFORM node:24.21.0-bookworm-slim AS browser
 WORKDIR /source
 RUN npm install --global pnpm@12.5.1
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
@@ -13,10 +13,12 @@ COPY scripts/build-passkey.mjs scripts/build-passkey.mjs
 ARG PUBLIC_APP_BASE_URL=http://localhost:19410
 ARG PUBLIC_API_BASE_URL=http://localhost:19410/v1
 ARG PUBLIC_AUTH_BASE_URL=http://localhost:19410
-ENV VITE_APP_BASE_URL=$PUBLIC_APP_BASE_URL VITE_API_BASE_URL=$PUBLIC_API_BASE_URL VITE_AUTH_BASE_URL=$PUBLIC_AUTH_BASE_URL
+ARG APP_BUILD=local
+ENV VITE_APP_BASE_URL=$PUBLIC_APP_BASE_URL VITE_API_BASE_URL=$PUBLIC_API_BASE_URL VITE_AUTH_BASE_URL=$PUBLIC_AUTH_BASE_URL VITE_APP_BUILD=$APP_BUILD
 RUN pnpm build:web
 
 FROM rust:slim-bookworm AS compiler
+ARG CARGO_BUILD_JOBS=2
 RUN apt-get update && apt-get install --yes --no-install-recommends pkg-config libssl-dev cmake clang && rm -rf /var/lib/apt/lists/*
 WORKDIR /source
 COPY Cargo.toml Cargo.lock rust-toolchain.toml clippy.toml ./
@@ -27,7 +29,7 @@ RUN cargo build --locked --release --bin lingvichr
 FROM debian:bookworm-slim AS server
 ARG APP_UID=1001
 ARG APP_GID=1001
-RUN apt-get update && apt-get install --yes --no-install-recommends ca-certificates libssl3 && rm -rf /var/lib/apt/lists/* && groupadd --gid "$APP_GID" lingvichr && useradd --uid "$APP_UID" --gid "$APP_GID" --create-home lingvichr
+RUN apt-get update && apt-get install --yes --no-install-recommends ca-certificates curl libssl3 && rm -rf /var/lib/apt/lists/* && groupadd --gid "$APP_GID" lingvichr && useradd --uid "$APP_UID" --gid "$APP_GID" --create-home lingvichr
 WORKDIR /app
 COPY --from=compiler /source/target/release/lingvichr /usr/local/bin/lingvichr
 COPY --from=browser /source/apps/web/dist /app/web
