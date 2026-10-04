@@ -1,5 +1,6 @@
 import { StrictMode, act, createElement, useEffect, useLayoutEffect, type ReactNode } from "react";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { afterEach, beforeEach, expect, vi } from "vitest";
 import { AppErrorDialogProvider } from "../../../../appError/AppErrorContext";
 import { I18nProvider, loadTranslationCatalog, resolveLocaleState, useI18n } from "../../../../i18n";
@@ -586,12 +587,14 @@ export function readStoredDraftPendingAttachmentCount(workspaceId: string, sessi
 export function setupChatPanelTest(): ChatPanelTestHarness {
   let container: HTMLDivElement | null = null;
   let root: ReactDOM.Root | null = null;
+  let queryClient: QueryClient;
   let messagesScrollerMetrics: MessagesScrollerMetrics | null = null;
   let setLocalePreferenceRef: ((localePreference: LocalePreference) => void) | null = null;
   const browserEnvironment = createChatPanelTestBrowserEnvironment();
 
   beforeEach(() => {
     messagesScrollerMetrics = null;
+    queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
     browserEnvironment.install();
     (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
     container = document.createElement("div");
@@ -715,6 +718,7 @@ export function setupChatPanelTest(): ChatPanelTestHarness {
       act(() => mountedRoot.unmount());
       root = null;
     }
+    queryClient.clear();
     if (container !== null) {
       container.remove();
       container = null;
@@ -790,7 +794,7 @@ export function setupChatPanelTest(): ChatPanelTestHarness {
   async function renderChatPanelShell(panel: ReactNode, shouldUseStrictMode: boolean): Promise<void> {
     expect(root).not.toBeNull();
     await act(async () => {
-      const providerTree = createElement(
+      const panelTree = createElement(
         I18nProvider,
         null,
         createElement(
@@ -813,6 +817,7 @@ export function setupChatPanelTest(): ChatPanelTestHarness {
           ),
         ),
       );
+      const providerTree = createElement(QueryClientProvider, { client: queryClient }, panelTree);
       root?.render(
         shouldUseStrictMode
           ? createElement(StrictMode, null, providerTree)

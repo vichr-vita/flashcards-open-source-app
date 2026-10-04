@@ -22,7 +22,7 @@ docker run -d --name "$check_container" \
   -v "$PWD:/workspace:ro" postgres:16 >/dev/null
 check_ready=false
 for _attempt in $(seq 1 60); do
-  if docker exec "$check_container" pg_isready -U flashcards_owner -d flashcards >/dev/null; then
+  if docker exec "$check_container" pg_isready -h 127.0.0.1 -U flashcards_owner -d flashcards >/dev/null; then
     check_ready=true
     break
   fi

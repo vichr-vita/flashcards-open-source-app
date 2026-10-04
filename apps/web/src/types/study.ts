@@ -46,7 +46,8 @@ export type CardMetadata = Readonly<{
 }>;
 
 // Keep in sync with apps/backend/src/cards/types.ts::Card, apps/ios/Flashcards/Flashcards/Cards/Model/CardDeckTypes.swift::Card, and apps/android/data/local/src/main/java/com/flashcardsopensourceapp/data/local/model/cards/CardModels.kt::CardSummary.
-export type Card = Readonly<Omit<CardWire, "metadata" | "tags" | "fsrsCardState"> & {
+// parseCard converts the server's legacy effortLevel field to tags before local persistence.
+export type Card = Readonly<Omit<CardWire, "effortLevel" | "metadata" | "tags" | "fsrsCardState"> & {
   metadata: CardMetadata;
   tags: ReadonlyArray<string>;
   fsrsCardState: FsrsCardState;
