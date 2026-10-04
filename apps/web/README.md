@@ -93,6 +93,10 @@ Chromium and WebKit at narrow mobile widths. It needs no auth or backend and run
 checks. Its isolated Vite server uses
 port `4318`; it does not use the usual local app preview or any production account.
 
+The same suite exercises the real IndexedDB card and review queries in Chromium and WebKit.
+It injects a lost cursor after records have been read, then checks the single retry, accurate
+counts and pagination, retained offline operations, and transaction abort handling.
+
 `npm run test:e2e` and `npm run test:e2e:prod` remain the production/deployed smoke entrypoints. They must not point at localhost and are the paths used by CI/CD and post-deploy verification.
 
 ## Respect Existing Code

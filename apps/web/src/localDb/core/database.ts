@@ -14,6 +14,7 @@ import {
 import { upgradeDatabase } from "./databaseMigrations";
 import { createIndexedDbUnavailableError, getIndexedDbFactory } from "./indexedDbAvailability";
 import { isIndexedDbOpenRecoveryError } from "./indexedDbOpenRecovery";
+import { isIndexedDbMissingCursorError } from "./indexedDbCursorRecovery";
 import { databaseName, databaseVersion } from "./databaseSchema";
 import type { DatabaseStores } from "./databaseSchema";
 
@@ -355,6 +356,32 @@ export async function closeDatabaseAfter<ResultType>(
       return await callback(database);
     } finally {
       database.close();
+    }
+  });
+}
+
+/** Reopens once after WebKit loses a cursor. The callback must rebuild a complete readonly query. */
+export async function closeDatabaseAfterReadonlyWithCursorRecovery<ResultType>(
+  callback: (database: IDBDatabase) => Promise<ResultType>,
+): Promise<ResultType> {
+  async function runQuery(): Promise<ResultType> {
+    const database = await openDatabase();
+    try {
+      return await callback(database);
+    } finally {
+      database.close();
+    }
+  }
+
+  return trackDatabaseOperation(async () => {
+    try {
+      return await runQuery();
+    } catch (error) {
+      if (isIndexedDbMissingCursorError(error) === false) {
+        throw error;
+      }
+
+      return runQuery();
     }
   });
 }

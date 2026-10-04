@@ -11,12 +11,14 @@ import { deriveDueAtBucketMillis, deriveDueAtMillis } from "../../../appData/dom
 import { loadAllowedCardIdsForTags, putCardTagRecords, writeCardTagRecords } from "../tags";
 import {
   closeDatabaseAfter,
+  closeDatabaseAfterReadonlyWithCursorRecovery,
   closeDatabaseAfterWrite,
   describeIndexedDbError,
   getFromStore,
   runReadwrite,
   type StoredCard,
 } from "../../core/database";
+import { IndexedDbCursorError } from "../../core/indexedDbCursorRecovery";
 import { encodeCursor, decodeCursor } from "../../core/queryShared";
 
 type CardCursorIndexName =
@@ -163,47 +165,80 @@ async function iterateCardsByIndex<CardValue extends Card>(
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     const transaction = database.transaction(["cards"], "readonly");
-    const cardsStore = transaction.objectStore("cards");
-    const request = openIndexedCursor(cardsStore, options);
-    let isResolved = false;
+    let failure: Readonly<{ error: unknown }> | null = null;
 
-    const finish = (): void => {
-      if (isResolved) {
+    const describeCursorError = (prefix: string, error: unknown): IndexedDbCursorError => (
+      new IndexedDbCursorError(prefix, error, options.indexName, options.direction)
+    );
+
+    const abortWithError = (error: unknown): void => {
+      failure ??= { error };
+      try {
+        transaction.abort();
+      } catch {
+        // An already-finished transaction cannot emit another abort event.
+        reject(failure.error);
+      }
+    };
+
+    transaction.oncomplete = () => {
+      if (failure !== null) {
+        reject(failure.error);
         return;
       }
-
-      isResolved = true;
       resolve();
     };
 
-    request.onerror = () => {
-      reject(describeIndexedDbError("IndexedDB cursor iteration failed", request.error));
-    };
-
     transaction.onerror = () => {
-      reject(describeIndexedDbError("IndexedDB transaction failed", transaction.error));
+      if (transaction.error !== null) {
+        failure ??= { error: describeCursorError("IndexedDB cursor transaction failed", transaction.error) };
+      }
     };
 
-    request.onsuccess = (event) => {
-      const cursor = (event.target as IDBRequest<IDBCursorWithValue | null>).result;
+    transaction.onabort = () => {
+      reject(failure !== null
+        ? failure.error
+        : describeCursorError("IndexedDB cursor transaction aborted", transaction.error));
+    };
+
+    let request: IDBRequest<IDBCursorWithValue | null>;
+    try {
+      request = openIndexedCursor(transaction.objectStore("cards"), options);
+    } catch (error) {
+      abortWithError(describeCursorError("IndexedDB cursor open failed", error));
+      return;
+    }
+
+    request.onerror = () => {
+      failure ??= { error: describeCursorError("IndexedDB cursor iteration failed", request.error) };
+    };
+
+    request.onsuccess = () => {
+      if (failure !== null) {
+        return;
+      }
+
+      const cursor = request.result;
       if (cursor === null) {
-        finish();
         return;
       }
 
-      const record = cursor.value as StoredCard;
-      if (record.workspaceId !== workspaceId) {
+      try {
+        const record = cursor.value as StoredCard;
+        if (record.workspaceId === workspaceId && onCard(mapRecord(record)) === false) {
+          return;
+        }
+      } catch (error) {
+        // Mapping and consumer failures must surface unchanged and must never trigger recovery.
+        abortWithError(error);
+        return;
+      }
+
+      try {
         cursor.continue();
-        return;
+      } catch (error) {
+        abortWithError(describeCursorError("IndexedDB cursor iteration failed", error));
       }
-
-      const shouldContinue = onCard(mapRecord(record));
-      if (shouldContinue === false) {
-        finish();
-        return;
-      }
-
-      cursor.continue();
     };
   });
 }
@@ -721,15 +756,15 @@ export async function loadActiveCardsForSqlWithDatabase(database: IDBDatabase, w
 }
 
 export async function loadActiveCardCount(workspaceId: string): Promise<number> {
-  return closeDatabaseAfter((database) => loadActiveCardCountWithDatabase(database, workspaceId));
+  return closeDatabaseAfterReadonlyWithCursorRecovery((database) => loadActiveCardCountWithDatabase(database, workspaceId));
 }
 
 export async function loadAllActiveCardsForSql(workspaceId: string): Promise<ReadonlyArray<Card>> {
-  return closeDatabaseAfter((database) => loadActiveCardsForSqlWithDatabase(database, workspaceId));
+  return closeDatabaseAfterReadonlyWithCursorRecovery((database) => loadActiveCardsForSqlWithDatabase(database, workspaceId));
 }
 
 export async function queryLocalCardsPage(workspaceId: string, input: QueryCardsInput): Promise<QueryCardsPage> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const normalizedSearchText = normalizeSearchText(input.searchText);
     const allowedTagCardIds = input.filter === null || input.filter.tags.length === 0
       ? null
@@ -926,7 +961,7 @@ export async function loadCardsMatchingDeck(
     tags: ReadonlyArray<string>;
   }>,
 ): Promise<ReadonlyArray<Card>> {
-  return closeDatabaseAfter(async (database) => {
+  return closeDatabaseAfterReadonlyWithCursorRecovery(async (database) => {
     const cards: Array<Card> = [];
     await iterateCardsByCreatedAtDesc(database, workspaceId, (card) => {
       if (card.deletedAt !== null) {

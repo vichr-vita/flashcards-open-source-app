@@ -1,4 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["main.tsx", "*.spec.ts", "appData.ts", "../../src/env.d.ts"]
+  "include": ["main.tsx", "*.spec.ts", "indexed-db-fixture.ts", "appData.ts", "../../src/env.d.ts"]
 }
