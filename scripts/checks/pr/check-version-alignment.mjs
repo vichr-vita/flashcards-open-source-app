@@ -13,8 +13,11 @@ const NODE_PACKAGE_DIRECTORIES = [
   "apps/admin",
   "apps/auth",
   "infra/aws",
-  "apps/web",
 ];
+
+const WEB_PACKAGE_FILE = "apps/web/package.json";
+const RUST_PACKAGE_FILE = "apps/server/Cargo.toml";
+const RUST_PACKAGE_VERSION_PATTERN = /^version[^\S\r\n]*=[^\S\r\n]*"([^"]*)"/m;
 
 const MCP_MANIFEST_FILE = "server.json";
 
@@ -133,6 +136,20 @@ function collectNodePackageSurfaces(packageDirectory) {
 
 const surfaces = [
   ...NODE_PACKAGE_DIRECTORIES.flatMap(collectNodePackageSurfaces),
+  {
+    file: WEB_PACKAGE_FILE,
+    field: "version",
+    value: parseJsonObject(WEB_PACKAGE_FILE).version,
+  },
+  {
+    file: RUST_PACKAGE_FILE,
+    field: "package.version",
+    value: readCapturedVersionLiteral(
+      RUST_PACKAGE_FILE,
+      "package.version",
+      RUST_PACKAGE_VERSION_PATTERN,
+    ),
+  },
   {
     file: MCP_MANIFEST_FILE,
     field: "version",

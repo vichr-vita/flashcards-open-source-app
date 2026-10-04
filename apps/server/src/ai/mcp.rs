@@ -74,15 +74,20 @@ fn transport_error(status: StatusCode, code: i64, message: impl Into<String>) ->
     json_response(status, rpc_error(&Value::Null, code, message))
 }
 
-async fn authorize(state: &AppState, headers: &HeaderMap) -> Result<AgentConnection, Response> {
+async fn authorize(
+    state: &AppState,
+    headers: &HeaderMap,
+) -> Result<AgentConnection, Box<Response>> {
     let Some(owner) = state.config.local_mcp_user_id else {
-        return Err(ApiError::new(StatusCode::NOT_FOUND, "NOT_FOUND", "Not found").into_response());
+        return Err(Box::new(
+            ApiError::new(StatusCode::NOT_FOUND, "NOT_FOUND", "Not found").into_response(),
+        ));
     };
     if header_text(headers, "origin").is_some_and(|origin| origin != state.config.backend_origin) {
-        return Err(json_response(
+        return Err(Box::new(json_response(
             StatusCode::FORBIDDEN,
             json!({"error":"Invalid origin"}),
-        ));
+        )));
     }
     let expected_host = Url::parse(&state.config.backend_origin)
         .ok()
@@ -96,17 +101,17 @@ async fn authorize(state: &AppState, headers: &HeaderMap) -> Result<AgentConnect
         .zip(expected_host.as_deref())
         .is_some_and(|(actual, expected)| actual.eq_ignore_ascii_case(expected))
     {
-        return Err(json_response(
+        return Err(Box::new(json_response(
             StatusCode::FORBIDDEN,
             json!({"error":"Invalid host"}),
-        ));
+        )));
     }
-    let token = bearer(headers).ok_or_else(challenge)?;
+    let token = bearer(headers).ok_or_else(|| Box::new(challenge()))?;
     match admin::authenticate(&state.pool, token).await {
         Ok(connection) if connection.user == owner => Ok(connection),
-        Ok(_) => Err(challenge()),
-        Err(error) if error.status == StatusCode::UNAUTHORIZED => Err(challenge()),
-        Err(error) => Err(error.into_response()),
+        Ok(_) => Err(Box::new(challenge())),
+        Err(error) if error.status == StatusCode::UNAUTHORIZED => Err(Box::new(challenge())),
+        Err(error) => Err(Box::new(error.into_response())),
     }
 }
 
@@ -120,7 +125,7 @@ async fn handle(State(state): State<AppState>, request: Request) -> Response {
     let started = Instant::now();
     let mut invoked = None;
     let mut response = match authorize(&state, &headers).await {
-        Err(response) => response,
+        Err(response) => *response,
         Ok(connection) => {
             let mut bytes = Bytes::new();
             let response = if method == Method::POST {

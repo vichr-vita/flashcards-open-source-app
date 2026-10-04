@@ -114,6 +114,9 @@ Update these package manifests together:
 
 For each of those packages, also update the matching top-level package version fields in the adjacent `package-lock.json`.
 
+The private Rust server's package version lives in `apps/server/Cargo.toml`.
+Update it with the shared release version and regenerate `Cargo.lock` with Cargo.
+
 Also update the MCP registry manifest at the repo root:
 
 - `server.json`
@@ -131,7 +134,9 @@ change so the documented minimum-compatible client behavior stays accurate.
 The checked-in web package version lives in:
 
 - `apps/web/package.json`
-- `apps/web/package-lock.json`
+
+The web app uses the root `pnpm-lock.yaml` for dependencies. That lockfile does
+not store the web app's release version.
 
 The runtime-reported web client version is read through:
 

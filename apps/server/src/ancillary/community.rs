@@ -85,14 +85,10 @@ pub(super) fn anonymous_name(profile: Uuid, locale_hint: &str) -> Result<String,
     };
     let pool = pools.get(key).ok_or_else(ApiError::internal)?;
     let hash = Sha256::digest(profile.to_string().as_bytes());
-    let mut chunks = hash.chunks_exact(4);
+    let mut chunks = hash.as_chunks::<4>().0.iter();
     let mut words = Vec::new();
     for values in [&pool.prefix_pool, &pool.adjective_pool, &pool.noun_pool] {
-        let bytes: [u8; 4] = chunks
-            .next()
-            .ok_or_else(ApiError::internal)?
-            .try_into()
-            .map_err(|_| ApiError::internal())?;
+        let bytes = *chunks.next().ok_or_else(ApiError::internal)?;
         let hash_value =
             usize::try_from(u32::from_be_bytes(bytes)).map_err(|_| ApiError::internal())?;
         let index = hash_value
