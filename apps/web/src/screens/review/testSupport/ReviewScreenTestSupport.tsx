@@ -30,7 +30,6 @@ const {
   loadReviewQueueSnapshotMock,
   loadReviewTimelinePageMock,
   loadWorkspaceTagsSummaryMock,
-  reviewReactionLottieLoadAnimationMock,
   storeAutomaticFeedbackPromptShownAtMock,
   storeFeedbackSubmittedAtMock,
   storeFetchedFeedbackStateMock,
@@ -52,7 +51,6 @@ const {
   loadReviewQueueSnapshotMock: vi.fn(),
   loadReviewTimelinePageMock: vi.fn(),
   loadWorkspaceTagsSummaryMock: vi.fn(),
-  reviewReactionLottieLoadAnimationMock: vi.fn(),
   storeAutomaticFeedbackPromptShownAtMock: vi.fn(),
   storeFeedbackSubmittedAtMock: vi.fn(),
   storeFetchedFeedbackStateMock: vi.fn(),
@@ -90,24 +88,16 @@ vi.mock("../../../localDb/feedback/feedback", () => ({
   storeFetchedFeedbackState: storeFetchedFeedbackStateMock,
 }));
 
-vi.mock("lottie-web/build/player/lottie_light", () => ({
-  default: {
-    loadAnimation: reviewReactionLottieLoadAnimationMock,
-  },
-}));
-
 import { ReviewScreen } from "../ReviewScreen";
 import {
   useReviewScreenData,
   type UseReviewScreenDataResult,
 } from "../data/useReviewScreenData";
-import { resetReviewReactionLottieStateForTests } from "../reactions/lottie/reviewReactionLottie";
 
 type Mutable<Type> = {
   -readonly [Key in keyof Type]: Type[Key];
 };
 
-export { reviewReactionLottieLoadAnimationMock };
 
 type ReviewScreenAppData = Mutable<AppDataContextValue>;
 
@@ -518,53 +508,6 @@ function clearWindowLocalStorage(): void {
   }
 }
 
-function makeReviewReactionLottieAnimationItemForTest(): object {
-  return {
-    addEventListener: vi.fn(() => vi.fn()),
-    destroy: vi.fn(),
-    goToAndStop: vi.fn(),
-    isLoaded: true,
-    play: vi.fn(),
-    setSpeed: vi.fn(),
-    totalFrames: 100,
-  };
-}
-
-function makeReviewReactionLottieResponse(): Response {
-  return new Response(JSON.stringify({
-    layers: [],
-    v: "test",
-  }), {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    status: 200,
-  });
-}
-
-function reviewReactionLottieFetchUrl(input: RequestInfo | URL): string {
-  if (typeof Request !== "undefined" && input instanceof Request) {
-    return input.url;
-  }
-
-  return input.toString();
-}
-
-function isReviewReactionLottieAssetRequest(input: RequestInfo | URL): boolean {
-  const requestUrl = reviewReactionLottieFetchUrl(input);
-  return /(?:^|\/)review_(again|hard|good|easy)_[A-Za-z0-9_-]+\.json(?:[?#].*)?$/.test(requestUrl);
-}
-
-function fetchReviewReactionLottieAssetForTest(input: RequestInfo | URL): Promise<Response> {
-  if (!isReviewReactionLottieAssetRequest(input)) {
-    return Promise.reject(
-      new Error(`Unexpected fetch in review screen test harness: ${reviewReactionLottieFetchUrl(input)}`),
-    );
-  }
-
-  return Promise.resolve(makeReviewReactionLottieResponse());
-}
-
 function readStylesheetWithImports(stylesheetPath: string): string {
   const stylesheet = readFileSync(stylesheetPath, "utf8");
   const stylesheetDir = dirname(stylesheetPath);
@@ -589,10 +532,6 @@ export function setupReviewScreenTest(): ReviewScreenTestHarness {
     vi.setSystemTime(new Date("2026-03-10T12:00:00.000Z"));
     (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
     clearWindowLocalStorage();
-    resetReviewReactionLottieStateForTests();
-    reviewReactionLottieLoadAnimationMock.mockReset();
-    reviewReactionLottieLoadAnimationMock.mockImplementation(() => makeReviewReactionLottieAnimationItemForTest());
-    vi.stubGlobal("fetch", vi.fn(fetchReviewReactionLottieAssetForTest));
     HTMLElement.prototype.scrollIntoView = vi.fn();
 
     state = createDefaultReviewScreenTestState();

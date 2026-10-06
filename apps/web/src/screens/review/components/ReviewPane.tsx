@@ -1,4 +1,6 @@
 import { useLayoutEffect, useRef, type ReactElement } from "react";
+import { ReviewRatingReactionLayer } from "../reactions/ReviewRatingReactionLayer";
+import type { ReviewReactionEvent } from "../reactions/reviewReaction";
 import { Link } from "react-router";
 import type { ReviewRating } from "../../../../../backend/src/scheduling";
 import { track } from "../../../analytics";
@@ -32,6 +34,7 @@ const REVIEW_SCROLL_INTO_VIEW_OPTIONS = {
 } as const satisfies ScrollIntoViewOptions & { container: "nearest" };
 
 export type ReviewPaneProps = Readonly<{
+  reviewReactionEvents?: ReadonlyArray<ReviewReactionEvent>;
   activeSpeechSide: ReviewSpeechSide | null;
   hasCards: boolean;
   isAnswerVisible: boolean;
@@ -72,6 +75,7 @@ type ReviewEmptyPaneProps = Readonly<{
 }>;
 
 type ReviewActiveCardPaneProps = Readonly<{
+  reviewReactionEvents?: ReadonlyArray<ReviewReactionEvent>;
   activeSpeechSide: ReviewSpeechSide | null;
   isAnswerVisible: boolean;
   isSubmitting: boolean;
@@ -259,6 +263,7 @@ function ReviewRatingButtonColumn(props: ReviewRatingButtonColumnProps): ReactEl
 
 function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   const {
+    reviewReactionEvents = [],
     activeSpeechSide,
     isAnswerVisible,
     isSubmitting,
@@ -290,7 +295,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   return (
     <>
       <ReviewCardMenu card={selectedCard} onEdit={onEditCard} />
-      <div className="review-card-scroll-target review-card-flip-scene" ref={cardTargetRef}>
+      <div className="review-card-scroll-target review-card-flip-scene review-card-reaction-frame" ref={cardTargetRef}>
         {/* A new card mounts facing forward, without rotating the previous answer back. */}
         <div
           key={selectedCard.cardId}
@@ -348,6 +353,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
             </div>
           ) : null}
         </div>
+        <ReviewRatingReactionLayer events={reviewReactionEvents} />
       </div>
 
       <div className="review-actions-dock">
@@ -394,6 +400,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
 
 export function ReviewPane(props: ReviewPaneProps): ReactElement {
   const {
+    reviewReactionEvents,
     activeSpeechSide,
     hasCards,
     isAnswerVisible,
@@ -450,6 +457,7 @@ export function ReviewPane(props: ReviewPaneProps): ReactElement {
       ) : null}
       {reviewPaneState === "card" && selectedCard !== null ? (
         <ReviewActiveCardPane
+          reviewReactionEvents={reviewReactionEvents}
           activeSpeechSide={activeSpeechSide}
           isAnswerVisible={isAnswerVisible}
           isSubmitting={isSubmitting}

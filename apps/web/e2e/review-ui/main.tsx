@@ -9,6 +9,7 @@ import { ChatToggle } from "../../src/chat/layout/ChatToggle";
 import { I18nProvider, useI18n } from "../../src/i18n";
 import { initializeTheme, setThemePreference } from "../../src/theme";
 import type { Card, ReviewFilter, ReviewRating } from "../../src/types";
+import { useReviewRatingReactions } from "../../src/screens/review/reactions/useReviewRatingReactions";
 import { ReviewPane } from "../../src/screens/review/components/ReviewPane";
 import { ReviewEditorModal } from "../../src/screens/review/components/card/ReviewEditorModal";
 import { createCardFormManagedMediaState, toCardFormState } from "../../src/screens/cards/form/CardForm";
@@ -57,6 +58,7 @@ const sampleCard: Card = {
 /** Browser integration fixture for production review components, with an in-memory card queue. */
 function ReviewUiFixture(): ReactElement {
   const { t } = useI18n();
+  const { events, emitReaction, dismissReactions } = useReviewRatingReactions({ reviewReactionAnimationsEnabled: !parameters.has("no-animations") });
   const { pathname } = useLocation();
   const { isOpen: isChatOpen, setIsOpen: setIsChatOpen } = useChatLayout();
   const [card, setCard] = useState(sampleCard);
@@ -77,6 +79,7 @@ function ReviewUiFixture(): ReactElement {
   });
 
   async function handleReview(reviewedCard: Card, rating: ReviewRating): Promise<void> {
+    emitReaction(rating);
     setLastSubmittedReview({ cardId: reviewedCard.cardId, rating });
     setCard({ ...sampleCard, cardId: "latin-case", frontText: "What does the ablative case express?" });
     setIsAnswerVisible(false);
@@ -90,7 +93,7 @@ function ReviewUiFixture(): ReactElement {
     isHardReminderVisible: false,
     isReviewFilterMenuOpen: filterMenu.isReviewFilterMenuOpen,
     isSubmitting: false,
-    onShortcutInputStart: () => {},
+    onShortcutInputStart: dismissReactions,
     selectedCard: card,
     setIsAnswerVisible,
   });
@@ -123,7 +126,7 @@ function ReviewUiFixture(): ReactElement {
         </nav> : null}
       </header>
       {isChatOpen ? <aside className="fixture-chat" aria-label="AI chat"><strong>AI chat</strong><button type="button" onClick={() => setIsChatOpen(false)}>Close chat</button></aside> : null}
-      <main className="container">
+      <main className="container" onPointerDownCapture={dismissReactions}>
         {pathname === "/review" ? (
           <section className="panel review-screen-panel">
             <ReviewScreenHeader
@@ -146,6 +149,7 @@ function ReviewUiFixture(): ReactElement {
             <div className={`review-layout${isQueueOpen ? " review-layout-queue-open" : ""}`}>
               <div className="review-pane-reaction-frame">
                 <ReviewPane
+                  reviewReactionEvents={events}
                   activeSpeechSide={activeSpeechSide}
                   hasCards
                   isAnswerVisible={isAnswerVisible}
