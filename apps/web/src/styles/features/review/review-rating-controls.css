@@ -48,7 +48,7 @@
 
 .rating-btn {
   width: 100%;
-  min-height: 58px;
+  min-height: 48px;
   border: none;
   border-radius: var(--radius-md);
   background: var(--accent);
@@ -72,11 +72,6 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.03em;
-}
-
-.rating-btn-subtitle {
-  font-size: 13px;
-  color: rgba(255, 246, 243, 0.82);
 }
 
 .rating-btn:disabled {

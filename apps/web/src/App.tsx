@@ -3,7 +3,7 @@ import { BrowserRouter, Link, NavLink, Navigate, Route, Routes as RouterRoutes, 
 import { AccountAccentTheme } from "./premium/accentColor";
 import { PremiumProvider } from "./premium/PremiumProvider";
 import { AccountMenu } from "./AccountMenu";
-import { Brand } from "./Brand";
+import { AppHeaderActions, AppHeaderIdentity, AppHeaderProvider } from "./AppHeader";
 import { AccountDeletionRecoveryGate } from "./accountDeletionRecovery";
 import {
   AnalyticsConsentBanner,
@@ -862,9 +862,7 @@ export function AppShell(): ReactElement {
           <div className="topbar">
             <div className="topbar-brand-block">
               <div className="topbar-brand-row">
-                <Link className="topbar-brand" to={workspacePath(reviewRoute)}>
-                  <Brand />
-                </Link>
+                <AppHeaderIdentity reviewUrl={workspacePath(reviewRoute)} />
                 {isSyncing ? <span className="topbar-sync-status">{t("app.syncing")}</span> : null}
                 {!isSyncing && sessionRestoringMessage !== "" ? <span className="topbar-sync-status">{sessionRestoringMessage}</span> : null}
               </div>
@@ -885,6 +883,8 @@ export function AppShell(): ReactElement {
               ))}
             </nav>
             <div className="topbar-actions">
+              <AppHeaderActions />
+              <ChatToggle />
               <button
                 ref={mobileNavigationToggleRef}
                 className="mobile-nav-toggle"
@@ -1101,7 +1101,6 @@ export function RoutedShell(): ReactElement {
           <Route path="/*" element={<LegacyFlatPathRedirect />} />
         </SentryRoutes>
       </div>
-      {!isFullscreenChat && !isOpen ? <ChatToggle /> : null}
     </div>
   );
 }
@@ -1116,7 +1115,7 @@ function AuthenticatedApp(): ReactElement {
             <ChatSessionControllerProvider>
               <ChatDraftProvider>
                 <AccountDeletionRecoveryGate>
-                  <AppShell />
+                  <AppHeaderProvider><AppShell /></AppHeaderProvider>
                 </AccountDeletionRecoveryGate>
               </ChatDraftProvider>
             </ChatSessionControllerProvider>

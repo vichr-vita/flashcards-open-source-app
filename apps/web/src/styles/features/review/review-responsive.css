@@ -26,14 +26,6 @@
     padding-inline: var(--panel-padding);
   }
 
-  .app-shell:has(.review-screen-panel) .header-sticky {
-    --header-inline-padding: var(--shell-frame-gap);
-  }
-
-  .app-shell:has(.review-screen-panel) .topbar-brand {
-    font-size: 25px;
-  }
-
   .review-layout {
     grid-template-columns: 1fr;
   }

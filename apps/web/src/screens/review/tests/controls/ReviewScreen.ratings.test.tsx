@@ -14,6 +14,7 @@ import {
   reviewReactionLottieVariants,
 } from "../../reactions/lottie/reviewReactionLottie";
 import {
+  openReviewEditor,
   flushReviewScreenPromises,
   pointerDownAndClickElementAsync,
   pointerDownElementAsync,
@@ -352,12 +353,7 @@ describe("ReviewScreen rating controls", () => {
 
     await clickElementAsync(trigger);
 
-    const editButton = getContainer().querySelector(".review-pane-edit-btn");
-    if (!(editButton instanceof HTMLButtonElement)) {
-      throw new Error("Review edit button was not found");
-    }
-
-    await clickElementAsync(editButton);
+    await openReviewEditor(getContainer());
     await dispatchDocumentKeydown(" ");
     await dispatchDocumentKeydown("3");
 
@@ -389,7 +385,7 @@ describe("ReviewScreen rating controls", () => {
       throw new Error("Review back AI button was not found");
     }
 
-    expect(backAiButton.textContent).toBe("AI");
+    expect(backAiButton.querySelector("svg")).not.toBeNull();
     expect(backAiButton.getAttribute("aria-label")).toBe("Open back card in AI chat");
     expect(getContainer().querySelector(".review-pane-head-actions .review-card-ai-btn")).toBeNull();
     expect(getContainer().querySelector(".review-card-answer .review-card-speech-btn")).not.toBeNull();

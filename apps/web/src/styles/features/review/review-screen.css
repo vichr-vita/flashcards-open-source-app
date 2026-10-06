@@ -27,7 +27,7 @@
   align-items: stretch;
   justify-content: center;
   min-height: 0;
-  padding-top: clamp(8px, 3dvh, 32px);
+  padding-top: 0;
 }
 
 .review-layout-queue-open {
@@ -45,16 +45,25 @@
 
 .review-screen-head {
   align-items: center;
+  flex-direction: column;
+  gap: 0;
 }
 
-.review-screen-head .title {
-  font-size: clamp(28px, 2.6vw, 38px);
+.review-screen-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .review-screen-head-actions {
   align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
   flex-shrink: 0;
-  gap: 10px;
+  gap: 4px;
 }
 
 .review-screen-head-badge {
@@ -93,7 +102,7 @@
 }
 
 .review-screen-head .review-filter-trigger {
-  min-width: 180px;
+  min-width: 0;
   border-color: transparent;
   border-radius: var(--radius-xs);
   background: transparent;
@@ -124,36 +133,80 @@
   border-inline-start-color: var(--divider);
 }
 
-/* Match the selected review design without changing navigation on other screens. */
-.app-shell:has(.review-screen-panel) .header-sticky {
-  --header-inline-padding: 32px;
+.review-screen-head-actions > .review-filter-menu-wrap {
+  min-width: 0;
+  flex: 1 1 0;
 }
 
-.app-shell:has(.review-screen-panel) .topbar-brand {
-  font-size: 36px;
+.review-screen-head-actions > .review-filter-summary-wrap {
+  width: auto;
+  flex: 0 0 auto;
 }
 
-.app-shell:has(.review-screen-panel) .topbar-shell {
-  border-bottom-color: var(--divider);
+.review-screen-head .review-filter-trigger {
+  width: 100%;
+  padding-inline: 0;
 }
 
-.app-shell:has(.review-screen-panel) .nav {
-  border-color: transparent;
-  border-radius: 0;
+.review-card-menu {
+  z-index: var(--z-index-popover);
+  padding: 14px;
+  border: 1px solid var(--panel-border-strong);
+  background: var(--surface-elevated);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.review-card-menu-content,
+.review-card-menu-tags {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.review-card-menu-tags .review-metadata-chip {
+  display: block;
+  border: 0;
+  padding: 0;
+  min-height: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.review-card-menu-tags .review-metadata-chip + .review-metadata-chip {
+  border-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+.review-card-menu-repetition {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--divider);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.review-card-menu-repetition svg {
+  width: 18px;
+  height: 18px;
+}
+
+.review-card-menu-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
   background: transparent;
-}
-
-.app-shell:has(.review-screen-panel) .nav-link {
-  font-size: 16px;
-  border-radius: 0;
-  border-bottom: 2px solid transparent;
-  background: transparent;
-}
-
-.app-shell:has(.review-screen-panel) .nav-link:hover {
   color: var(--text);
+  text-align: start;
+  cursor: pointer;
 }
 
-.app-shell:has(.review-screen-panel) .nav-link-active {
-  border-bottom-color: var(--accent-strong);
+.review-card-menu-edit:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
 }

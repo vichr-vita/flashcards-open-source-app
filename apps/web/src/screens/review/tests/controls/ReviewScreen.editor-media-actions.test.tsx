@@ -3,6 +3,7 @@ import "fake-indexeddb/auto";
 import { act } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { clearWebSyncCache } from "../../../../localDb/core/cache";
+import { openReviewEditor } from "./ReviewScreenControlTestSupport";
 import {
   enqueueMediaTransferUpload,
   loadMediaTransferQueueRecord,
@@ -76,11 +77,7 @@ describe("ReviewScreen editor media and actions", () => {
 
     await renderReviewScreen();
 
-    const editButton = getContainer().querySelector(".review-pane-edit-btn");
-    if (!(editButton instanceof HTMLButtonElement)) {
-      throw new Error("Review edit button was not found");
-    }
-    await clickElementAsync(editButton);
+    await openReviewEditor(getContainer());
 
     const frontTextField = document.getElementById("review-card-editor-front-text");
     const backTextField = document.getElementById("review-card-editor-back-text");
@@ -185,12 +182,7 @@ describe("ReviewScreen editor media and actions", () => {
 
     await renderReviewScreen();
 
-    const editButton = getContainer().querySelector(".review-pane-edit-btn");
-    if (!(editButton instanceof HTMLButtonElement)) {
-      throw new Error("Review edit button was not found");
-    }
-
-    await clickElementAsync(editButton);
+    await openReviewEditor(getContainer());
 
     await vi.waitFor(() => {
       const status = document.querySelector("[data-testid='card-form-media-upload-status']");
@@ -243,12 +235,7 @@ describe("ReviewScreen editor media and actions", () => {
 
     await renderReviewScreen();
 
-    const editButton = getContainer().querySelector(".review-pane-edit-btn");
-    if (!(editButton instanceof HTMLButtonElement)) {
-      throw new Error("Review edit button was not found");
-    }
-
-    await clickElementAsync(editButton);
+    await openReviewEditor(getContainer());
 
     await vi.waitFor(() => {
       const status = document.querySelector("[data-testid='card-form-media-upload-status']");
@@ -272,12 +259,7 @@ describe("ReviewScreen editor media and actions", () => {
 
     await renderReviewScreen();
 
-    const editButton = getContainer().querySelector(".review-pane-edit-btn");
-    if (!(editButton instanceof HTMLButtonElement)) {
-      throw new Error("Review edit button was not found");
-    }
-
-    await clickElementAsync(editButton);
+    await openReviewEditor(getContainer());
 
     const deleteButton = document.querySelector(".review-editor-delete-btn");
     if (!(deleteButton instanceof HTMLButtonElement)) {

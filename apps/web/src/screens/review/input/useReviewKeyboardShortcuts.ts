@@ -57,6 +57,7 @@ export function useReviewKeyboardShortcuts(params: UseReviewKeyboardShortcutsPar
       selectedCard === null
       || areShortcutsSuppressed
       || isEditableKeyboardTarget(event.target)
+      || (event.target instanceof HTMLElement && event.target.closest("[data-review-shortcuts-blocked]") !== null)
     ) {
       return;
     }

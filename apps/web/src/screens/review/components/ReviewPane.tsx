@@ -7,9 +7,8 @@ import { cardsRoute, chatRoute } from "../../../routes";
 import { useWorkspacePath } from "../../../useWorkspacePath";
 import type { Card } from "../../../types";
 import type { ReviewLoadingSnapshot } from "../../shared/loadingSnapshots";
-import { ReviewRepetitionBadgeIcon } from "../../shared/ReviewProgressBadgeIcon";
-import { ReviewCardSide, ReviewCardSpeechButton, ReviewEditIcon } from "./card/ReviewCardSide";
-import { ReviewCardTags } from "./ReviewCardTags";
+import { ReviewCardSide, ReviewCardSpeechButton } from "./card/ReviewCardSide";
+import { ReviewCardMenu } from "./ReviewCardMenu";
 import { reviewRatingShortcutKeys } from "../input/reviewShortcutKeys";
 import type { ReviewShortcutPointerEnterHandler } from "../input/useReviewKeyboardShortcuts";
 import type { ReviewButtonOption } from "./reviewRatingOptions";
@@ -133,29 +132,6 @@ function ReviewLoadingPane(props: ReviewLoadingPaneProps): ReactElement {
 
   return (
     <>
-      <div className="review-pane-head">
-        <div className="review-pane-head-meta">
-          {loadingReviewCurrentCard !== null ? (
-            <ReviewCardTags tags={loadingReviewCurrentCard.tags} />
-          ) : (
-            <>
-              <span className="badge review-loading-badge">{t("reviewScreen.loading.queue")}</span>
-              <span className="badge review-loading-badge">{t("reviewScreen.loading.preparingCard")}</span>
-            </>
-          )}
-        </div>
-        <div className="review-pane-head-actions">
-          <button
-            type="button"
-            className="ghost-btn review-pane-edit-btn"
-            aria-label={t("reviewScreen.actions.edit")}
-            title={t("reviewScreen.actions.edit")}
-            disabled
-          >
-            <ReviewEditIcon />
-          </button>
-        </div>
-      </div>
       <div className="review-card-stack">
         {loadingReviewCurrentCard !== null ? (
           <ReviewCardSide
@@ -274,7 +250,6 @@ function ReviewRatingButtonColumn(props: ReviewRatingButtonColumnProps): ReactEl
           data-testid={`review-rate-${option.testId}`}
         >
           <span className="rating-btn-title">{option.title}</span>
-          <span className="rating-btn-subtitle">{option.intervalDescription}</span>
           <ReviewShortcutHint keyLabel={reviewRatingShortcutKeys[option.rating]} />
         </button>
       ))}
@@ -301,10 +276,9 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
     selectedFrontSpeakableText,
     workspaceId,
   } = props;
-  const { t, formatNumber } = useI18n();
+  const { t } = useI18n();
   const frontSideLabel = t("reviewScreen.sides.front");
   const backSideLabel = t("reviewScreen.sides.back");
-  const repetitionValue = selectedCard.reps === 0 ? t("reviewScreen.repetitionBadgeNew") : formatNumber(selectedCard.reps);
   const leftReviewButtonOptions = reviewButtonOptions.slice(0, REVIEW_BUTTONS_PER_COLUMN);
   const rightReviewButtonOptions = reviewButtonOptions.slice(REVIEW_BUTTONS_PER_COLUMN, REVIEW_BUTTONS_PER_COLUMN * 2);
   const cardTargetRef = useRef<HTMLDivElement>(null);
@@ -315,29 +289,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
 
   return (
     <>
-      <div className="review-pane-head">
-        <div className="review-pane-head-meta">
-          <ReviewCardTags tags={selectedCard.tags} />
-          <span className="badge review-metadata-chip">
-            <ReviewRepetitionBadgeIcon />
-            <span aria-hidden="true">{repetitionValue}</span>
-            <span className="review-metadata-chip-accessible-label">
-              {t("reviewScreen.repetitionBadgeAriaLabel", { value: repetitionValue })}
-            </span>
-          </span>
-        </div>
-        <div className="review-pane-head-actions">
-          <button
-            type="button"
-            className="ghost-btn review-pane-edit-btn"
-            aria-label={t("reviewScreen.actions.edit")}
-            title={t("reviewScreen.actions.edit")}
-            onClick={() => onEditCard(selectedCard)}
-          >
-            <ReviewEditIcon />
-          </button>
-        </div>
-      </div>
+      <ReviewCardMenu card={selectedCard} onEdit={onEditCard} />
       <div className="review-card-scroll-target review-card-flip-scene" ref={cardTargetRef}>
         {/* A new card mounts facing forward, without rotating the previous answer back. */}
         <div

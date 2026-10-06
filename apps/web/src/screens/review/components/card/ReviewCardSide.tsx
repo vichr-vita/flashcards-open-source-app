@@ -6,7 +6,7 @@ import {
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import { Pencil, Volume2 } from "lucide-react";
+import { Pencil, Sparkles, Volume2 } from "lucide-react";
 import {
   ManagedMediaReference,
   parseManagedMediaUrlReference,
@@ -435,7 +435,7 @@ export function ReviewCardSide(props: ReviewCardSideProps): ReactElement {
                 onClick={onOpenAi}
                 aria-label={aiButtonAriaLabel ?? label}
               >
-                AI
+                <Sparkles size={22} aria-hidden="true" />
               </button>
             ) : null}
           </div>

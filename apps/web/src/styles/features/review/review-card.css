@@ -349,28 +349,22 @@
 }
 
 .review-card-ai-btn {
-  min-width: 40px;
-  height: 32px;
-  min-height: 32px;
-  padding-inline: 11px;
-  border: 1px solid rgba(var(--neutral-rgb), 0.08);
-  border-radius: 999px;
-  background: var(--accent);
-  color: #fff6f3;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--accent-strong);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  white-space: nowrap;
-  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
 }
 
 .review-card-ai-btn:hover {
-  background: var(--accent-strong);
+  background: var(--surface-muted);
 }
 
 .review-card-ai-btn:focus-visible {

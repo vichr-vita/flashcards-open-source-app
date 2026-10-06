@@ -8,7 +8,6 @@ import {
 } from "../../appError/AppErrorContext";
 import { ALL_CARDS_REVIEW_FILTER, currentReviewCard } from "../../appData/domain";
 import { useI18n } from "../../i18n";
-import { normalizeCaughtError } from "../../observability/webObservability";
 import { useAiCardHandoff } from "../../chat/handoff/useAiCardHandoff";
 import { useTransientMessage } from "../../useTransientMessage";
 import type { Card } from "../../types";
@@ -85,7 +84,6 @@ export function useReviewScreenController(
   const [hardReminderLastShownAt, setHardReminderLastShownAt] = useState<number | null>(() => loadReviewHardReminderLastShownAt());
   const recentReviewRatingsRef = useRef<Array<ReviewRating>>([]);
   const revealedCardIdRef = useRef<string | null>(null);
-  const lastCapturedReviewButtonErrorKeyRef = useRef<string>("");
   const { message: reviewSpeechMessage, showMessage: showReviewSpeechMessage } = useTransientMessage(3000);
   const {
     dismissReactions: dismissReviewReactions,
@@ -222,10 +220,8 @@ export function useReviewScreenController(
   const visibleQueueCardsCount = isInitialReviewLoad && reviewLoadingSnapshot !== null
     ? reviewLoadingSnapshot.queuePreview.length
     : queueCards.length;
-  const reviewButtonsNow = new Date();
   let reviewButtonOptions: Array<ReviewButtonOption> = [];
   let reviewButtonErrorMessage: string = "";
-  let reviewButtonScheduleError: Error | null = null;
 
   function markIndexedDbOpenRecoveryFailure(error: unknown): boolean {
     return markIndexedDbOpenRecoveryFailureAndCheckActive(indexedDbOpenRecoveryState, error);
@@ -454,56 +450,10 @@ export function useReviewScreenController(
   });
 
   if (isAnswerVisible && selectedCard !== null && workspaceSettings !== null) {
-    try {
-      reviewButtonOptions = buildReviewButtonOptions(selectedCard, workspaceSettings, reviewButtonsNow, t, formatCount, messages.common.countLabels);
-    } catch (error) {
-      reviewButtonScheduleError = normalizeCaughtError(error);
-      reviewButtonErrorMessage = t("appError.technicalError.message");
-    }
+    reviewButtonOptions = buildReviewButtonOptions(t);
   } else if (isAnswerVisible && selectedCard !== null) {
     reviewButtonErrorMessage = t("reviewScreen.errors.schedulerUnavailable");
   }
-
-  const reviewButtonErrorCaptureKey = reviewButtonScheduleError === null || selectedCard === null || workspaceSettings === null
-    ? ""
-    : [
-      selectedCard.cardId,
-      selectedCard.updatedAt,
-      workspaceSettings.algorithm,
-      reviewButtonScheduleError.name,
-      reviewButtonScheduleError.message,
-    ].join(":");
-
-  useEffect(() => {
-    if (
-      reviewButtonScheduleError === null
-      || selectedCard === null
-      || reviewButtonErrorCaptureKey === ""
-      || lastCapturedReviewButtonErrorKeyRef.current === reviewButtonErrorCaptureKey
-      || indexedDbOpenRecoveryState.hasFailed()
-    ) {
-      return;
-    }
-
-    lastCapturedReviewButtonErrorKeyRef.current = reviewButtonErrorCaptureKey;
-    showTechnicalError(reviewButtonScheduleError, {
-      feature: "review",
-      operation: "review_schedule_preview",
-      userId: session?.userId ?? null,
-      workspaceId: activeWorkspace?.workspaceId ?? null,
-      installationId: cloudSettings?.installationId ?? null,
-      entityId: selectedCard.cardId,
-    });
-  }, [
-    activeWorkspace?.workspaceId,
-    cloudSettings?.installationId,
-    indexedDbOpenRecoveryState,
-    reviewButtonErrorCaptureKey,
-    reviewButtonScheduleError,
-    selectedCard,
-    showTechnicalError,
-    session?.userId,
-  ]);
 
   return {
     dismissReviewReactions,
