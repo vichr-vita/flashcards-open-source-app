@@ -1,0 +1,22 @@
+.fixture-mobile-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px;
+}
+
+.fixture-chat {
+  position: fixed;
+  z-index: 100;
+  top: 64px;
+  inset-inline-end: 12px;
+  width: min(320px, calc(100vw - 24px));
+  padding: 16px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--panel-border);
+}
+
+.fixture-chat button {
+  display: block;
+  margin-top: 12px;
+}

@@ -1,8 +1,18 @@
 import { act } from "react";
 import {
   clickElement,
+  clickElementAsync,
   dispatchKeydown,
 } from "../../testSupport/ReviewScreenTestSupport";
+
+export async function openReviewEditor(container: HTMLElement): Promise<void> {
+  const trigger = container.querySelector("[data-testid='review-card-menu-trigger']");
+  if (!(trigger instanceof HTMLButtonElement)) throw new Error("Review card menu trigger was not found");
+  await clickElementAsync(trigger);
+  const editButton = document.querySelector(".review-card-menu-edit");
+  if (!(editButton instanceof HTMLButtonElement)) throw new Error("Review edit button was not found");
+  await clickElementAsync(editButton);
+}
 
 export async function flushReviewScreenPromises(): Promise<void> {
   await act(async () => {
@@ -58,5 +68,4 @@ export function getActiveReviewFilterOption(activeOptionOwner: HTMLElement): HTM
 
   return activeOption;
 }
-
 

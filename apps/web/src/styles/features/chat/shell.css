@@ -216,27 +216,3 @@
   line-height: 1.7;
 }
 
-.chat-toggle-floating {
-  position: fixed;
-  /* Lifted clear of the consent strip while it is up. The strip is fixed to the same edge and
-     deliberately below this button's layer, and `#root`'s padding can only move in-flow content, so
-     this is the one bottom-anchored control that has to read the published height itself. The
-     fallback is 0px, which is every moment there is no strip. */
-  bottom: calc(var(--shell-frame-gap) + var(--analytics-consent-banner-height, 0px));
-  inset-inline-start: var(--shell-frame-gap);
-  z-index: var(--z-index-floating-control);
-  min-height: 52px;
-  padding: 0 22px;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text-secondary);
-  cursor: pointer;
-  box-shadow: none;
-}
-
-.chat-toggle-floating:hover {
-  color: var(--text);
-  border-color: transparent;
-  background: var(--surface-hover);
-}
