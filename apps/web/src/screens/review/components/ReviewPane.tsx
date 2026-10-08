@@ -1,4 +1,6 @@
 import { useLayoutEffect, useRef, type ReactElement } from "react";
+import { ReviewRatingReactionLayer } from "../reactions/ReviewRatingReactionLayer";
+import type { ReviewReactionEvent } from "../reactions/reviewReaction";
 import { Link } from "react-router";
 import type { ReviewRating } from "../../../../../backend/src/scheduling";
 import { track } from "../../../analytics";
@@ -21,7 +23,6 @@ import {
   type ReviewSubmitState,
 } from "./reviewScreenTypes";
 
-const REVIEW_BUTTONS_PER_COLUMN = 2;
 const REVIEW_SHORTCUT_HINT_KEY_TOKEN = "{{key}}";
 const REVIEW_REVEAL_SHORTCUT_ARIA_KEY = "Space";
 const REVIEW_SCROLL_INTO_VIEW_OPTIONS = {
@@ -32,6 +33,7 @@ const REVIEW_SCROLL_INTO_VIEW_OPTIONS = {
 } as const satisfies ScrollIntoViewOptions & { container: "nearest" };
 
 export type ReviewPaneProps = Readonly<{
+  reviewReactionEvents?: ReadonlyArray<ReviewReactionEvent>;
   activeSpeechSide: ReviewSpeechSide | null;
   hasCards: boolean;
   isAnswerVisible: boolean;
@@ -72,6 +74,7 @@ type ReviewEmptyPaneProps = Readonly<{
 }>;
 
 type ReviewActiveCardPaneProps = Readonly<{
+  reviewReactionEvents?: ReadonlyArray<ReviewReactionEvent>;
   activeSpeechSide: ReviewSpeechSide | null;
   isAnswerVisible: boolean;
   isSubmitting: boolean;
@@ -90,7 +93,7 @@ type ReviewActiveCardPaneProps = Readonly<{
   workspaceId: string | null;
 }>;
 
-type ReviewRatingButtonColumnProps = Readonly<{
+type ReviewRatingButtonsProps = Readonly<{
   isSubmitting: boolean;
   onReview: (rating: ReviewRating) => void;
   onShortcutButtonPointerEnter: ReviewShortcutPointerEnterHandler;
@@ -233,11 +236,11 @@ function ReviewEmptyPane(props: ReviewEmptyPaneProps): ReactElement {
   );
 }
 
-function ReviewRatingButtonColumn(props: ReviewRatingButtonColumnProps): ReactElement {
+function ReviewRatingButtons(props: ReviewRatingButtonsProps): ReactElement {
   const { isSubmitting, onReview, onShortcutButtonPointerEnter, options } = props;
 
   return (
-    <div className="rating-bar-column">
+    <div className="rating-bar">
       {options.map((option) => (
         <button
           key={option.rating}
@@ -259,6 +262,7 @@ function ReviewRatingButtonColumn(props: ReviewRatingButtonColumnProps): ReactEl
 
 function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   const {
+    reviewReactionEvents = [],
     activeSpeechSide,
     isAnswerVisible,
     isSubmitting,
@@ -279,8 +283,6 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   const { t } = useI18n();
   const frontSideLabel = t("reviewScreen.sides.front");
   const backSideLabel = t("reviewScreen.sides.back");
-  const leftReviewButtonOptions = reviewButtonOptions.slice(0, REVIEW_BUTTONS_PER_COLUMN);
-  const rightReviewButtonOptions = reviewButtonOptions.slice(REVIEW_BUTTONS_PER_COLUMN, REVIEW_BUTTONS_PER_COLUMN * 2);
   const cardTargetRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -290,7 +292,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   return (
     <>
       <ReviewCardMenu card={selectedCard} onEdit={onEditCard} />
-      <div className="review-card-scroll-target review-card-flip-scene" ref={cardTargetRef}>
+      <div className="review-card-scroll-target review-card-flip-scene review-card-reaction-frame" ref={cardTargetRef}>
         {/* A new card mounts facing forward, without rotating the previous answer back. */}
         <div
           key={selectedCard.cardId}
@@ -348,6 +350,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
             </div>
           ) : null}
         </div>
+        <ReviewRatingReactionLayer events={reviewReactionEvents} />
       </div>
 
       <div className="review-actions-dock">
@@ -355,24 +358,14 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
           reviewButtonErrorMessage !== "" ? (
             <p className="error-banner">{reviewButtonErrorMessage}</p>
           ) : (
-            <div className="rating-bar">
-              <ReviewRatingButtonColumn
-                isSubmitting={isSubmitting}
-                onReview={(rating) => {
-                  void onReview(selectedCard, rating);
-                }}
-                onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
-                options={leftReviewButtonOptions}
-              />
-              <ReviewRatingButtonColumn
-                isSubmitting={isSubmitting}
-                onReview={(rating) => {
-                  void onReview(selectedCard, rating);
-                }}
-                onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
-                options={rightReviewButtonOptions}
-              />
-            </div>
+            <ReviewRatingButtons
+              isSubmitting={isSubmitting}
+              onReview={(rating) => {
+                void onReview(selectedCard, rating);
+              }}
+              onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
+              options={reviewButtonOptions}
+            />
           )
         ) : (
           <button
@@ -394,6 +387,7 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
 
 export function ReviewPane(props: ReviewPaneProps): ReactElement {
   const {
+    reviewReactionEvents,
     activeSpeechSide,
     hasCards,
     isAnswerVisible,
@@ -450,6 +444,7 @@ export function ReviewPane(props: ReviewPaneProps): ReactElement {
       ) : null}
       {reviewPaneState === "card" && selectedCard !== null ? (
         <ReviewActiveCardPane
+          reviewReactionEvents={reviewReactionEvents}
           activeSpeechSide={activeSpeechSide}
           isAnswerVisible={isAnswerVisible}
           isSubmitting={isSubmitting}

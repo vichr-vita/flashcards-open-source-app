@@ -41,7 +41,6 @@ export type UseReviewScreenControllerResult = Readonly<{
   headerProps: ReviewScreenHeaderProps;
   paneProps: ReviewPaneProps;
   queuePanelProps: ReviewQueuePanelProps;
-  reviewReactionFallbackHandler: UseReviewRatingReactionsResult["handleReactionEventFallback"];
   reviewReactionEvents: UseReviewRatingReactionsResult["events"];
 }>;
 
@@ -89,7 +88,6 @@ export function useReviewScreenController(
     dismissReactions: dismissReviewReactions,
     emitReaction: emitReviewReaction,
     events: reviewReactionEvents,
-    handleReactionEventFallback: handleReviewReactionEventFallback,
   } = useReviewRatingReactions({
     reviewReactionAnimationsEnabled,
   });
@@ -271,6 +269,7 @@ export function useReviewScreenController(
         }
       }
     } finally {
+      if (reviewSubmissionOutcome !== "saved") dismissReviewReactions();
       if (reviewSubmissionOutcome !== "cancelled" && indexedDbOpenRecoveryState.hasFailed() === false) {
         setIsSubmitting(false);
         if (reviewSubmissionOutcome === "stale") {
@@ -554,7 +553,6 @@ export function useReviewScreenController(
       selectedCardId: selectedCard?.cardId ?? null,
       visibleQueueCardsCount,
     },
-    reviewReactionFallbackHandler: handleReviewReactionEventFallback,
     reviewReactionEvents,
   };
 }

@@ -17,6 +17,8 @@
   background: transparent;
   backdrop-filter: none;
   box-shadow: none;
+  container-type: inline-size;
+  container-name: review-actions;
 }
 
 .review-reveal-btn {
@@ -41,13 +43,9 @@
   background: var(--bg);
 }
 
-.rating-bar-column {
-  display: grid;
-  gap: 6px;
-}
-
 .rating-btn {
   width: 100%;
+  min-width: 0;
   min-height: 48px;
   border: none;
   border-radius: var(--radius-md);
@@ -72,6 +70,7 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
 }
 
 .rating-btn:disabled {
@@ -85,27 +84,28 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  @container review-actions (min-width: 640px) {
+    .rating-bar {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .rating-btn {
+    min-height: 56px;
+    padding-inline: 40px;
+  }
+
   .rating-btn,
   .review-reveal-btn {
     position: relative;
   }
 
   .review-shortcut-hint {
+    display: block;
     position: absolute;
-    bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    padding: 4px 8px;
-    border: 1px solid var(--panel-border);
-    border-radius: var(--radius-xs);
-    background: var(--surface-elevated);
-    box-shadow: var(--shadow-soft);
-    color: var(--text-secondary);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    white-space: nowrap;
+    inset: auto 14px auto auto;
+    color: inherit;
+    font-size: 0;
     pointer-events: none;
   }
 
@@ -113,53 +113,24 @@
     display: inline-block;
     min-width: 18px;
     padding: 0 5px;
-    border: 1px solid var(--panel-border-strong);
+    border: 1px solid currentColor;
     border-radius: calc(var(--radius-xs) / 2);
-    background: var(--surface-hover);
-    box-shadow: 0 1px 0 var(--panel-border-strong);
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 16px;
-    text-align: center;
-  }
-
-  .rating-btn:not(:disabled):hover,
-  .rating-btn:not(:disabled):focus-visible,
-  .review-reveal-btn:not(:disabled):hover,
-  .review-reveal-btn:not(:disabled):focus-visible {
-    z-index: 2;
-  }
-
-  .rating-btn:not(:disabled):hover > .review-shortcut-hint,
-  .rating-btn:not(:disabled):focus-visible > .review-shortcut-hint,
-  .review-reveal-btn:not(:disabled):hover > .review-shortcut-hint,
-  .review-reveal-btn:not(:disabled):focus-visible > .review-shortcut-hint {
-    display: block;
-  }
-
-  .review-reveal-btn > .review-shortcut-hint,
-  .review-reveal-btn:not(:disabled):hover > .review-shortcut-hint,
-  .review-reveal-btn:not(:disabled):focus-visible > .review-shortcut-hint {
-    display: block;
-    inset: auto 18px auto auto;
-    transform: none;
-    padding: 0;
-    border: 0;
     background: transparent;
-    box-shadow: none;
     color: inherit;
-    font-size: 0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .review-reveal-btn > .review-shortcut-hint {
+    inset: auto 18px auto auto;
   }
 
   .review-reveal-btn .review-shortcut-hint-key {
     padding: 4px 8px;
-    border-color: currentColor;
-    background: transparent;
-    box-shadow: none;
-    color: inherit;
-    font-size: 12px;
-    opacity: 0.8;
+    line-height: 16px;
   }
 }

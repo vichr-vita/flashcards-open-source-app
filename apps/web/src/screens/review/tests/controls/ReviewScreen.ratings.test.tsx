@@ -1,18 +1,13 @@
 // @vitest-environment jsdom
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import type { Card } from "../../../../types";
 import {
   clickElementAsync,
   createCard,
   loadReviewQueueSnapshotMock,
-  reviewReactionLottieLoadAnimationMock,
   reviewStylesContain,
   setupReviewScreenTest,
 } from "../../testSupport/ReviewScreenTestSupport";
-import {
-  isReviewReactionLottieAssetReady,
-  reviewReactionLottieVariants,
-} from "../../reactions/lottie/reviewReactionLottie";
 import {
   openReviewEditor,
   flushReviewScreenPromises,
@@ -28,13 +23,6 @@ const {
   renderReviewScreen,
   revealAnswer,
 } = setupReviewScreenTest();
-
-async function waitForReviewReactionLottieTestPrewarm(): Promise<void> {
-  await vi.waitFor(() => {
-    expect(reviewReactionLottieVariants.every((variant) => isReviewReactionLottieAssetReady(variant))).toBe(true);
-  });
-  expect(reviewReactionLottieLoadAnimationMock).toHaveBeenCalled();
-}
 
 async function createStaleReviewReactionOnSecondCard(cards: ReadonlyArray<Card>): Promise<Card> {
   if (cards.length < 2) {
@@ -55,7 +43,6 @@ async function createStaleReviewReactionOnSecondCard(cards: ReadonlyArray<Card>)
   });
 
   await renderReviewScreen();
-  await waitForReviewReactionLottieTestPrewarm();
   await revealAnswer();
 
   const goodButton = getContainer().querySelector("[data-testid='review-rate-good']");
@@ -77,10 +64,10 @@ type ReviewRatingShortcutDismissCase = Readonly<{
 }>;
 
 const reviewRatingShortcutDismissCases: ReadonlyArray<ReviewRatingShortcutDismissCase> = [
-  { expectedReactionRating: "again", expectedSubmitRating: 0, key: "1" },
-  { expectedReactionRating: "hard", expectedSubmitRating: 1, key: "2" },
-  { expectedReactionRating: "good", expectedSubmitRating: 2, key: "3" },
-  { expectedReactionRating: "easy", expectedSubmitRating: 3, key: "4" },
+  { expectedReactionRating: "again", expectedSubmitRating: 0, key: "4" },
+  { expectedReactionRating: "hard", expectedSubmitRating: 1, key: "3" },
+  { expectedReactionRating: "good", expectedSubmitRating: 2, key: "2" },
+  { expectedReactionRating: "easy", expectedSubmitRating: 3, key: "1" },
 ];
 
 describe("ReviewScreen rating controls", () => {
@@ -101,7 +88,7 @@ describe("ReviewScreen rating controls", () => {
 
     expect(getContainer().textContent).toContain("Answer");
 
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-review", 2);
   });
@@ -131,8 +118,7 @@ describe("ReviewScreen rating controls", () => {
     });
 
     await renderReviewScreen();
-    await waitForReviewReactionLottieTestPrewarm();
-    await revealAnswer();
+      await revealAnswer();
 
     const goodButton = getContainer().querySelector("[data-testid='review-rate-good']");
     if (!(goodButton instanceof HTMLButtonElement)) {
@@ -153,7 +139,6 @@ describe("ReviewScreen rating controls", () => {
 
     expect(reactionLayer.getAttribute("aria-hidden")).toBe("true");
     expect(getContainer().querySelectorAll("[data-testid='review-rating-reaction-event']")).toHaveLength(1);
-    expect(getContainer().querySelector(".review-rating-reaction-crown-fallback-art")).toBeNull();
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-reaction-first", 2);
     expect(reviewPane.getAttribute("data-review-current-card-id")).toBe("card-reaction-second");
     expect(getContainer().textContent).toContain("Second reaction question");
@@ -264,7 +249,7 @@ describe("ReviewScreen rating controls", () => {
 
       const reactionEvents = getContainer().querySelectorAll("[data-testid='review-rating-reaction-event']");
       const [reactionEvent] = reactionEvents;
-      if (!(reactionEvent instanceof HTMLElement)) {
+      if (shortcutCase.expectedSubmitRating !== 0 && !(reactionEvent instanceof HTMLElement)) {
         throw new Error(`Review reaction event for shortcut ${shortcutCase.key} was not found`);
       }
       const reviewPane = getContainer().querySelector("[data-testid='review-pane']");
@@ -272,8 +257,10 @@ describe("ReviewScreen rating controls", () => {
         throw new Error("Review pane was not found");
       }
 
-      expect(reactionEvents).toHaveLength(1);
-      expect(reactionEvent.getAttribute("data-review-reaction-rating")).toBe(shortcutCase.expectedReactionRating);
+      expect(reactionEvents).toHaveLength(shortcutCase.expectedSubmitRating === 0 ? 0 : 1);
+      if (reactionEvent instanceof HTMLElement) {
+        expect(reactionEvent.getAttribute("data-review-reaction-rating")).toBe(shortcutCase.expectedReactionRating);
+      }
       expect(getState().appData.submitReviewItem).toHaveBeenLastCalledWith(
         secondCard.cardId,
         shortcutCase.expectedSubmitRating,
@@ -282,7 +269,7 @@ describe("ReviewScreen rating controls", () => {
     });
   }
 
-  it("keeps only the newest three decorative reactions active", async () => {
+  it("keeps only the newest decorative reaction active", async () => {
     const state = getState();
     const cards = Array.from({ length: 5 }, (_, index) => createCard({
       cardId: `card-rapid-reaction-${index + 1}`,
@@ -302,7 +289,6 @@ describe("ReviewScreen rating controls", () => {
     });
 
     await renderReviewScreen();
-    await waitForReviewReactionLottieTestPrewarm();
 
     for (let index = 0; index < 4; index += 1) {
       await revealAnswer();
@@ -315,7 +301,7 @@ describe("ReviewScreen rating controls", () => {
       await flushReviewScreenPromises();
     }
 
-    expect(getContainer().querySelectorAll("[data-testid='review-rating-reaction-event']")).toHaveLength(3);
+    expect(getContainer().querySelectorAll("[data-testid='review-rating-reaction-event']")).toHaveLength(1);
     expect(state.appData.submitReviewItem).toHaveBeenCalledTimes(4);
   });
 
@@ -324,7 +310,7 @@ describe("ReviewScreen rating controls", () => {
       ".review-rating-reaction-layer",
       "pointer-events: none",
       "@media (prefers-reduced-motion: reduce)",
-      "review-reaction-reduced-pop",
+      "review-reaction-reduced-fade",
     )).toBe(true);
   });
 
@@ -355,7 +341,7 @@ describe("ReviewScreen rating controls", () => {
 
     await openReviewEditor(getContainer());
     await dispatchDocumentKeydown(" ");
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(getContainer().querySelector(".review-pane .review-card-answer")).toBeNull();
     expect(state.appData.submitReviewItem).not.toHaveBeenCalled();
@@ -405,12 +391,12 @@ describe("ReviewScreen rating controls", () => {
     loadReviewQueueSnapshotMock.mockClear();
 
     await renderReviewScreen();
-    await dispatchDocumentKeydown("1");
+    await dispatchDocumentKeydown("4");
 
     expect(state.appData.submitReviewItem).not.toHaveBeenCalled();
 
     await revealAnswer();
-    await dispatchDocumentKeydown("1");
+    await dispatchDocumentKeydown("4");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-hidden-answer", 0);
   });

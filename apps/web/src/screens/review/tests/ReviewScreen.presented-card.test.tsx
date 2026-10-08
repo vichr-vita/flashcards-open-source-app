@@ -75,7 +75,7 @@ describe("ReviewScreen presented card preservation", () => {
     ]);
 
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-current", 2);
     expect(getContainer().textContent).toContain("Recent due 1 front");

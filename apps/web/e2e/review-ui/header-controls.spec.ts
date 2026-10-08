@@ -48,7 +48,7 @@ for (const width of [320, 390]) {
       await page.screenshot({ path: testInfo.outputPath("card-menu.png") });
 
       // Card actions must not consume the review keyboard shortcuts.
-      await page.keyboard.press("1");
+      await page.keyboard.press("4");
       await expect(page.getByTestId("review-card-flipper")).toHaveAttribute("data-side", "front");
       await page.keyboard.press("Escape");
       await expect(menu).toHaveCount(0);
@@ -63,7 +63,7 @@ for (const width of [320, 390]) {
       }
 
       await trigger.click();
-      await page.keyboard.press("3");
+      await page.keyboard.press("2");
       await expect(page.getByTestId("review-pane")).toHaveAttribute("data-review-current-card-id", "latin-agreement");
       await edit.click();
       const editor = page.getByRole("dialog");

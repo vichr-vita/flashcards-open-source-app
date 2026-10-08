@@ -59,7 +59,7 @@ for (const theme of ["dark", "light"] as const) {
           await expect.poll(() => flipper.evaluate((element) => new DOMMatrixReadOnly(getComputedStyle(element).transform).m11)).toBe(-1);
           await expect(page.getByTestId("review-rate-good")).toBeInViewport({ ratio: 1 });
           await page.screenshot({ path: testInfo.outputPath("back.png") });
-          await page.keyboard.press("3");
+          await page.keyboard.press("2");
           await expect(page.getByTestId("review-pane")).toHaveAttribute("data-review-last-submitted-card-id", "latin-agreement");
           await expect(page.getByTestId("review-pane")).toHaveAttribute("data-review-last-submitted-rating", "2");
           await expect(front).toContainText("What does the ablative case express?");

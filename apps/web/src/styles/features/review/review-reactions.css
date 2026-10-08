@@ -1,435 +1,82 @@
+.review-card-reaction-frame { position: relative; }
+
 .review-rating-reaction-layer {
-  --review-reaction-center-x: 50%;
-  /* Mobile clients use 75%, but web pane proportions read better at 65%. */
-  --review-reaction-center-y: 65%;
-  /* Full-canvas SVG fallback starts at 50%, so this is its standalone shift to the same visual center. */
-  --review-reaction-svg-fallback-shift-y: 15%;
   position: absolute;
-  inset: 0;
+  inset: 18px 8px 54px;
   z-index: 20;
-  overflow: hidden;
-  border-radius: inherit;
   pointer-events: none;
 }
 
 .review-rating-reaction-event {
   position: absolute;
   inset: 0;
-  opacity: 0;
   pointer-events: none;
-  animation: review-reaction-event-fade var(--review-reaction-duration) linear both;
 }
 
-.review-rating-reaction-art {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  transform-origin: 50% 50%;
-}
-
-.review-rating-reaction-art:not(.review-rating-reaction-lottie-art) {
-  transform: translateY(var(--review-reaction-svg-fallback-shift-y));
-}
-
-.review-rating-reaction-art * {
-  vector-effect: non-scaling-stroke;
-}
-
-.review-rating-reaction-lottie-art {
-  position: relative;
-}
-
-.review-rating-reaction-lottie-art * {
-  vector-effect: none;
-}
-
-.review-reaction-red-stroke,
-.review-reaction-orange-stroke,
-.review-reaction-yellow-stroke,
-.review-reaction-green-stroke,
-.review-reaction-blue-stroke,
-.review-reaction-purple-stroke,
-.review-reaction-pink-stroke,
-.review-reaction-white-stroke,
-.review-reaction-dark-stroke,
-.review-reaction-red-shadow-stroke,
-.review-reaction-yellow-shadow-stroke {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.review-reaction-red-stroke {
-  stroke: #f5222d;
-}
-
-.review-reaction-orange-stroke {
-  stroke: #ff7a1a;
-}
-
-.review-reaction-yellow-stroke {
-  stroke: #ffd324;
-}
-
-.review-reaction-green-stroke {
-  stroke: #22c55e;
-}
-
-.review-reaction-blue-stroke {
-  stroke: #38a3ff;
-}
-
-.review-reaction-purple-stroke {
-  stroke: #a855f7;
-}
-
-.review-reaction-pink-stroke {
-  stroke: #ff5db1;
-}
-
-.review-reaction-white-stroke {
-  stroke: rgba(255, 255, 255, 0.96);
-}
-
-.review-reaction-dark-stroke {
-  stroke: rgba(17, 19, 24, 0.72);
-}
-
-.review-reaction-red-shadow-stroke {
-  stroke: rgba(245, 34, 45, 0.28);
-}
-
-.review-reaction-yellow-shadow-stroke {
-  stroke: rgba(255, 211, 36, 0.30);
-}
-
-.review-reaction-red-fill {
-  fill: #f5222d;
-}
-
-.review-reaction-orange-fill {
-  fill: #ff7a1a;
-}
-
-.review-reaction-yellow-fill {
-  fill: #ffd324;
-}
-
-.review-reaction-green-fill {
-  fill: #22c55e;
-}
-
-.review-reaction-blue-fill {
-  fill: #38a3ff;
-}
-
-.review-reaction-purple-fill {
-  fill: #a855f7;
-}
-
-.review-reaction-pink-fill {
-  fill: #ff5db1;
-}
-
-.review-reaction-white-fill {
-  fill: rgba(255, 255, 255, 0.96);
-}
-
-.review-reaction-dark-fill {
-  fill: rgba(17, 19, 24, 0.74);
-}
-
-.review-reaction-sparkle-fill {
-  fill: #fff06a;
-}
-
-.review-rating-reaction-crown-fallback-art,
-.review-rating-reaction-fallbackCrownBounce .review-rating-reaction-art {
-  animation: review-reaction-crown-art var(--review-reaction-duration) cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.review-rating-reaction-lottie-art {
-  animation: none;
-}
-
-.review-rating-reaction-lottie-art > div {
+/* Each wrapper has the card field's height, so travel scales with the card. */
+.review-reaction-particle {
   position: absolute;
-  top: var(--review-reaction-center-y);
-  left: var(--review-reaction-center-x);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
+  top: 0;
+  bottom: 0;
+  left: var(--particle-x);
+  width: 10px;
+  opacity: 0;
+  animation: review-reaction-rise var(--review-reaction-duration) cubic-bezier(0.16, 0.6, 0.3, 1) both;
+  animation-delay: var(--particle-delay);
 }
 
-.review-reaction-rain-cloud-lottie-mark {
-  width: min(62%, 270px);
+.review-reaction-particle-mark {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 3px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--particle-color);
+  animation: review-reaction-turn var(--review-reaction-duration) ease-out both;
 }
 
-.review-reaction-worm-lottie-mark {
-  width: min(58%, 250px);
+.review-reaction-particle-sparkle .review-reaction-particle-mark {
+  width: 10px;
+  height: 10px;
+  background: none;
 }
 
-.review-reaction-tornado-lottie-mark {
-  width: min(58%, 255px);
-}
-
-.review-reaction-wind-face-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-snowflake-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-snail-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-turtle-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-wilted-flower-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-spider-lottie-mark {
-  width: min(54%, 235px);
-}
-
-.review-reaction-rat-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-tiger-lottie-mark,
-.review-reaction-t-rex-lottie-mark {
-  width: min(62%, 270px);
-}
-
-.review-reaction-shark-lottie-mark {
-  width: min(62%, 270px);
-}
-
-.review-reaction-snake-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-scorpion-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-rooster-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-otter-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-owl-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-rabbit-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-seal-lottie-mark,
-.review-reaction-service-dog-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-poodle-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-chimpanzee-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-whale-lottie-mark {
-  width: min(58%, 255px);
-}
-
-.review-reaction-peacock-lottie-mark {
-  width: min(58%, 255px);
-}
-
-.review-reaction-pig-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-ox-lottie-mark {
-  width: min(58%, 255px);
-}
-
-.review-reaction-paw-prints-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-racehorse-lottie-mark {
-  width: min(62%, 270px);
-}
-
-.review-reaction-volcano-lottie-mark {
-  width: min(64%, 280px);
-}
-
-.review-reaction-sunrise-lottie-mark {
-  width: min(64%, 280px);
-}
-
-.review-reaction-sunrise-over-mountains-lottie-mark {
-  width: min(64%, 280px);
-}
-
-.review-reaction-rose-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-peace-lottie-mark {
-  width: min(56%, 245px);
-}
-
-.review-reaction-plant-lottie-mark {
-  width: min(58%, 250px);
-}
-
-.review-reaction-rainbow-lottie-mark {
-  width: min(64%, 280px);
-}
-
-.review-reaction-phoenix-lottie-mark {
-  width: min(64%, 280px);
-}
-
-.review-reaction-unicorn-lottie-mark {
-  width: min(52%, 230px);
-}
-
-.review-rating-reaction-lottie-art > div > div,
-.review-rating-reaction-lottie-art > div > svg {
+.review-reaction-particle-mark svg {
   display: block;
   width: 100%;
   height: 100%;
+  fill: var(--particle-color);
 }
 
-.review-reaction-sparkle-fill {
-  transform-box: fill-box;
-  transform-origin: center;
+@keyframes review-reaction-rise {
+  0% { opacity: 0; transform: translate(0, 0); }
+  12% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--particle-dx), var(--particle-rise)); }
 }
 
-.review-reaction-sparkle-fill {
-  animation: review-reaction-sparkle-twinkle var(--review-reaction-duration) ease-in-out both;
-}
-
-@keyframes review-reaction-event-fade {
-  0% {
-    opacity: 0;
-  }
-
-  8%,
-  82% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes review-reaction-crown-art {
-  0% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(0.58) rotate(-14deg);
-  }
-
-  44% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(1.17) rotate(4deg);
-  }
-
-  62% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(1.02) rotate(-2deg);
-  }
-
-  82% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(1) rotate(1deg);
-  }
-
-  100% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(0.88) rotate(0deg);
-  }
-}
-
-@keyframes review-reaction-sparkle-twinkle {
-  0% {
-    transform: scale(0.55) rotate(-20deg);
-  }
-
-  50% {
-    transform: scale(1.16) rotate(18deg);
-  }
-
-  100% {
-    transform: scale(0.78) rotate(40deg);
-  }
-}
-
-@keyframes review-reaction-reduced-fade {
-  0% {
-    opacity: 0;
-  }
-
-  22%,
-  78% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes review-reaction-reduced-pop {
-  0% {
-    transform: scale(0.94);
-  }
-
-  50% {
-    transform: scale(1.01);
-  }
-
-  100% {
-    transform: scale(0.98);
-  }
-}
-
-@keyframes review-reaction-reduced-shifted-pop {
-  0% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(0.94);
-  }
-
-  50% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(1.01);
-  }
-
-  100% {
-    transform: translateY(var(--review-reaction-svg-fallback-shift-y)) scale(0.98);
-  }
+@keyframes review-reaction-turn {
+  from { transform: scale(0.65) rotate(0); }
+  to { transform: scale(1) rotate(var(--particle-turn)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .review-rating-reaction-event {
-    animation-duration: 340ms !important;
-    animation-name: review-reaction-reduced-fade !important;
+  .review-reaction-particle {
+    animation: review-reaction-reduced-fade 250ms ease-out both;
+    transform: translate(var(--particle-dx), var(--particle-rise));
   }
 
-  .review-rating-reaction-event .review-rating-reaction-art,
-  .review-rating-reaction-event .review-reaction-sparkle-fill {
-    animation-duration: 340ms !important;
-    animation-name: review-reaction-reduced-pop !important;
+  .review-reaction-particle:not(.review-reaction-particle-sparkle),
+  .review-reaction-particle:nth-child(n + 11) {
+    display: none;
   }
 
-  .review-rating-reaction-event .review-rating-reaction-art:not(.review-rating-reaction-lottie-art) {
-    animation-name: review-reaction-reduced-shifted-pop !important;
-  }
+  .review-reaction-particle-mark { animation: none; }
+}
+
+@keyframes review-reaction-reduced-fade {
+  0% { opacity: 0; }
+  20%, 60% { opacity: 1; }
+  100% { opacity: 0; }
 }

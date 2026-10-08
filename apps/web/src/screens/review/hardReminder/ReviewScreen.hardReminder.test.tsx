@@ -34,14 +34,14 @@ describe("ReviewScreen hard reminder", () => {
 
     await renderReviewScreen();
 
-    for (const key of ["2", "2", "2", "2", "2", "3", "3"]) {
+    for (const key of ["3", "3", "3", "3", "3", "2", "2"]) {
       await revealAnswer();
       await dispatchDocumentKeydown(key);
       expect(getContainer().querySelector('[role="dialog"]')).toBeNull();
     }
 
     await revealAnswer();
-    await dispatchDocumentKeydown("2");
+    await dispatchDocumentKeydown("3");
 
     const reminderDialog = getContainer().querySelector('[role="dialog"]');
     expect(reminderDialog).not.toBeNull();
@@ -96,14 +96,14 @@ describe("ReviewScreen hard reminder", () => {
 
     await renderReviewScreen();
 
-    for (const key of ["2", "2", "2", "2", "3", "3", "3"]) {
+    for (const key of ["3", "3", "3", "3", "2", "2", "2"]) {
       await revealAnswer();
       await dispatchDocumentKeydown(key);
       expect(getContainer().querySelector('[role="dialog"]')).toBeNull();
     }
 
     await revealAnswer();
-    await dispatchDocumentKeydown("2");
+    await dispatchDocumentKeydown("3");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledTimes(8);
 

@@ -3,10 +3,10 @@ import type { ReviewRating } from "../../../../../backend/src/scheduling";
 export const reviewRevealShortcutKey = " ";
 
 export const reviewRatingShortcutKeys: Readonly<Record<ReviewRating, string>> = {
-  0: "1",
-  1: "2",
-  2: "3",
-  3: "4",
+  0: "4",
+  1: "3",
+  2: "2",
+  3: "1",
 };
 
 export const reviewShortcutRatingsByKey: Readonly<Record<string, ReviewRating>> = {

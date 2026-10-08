@@ -10,7 +10,7 @@ export default defineConfig({
   outputDir: "test-results/review-ui",
   projects: [
     { name: "chromium", use: { browserName: "chromium" } },
-    { name: "webkit-mobile", testMatch: ["review-overflow.spec.ts", "header-controls.spec.ts"], use: { browserName: "webkit", isMobile: true, hasTouch: true } },
+    { name: "webkit-mobile", testMatch: ["review-overflow.spec.ts", "header-controls.spec.ts", "review-particles.spec.ts", "review-shortcuts.spec.ts"], use: { browserName: "webkit", isMobile: true, hasTouch: true } },
   ],
   use: {
     baseURL: "http://127.0.0.1:4318",
