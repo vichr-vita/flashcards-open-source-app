@@ -83,7 +83,7 @@ describe("useReviewScreenData submit", () => {
 
     await renderReviewScreen();
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-pending-submit", 2);
     expect(getContainer().textContent).toContain("Pending next front");
@@ -213,7 +213,7 @@ describe("useReviewScreenData submit", () => {
 
     await renderReviewScreen();
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     await act(async () => {
       submitReviewPromise.reject(new Error(`Card not found: ${submittedCard.cardId}`));
@@ -819,7 +819,7 @@ describe("useReviewScreenData submit", () => {
 
     await renderReviewScreen();
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-filter-mismatch-submit", 2);
     expect(getContainer().textContent).toContain("Filter mismatch next front");
@@ -879,7 +879,7 @@ describe("useReviewScreenData submit", () => {
 
     await rerenderReviewScreen();
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-race-current", 2);
     expect(getContainer().textContent).toContain("Race next front");

@@ -35,16 +35,16 @@ for (const reducedMotion of ["no-preference", "reduce"] as const) {
       await page.getByTestId("review-reveal-answer").click();
       await expect(event).toHaveCount(0);
       await expect(page.getByTestId("review-current-back-card")).toBeVisible();
-      await page.keyboard.press("1");
+      await page.keyboard.press("4");
       await expect(event).toHaveCount(0);
     }
     await page.keyboard.press("Space");
-    await page.keyboard.press("3");
+    await page.keyboard.press("2");
     await expect(event).toHaveAttribute("data-review-reaction-rating", "good");
     await page.clock.runFor(1200);
     await expect(event).toHaveCount(0);
     await page.keyboard.press("Space");
-    await page.keyboard.press("2");
+    await page.keyboard.press("3");
     await expect(event).toHaveCount(1);
     await page.keyboard.press("Space");
     await expect(event).toHaveCount(0);

@@ -23,7 +23,6 @@ import {
   type ReviewSubmitState,
 } from "./reviewScreenTypes";
 
-const REVIEW_BUTTONS_PER_COLUMN = 2;
 const REVIEW_SHORTCUT_HINT_KEY_TOKEN = "{{key}}";
 const REVIEW_REVEAL_SHORTCUT_ARIA_KEY = "Space";
 const REVIEW_SCROLL_INTO_VIEW_OPTIONS = {
@@ -94,7 +93,7 @@ type ReviewActiveCardPaneProps = Readonly<{
   workspaceId: string | null;
 }>;
 
-type ReviewRatingButtonColumnProps = Readonly<{
+type ReviewRatingButtonsProps = Readonly<{
   isSubmitting: boolean;
   onReview: (rating: ReviewRating) => void;
   onShortcutButtonPointerEnter: ReviewShortcutPointerEnterHandler;
@@ -237,11 +236,11 @@ function ReviewEmptyPane(props: ReviewEmptyPaneProps): ReactElement {
   );
 }
 
-function ReviewRatingButtonColumn(props: ReviewRatingButtonColumnProps): ReactElement {
+function ReviewRatingButtons(props: ReviewRatingButtonsProps): ReactElement {
   const { isSubmitting, onReview, onShortcutButtonPointerEnter, options } = props;
 
   return (
-    <div className="rating-bar-column">
+    <div className="rating-bar">
       {options.map((option) => (
         <button
           key={option.rating}
@@ -284,8 +283,6 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
   const { t } = useI18n();
   const frontSideLabel = t("reviewScreen.sides.front");
   const backSideLabel = t("reviewScreen.sides.back");
-  const leftReviewButtonOptions = reviewButtonOptions.slice(0, REVIEW_BUTTONS_PER_COLUMN);
-  const rightReviewButtonOptions = reviewButtonOptions.slice(REVIEW_BUTTONS_PER_COLUMN, REVIEW_BUTTONS_PER_COLUMN * 2);
   const cardTargetRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -361,24 +358,14 @@ function ReviewActiveCardPane(props: ReviewActiveCardPaneProps): ReactElement {
           reviewButtonErrorMessage !== "" ? (
             <p className="error-banner">{reviewButtonErrorMessage}</p>
           ) : (
-            <div className="rating-bar">
-              <ReviewRatingButtonColumn
-                isSubmitting={isSubmitting}
-                onReview={(rating) => {
-                  void onReview(selectedCard, rating);
-                }}
-                onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
-                options={leftReviewButtonOptions}
-              />
-              <ReviewRatingButtonColumn
-                isSubmitting={isSubmitting}
-                onReview={(rating) => {
-                  void onReview(selectedCard, rating);
-                }}
-                onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
-                options={rightReviewButtonOptions}
-              />
-            </div>
+            <ReviewRatingButtons
+              isSubmitting={isSubmitting}
+              onReview={(rating) => {
+                void onReview(selectedCard, rating);
+              }}
+              onShortcutButtonPointerEnter={onShortcutButtonPointerEnter}
+              options={reviewButtonOptions}
+            />
           )
         ) : (
           <button

@@ -64,10 +64,10 @@ type ReviewRatingShortcutDismissCase = Readonly<{
 }>;
 
 const reviewRatingShortcutDismissCases: ReadonlyArray<ReviewRatingShortcutDismissCase> = [
-  { expectedReactionRating: "again", expectedSubmitRating: 0, key: "1" },
-  { expectedReactionRating: "hard", expectedSubmitRating: 1, key: "2" },
-  { expectedReactionRating: "good", expectedSubmitRating: 2, key: "3" },
-  { expectedReactionRating: "easy", expectedSubmitRating: 3, key: "4" },
+  { expectedReactionRating: "again", expectedSubmitRating: 0, key: "4" },
+  { expectedReactionRating: "hard", expectedSubmitRating: 1, key: "3" },
+  { expectedReactionRating: "good", expectedSubmitRating: 2, key: "2" },
+  { expectedReactionRating: "easy", expectedSubmitRating: 3, key: "1" },
 ];
 
 describe("ReviewScreen rating controls", () => {
@@ -88,7 +88,7 @@ describe("ReviewScreen rating controls", () => {
 
     expect(getContainer().textContent).toContain("Answer");
 
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-review", 2);
   });
@@ -341,7 +341,7 @@ describe("ReviewScreen rating controls", () => {
 
     await openReviewEditor(getContainer());
     await dispatchDocumentKeydown(" ");
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
 
     expect(getContainer().querySelector(".review-pane .review-card-answer")).toBeNull();
     expect(state.appData.submitReviewItem).not.toHaveBeenCalled();
@@ -391,12 +391,12 @@ describe("ReviewScreen rating controls", () => {
     loadReviewQueueSnapshotMock.mockClear();
 
     await renderReviewScreen();
-    await dispatchDocumentKeydown("1");
+    await dispatchDocumentKeydown("4");
 
     expect(state.appData.submitReviewItem).not.toHaveBeenCalled();
 
     await revealAnswer();
-    await dispatchDocumentKeydown("1");
+    await dispatchDocumentKeydown("4");
 
     expect(state.appData.submitReviewItem).toHaveBeenCalledWith("card-hidden-answer", 0);
   });

@@ -10,12 +10,12 @@ export type ReviewButtonOption = Readonly<{
   title: string;
 }>;
 
-// Columns place Again/Hard on the first row and Good/Easy on the second.
+// Display ratings in increasing difficulty, matching keyboard shortcuts 1 through 4.
 export function buildReviewButtonOptions(t: Translate): Array<ReviewButtonOption> {
   return [
-    { rating: 0, testId: "again", title: t("reviewScreen.ratings.again") },
+    { rating: 3, testId: "easy", title: t("reviewScreen.ratings.easy") },
     { rating: 2, testId: "good", title: t("reviewScreen.ratings.good") },
     { rating: 1, testId: "hard", title: t("reviewScreen.ratings.hard") },
-    { rating: 3, testId: "easy", title: t("reviewScreen.ratings.easy") },
+    { rating: 0, testId: "again", title: t("reviewScreen.ratings.again") },
   ];
 }

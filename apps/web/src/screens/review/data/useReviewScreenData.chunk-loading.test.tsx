@@ -90,7 +90,7 @@ describe("useReviewScreenData chunk loading", () => {
 
     await renderReviewScreen();
     await revealAnswer();
-    await dispatchDocumentKeydown("3");
+    await dispatchDocumentKeydown("2");
     await act(async () => {
       await Promise.resolve();
       await Promise.resolve();
